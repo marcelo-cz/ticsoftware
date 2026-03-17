@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gateway TAS - TIC Software</title>
+    <meta name="description" content="Gateway TAS - TIC Application Server providing HTTP web server capability and access to Pathway servers and legacy applications.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background-image: url('./images/Products/Gateway/Gateway_TAS.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 0.5rem 0 0.5rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .product-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            margin-right: 1rem;
+            transition: all 0.3s;
+        }
+
+        .product-link:hover {
+            background-color: var(--light-blue);
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 1.5rem 0;
+        }
+
+        .contact-title {
+            text-align: left;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .contact-section {
+            padding: 0;
+            text-align: left;
+            margin-top: 0;
+            max-width: 400px;
+        }
+
+        .contact-section p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--dark-text);
+            text-align: left;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .contact-section a:hover {
+            background-color: var(--light-blue);
+        }
+
+        .tas-overview-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .tas-overview-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .tas-overview-box {
+            border: 2px solid var(--border-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            background-color: var(--light-gray);
+        }
+
+        .tas-overview-box h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .tas-overview-box p {
+            margin-bottom: 0;
+        }
+
+        .sticky-datasheet-btn {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .sticky-datasheet-btn:hover {
+            background-color: var(--light-blue);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html" class="active">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Gateway TAS</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <div class="tas-overview-section">
+                <img src="./images/Products/Gateway/TAS_Overview_Browser.jpg" alt="TAS Overview" class="tas-overview-image">
+                <div class="tas-overview-box">
+                    <h2>TAS Overview</h2>
+                    <p>TIC Application Server (TAS) is a NonStop™ Guardian based application providing some webserver functionality. TAS's primary utility is access to Pathway™ serverclasses. With a request/reply IPC pair is defined for servers wanting to communicate with web browsers.</p>
+                </div>
+            </div>
+
+            <div class="section-separator"></div>
+
+            <h2>Key Features</h2>
+
+            <ul>
+                <li><strong>HTTP Web Server</strong></li>
+                <li><strong>Session Manager</strong></li>
+                <li><strong>Interface to TACL</strong></li>
+                <li><strong>Interface to Pathway Servers</strong> (TAL, COBOL, C, or C++)</li>
+                <li><strong>Flexible configuration</strong></li>
+            </ul>
+
+            <p>TAS extends the capability of a traditional Web server to include SSP capability via TACL scripts, and several application-specific gateways for accessing legacy or applications. This allows programmers to dynamically build HTML content based on application or database content. In the case of legacy server environments, which are costly to maintain or modify, there is little or no change required to the application in order to grant access via Internet or intranet Web browsers.</p>
+
+            <div class="section-separator"></div>
+
+            <p class="contact-title">Ready to learn more about Gateway TAS? Contact Us for More Information</p>
+
+            <div class="contact-section">
+                <p><a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky Datasheet Button -->
+    <a href="#" class="sticky-datasheet-btn">📄 Gateway</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

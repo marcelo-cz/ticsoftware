@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC Team - TIC Software</title>
+    <meta name="description" content="Meet the TIC Software management team - experienced leaders in Nonstop modernization.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 350px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('./images/TIC Team/who_we_are.png') center/cover no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 0.5rem 0 2rem 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 207px;
+            height: 207px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .team-member .role {
+            font-size: 0.95rem;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            background-color: var(--light-gray);
+            padding: 3rem 0;
+            margin: 0 -2rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        /* Get In Touch Section */
+        .get-in-touch {
+            margin-top: 0;
+        }
+
+        .get-in-touch h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .contact-card a {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: auto;
+            white-space: nowrap;
+        }
+
+        .contact-card a:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+        .subscribe-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .subscribe-card {
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .subscribe-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .subscribe-card input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+        }
+
+        .subscribe-card input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.1);
+        }
+
+        .subscribe-card button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: 2px solid var(--primary-blue);
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .subscribe-card button:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 2rem;
+            }
+
+            .hero-right {
+                height: 300px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html" class="active">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Management Team</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="object-position: center top;">
+                    <h3>Phil Ly</h3>
+                    <p class="role">President</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="./images/TIC Team/Gaby_profile.jpg" alt="Gabriela Claure">
+                    <h3>Gabriela Claure</h3>
+                    <p class="role">Chief Customer Success Officer</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="./images/TIC Team/Ming_profile.jpg" alt="Ming Ngan">
+                    <h3>Ming Ngan</h3>
+                    <p class="role">Chief Operating Officer</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="./images/TIC Team/Donald_profile.png" alt="Donald Wickham">
+                    <h3>Donald Wickham</h3>
+                    <p class="role">Chief Architect</p>
+                </div>
+            </div>
+
+            <!-- Bottom Section with Light Gray Background -->
+            <div class="bottom-section">
+            <!-- Get In Touch Section -->
+            <div class="get-in-touch" id="get-in-touch">
+                <h2>Get In Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Contact Us</h3>
+                        <p>TIC Software<br>185 Great Neck Road<br>4th Floor, Suite 453<br>Great Neck, NY 11021<br><br>Tel. 516-466-7990<br>Fax. 800-601-1401</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Sales</h3>
+                        <p>Our Client Care Associates are ready to connect you with resources, experts and solutions that remove barriers for your business and address your organization's specific need</p>
+                        <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Support</h3>
+                        <p>Troubleshoot technical issues, browse product documentation, access support announcements and more.</p>
+                        <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Social Media</h3>
+                        <p>Find us on LinkedIn for the latest news, updates, and industry insights from TIC Software.</p>
+                        <a href="https://www.linkedin.com/company/tic-software" target="_blank" style="margin-top: auto; border: none; padding: 0; background-color: transparent;">
+                            <img src="./images/Logos/LinkedIn_logo.jpg" alt="LinkedIn Logo" style="max-width: 100px; display: block; margin: 0 auto;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscribe Cards -->
+            <div class="subscribe-grid">
+                <div class="subscribe-card">
+                    <h3>Subscribe to TIC Blog</h3>
+                    <input type="email" placeholder="Enter your email address" required>
+                    <a href="mailto:sales-support@ticsoftware.com"><button type="submit">Subscribe</button></a>
+                </div>
+
+                <div class="subscribe-card">
+                    <h3>Subscribe to TIC Talk</h3>
+                    <input type="email" placeholder="Enter your email address" required>
+                    <a href="mailto:sales-support@ticsoftware.com"><button type="submit">Subscribe</button></a>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

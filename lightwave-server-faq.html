@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightWave Server FAQ - TIC Software</title>
+    <meta name="description" content="Frequently asked questions about LightWave Server - client-server middleware for NonStop systems.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* FAQ Styling */
+        .faq-item {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #e8e8e8;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>LightWave Server</h1>
+            <h1 style="margin-top: 0.5rem;">FAQ</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/FAQ Pages/FAQ_Image.png');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Frequently Asked Questions</h2>
+
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is LightWave Server?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>LightWave Server is client-server middleware that provides the bridge between client components which may be running on any platform, and server components running on HP NonStop Servers.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How is LightWave Server Performance and Scalability?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>LightWave Server was designed to be fully scalable using the Supervisor-Worker pattern. A LightWave Server instance consists of a LightWave Server SERVER process pair and optionally one or more LightWave Server SWORKER processes. The SERVER process listens on the instance's configured TCP/IP ports, hosts the LightWave Server Console, and services new connection request from API clients. If no SWORKER processes have been configured, the Server process will also perform API request processing. Any number of LightWave Server instances may be running on a single system, as long as they are configured to use different TCP/IP ports.</p>
+                    <p>As application load increases, SWORKER processes may be started and attached to a SERVER process. When SWORKER processes are attached, the SERVER process will delegate new connections to the SWORKER processes in round-robin fashion. Any number of SWORKER processes may be started in any CPU, providing adequate capacity for any application.</p>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <img src="./images/FAQ Pages/LWS_FAQ_2_Image.png" alt="LightWave Server Performance and Scalability" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does LightWave Server work?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Client applications communicate with the LightWave Server process, which runs on HP NonStop Server under Guardian, using a TCP/IP socket connection and the HTTP protocol. Although this may sound complicated, it's the same mechanism used by web browsers to connect to web servers, and the same mechanism used by thousands of web and mobile based applications to connect to their associated back-end servers. This mechanism is simple, well understood by developers, and is used billions of times per day to connect web and mobile clients to services like Google, Facebook, and Twitter. The goal of LightWave Server is to make it as simple to connect a client to a NonStop Server application as it is to connect a client to any of these other well known services.</p>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <img src="./images/FAQ Pages/LWS_FAQ_3_Image.png" alt="LightWave Server Architecture" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How can LightWave Server be used?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>LightWave Server can be used to develop any number of applications using a NonStop Server back end, for example:</p>
+                    <ul>
+                        <li>Modernize SCOBOL "green screen" applications by developing new browser based user interfaces that use LightWave Server to communicate with the existing Pathway servers.</li>
+                        <li>Develop a mobile application for sales reps that provides order entry and status information using LightWave Server to communicate with an existing NonStop Server order processing systems.</li>
+                        <li>Provide business partners with access to existing or new NonStop Server applications through a simple RESTful API.</li>
+                        <li>Replace file upload or download applications that currently use FTP protocol with equivalent functionality using the HTTP protocol.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What kind of APIs does LightWave Server use?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>User-defined APIs</strong></p>
+                    <p>User-defined APIs are a powerful feature of LightWave Server that allow you to design your own RESTful interface to your NonStop Server applications. With a user-defined API, you dictate the form of the URI and the query parameters and HTTP headers your API will use. You can map those elements to fields in the interprocess message which is sent to your application server. Likewise, you can define how replies from the server are mapped to the response that your API client receives. User-defined APIs allow you to hide the details of your server interface from users of your API.</p>
+                    <p><strong>Native APIs</strong></p>
+                    <p>LightWave Server also support a set of predefined native APIs that provide raw access to underlying NonStop Kernel resource. These APIs are used in conjunction with User-defined APIs. The following native APIs are provided:</p>
+                    <ul>
+                        <li>Dialog API - Manage Pathway serverclass dialogs</li>
+                        <li>Transaction API - Begin, end, and abort TMF transactions. These transactions may also be used with other APIs to enlist those operations in a transaction.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What kind of security does LightWave Server provide?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>LightWave Server provides a number of built in security features to ensure that your applications and NonStop Server remain secure.</p>
+                    <p><strong>Transport Security</strong></p>
+                    <p>LightWave Server uses OpenSSL to provide transport security using the latest version of TLS. Client applications can take advantage of this feature by simply invoking API requests using the HTTPS protocol.</p>
+                    <p><strong>User Authentication</strong></p>
+                    <p>LightWave Server maintains its own User and Group identity store which is managed from the LightWave Server Management Console. API clients authenticate with LightWave Server using standard HTTP Basic or Digest authentication.</p>
+                    <p><strong>Rules Based Access Control</strong></p>
+                    <p>Access to API services is controlled using the configuration and application of Access Control Policies. Policies can be configured to restrict API service access to specific users, groups, or client source IP addresses.</p>
+                    <p><strong>Network Isolation</strong></p>
+                    <p>Although not a specific feature of LightWave Server, because LightWave Server uses the HTTP protocol, it's possible to use any number of web-application network isolation techniques to isolate your NonStop Server network from client application networks. For example, if your NonStop Server is providing back end services for a mobile Internet application, you can isolate your NonStop Server network from the Internet using a secure HTTP proxy.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Does LightWave Server require OSS?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. LightWave Server runs in the Guardian environment and can connect to applications that run in both Guardian and OSS.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

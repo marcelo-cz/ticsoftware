@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papé Success Story - TIC Software</title>
+    <meta name="description" content="See how Papé Group uses TIC tools and solutions for NonStop applications to enhance fleet management and operations.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #000000;
+        }
+
+        .hero-left img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            width: 191px;
+        }
+
+        .hero-right {
+            background-color: #001a4d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-right h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+            margin: auto 0;
+        }
+
+        .hero-products {
+            background-color: #001a4d;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            align-self: flex-start;
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .hero-products strong {
+            color: var(--white);
+            font-size: 0.9rem;
+            display: inline;
+            margin-right: 0.5rem;
+        }
+
+        .hero-product-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--white);
+            color: #001a4d;
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid var(--white);
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin: 0.2rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .hero-product-tag:hover {
+            background-color: #001a4d;
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .product-info {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .product-tag {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.7rem;
+            margin-right: 0.3rem;
+            white-space: nowrap;
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-right h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <img src="./images/Logos/Pape_logo.jpg" alt="Papé Group Logo">
+        </div>
+        <div class="hero-right">
+            <h1>Papé Uses TIC Tools and Solutions for NonStop Applications</h1>
+            <div class="hero-products">
+                <strong>Products:</strong>
+                <a href="./PDF/Telemail_Datasheet.pdf" class="hero-product-tag">TeleMail</a>
+                <a href="./PDF/TelePath_DataSheet.pdf" class="hero-product-tag">TelePath</a>
+                <a href="./PDF/TeleFTP_Datasheet.pdf" class="hero-product-tag">TeleFTP</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+
+            <p class="subtitle">Fleet Management and Operations Integration with NonStop Systems</p>
+
+            <p>From its beginnings in 1938 in Oregon's Willamette Valley, The Papé Group has quickly grown to become the West's premier capital equipment dealer, spanning seven western states. The cornerstone of all Papé Group operations has been a commitment to providing quality products backed by consistent, quality client service wherever and whenever needed. Papé companies represent quality equipment manufacturers such as Hyster, Bobcat, John Deere, Hitachi, Ditch Witch, and Sterling/Western Start.</p>
+
+            <p>Shaun Swift is the Director of Information Systems for The Papé Group. Papé maintains its large volumes of capital equipment and parts information on HP NonStop mainframe systems. When Papé decided they wanted to integrate their servers with a high volume Web-based data input solution, Shaun turned to Transaction Innovation Corporation (TIC) for their experience and expertise with NonStop systems.</p>
+
+            <p>"Seamless integration between applications seems to be a problem across the information technology industry," explained Swift. "So, we had developed some of our own custom applications in the past to solve our internal IT issues. Now, working with TIC and their off-the-shelf tools, along with some custom development for our unique needs, has not only improved our information integrity and workflow dramatically, but has also enabled us to more quickly respond to our client. We make a great team."</p>
+
+            <p>Through the integration of TIC's tools and development with Papé's systems, the company has been able to eliminate a lot of the paper flow throughout the company's divisions. Now, inventory and service reports are displayed and updated electronically via TIC's TeleWeb offering, thus providing immediate access, and the peace of mind that they are accurate - as lag time between the actual inventory and reporting doesn't exist since no hard copy data needs to be entered.</p>
+
+            <p>Providing OEM parts to their clients is a large part of Papé's business, so to create an automated manufacturers inventory inquiry system, they once again turned to TIC for help. TIC implemented a solution consisting of their TelePath product, a secure file and message exchange medium, combined with custom consulting integration. Now, Papé employees can securely and efficiently assist clients with manufacturers parts requests through this automated inquiry system, which looks at not only Papé's internal parts inventory, but also queries the manufacturers' inventory via secure Internet lookup. Already, the Papé staff is using the new system between 600-700 times daily to answer clients inquiries and fulfill product orders.</p>
+
+            <p>"It's been great working with TIC in general, and Phil Ly, their CEO, in particular as he makes a great sounding board for our IT improvement ideas," stated Swift. "TIC works very hard to provide the tools and custom development to solve their clients unique problems. Papé continually utilizes their tools and consulting in about a 50/50 ratio to address our IT issues."</p>
+
+            <p>Papé also used two of TIC's software tools to migrate their human resources (HR) department to a paperless system. The development team at Papé wrote a custom application incorporating both TeleWeb and TeleMail to process change of status forms for Papé's employees. Now, HR fills out Web forms via the TeleWeb interface, and transmits them via TeleMail, a powerful Email-based report and document distribution system.</p>
+
+            <p>"I've really enjoyed working with Papé," said Phil Ly, CEO, TIC. "Getting to know Shaun and his staff, and knowing that we provide solutions and training that really help them has been invaluable to TIC. Our working relationship has continued to flourish, and I hope that Shaun thinks of TIC as an extension of his own IT department. We wish them continued success!"</p>
+
+            <div class="section-separator"></div>
+
+            <h2>About Papé Group</h2>
+
+            <p>The Papé Group continues to expand its represented product lines and industries in the Western United States. Today, the Papé Group has locations in seven Western states and serves clients in heavy equipment, forestry, materials handling, agriculture, warehousing, construction and the operation of aviation fixed-based facilities. For more information, please visit https://www.pape.com/</p>
+
+            <h2>About TIC Software</h2>
+
+            <p>TIC Software has been providing solutions for the HP NonStop platform since 1983 - predominantly in the banking, financial services and health care markets. The firm's dedication to creating innovative solutions and providing responsive services has enabled its clients to best leverage modern technology and optimize productivity.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

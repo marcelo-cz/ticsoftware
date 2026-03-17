@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025: The Year to Transform Your HPE NonStop Platform - TIC Software</title>
+    <meta name="description" content="Discover how to transform your HPE NonStop platform and address misconceptions about modernization and digital transformation.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background-color: var(--white);
+        }
+
+        .hero-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-right {
+            background-color: #001a4d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-right h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+            margin: auto 0;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 0.75rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        ul li {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 1.5rem 0 0.25rem 0;
+            clear: both;
+        }
+
+        .bio-image {
+            float: left;
+            margin: 0 1.5rem 1rem 0;
+            max-width: 100px;
+            border-radius: 8px;
+        }
+
+        .bio-section {
+            clear: both;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-right h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <img src="./images/Blogs & Articles/IT_Modernization.png" alt="IT Modernization">
+        </div>
+        <div class="hero-right">
+            <h1>2025: The Year to Transform Your HPE NonStop Platform for Tomorrow's Challenges.</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <p>While your NonStop platform continues to deliver unmatched reliability and performance that your business depends on, you may be wrestling with questions about its place in your digital transformation strategy. Should you maintain your current systems, invest in modernization, or consider alternatives?</p>
+
+            <p>The reality is that the HPE NonStop platform remains a robust and valuable asset, offering unparalleled benefits including the best total cost of ownership (TCO) in the industry. However, we understand the challenges you face. Your team may be dealing with an aging support staff, concerns about developer recruitment, and pressure from leadership to justify continued investment in the platform. These are real challenges that demand practical solutions.</p>
+
+            <p>Let's address the key misconceptions that often cloud decision-making around NonStop systems and explore proven strategies to unlock your platform's full potential for the future.</p>
+
+            <div class="section-separator"></div>
+
+            <h2>Common Misconceptions</h2>
+
+            <ul>
+                <li><strong>Platform is outdated due to green screen interfaces:</strong> This perception is far from reality. The NonStop platform fully supports modern tools to enable GUI and browser UI.</li>
+                <li><strong>COBOL limits development capabilities:</strong> While COBOL is often associated with NonStop, it's not a limitation for modern development practices.</li>
+                <li><strong>Difficulty in attracting new talent:</strong> There's a belief that NonStop is too complex for new professionals to learn.</li>
+                <li><strong>Lack of understanding of established programs:</strong> Some argue that the complexity of long-standing systems necessitates moving away from the platform entirely.</li>
+            </ul>
+
+            <div class="section-separator"></div>
+
+            <h2>Solutions and Realities</h2>
+
+            <h3>Modern Capabilities</h3>
+
+            <p>The NonStop platform is far more versatile than many realize, including support for:</p>
+
+            <ul>
+                <li>Web applications</li>
+                <li>RESTful APIs</li>
+                <li>Kafka integration</li>
+                <li>Java and other modern languages</li>
+                <li>GitHub for dev/ops integration</li>
+                <li>Other modern tools</li>
+            </ul>
+
+            <p>Its fault-tolerant and scalable architecture remains highly valuable in today's digital landscape. Integrating NonStop with modern tools provides benefits of both worlds.</p>
+
+            <h3>Focus on Business Logic, Not Just Language</h3>
+
+            <p>The critical aspect of any system is understanding the business logic, not just the programming language. COBOL isn't the issue; lack of documentation is. By investing in comprehensive documentation of existing programs, any developer, regardless of their background, can understand and work with the business logic.</p>
+
+            <h3>Education and Training</h3>
+
+            <p>There's a pressing need for better education at all levels:</p>
+
+            <ul>
+                <li>C-suite executives need to understand the platform's value proposition.</li>
+                <li>IT management teams should be well-versed in the business benefits of existing applications, and what needs to be modernized.</li>
+                <li>Developers require training on NonStop's unique capabilities to support existing codebase as well as how to leverage modern tools.</li>
+            </ul>
+
+            <h3>Attention is What's Needed</h3>
+
+            <p>The key to managing established NonStop codebase is not abandonment but attention. Organizations need to focus on:</p>
+
+            <ul>
+                <li>Generating comprehensive documentation for existing code.</li>
+                <li>Conducting thorough application codebase analysis.</li>
+                <li>Investing in a Knowledge Base.</li>
+                <li>Leveraging modern tools offered by HPE and third-party partners.</li>
+            </ul>
+
+            <div class="section-separator"></div>
+
+            <h2>Call to Action</h2>
+
+            <p>To future-proof your HPE NonStop environment:</p>
+
+            <ul>
+                <li><strong>Invest in Documentation:</strong> Utilize modern tools to create comprehensive documentation for established systems, ensuring knowledge preservation and easier onboarding.</li>
+                <li><strong>Embrace Modernization:</strong> Leverage the platform's support for modern technologies to keep your systems current and efficient.</li>
+                <li><strong>Prioritize Training:</strong> Implement robust training programs to build and maintain expertise in NonStop technologies.</li>
+                <li><strong>Leverage Expert Support:</strong> Partner with experienced organizations like TIC Software to access cutting-edge tools and professional services tailored for NonStop environments.</li>
+            </ul>
+
+            <p>By addressing these misconceptions and focusing on these solutions, organizations can ensure their HPE NonStop systems remain valuable, efficient, and future-ready assets in their IT infrastructure.</p>
+
+            <div class="section-separator"></div>
+
+            <p style="margin-top: 2rem; margin-bottom: 2rem;">TIC Software stands uniquely positioned to support these initiatives, with our many years of proven track record of bridging NonStop and modern technologies. Our professional services span training, design, development and modernization strategies. Our comprehensive solutions will help you address each call to action, ensuring your NonStop environment remains robust, innovative, and future-ready.</p>
+
+            <p>To learn more please visit us at: <a href="https://ticsoftware.ai" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">https://ticsoftware.ai</a></p>
+        </section>
+
+        <!-- Bio Section -->
+        <section class="bio-section">
+            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly, President of TIC Software" class="bio-image">
+            <p>Phil Ly serves as president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> and a recognized thought leader in the NonStop community. Under his leadership, <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> has become the premier guide for NonStop organizations adopting modern technologies, including REST APIs, Kafka messaging systems, and cloud services. Phil's expertise lies in bridging the gap between complex emerging technologies and practical implementation, making advanced solutions accessible to NonStop professionals across all experience levels. As architect of the innovative Navigator platform, he is pioneering the integration of generative AI into NonStop environments, demonstrating how AI-powered solutions can enhance system reliability while preserving the mission-critical security standards that define the platform.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

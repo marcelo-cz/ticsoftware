@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallagher Bassett Success Story - TIC Software</title>
+    <meta name="description" content="See how Gallagher Bassett minimizes risk with TIC IT solutions for NonStop applications.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: var(--white);
+        }
+
+        .hero-left img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            width: 212px;
+        }
+
+        .hero-right {
+            background-color: #001a4d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-right h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+            margin: auto 0;
+        }
+
+        .hero-products {
+            background-color: #001a4d;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            align-self: flex-start;
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .hero-products strong {
+            color: var(--white);
+            font-size: 0.9rem;
+            display: inline;
+            margin-right: 0.5rem;
+        }
+
+        .hero-product-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--white);
+            color: #001a4d;
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid var(--white);
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin: 0.2rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .hero-product-tag:hover {
+            background-color: #001a4d;
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .product-info {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .product-tag {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.7rem;
+            margin-right: 0.3rem;
+            white-space: nowrap;
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-right h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <img src="./images/Logos/Gallagher_logo.jpg" alt="Gallagher Bassett Logo">
+        </div>
+        <div class="hero-right">
+            <h1>Gallagher Bassett Minimizes Risk with TIC IT Solutions</h1>
+            <div class="hero-products">
+                <strong>Products:</strong>
+                <a href="./PDF/Telemail_Datasheet.pdf" class="hero-product-tag">TeleMail</a>
+                <a href="./PDF/TeleFTP_Datasheet.pdf" class="hero-product-tag">TeleFTP</a>
+                <a href="./PDF/Logwatch_Data sheet.pdf" class="hero-product-tag">LogWatch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+
+            <p class="subtitle">Risk Management and Claims Processing with NonStop Solutions</p>
+
+            <p>In 1927, during the peak of the Roaring Twenties, a determined and focused young insurance salesman left a successful career with the largest insurance broker in Chicago to start his own firm. Arthur J. Gallagher & Co. is our legal name.</p>
+
+            <p>Sound business practices enabled the company to weather the economic storm of October 1929, on the way to becoming one of the largest insurance brokers in the world. As part of this growth, Gallagher founded a subsidiary, Gallagher Bassett Services, Inc. (GB), in 1962 to provide customized risk management programs, such as workers compensation and liability claims processing, to what has become an international client base.</p>
+
+            <p>Today, GB is the largest multi-line property/casualty third-party administrator, helping clients reduce risk exposures and claims processing costs, along with a host of other risk management services. To keep up with changing business requirements for their mission-critical mainframe-based IT systems functioning, GB turns to the HP NonStop experts at Transaction Innovation Corporation (TIC).</p>
+
+            <p>Dan Brown, a 20-year veteran at GB, is the Director of System Technology and Planning for the firm. His relationship with TIC and Phil Ly, the company's chief technologist, goes back almost a decade.</p>
+
+            <p>"Some of the earlier products we worked with TIC to implement were their TeleFTP and TeleMail offerings to automate the retrieval and distribution of the report data generated from our mainframe system," explained Brown. "Now we're putting the finishing touches on the newly integrated Report.Web implementation, to better serve our clients as well as assist our employees in their jobs."</p>
+
+            <p>Report.Web is TIC's secure, efficient and cost-effective report distribution system that Web-enables host-generated reports for remote viewing via Internet, intranet or extranet. GB is installing Report.Web for its monthly workers compensation and liability claims reporting - to provide easier and more immediate access to claims information for both clients and employees. Furthermore, generated report data may be seamlessly imported into MS Excel for detailed analysis and dissemination, a functionality that GB intends to fully capitalize upon.</p>
+
+            <p>"Phil Ly and the entire TIC staff have been great throughout not only the Report.Web implementation, but during our entire history together," enthused Brown. "They've been very proactive and a pleasure to deal with."</p>
+
+            <p>"We are proud of the long-standing relationships we have with clients like GB," stated Phil Ly. "The rapport we have established and nurtured with our clients over the years is what keeps us constantly striving to help them be more productive and profitable. It's what keeps us going!"</p>
+
+            <div class="section-separator"></div>
+
+            <h2>About Gallagher Bassett</h2>
+
+            <p>Founded in 1962, Gallagher Bassett Services, Inc. has grown and prospered to become the largest multi-line property/casualty third-party administrator (TPA), helping clients reduce their exposures to risk and the steep costs that can go with them. The firm offers a comprehensive menu of risk management services, including claims management, information management, risk control consulting, medical cost containment, and appraisal services, to an international clientele. For more information, please visit https://www.gallagherbassett.com/</p>
+
+            <h2>About TIC Software</h2>
+
+            <p>TIC Software has been providing solutions for the HP NonStop platform since 1983 - predominantly in the banking, financial services and health care markets. The firm's dedication to creating innovative solutions and providing responsive services has enabled its clients to best leverage modern technology and optimize productivity.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

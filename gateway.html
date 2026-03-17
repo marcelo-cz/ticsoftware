@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gateway - TIC Software</title>
+    <meta name="description" content="TIC's Gateway Products - Enable NonStop legacy applications to interoperate with other platforms and technologies.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .page-header-image {
+            width: 100%;
+            height: 300px;
+            background: url('./images/gateway.jpg') center/cover no-repeat;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .page-header-content h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            border: 2px solid var(--dark-text);
+            padding: 0.75rem 1rem;
+            display: inline-block;
+        }
+
+        .page-header-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-top: 1rem;
+            max-width: 500px;
+        }
+
+        .product-section {
+            margin-bottom: 0.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            scroll-margin-top: 150px;
+        }
+
+        main > .product-section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .product-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+            font-weight: bold;
+        }
+
+        .product-section p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            text-align: justify;
+        }
+
+        .product-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            margin-right: 1rem;
+            transition: all 0.3s;
+        }
+
+        .product-link:hover {
+            background-color: var(--light-blue);
+        }
+
+        .blog-section {
+            margin-top: 1rem;
+            padding: 0;
+        }
+
+        .blog-section h3 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .blog-section p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+            text-align: justify;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: var(--light-blue);
+        }
+
+        .product-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .product-tab {
+            border: 2px solid var(--dark-text);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .product-tab:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header-image {
+                height: 300px;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html" class="active">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="page-header-image">🌐</div>
+            <div class="page-header-content">
+                <h1>Gateway</h1>
+                <p>TIC's Gateway Products enables NonStop legacy applications to interoperate with other platforms and technologies such as Windows, .NET and Web services.</p>
+                <div class="product-tabs">
+                    <a href="#lightwave" class="product-tab">LightWave REST Suite</a>
+                    <a href="#prizm" class="product-tab">Prizm Gateway</a>
+                    <a href="#s3utils" class="product-tab">S3Utils</a>
+                    <a href="#ulinga" class="product-tab">uLinga</a>
+                    <a href="#ipforwarder" class="product-tab">IP Forwarder</a>
+                    <a href="#sog" class="product-tab">Server Object Gateway</a>
+                    <a href="#telepath" class="product-tab">TelePath</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LightWave REST Suite Section -->
+        <div class="product-section" id="lightwave">
+            <h2>LightWave REST Suite</h2>
+            <p>LightWave products utilize REST APIs to facilitate the exchange of data between NonStop applications and applications running on disparate systems, including PCs and mobile devices.</p>
+            <a href="./PDF/LightWave_Client_Datasheet.pdf" class="product-link">📄 LightWave Client</a>
+            <a href="./PDF/LightWave_Server_Datasheet.pdf" class="product-link">📄 LightWave Server</a>
+            <a href="https://www.youtube.com/watch?v=A62W3UCQdy8&feature=youtu.be" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Overview</a>
+            <a href="https://www.youtube.com/watch?v=dVzQw5t5lPA" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Client Demo</a>
+            <a href="https://www.youtube.com/watch?v=-gHY_1YtP4w" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Server Demo</a>
+            <a href="lightwave-client-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> LightWave Client FAQ</a>
+            <a href="lightwave-server-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> LightWave Server FAQ</a>
+
+            <div class="blog-section">
+                <h3>Blog: LightWave Overview</h3>
+                <p>Learn more about how LightWave enables seamless integration between NonStop systems and modern web technologies through REST APIs.</p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+        </div>
+
+        <!-- Prizm Gateway Section -->
+        <div class="product-section" id="prizm">
+            <h2>Prizm Gateway™</h2>
+            <p>Prizm Gateway™ makes it easy for users to enable, maintain, monitor, and secure all API connections throughout the entire enterprise.</p>
+            <a href="./PDF/Prizm_Datasheet.pdf" class="product-link">📄 Prizm Datasheet</a>
+            <a href="./prizm.html" class="product-link">→ Learn More</a>
+        </div>
+
+        <!-- S3Utils Section -->
+        <div class="product-section" id="s3utils">
+            <h2>S3Utils™</h2>
+            <p>Data Transfer for HPE NonStop and AWS Storage. Easily transfer data between your Native NonStop Applications and your Enterprise cloud AWS Simple Storage Server (S3).</p>
+            <a href="./PDF/S3Utils_Datasheet.pdf" class="product-link">📄 S3Utils™ Datasheet</a>
+            <a href="./s3utils.html" class="product-link">→ Learn More</a>
+        </div>
+
+        <!-- uLinga Section -->
+        <div class="product-section" id="ulinga">
+            <h2>uLinga</h2>
+            <p>It is a NonStop application that can publish NonStop events and data to Kafka clusters to be picked up by any consuming subscribers on any platforms.</p>
+            <a href="./ulinga.html" class="product-link">→ Learn More</a>
+
+            <div class="blog-section">
+                <h3>Blog: uLinga Integration</h3>
+                <p>Discover how uLinga enables NonStop systems to connect with modern event streaming platforms like Kafka.</p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+        </div>
+
+        <!-- IP Forwarder Section -->
+        <div class="product-section" id="ipforwarder">
+            <h2>IP Forwarder</h2>
+            <p>A high performance, low latency process to distribute NonStop data to Splunk and other tools via TCP/IP or UDP.</p>
+            <a href="./ipforwarder.html" class="product-link">→ Learn More</a>
+        </div>
+
+        <!-- Server Object Gateway Section -->
+        <div class="product-section" id="sog">
+            <h2>Server Object Gateway (SOG)</h2>
+            <p>No complex application program interfaces (API) to learn, just standard ActiveX Control. SOG handles communication and automatic data conversion.</p>
+            <a href="./PDF/SOG data sheet.pdf" class="product-link">📄 SOG Datasheet</a>
+
+            <div class="blog-section">
+                <h3>Blog: SOG Technology</h3>
+                <p>Learn how Server Object Gateway simplifies integration between NonStop systems and Windows technologies.</p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+        </div>
+
+        <!-- TelePath Section -->
+        <div class="product-section" id="telepath">
+            <h2>TelePath</h2>
+            <p>TelePath Integrates NonStop and Windows technologies! With the new TIC product TELEPATH suite, you can now add new enhancements to your Pathway applications as easily as sending a Pathway Request.</p>
+            <a href="./PDF/TelePath.pdf" class="product-link">📄 TelePath Datasheet</a>
+
+            <div class="blog-section">
+                <h3>Blog: TelePath Enhancements</h3>
+                <p>Explore how TelePath brings modern capabilities to your NonStop Pathway applications.</p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+        </div>
+
+        <!-- Gateway TAS Section -->
+        <div class="product-section" id="gatewaytas">
+            <h2>Gateway TAS</h2>
+            <p>TIC Application Server (TAS) is a NonStop Guardian based application providing webserver functionality. TAS's primary utility is access to Pathway serverclasses with a request/reply IPC pair defined for servers wanting to communicate with web browsers.</p>
+            <a href="./gateway-tas.html" class="product-link">→ Learn More</a>
+        </div>
+
+        <div style="padding-top: 2rem; margin-top: 2rem; display: flex; gap: 2rem; justify-content: center;">
+            <a href="./messaging.html" class="product-link" style="padding: 0.75rem 1.5rem; font-size: 1rem;">→ Messaging</a>
+            <a href="./modernize.html" class="product-link" style="padding: 0.75rem 1.5rem; font-size: 1rem;">→ Modernize</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI is Here: Are You Ready to Leverage It for NonStop? - TIC Software</title>
+    <meta name="description" content="Discover how GenAI can help your NonStop organization address modernization challenges and preserve critical knowledge.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background-color: var(--white);
+        }
+
+        .hero-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-right {
+            background-color: #001a4d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-right h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+            margin: auto 0;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 0.75rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        ul {
+            margin-left: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul li {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 1.5rem 0 0.25rem 0;
+            clear: both;
+        }
+
+        .article-image-left {
+            float: left;
+            margin: 0 1.5rem 1rem 0;
+            max-width: 203px;
+            border-radius: 8px;
+        }
+
+        .article-image-right {
+            float: right;
+            margin: 0 0 1rem 1.5rem;
+            max-width: 300px;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-right h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <img src="./images/Gen_AI_Article.png" alt="GenAI Article">
+        </div>
+        <div class="hero-right">
+            <h1>GenAI is Here: Are You Ready to Leverage It for NonStop?</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>The Generative AI Revolution for NonStop</h2>
+
+            <p>The Generative AI revolution has arrived at a critical juncture for the NonStop community. As organizations grapple with modernization challenges, aging technical workforces, and the imperative to preserve mission-critical knowledge, GenAI offers unprecedented opportunities to bridge Nonstop systems with future requirements.</p>
+
+            <p>At TIC Software, our two years of focused research into Generative AI applications for NonStop environments has culminated in <a href="https://ticsoftware.ai/code-navigator" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Navigator</a>, unveiled at Connect TBC 2025. This solution combines deep domain expertise with cutting-edge AI capabilities, specifically engineered for Nonstop's unique architectural demands.</p>
+
+            <div class="section-separator"></div>
+
+            <h2>Addressing Critical NonStop Challenges</h2>
+
+            <img src="./images/Blogs & Articles/tic_ai_navigator_tic_team.jpg" alt="TIC Navigator AI Team" class="article-image-left">
+
+            <p>TIC Navigator directly tackles the three key concerns plaguing most NonStop shops:</p>
+
+            <ul>
+                <li><strong>Scarce NonStop expertise in the marketplace</strong></li>
+                <li><strong>Retiring subject matter experts</strong> holding decades of institutional knowledge</li>
+                <li><strong>Modernization barriers</strong> due to incomplete understanding of existing code logic</li>
+            </ul>
+
+            <p>By leveraging AI to extract and preserve business logic embedded in COBOL, TAL, C/C++, and TACL codebases, TIC Navigator transforms implicit system knowledge into accessible documentation that enables both immediate operational improvements and strategic modernization initiatives.</p>
+
+            <div class="section-separator"></div>
+
+            <h2>GenAI at TBC 2025</h2>
+
+            <p>The enthusiasm for GenAI within the NonStop community was unmistakable at TBC 2025, with organizations across the ecosystem searching for practical AI implementations. Casey Taylor, GM and SVP of HPE, presented the Nonstop AI-Strategic Journey, which aligns perfectly with what TIC Navigator delivers today. Besides TIC Navigator, vendors like NTI and Idelji also presented on the topic of AI. HPE demonstrated potential GenAI toolsets for database and monitoring.</p>
+
+            <p>Our long-time client Pape Group presented their successful experience of using GenAI in documenting their COBOL codebase. This momentum reflects a broader industry recognition: <strong>GenAI is no longer experimental—it's operationally ready and delivering measurable value in production environments.</strong></p>
+
+            <div class="section-separator"></div>
+
+            <h2>Japan Leads the Way</h2>
+
+            <img src="./images/Blogs & Articles/Strategic Journey.jpg" alt="Nonstop AI Strategic Journey" class="article-image-right">
+
+            <p>Perhaps most significantly, the Japanese NonStop community has emerged as an early adopter of GenAI. At TBC 2025, both TIS and JRI presented comprehensive AI initiatives:</p>
+
+            <p><strong>TIS</strong> launched the Nonstop Community for Generative AI Utilization in Japan, recognizing that the critical shortage of Nonstop talent requires collective action. This community-driven initiative demonstrates strategic thinking about GenAI's role in preserving institutional knowledge and enabling sustainable development practices.</p>
+
+            <p><strong>Japan Research Institute</strong> complemented this approach by showcasing practical GenAI applications using tools like Cursor.</p>
+
+            <p>We applaud the foresight of Japan's Nonstop community in forming such forums. We hope that HPE and the US Nonstop community will follow Japan's lead in forming a similar collaborative GenAI community. TIC would certainly look forward to participating in and contributing our knowledge and expertise to benefit the entire NonStop ecosystem through shared learning and innovation.</p>
+
+            <div class="section-separator"></div>
+
+            <h2>The Knowledge Preservation Imperative</h2>
+
+            <p>Traditional knowledge transfer methods are insufficient when institutional memory is stored in so many decades of developed codebase. The Nonstop community faces this unprecedented challenge compounded by the gradual retirement of experienced Subject Matter Experts (SME).</p>
+
+            <p>GenAI offers a transformative solution by capturing, codifying, and making accessible the deep technical knowledge embedded in Nonstop systems. TIC Navigator was built to address these challenges with AI-powered analysis that extracts business logic, architectural patterns, and operational procedures that would otherwise be lost.</p>
+
+            <div class="section-separator"></div>
+
+            <h2>Are You Ready?</h2>
+
+            <p>The question is no longer whether these technologies will transform Nonstop environments, but <strong>how long can you afford to delay leveraging GenAI as a competitive advantage for your business?</strong></p>
+
+            <p style="margin-top: 2rem; margin-bottom: 2rem;"><a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Contact us</a> for a free consultation and see how Navigator can analyze a sample of your code to produce valuable business information.</p>
+
+            <p>To learn more please visit us at: <a href="https://ticsoftware.ai" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">https://ticsoftware.ai</a></p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

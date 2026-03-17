@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC Software - The Leader in Nonstop Modernization</title>
+    <meta name="description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./images/skyline_image_bgc2.jpg');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: left;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        /* Who We Are & What's New Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: stretch;
+        }
+
+        .about-box {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            border: 2px solid var(--border-gray);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 0.75rem;
+        }
+
+        .about-box p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        .about-box > .btn {
+            margin-top: auto;
+        }
+
+        .about-box .italic-text {
+            font-style: italic;
+            margin: 1.5rem 0;
+            padding: 1.5rem 0;
+            border-top: 2px solid var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-blue);
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .whats-new-image {
+            text-align: center;
+        }
+
+        .whats-new-image img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .whats-new-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .whats-new-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .whats-new-content p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        .whats-new-content .btn {
+            margin-top: auto;
+        }
+
+        /* Products Section */
+        .products-section {
+            background-color: var(--light-gray);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-family: 'DIN Neuzeit Grotesk', 'DIN Next', sans-serif;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .product-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            margin-top: -1.5rem;
+            color: var(--white);
+            background-color: #7ECCC5;
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            width: calc(100% + 4rem);
+            margin-left: -2rem;
+            margin-right: -2rem;
+            text-align: center;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .product-card a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--white);
+        }
+
+        .services-section .section-title {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 1.5rem 2rem;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+            border: 2px solid var(--border-gray);
+            border-bottom: none;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            background-color: var(--white);
+            padding: 0.25rem 2rem 2rem 2rem;
+            border-radius: 0 0 8px 8px;
+            border: 2px solid var(--border-gray);
+            border-top: none;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0,61,153,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            text-decoration: underline;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .service-card a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--white);
+            text-align: center;
+            border: 1px solid #ccc !important;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ccc !important;
+        }
+
+        .testimonials-box {
+            background-color: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 0;
+        }
+
+        .testimonials-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 0;
+        }
+
+        .testimonials-slideshow {
+            position: relative;
+            max-width: 750px;
+            min-height: 150px;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .testimonial-quote {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0;
+            font-style: italic;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .testimonial-quote.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-nav-btn {
+            padding: 0.75rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: 2px solid var(--primary-blue);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .testimonial-nav-btn:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+
+        .clients-carousel {
+            position: relative;
+            max-width: 900px;
+            height: 180px;
+            margin: 0.5rem auto 0;
+            overflow: hidden;
+        }
+
+        .client-carousel-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: transform 0.6s ease-in-out;
+            transform: translateX(100%);
+            top: 0;
+            left: 0;
+        }
+
+        .client-carousel-slide.active {
+            transform: translateX(0);
+            z-index: 10;
+        }
+
+        .client-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            height: 180px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .client-logo img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+
+        .client-logo img {
+            max-height: 100%;
+            max-width: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .client-logos {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="#home" class="active">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <!-- Content can be added here -->
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-box">
+                <h2>TICSoftware.<span style="color: maroon;">Ai</span></h2>
+                <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0; text-align: center;">TIC Navigator: Analyze. Understand. Modernize.</h3>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <img src="./images/compass white bg.png" alt="TIC Navigator" style="max-width: 200px; height: auto;">
+                </div>
+                <p>TIC Software Navigator is an AI-powered solution that extracts information from complex COBOL, TAL, C/C++, and TACL code into a searchable, interactive knowledge base.</p>
+                <p>It can be used to produce business logic, code explanation, and diagrams for documentation purposes.</p>
+                <p>In addition, TIC Navigator enables chat interface to answer any adhoc questions about the programs stored in the knowledgebase.</p>
+                <a href="https://ticsoftware.ai/" class="btn" target="_blank">TICSoftware.Ai</a>
+            </div>
+
+            <div class="about-box">
+                <h2>What's New</h2>
+                <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0; text-align: center;">Beyond the Hype: A Practical Guide to GenAI Success for NonStop</h3>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <img src="./images/Gen_AI.jpg" alt="GenAI" style="max-width: 240px; height: auto;">
+                </div>
+                <p>If you were around when the Internet first emerged in the early 1990s, you might remember the reaction: fascinating technology… but what do you actually do with it? Early websites were interesting experiments, but the real question was how to harness this capability for business value.</p>
+                <p>Over time, web enablement and cloud integration became essential to extending the life and value of NonStop systems.</p>
+                <a href="https://ticsoftware.ai/blog-beyond-the-hype-genai" class="btn" target="_blank">Read Blog</a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="products-section">
+            <h2 class="section-title">Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background: url('./images/messaging.jpg') center/cover no-repeat; background-color: #667eea;"></div>
+                    <div class="product-content">
+                        <h3>Messaging</h3>
+                        <p>These products are designed to integrate Nonstop data with other platforms through format conversion and data delivery.</p>
+                        <a href="messaging.html">+ Learn More</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: url('./images/gateway.jpg') center/cover no-repeat; background-color: #667eea;"></div>
+                    <div class="product-content">
+                        <h3>Gateway</h3>
+                        <p>Gateway Products enable Nonstop legacy applications to interoperate with other platforms and technologies such as Windows, .NET and Web services.</p>
+                        <a href="gateway.html">+ Learn More</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: url('./images/Business Intel.jpg') center/cover no-repeat; background-color: #667eea;"></div>
+                    <div class="product-content">
+                        <h3>Business Intelligence</h3>
+                        <p>These products are designed to transform Nonstop report information into multi dimensional views to facilitate data analysis for decision support.</p>
+                        <a href="#">+ Learn More</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: url('./images/modernize.jpg') center/cover no-repeat; background-color: #667eea;"></div>
+                    <div class="product-content">
+                        <h3>Modernize</h3>
+                        <p>TIC provides modernization solutions, ranging from replacing Green Screen interface with GUI, to completely transforming COBOL and SCOBOL code into .NET and Java applications.</p>
+                        <a href="modernize.html">+ Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon" style="background: url('./images/service_cloud.jpg') center/cover no-repeat; background-color: #667eea; font-size: 0;"></div>
+                    <h3>Cloud</h3>
+                    <p>Let us show you the benefits of integrating Cloud Computing with Nonstop.</p>
+                    <a href="#">+ Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: url('./images/service_consulting.jpg') center/cover no-repeat; background-color: #667eea; font-size: 0;"></div>
+                    <h3>Consulting</h3>
+                    <p>The TIC Consulting team can help you take on any technical challenges.</p>
+                    <a href="#">+ Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: url('./images/service_genai.jpg') center/cover no-repeat; background-color: #667eea; font-size: 0;"></div>
+                    <h3>Gen AI</h3>
+                    <p>Provide AI-driven tools to extract, organize, and deliver actionable knowledge.</p>
+                    <a href="https://ticsoftware.ai/" target="_blank">+ Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials & Clients Section -->
+        <section id="testimonials" class="testimonials-section">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonials-box">
+            <div class="testimonials-container">
+                <button id="prev-testimonial" class="testimonial-nav-btn">←</button>
+                <div class="testimonials-slideshow">
+                    <div class="testimonial-quote active">
+                        <p>"TIC Software always provides the right solution for us. It takes time to understand our needs and priorities, and then recommends what would work best. We can always depend on TIC for coming through for us."</p>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"We consider TIC Software part of our team."</p>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"TIC Software goes beyond just providing product information. It walks us through the necessary tutorials to understand the technology, help us develop the proof of concept, and transfer knowledge to our team, so we understand perfectly what we are getting."</p>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"TIC Software is our trusted advisor."</p>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"TIC Software is great in sharing knowledge with us. Not just on its products, but anything that it deems could benefit us in the development and support of NonStop programs"</p>
+                    </div>
+                </div>
+                <button id="next-testimonial" class="testimonial-nav-btn">→</button>
+            </div>
+            </div>
+
+            <h3 style="margin-top: 0.25rem; margin-bottom: 1rem; color: var(--primary-blue); font-size: 3.5rem; font-weight: bold; font-family: 'DIN Neuzeit Grotesk', 'DIN Next', sans-serif;">Our Clients</h3>
+            <div class="clients-carousel">
+                <div class="client-carousel-slide active">
+                    <div class="client-logo"><img src="./images/Logos/State_Street logo.png" alt="State Street"></div>
+                    <div class="client-logo"><img src="./images/Logos/Raymond_James_logo.jpg" alt="Raymond James"></div>
+                    <div class="client-logo"><img src="./images/Logos/Sumitomo_logo.png" alt="Sumitomo"></div>
+                </div>
+                <div class="client-carousel-slide">
+                    <div class="client-logo"><img src="./images/Logos/Bank_of_America_logo.png" alt="Bank of America"></div>
+                    <div class="client-logo"><img src="./images/Logos/Gallagher_logo.jpg" alt="Gallagher"></div>
+                    <div class="client-logo"><img src="./images/Logos/JP_Morgan_logo.png" alt="JP Morgan"></div>
+                </div>
+                <div class="client-carousel-slide">
+                    <div class="client-logo"><img src="./images/Logos/Pape_logo.jpg" alt="Papé"></div>
+                    <div class="client-logo"><img src="./images/Logos/US_Foods_logo.jpg" alt="US Foods"></div>
+                    <div class="client-logo"><img src="./images/Logos/Cass_Information_logo.png" alt="Cass Information"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+
+    <script>
+        // Testimonials Slideshow
+        let currentTestimonialIndex = 0;
+        const testimonialQuotes = document.querySelectorAll('.testimonial-quote');
+        const nextBtn = document.getElementById('next-testimonial');
+        const prevBtn = document.getElementById('prev-testimonial');
+
+        function showTestimonial(index) {
+            testimonialQuotes.forEach(quote => quote.classList.remove('active'));
+            testimonialQuotes[index].classList.add('active');
+        }
+
+        function nextTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialQuotes.length;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        function prevTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialQuotes.length) % testimonialQuotes.length;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        // Auto-rotate testimonials every 3 seconds
+        let testimonialInterval = setInterval(nextTestimonial, 3000);
+
+        // Next button click event
+        nextBtn.addEventListener('click', () => {
+            clearInterval(testimonialInterval);
+            nextTestimonial();
+            testimonialInterval = setInterval(nextTestimonial, 3000);
+        });
+
+        // Back button click event
+        prevBtn.addEventListener('click', () => {
+            clearInterval(testimonialInterval);
+            prevTestimonial();
+            testimonialInterval = setInterval(nextTestimonial, 3000);
+        });
+
+        // Clients Carousel
+        let currentClientIndex = 0;
+        const clientCarouselSlides = document.querySelectorAll('.client-carousel-slide');
+
+        function showClientCarouselSlide(index) {
+            clientCarouselSlides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+
+        function nextClientCarouselSlide() {
+            currentClientIndex = (currentClientIndex + 1) % clientCarouselSlides.length;
+            showClientCarouselSlide(currentClientIndex);
+        }
+
+        // Auto-rotate client carousel slides every 3 seconds
+        setInterval(nextClientCarouselSlide, 3000);
+    </script>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

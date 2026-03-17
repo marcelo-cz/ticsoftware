@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging - TIC Software</title>
+    <meta name="description" content="TIC's Messaging Products - Integrate NonStop data with other platforms through format conversion and data delivery.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .page-header-image {
+            width: 100%;
+            height: 300px;
+            background: url('./images/messaging.jpg') center/cover no-repeat;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .page-header-content h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            border: 2px solid var(--dark-text);
+            padding: 0.75rem 1rem;
+            display: inline-block;
+        }
+
+        .page-header-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-top: 1rem;
+            max-width: 500px;
+        }
+
+        .product-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .product-tab {
+            border: 2px solid var(--dark-text);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .product-tab:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+        }
+
+        .product-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            scroll-margin-top: 150px;
+        }
+
+        .product-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+            font-weight: bold;
+        }
+
+        .product-section p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            text-align: justify;
+        }
+
+        .product-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            margin-right: 1rem;
+            transition: all 0.3s;
+        }
+
+        .product-link:hover {
+            background-color: var(--light-blue);
+        }
+
+        .blog-section {
+            margin-top: 1rem;
+            padding: 0;
+        }
+
+        .blog-section h3 {
+            font-size: 1.2rem;
+            color: black;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .blog-section p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+            text-align: justify;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header-image {
+                height: 300px;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .product-tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html" class="active">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="page-header-image">📧</div>
+            <div class="page-header-content">
+                <h1>Messaging</h1>
+                <p>TIC's Messaging Products are designed to integrate NonStop data with other platforms through format conversion and data delivery.</p>
+                <div class="product-tabs">
+                    <a href="#telemail" class="product-tab">TeleMail</a>
+                    <a href="#teleftp" class="product-tab">TeleFTP</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TeleMail Section -->
+        <div class="product-section" id="telemail">
+            <h2>TeleMail</h2>
+            <p>TeleMail can send data either as an Email message or an attachment. Optionally, TeleMail can also format messages as PDF, HTML, and ZIP files.</p>
+            <a href="./PDF/Telemail_Datasheet.pdf" class="product-link">TeleMail Datasheet</a>
+
+            <div class="blog-section">
+                <h3>Blog: Messaging Product Suite – 'Tele' Technology with TIC Software</h3>
+                <p>Tele is a prefix that combines the meaning of the phases "reaching over a distance," "carried out between two remote points," and "performed or operated through electronic transmissions."</p>
+                <a href="#" class="read-more">📝 Read Blog</a>
+            </div>
+        </div>
+
+        <!-- TeleFTP Section -->
+        <div class="product-section" id="teleftp">
+            <h2>TeleFTP</h2>
+            <p>TeleFTP can monitor multiple spooler locations to extract reports targeted for transmission to remote FTP servers. Based on TIC Software's Tele2000 architecture, TeleFTP provides many functions and features in addition to FTP client capability.</p>
+            <a href="./PDF/TeleFTP_Datasheet.pdf" class="product-link">TeleFTP Datasheet</a>
+
+            <div class="blog-section">
+                <h3>Blog: How quickly can you bring up critical reports on your DR system?</h3>
+                <p>Most, if not all, of NonStop customers have a DR (Disaster Recovery) system, as well as a plan to ensure business continuity of their mission-critical applications in the event of a disaster.</p>
+                <a href="#" class="read-more">📝 Read Blog</a>
+            </div>
+        </div>
+
+        <!-- Navigation Section -->
+        <section style="display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; padding-top: 2rem;">
+            <a href="gateway.html" class="btn" style="padding: 0.75rem 2rem; background-color: var(--primary-blue); color: white; text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s;">→ Gateway</a>
+            <a href="modernize.html" class="btn" style="padding: 0.75rem 2rem; background-color: var(--primary-blue); color: white; text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s;">→ Modernize</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

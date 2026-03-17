@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cass Information Success Story - TIC Software</title>
+    <meta name="description" content="See how Cass Information Systems automates system reporting and problem resolution with SOA and email solutions.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: var(--white);
+        }
+
+        .hero-left img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            width: 212px;
+        }
+
+        .hero-right {
+            background-color: #001a4d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-right h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+            margin: auto 0;
+        }
+
+        .hero-products {
+            background-color: #001a4d;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            align-self: flex-start;
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .hero-products strong {
+            color: var(--white);
+            font-size: 0.9rem;
+            display: inline;
+            margin-right: 0.5rem;
+        }
+
+        .hero-product-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--white);
+            color: #001a4d;
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid var(--white);
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin: 0.2rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .hero-product-tag:hover {
+            background-color: #001a4d;
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h2.section-heading {
+            color: #000000;
+            font-size: 1.3rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .product-info {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .product-tag {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.7rem;
+            margin-right: 0.3rem;
+            white-space: nowrap;
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 2rem 0;
+            clear: both;
+        }
+
+        .person-image {
+            float: left;
+            margin: 0 0.5rem 1rem 0;
+            text-align: center;
+            width: 100px;
+        }
+
+        .person-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .person-caption {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 0.5rem;
+            text-align: center;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-right h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <img src="./images/Logos/Cass_Information_logo.png" alt="Cass Information Logo">
+        </div>
+        <div class="hero-right">
+            <h1>Automating System Reporting & Problem Resolution with SOA and Email</h1>
+            <div class="hero-products">
+                <strong>Products:</strong>
+                <a href="./PDF/Telemail_Datasheet.pdf" class="hero-product-tag">TeleMail</a>
+                <a href="../TIC Files/Data Sheets/SOAPam.pdf" class="hero-product-tag">SOAPam</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+
+            <p class="subtitle">Cass Information System Interview with Tom Schaper</p>
+
+            <p>Cass Information Systems is the leading provider of expense management for transportation, utility, telecom and waste related business intelligence services. Cass focuses on invoice management and audit and payment services for hundreds of client companies in a variety of industries with innovative solutions for telecom expense management, freight audit and payment and utility cost management.</p>
+
+            <p>Tom Schaper is Cass' Project Manager for Internal Programming and has worked with TIC Software's products and services for several years. In the past, Tom has implemented Web Service Client applications to Web-enable their NonStop server applications - automating payment requests through a browser interface. This is accomplished using SOAPam; a NuWave Technologies web-service product introduced by TIC to Cass. More recently, Tom has added new features and functionality to the Cass system by leveraging more SOAP applications along with TIC's TeleMail email-based report and document distribution system.</p>
+
+            <p>"Here is one example of successful implementation that TIC software brings to Cass," Tom explains. "We pay millions of invoices for large corporations - in excess of a million transactions per week. Each client has its own business rules, and payment terms are driven by contracts with each individual supplier, so the system is very complex and must achieve precise results. Account setup is crucial to getting these results. If there are any errors, it is imperative that they are fed back immediately to our account reps so that things can be corrected before the data is provided to our clients. The window for correction is critical and quite small. We extract dates from various databases and this data feeds other services to calculate payment dates in our scheduling engine; our reps now receive detailed system-generated emails that advise them accordingly."</p>
+
+            <h2>Application Enhancements</h2>
+
+            <p>Tom's goal was to transform the functionality of the Cass payment scheduling engine in three distinct ways:</p>
+
+            <p><strong>1. Modify all web services</strong> to include a user-friendly narrative explaining the entire process that was followed to arrive at the answer to the request. This would be the basis of a dynamic documentation system - a system that would track and report upon itself at each decision point.</p>
+
+            <p><strong>2. Build a tool</strong> that would allow users to click on an invoice and be able to access the story of how the scheduling system arrived at its conclusions as to when and how the bill would process. It would describe the bill's timeline, its methods of payment and funding as well as dozens of key factors that contributed to the decision making.</p>
+
+            <p><strong>3. Build an automated HTML-formatted emailing system</strong> whereby -- as exceptions are detected in the process - customized emails loaded with detailed research would be generated by the system, and sent to those who could correct problems immediately. A resolution section would help the end user take immediate action to correct the problem by offering best practices and summarizing options.</p>
+
+            <p>"To accomplish these goals; we use SOAPam and SOA to automate just about everything in the process. Coupled with that, we use TIC's TeleMail with HTML to create personalized automated emails. The idea is that these emails will contain all research needed so that the client representative can make an informed decision without the need to call IT or lookup anything in the system. The resolution section is intended to lay out the options and corrective action that is needed to quickly address the problem."</p>
+
+            <h2 class="section-heading">Making the Complex Easy for Users</h2>
+
+            <p>The Cass implementation of TIC's technology has resulted in immediate problem resolution, reducing unnecessary emails flowing through the system, and has made for less work for many departments. The applications have also saved a great deal of research time - quickly providing answers to system anomalies and making it very easy to pinpoint logic in the system. Errors are addressed before they can become an issue, and TeleMail provides instant 'letter-like' emails for notification and tracking - making many errors a thing of the past.</p>
+
+            <div class="person-image">
+                <img src="./images/TIC Team/Tom_Schaper.JPG" alt="Tom Schaper">
+                <div class="person-caption">Tom Schaper, Project Manager, Internal Programming</div>
+            </div>
+
+            <p>Tom adds, "Research wastes everyone's time and computers can pull everything together in one place instantaneously. Users are greatly empowered when a complex system explains what it is doing. IT staff are no longer called upon to do tedious research since it is automated. TeleMail coupled with SOA has allowed us to build an email system that brings automated documentation to the person who needs it immediately. The benefits - including reduced errors, less time-consuming research and better informed employees - have allowed Cass to continue to lead the industry in quality and innovation."</p>
+
+            <div class="section-separator"></div>
+
+            <h2>About Cass Information System</h2>
+
+            <p>Cass Information Systems is the leading provider of transportation, utility and telecom expense management and related business intelligence services, disbursing $27 billion annually on behalf of its clients. With total assets approaching $1 billion, Cass is a thriving business process outsourcer focused on invoice processing, auditing and payment services. Cass is uniquely supported by Cass Commercial Bank, founded in 1906. Today, Cass Commercial Bank is a wholly owned subsidiary, providing sophisticated financial exchange services to the parent organization and its clients. For more information visit: www.cassinfo.com.</p>
+
+            <h2>About TIC Software</h2>
+
+            <p>TIC Software has been providing solutions for the HP NonStop platform since 1983 - predominantly in the banking, financial services and health care markets. The firm's dedication to creating innovative solutions and providing responsive services has enabled its clients to best leverage modern technology and optimize productivity.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

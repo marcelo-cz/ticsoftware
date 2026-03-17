@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Thunder - TIC Software</title>
+    <meta name="description" content="JSON Thunder - Enable COBOL, C and TAL programs to work with JSON APIs, convert data formats, and validate JSON messages.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 218px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background-image: url('./images/Products/Modernize/JSON/JSON_Thunder_banner.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 0.5rem 0 0.5rem 0;
+            font-weight: bold;
+        }
+
+        h2:first-of-type {
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .product-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            margin-right: 1rem;
+            transition: all 0.3s;
+        }
+
+        .product-link:hover {
+            background-color: var(--light-blue);
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 1.5rem 0;
+        }
+
+        .contact-title {
+            text-align: left;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .contact-section {
+            padding: 0;
+            text-align: left;
+            margin-top: 0;
+            max-width: 400px;
+        }
+
+        .contact-section p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--dark-text);
+            text-align: left;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .contact-section a:hover {
+            background-color: var(--light-blue);
+        }
+
+        .sticky-datasheet-btn {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .sticky-datasheet-btn:hover {
+            background-color: var(--light-blue);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html" class="active">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>JSON Thunder</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Modernization Through Integration</h2>
+
+            <p>JSON Thunder enables COBOL, C and TAL programs to:</p>
+
+            <ul>
+                <li>Interface with other applications and third-party packages via JSON API's.</li>
+
+                <li>Convert data from formats such as Enscribe and SQL to JSON before porting to platforms such as Azure and AWS.</li>
+
+                <li>Convert JSON received from other applications and platforms to formats such as Enscribe and SQL.</li>
+
+                <li>Validate JSON messages to ensure only well-formed and valid messages are processed.</li>
+            </ul>
+
+            <img src="./images/Products/Modernize/JSON/json_horizontal_chart.png" alt="JSON Horizontal Chart" style="max-width: 50%; height: auto; margin: 1.5rem auto; display: block;">
+
+            <div class="section-separator"></div>
+
+            <h2>Model-Driven Development</h2>
+
+            <p>Using a model-driven development approach, JSON Thunder ensures a faster time to market and the ability to respond to changes quickly. The Thunder toolset provides:</p>
+
+            <ul>
+                <li><strong>A Visual Designer</strong> showing the program field layout, the JSON message layout and the mapping between the two.</li>
+
+                <li><strong>A full life cycle solution</strong> that is used in both development and maintenance.</li>
+
+                <li><strong>Automated generation of error-free source code.</strong></li>
+            </ul>
+
+            <div class="section-separator"></div>
+
+            <h2>Features</h2>
+
+            <p>The code is generated as a sub-program that can be called from existing programs. A sample calling program is provided to assist with developing new programs.</p>
+
+            <ul>
+                <li>High performance solution (not a generic parser!).</li>
+
+                <li>Addresses the complexities of JSON (oneOf, anyOf, allOf, etc.).</li>
+
+                <li>Works with copybooks, header files, JSON schemas, swagger files and more.</li>
+
+                <li>Architecture and platform independent solution.</li>
+
+                <li>Processes messages of any size.</li>
+
+                <li>Easy integration with existing programs.</li>
+            </ul>
+
+            <div class="section-separator"></div>
+
+            <h2>Read and Write JSON Messages in COBOL</h2>
+
+            <p>JSON Thunder generates all the COBOL source code needed to:</p>
+
+            <ul>
+                <li>read JSON messages into COBOL structures.</li>
+
+                <li>create JSON messages from COBOL structures.</li>
+
+                <li>validate JSON messages to ensure only well-formed and valid documents are processed.</li>
+            </ul>
+
+            <p>The code is generated as a COBOL sub-program that can be called from existing COBOL programs. A sample calling program is provided to assist with developing new programs.</p>
+
+            <div class="section-separator"></div>
+
+            <p class="contact-title">Ready to learn more about JSON Thunder? Contact Us for More Information</p>
+
+            <div class="contact-section">
+                <p><a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky Datasheet Button -->
+    <a href="./PDF/JSON Product Overview.pdf" class="sticky-datasheet-btn">📄 Datasheet</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

@@ -232,7 +232,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            margin: 2rem 0;
+            margin: 0.5rem 0 2rem 0;
         }
 
         .about-box h2 {
@@ -241,6 +241,8 @@
             border-bottom: 3px solid var(--primary-blue);
             padding-bottom: 0.75rem;
             color: var(--primary-blue);
+            display: inline-block;
+            width: fit-content;
         }
 
         .about-box p {
@@ -258,6 +260,10 @@
         .about-box .italic-text {
             font-style: italic;
             margin: 1.5rem 0;
+            font-weight: bold;
+            border-top: 2px solid var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding: 1rem 0;
         }
 
         /* Footer */
@@ -302,8 +308,10 @@
                 <div class="nav-dropdown">
                     <a href="index.html#about" class="active">About Us</a>
                     <div class="dropdown-menu">
-                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="who-we-are.html" class="active">Who We Are</a>
                         <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
@@ -314,9 +322,23 @@
                         <a href="modernize.html">Modernize</a>
                     </div>
                 </div>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#resources">Resources</a>
-                <a href="index.html#contact">Contact Us</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
                 <div class="nav-search" style="position: relative;">
                     <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
                     <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
@@ -329,20 +351,20 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-left">
-            <h1>Why Choose TIC Software?</h1>
+            <h1>Who We Are?</h1>
         </div>
         <div class="hero-right"></div>
     </section>
 
     <!-- Who We Are Card -->
     <div class="about-box">
-        <h2>Who We Are</h2>
+        <h2>Why Choose TIC Software?</h2>
         <p>TIC Software is a leading technology product development and consulting services company.</p>
         <p>TIC draws from a rich Nonstop heritage, while focusing simultaneously on modern creative solutions for our clients.</p>
         <p class="italic-text">Through training, custom consulting and product solutions, the TIC Modernization Team continues to set the standard for future proofing Nonstop.</p>
         <p>Committed to always putting the client first, TIC acts as a trusted advisor in providing best of class products - secured through privileged partnerships and/or developed in house - as well as curated support, training, and strategic planning.</p>
         <p>TIC believes in Nonstop's future-facing potential and distinguishes itself by bringing a dynamic sense of innovation into each and every business approach.</p>
-        <a href="#" class="btn">Learn More</a>
+        <a href="ticteam.html" class="btn">TIC Team</a>
     </div>
 
     <!-- Main Content -->
@@ -371,14 +393,14 @@
             <div class="content-section with-button">
                 <h2>TIC & Partners – NonStop Modernization</h2>
                 <p>TIC Software along with our Technology Partners work closely together to offer software and services designed for legacy application modernization. Our comprehensive family of solutions is designed to address the challenges of keeping NonStop and other legacy systems current with ever-evolving "modernization" technology.</p>
-                <a href="#" class="btn">OUR PARTNERS</a>
+                <a href="our-partners.html" class="btn">OUR PARTNERS</a>
                 <div class="separator"></div>
             </div>
 
             <div class="content-section with-button">
                 <h2>TIC Clients – Using Our Modernization Solutions</h2>
                 <p>We've helped hundreds of IT groups at dozens of firms address the challenges, and create and implement the solutions for their legacy application modernization requirements. But you don't have to take our word for it – our work speaks for itself – and we're fortunate to have clients willing to speak for and about us!</p>
-                <a href="#" class="btn">OUR CLIENTS</a>
+                <a href="our-clients.html" class="btn">OUR CLIENTS</a>
             </div>
         </section>
     </main>

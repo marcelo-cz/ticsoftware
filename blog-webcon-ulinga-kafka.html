@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCon's New Features: How uLinga for Kafka Continues to Excel - TIC Software Blog</title>
+    <meta name="description" content="Learn about WebCon's new UI features and how uLinga for Kafka enables NonStop systems to seamlessly integrate with Apache Kafka for real-time data streaming.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .product-emphasis {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px;
+            border-radius: 8px;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px;
+            border-radius: 8px;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>WebCon's New Features: How uLinga for Kafka Continues to Excel</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>March 25, 2025</span>
+                </div>
+                <div class="blog-meta-item">
+                    <span>✍️</span>
+                    <span>Phil Ly</span>
+                </div>
+            </div>
+            <div class="blog-tags">
+                <span class="blog-tag">Messaging</span>
+                <span class="blog-tag">Kafka</span>
+                <span class="blog-tag">Integration</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <p>In today's rapidly evolving data landscape, you as NonStop technical professionals understand the challenges of bridging the gap between your high-availability systems and the diverse ecosystem of contemporary data tools. uLinga for Kafka addresses this precise challenge, providing a robust, reliable bridge between NonStop applications and Apache Kafka's powerful distributed streaming capabilities. With our latest release featuring significant WebCon UI enhancements, we've made it even easier to implement, manage, and monitor these critical integrations while maintaining the performance and reliability your NonStop environments demand.</p>
+
+            <h2>Apache Kafka Overview</h2>
+            <p>Apache Kafka is an open-source distributed streaming system used for stream processing, real-time data pipelines, and data integration at scale. It offers a scalable and fault-tolerant platform for handling large volumes of data, making it ideal for applications requiring immediate insights and high throughput. Kafka's benefits include its ability to handle trillions of messages daily, support for distributed streaming, and a rich set of third-party product connectors for easy integration.</p>
+
+            <h2>uLinga for Kafka</h2>
+            <p>uLinga for Kafka from Infrasoft integrates NonStop applications and data with Kafka, offering robust capabilities in integration and data transformation. This integration enhances real-time data processing and analytics by connecting NonStop systems with Kafka clusters seamlessly.</p>
+
+            <h2>Key Use Cases for uLinga and Kafka</h2>
+            <p>uLinga for Kafka enables NonStop systems to seamlessly integrate with Kafka, unlocking powerful use cases across industries. Here are some examples:</p>
+
+            <ul>
+                <li><strong>Change Data Capture (CDC):</strong> uLinga for Kafka facilitates the capture of changes from NonStop databases and streams them to other data platforms ensuring real-time data synchronization across different systems. This capability is crucial for maintaining data consistency and supporting advanced analytics.</li>
+                <li><strong>Application Integration with Cloud Service and Service Buses:</strong> uLinga for Kafka can integrate NonStop applications with services like Salesforce or Mulesoft, enabling efficient data exchange and workflow automation between diverse systems. This integration enhances interoperability and supports complex business processes.</li>
+                <li><strong>Asynchronous Messaging Interface for E-Commerce Platforms:</strong> By leveraging Kafka's event streaming architecture, uLinga allows NonStop systems to replace traditional synchronous communication with event-driven workflows. This enables real-time updates across order management, inventory tracking, and customer notifications.</li>
+            </ul>
+
+            <h2>Exciting New WebCon UI Features</h2>
+            <p>WebCon is the browser-based user interface included with all uLinga products, designed to simplify resource management and monitoring. It is served directly by the uLinga process running under Guardian, eliminating the need for additional web server software or OSS components.</p>
+
+            <p>WebCon supports all essential uLinga command and control operations, while also offering advanced functionalities for configuration and monitoring. This intuitive interface ensures users can efficiently manage their Kafka integrations without requiring additional tools or complex setups. uLinga for Kafka now offers exciting new features in its WebCon administrative user interface.</p>
+
+            <h3>Traffic Light Status Indicators: Instant Resource Monitoring</h3>
+            <p>A new feature in WebCon includes "traffic light" status indicators, allowing users to instantly identify resources that are started, stopped, or in an abnormal state.</p>
+
+            <ul>
+                <li><strong>Green:</strong> Indicates that the resource is active and functioning normally.</li>
+                <li><strong>Red:</strong> Signals that the resource is stopped or inactive.</li>
+                <li><strong>Yellow:</strong> Highlights resources in an abnormal or warning state, requiring attention.</li>
+            </ul>
+
+            <p>This visual feedback allows administrators to quickly identify which components are running smoothly and which require intervention. It is particularly useful in large, complex configurations involving multiple interconnected resources like producers, consumers, file readers, and data transformers.</p>
+
+            <h3>Resource Configuration Relationships: Visualizing Interconnected Resources</h3>
+            <p>The Resource Configuration Relationships feature, introduced in the V3R2 release of uLinga for Kafka, offers a powerful way to visualize how resources interact within a configuration. This feature provides a graphical representation of resource dependencies, making it easier for administrators to understand and manage complex setups.</p>
+
+            <p>Key benefits of this feature include:</p>
+
+            <ul>
+                <li><strong>Interactive Navigation:</strong> Each resource in the graphic is hyperlinked, allowing users to click through and explore related resources directly. This simplifies troubleshooting and configuration management by enabling quick access to detailed information about interconnected components.</li>
+                <li><strong>Dynamic Adjustments:</strong> The graphic dynamically adjusts based on the resource being viewed. Whether you are examining a producer, consumer, or other resource type, the visualization updates to reflect only relevant relationships.</li>
+                <li><strong>Streamlined Management:</strong> By providing a clear overview of how resources are connected, administrators can ensure consistency across configurations and quickly identify potential issues or misconfigurations.</li>
+            </ul>
+
+            <h2>Data Transformation: Streamlining Data Processing with uLinga</h2>
+            <p>The Data Transformation feature in uLinga for Kafka has been significantly enhanced, making it easier than ever to configure, test, and deploy data transformation processes. This functionality is crucial for organizations that need to convert data formats—such as transforming NonStop fixed-structure data into JSON objects for Kafka topics. The updated WebCon interface provides a streamlined, user-friendly experience.</p>
+
+            <h3>Key Features of the Data Transformation Tab</h3>
+
+            <p><strong>Flexible Configuration Options:</strong> The Data Transformation tab allows users to create or modify data transformation configurations with multiple options:</p>
+
+            <ul>
+                <li>Load from DATATRANSFORMER Resource: Retrieve existing configurations directly from a DATATRANSFORMER resource.</li>
+                <li>Generate from Schema: Automatically generate a configuration using NonStop DDL definitions or other schema formats.</li>
+                <li>Create from Scratch: Build a new configuration manually, offering complete flexibility for custom use cases.</li>
+            </ul>
+
+            <p>Users can easily select their preferred method and begin configuring their data transformations with just a few clicks.</p>
+
+            <p><strong>Intuitive Mapping Interface:</strong> The mapping interface provides a clear layout for defining input-to-output transformations. Users can map fields between input data structures (e.g., Enscribe files or binary formats) and output formats (e.g., JSON). Each mapping is displayed in an organized table, allowing users to quickly identify and adjust mappings as needed.</p>
+
+            <p><strong>Preview Data Transformation:</strong> One of the most powerful enhancements is the Preview Data Transformation feature, which allows users to test their configurations with real data before deploying them. Input data can be provided in raw text or retrieved directly from an Enscribe file on the NonStop host. The preview displays transformed output in real time, helping users validate their configurations.</p>
+
+            <p><strong>Benefits of Enhanced Data Transformation:</strong></p>
+
+            <ul>
+                <li>Efficiency: Automates complex data conversion tasks, reducing manual effort.</li>
+                <li>Accuracy: Real-time previews help eliminate errors before deployment.</li>
+                <li>Flexibility: Supports various input/output formats and custom mapping requirements.</li>
+                <li>Integration: Simplifies interoperability between NonStop systems and modern platforms like Kafka.</li>
+            </ul>
+
+            <h2>Success Story: US Foods and uLinga for Kafka</h2>
+            <p>In the January-February 2025 issue of Connection Magazine, Dale Hiatt highlighted <a href="https://connect2nonstop.com/us-foods-utilizes-ulinga-for-kafka-to-access-the-kafka-cloud/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">US Foods' implementation of uLinga for Kafka</a>, demonstrating the power and flexibility of integrating NonStop systems with modern event streaming platforms. By leveraging Kafka Producers and Consumers, US Foods has streamlined workflows, enabled real-time data processing, and achieved seamless communication between legacy systems and cloud-based applications. Their use of uLinga's Data Transformer to convert fixed-structure data into JSON messages has further enhanced their ability to publish and consume data efficiently.</p>
+
+            <h2>Conclusion</h2>
+            <p>These uLinga for Kafka enhancements and success stories reflect Infrasoft's commitment to delivering user-driven improvements that address real-world needs. With uLinga for Kafka, technical managers can rely on a reliable and adaptable tool for their Kafka integration requirements, knowing that Infrasoft is dedicated to excellence and continuous innovation based on customer feedback.</p>
+
+            <p><strong>Read More Blogs:</strong></p>
+            <ul>
+                <li><a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">How to Aggregate NonStop Logs to Kafka in One Simple Step</a></li>
+                <li><a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">NonStop Integration – LogWatch and uLinga</a></li>
+                <li><a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Kafka and HPE NonStop - A Perfect Combo</a></li>
+            </ul>
+        </div>
+
+        <a href="blog.html" class="back-button">← Back to Blog</a>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
+
+        <div class="feedback-section">
+            <h3>Feedback Please</h3>
+            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+        <div class="company-section">
+            <img src="../ticsoftwareAI/images/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <p class="company-text">Phil Ly is the president of TIC Software, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
+            <div style="clear: both;"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

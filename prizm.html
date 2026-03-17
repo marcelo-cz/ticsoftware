@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prizm Gateway - TIC Software</title>
+    <meta name="description" content="Prizm Gateway - The Nonstop-based gateway for all APIs. Enable, maintain, monitor, and secure all API connections throughout the entire enterprise.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 0.5rem 0 0.5rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item {
+            padding: 0.75rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .feature-item strong {
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 1rem 0;
+        }
+
+        .contact-title {
+            text-align: left;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .contact-section {
+            padding: 0;
+            text-align: left;
+            margin-top: 0;
+            max-width: 400px;
+        }
+
+        .contact-section p {
+            font-size: 0.9rem;
+            margin: 0;
+            text-align: left;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .contact-section a:hover {
+            background-color: var(--light-blue);
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tabbed Interface */
+        .tabs-container {
+            margin: 2rem 0;
+            border: 2px solid var(--primary-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: var(--white);
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            transition: all 0.3s;
+        }
+
+        .tab-button:hover {
+            color: var(--primary-blue);
+            background-color: #e8e8e8;
+        }
+
+        .tab-button.active {
+            color: var(--white);
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .tabs-content {
+            padding: 0;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tab-pane h3 {
+            margin-top: 0;
+        }
+
+        .tab-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .tab-content-image {
+            text-align: center;
+        }
+
+        .tab-content-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid var(--border-gray);
+        }
+
+        .tab-content-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        .blog-link:hover {
+            background-color: var(--light-blue);
+        }
+
+        /* Sticky Datasheet Button */
+        .sticky-datasheet-btn {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .sticky-datasheet-btn:hover {
+            background-color: var(--light-blue);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Prizm<br>Gateway</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/Products/Gateway/Prizm_Banner.png');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>The Nonstop-based Gateway for All APIs</h2>
+
+            <p>APIs have become critical components of enterprise infrastructure and application architecture. Prizm Gateway™ makes it easy for users to enable, maintain, monitor, and secure all API connections throughout the entire enterprise.</p>
+
+            <p>API's act as entry points for applications to access data from your backend services. With Prizm Gateway™, users can connect all of their RESTful APIs to enable real-time communication management for applications.</p>
+
+            <p>Prizm Gateway™ routes all API calls through a single point of entry while enabling traffic management, denial of service (DoS) protection, authorization, and access control, service deployment, load balancing, and monitoring.</p>
+
+            <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+                <img src="./images/Products/Gateway/Prizm_Gateway_chart.png" alt="Prizm Gateway Chart" style="max-width: 60%; height: auto; border-radius: 8px; border: 2px solid var(--primary-blue); padding: 8px;">
+            </div>
+
+            <div class="section-separator"></div>
+
+            <h2>Core Benefits</h2>
+
+            <p>Prizm Gateway™ takes API calls from any client, determines which services are needed to fulfill requests, and routes the requests to the appropriate backend service to provide a unified, secure seamless experience for the API provider and consumer.</p>
+
+            <p><strong>Single Point of Entry</strong> - Prizm Gateway™ provides a single point of entry for all APIs and provides added security and management simplicity for enterprise applications.</p>
+
+            <p><strong>Web-based Graphical Interface</strong> - The Prizm Gateway™ Console is easy to use and provides comprehensive management of the entire set of features. This allows for a short learning curve resulting in less time and money spent getting users up-to-speed.</p>
+
+            <div class="section-separator"></div>
+
+            <h2>Nonstop Fundamentals</h2>
+
+            <p><strong>Guardian-based</strong> - No need to have OSS, or any additional software installed. Much simpler installation and management for Nonstop environments.</p>
+
+            <p><strong>Fault-tolerant</strong> - Eliminates the risk of downtime with hardware that is dual redundant everything, and system and application software that is robust and self-healing. The goal of every Nonstop developer is "no single point of failure".</p>
+
+            <div class="section-separator"></div>
+
+            <h2>Key Features</h2>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <strong>Authentication Options</strong>
+                    <p>Flexible authentication options to fit your needs</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Load Balancing</strong>
+                    <p>Distribute traffic across multiple services</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Canary Deployment</strong>
+                    <p>Safely deploy new service versions</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Logging & Diagnostics</strong>
+                    <p>Comprehensive monitoring and troubleshooting</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Connection Count Limiting</strong>
+                    <p>Control resource usage and prevent overload</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Management CLI</strong>
+                    <p>Command-line interface for advanced management</p>
+                </div>
+                <div class="feature-item">
+                    <strong>DoS Protection</strong>
+                    <p>Protect against denial of service attacks</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Rate Limiting</strong>
+                    <p>Control request rates to protect services</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Fault Tolerant & Scalable</strong>
+                    <p>Built on Nonstop reliability principles</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Request Size Limiting</strong>
+                    <p>Prevent processing of oversized requests</p>
+                </div>
+                <div class="feature-item">
+                    <strong>IP Address Restriction</strong>
+                    <p>Control access by source IP</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Web-based GUI</strong>
+                    <p>Easy-to-use graphical user interface</p>
+                </div>
+            </div>
+
+            <!-- Tabbed Interface -->
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="dos-protection">DOS Protection</button>
+                    <button class="tab-button" data-tab="load-balancing">Load Balancing</button>
+                    <button class="tab-button" data-tab="canary-deployment">Canary Deployment</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="dos-protection">
+                        <div class="tab-content-grid">
+                            <div class="tab-content-image">
+                                <img src="./images/Products/Gateway/DOS_protection.png" alt="DOS Protection">
+                            </div>
+                            <div class="tab-content-text">
+                                <p>To provide protection against this threat we can configure to gateway to "rate limit" requests to a service. (transition)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="load-balancing">
+                        <div class="tab-content-grid">
+                            <div class="tab-content-image">
+                                <img src="./images/Products/Gateway/Load_Balancing.png" alt="Load Balancing">
+                            </div>
+                            <div class="tab-content-text">
+                                <p>The software automatically distributes incoming requests over multiple backend servers to distribute the request load.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="canary-deployment">
+                        <div class="tab-content-grid">
+                            <div class="tab-content-image">
+                                <img src="./images/Products/Gateway/Canary_Deployment.png" alt="Canary Deployment">
+                            </div>
+                            <div class="tab-content-text">
+                                <p>Canary deployment, is a technique used to stage the release of a new version of a backend service.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Partner Blog: The Best of Nonstop Integration Is Just Getting Started</h2>
+
+            <p>APIs have seen fast growth and adoption for many years now; as of 2020, it was estimated that there are over 24,000 APIs in use, just in the financial industry. While the number of APIs used is increasing, the more important statistic is the value these APIs bring to businesses.</p>
+
+            <a href="https://connect2nonstop.com/nuwave-prizm-gateway-the-best-of-nonstop-integration-is-just-getting-started/" class="blog-link" target="_blank">📰 Read Blog</a>
+
+            <p class="contact-title">Ready to learn more about how Prizm Gateway can transform your API infrastructure? Contact Us for More Information</p>
+
+            <div class="contact-section">
+                <p><a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a></p>
+            </div>
+        </section>
+
+        <!-- Sticky Datasheet Button -->
+        <a href="./PDF/Prizm_Datasheet.pdf" class="sticky-datasheet-btn">📄 Datasheet</a>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+    <script>
+        // Tabbed Interface functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and panes
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding pane
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

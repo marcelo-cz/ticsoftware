@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC News - Page 2 - TIC Software</title>
+    <meta name="description" content="Stay updated with TIC News - covering current and future events at TIC Software, new team members, and partnerships.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 280px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('./images/TIC_News.jpg') center/cover no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0.5rem 0 2rem 0;
+        }
+
+        section:first-of-type {
+            padding: 0.25rem 0 0.5rem 0;
+        }
+
+        h1.news-intro {
+            font-size: 1.2rem;
+            color: #000000;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.8;
+            margin: 0.25rem auto 0.25rem auto;
+            padding: 0;
+            max-width: 800px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .news-card:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+
+        .news-card-date {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .news-card h3 {
+            font-size: 1.1rem;
+            margin: 0 0 1rem 0;
+            line-height: 1.5;
+            color: var(--primary-blue);
+        }
+
+        .news-card p {
+            flex-grow: 1;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .news-card a.read-more {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.75rem;
+            width: fit-content;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .news-card a.read-more:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+        .news-card a.read-more + a.read-more {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .news-status {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #666;
+            background-color: #f0f0f0;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            margin-bottom: 0.75rem;
+            font-weight: bold;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-gray);
+        }
+
+        .pagination a, .pagination span {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .pagination a:hover {
+            background-color: var(--light-blue);
+        }
+
+        .pagination span {
+            background-color: #ccc;
+            cursor: default;
+        }
+
+        @media (max-width: 1024px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 2rem;
+            }
+
+            .hero-right {
+                height: 300px;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>TIC News</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h1 class="news-intro">Older News & Archive</h1>
+        </section>
+
+        <!-- News Grid -->
+        <section>
+            <div class="news-grid">
+                <!-- Card 1 -->
+                <div class="news-card">
+                    <div class="news-card-date">August 2024 (Great Neck, NY)</div>
+                    <h3>TIC Talk Issue 9</h3>
+                    <p>On this issue, we're focused on TBC 2024. To find out everything that will take place and TIC's involvement, click the link below.</p>
+                    <a href="https://shoutout.wix.com/so/d9P6GEG7o?languageTag=en" class="read-more" target="_blank">Read TIC Talk</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="news-card">
+                    <div class="news-card-date">June 2024 (Great Neck, NY)</div>
+                    <h3>Webinar</h3>
+                    <p>We will discuss how NonStop applications can interface with Kafka and leverage its many benefits using uLinga for Kafka. In this webinar, you will learn about What is Kafka, Kafka Basics, features and benefits, and Use Cases.</p>
+                    <span class="news-status">Webinar Passed</span>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="news-card">
+                    <div class="news-card-date">May 2024 (Great Neck, NY)</div>
+                    <h3>JSON</h3>
+                    <p>JSON Thunder enables COBOL programs to read and write JSON documents so they can exchange data in JSON format with other applications and companies, use JSON messages to call web services, and create JSON APIs for COBOL programs.</p>
+                    <a href="#" class="read-more" target="_blank">Learn More</a>
+                    <a href="./PDF/JSON Product Overview.pdf" class="read-more" target="_blank">Datasheet</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="news-card">
+                    <div class="news-card-date">May 2024 (Great Neck, NY)</div>
+                    <h3>New York Tandem User Group</h3>
+                    <p>We extend our gratitude to everyone who joined TIC Software as we celebrated Tandem's golden anniversary. TIC Software CEO Phil Ly discussed Tandem's 50-year milestone and how TIC Software can assist in modernizing your NonStop environment.</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="news-card">
+                    <div class="news-card-date">April 2024 (Great Neck, NY)</div>
+                    <h3>S3Utils™: Data Transfer for HPE NonStop and AWS Storage</h3>
+                    <p>Easily transfer data between your Native NonStop Applications and your Enterprise cloud AWS Simple Storage Server (S3). Since the introduction of AWS S3, S3 compatible object services have become highly popular across major cloud services.</p>
+                    <a href="#" class="read-more" target="_blank">Learn More</a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="news-card">
+                    <div class="news-card-date">April 2024 (Great Neck, NY)</div>
+                    <h3>WEBINAR: Transforming Connectivity: A Deep Dive into LightWave Client™ and LightWave Server™</h3>
+                    <p>Thank you for joining us and taking part of our latest webinar. A recording of the webinar will be available soon. If you would like more details, don't hesitate to contact us.</p>
+                    <span class="news-status">Webinar Passed</span>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
+                <!-- Featured Article: LogWatch Blog -->
+                <!-- Card 7 -->
+                <div class="news-card">
+                    <div class="news-card-date">March 2024 (Great Neck, NY)</div>
+                    <h3>Blog: Building a Web Interface to a centralized view of Application Logs with LogWatch</h3>
+                    <p>Managing and analyzing log data proved inefficient due to the sheer volume and dispersion of log files across various services and applications. Locating specific entries often necessitated time-consuming manual searches through individual log files.</p>
+                    <a href="#" class="read-more" target="_blank">Read Blog</a>
+                    <a href="#" class="read-more" target="_blank">LogWatch</a>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="news-card">
+                    <div class="news-card-date">March 2024 (Great Neck, NY)</div>
+                    <h3>TIC Talk Issue 8</h3>
+                    <p>Spring is here and so it's TIC Talk. In this issue we talk about TIC and Nuwaves upcoming webinar. Our latest blog and where we'll be in the upcoming User Group Meetings.</p>
+                    <a href="https://shoutout.wix.com/so/2fOvsOeGP?languageTag=en" class="read-more" target="_blank">Read TIC Talk</a>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="news-card">
+                    <div class="news-card-date">March 2024 (Great Neck, NY)</div>
+                    <h3>LogWatch</h3>
+                    <p>LogWatch monitors application log files to provide real time detection of errors and raise alerts to facilitate quick resolution. When an anomaly is detected, LogWatch raises alert to notify team members via email, text, VHS or file records.</p>
+                    <a href="#" class="read-more" target="_blank">Learn More</a>
+                    <a href="#" class="read-more" target="_blank">FAQ</a>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="news-card">
+                    <div class="news-card-date">March 2024 (Great Neck, NY)</div>
+                    <h3>NonStop Training</h3>
+                    <p>Do you need to bring in a new team member that doesn't know Tandem? We can help! By providing customized training, we get your new member productive on the Tandem in a matter of days. We can explain new technologies such as Web Services, Cloud, and Security.</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="news-card">
+                    <div class="news-card-date">February 2024 (Great Neck, NY)</div>
+                    <h3>Kafka Webinar: NonStop demo using uLinga from infraSoft</h3>
+                    <p>Due to popular demand, we will be presenting another Webinar in February. In this upcoming webinar, we are adding a new section to demo NonStop publishing and consuming data to and from Kafka topics. Learn about Kafka Basics, features, benefits, and Use Cases.</p>
+                    <span class="news-status">Webinar Passed</span>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="news-card">
+                    <div class="news-card-date">February 2024 (Great Neck, NY)</div>
+                    <h3>TIC Talk Issue 7</h3>
+                    <p>We're excited to kick off 2024 with our first newsletter of the year. In the coming months, we will share more about our projects, events, and news. In this issue we have info about our upcoming webinar, upcoming group meetings events and more.</p>
+                    <a href="https://shoutout.wix.com/so/a4OrW_VrF?languageTag=en" class="read-more" target="_blank">Read TIC Talk</a>
+                </div>
+
+                <!-- Card 13 -->
+                <div class="news-card">
+                    <div class="news-card-date">January 2024 (Great Neck, NY)</div>
+                    <h3>uLinga For Kafka. A Different Approach</h3>
+                    <p>uLinga for Kafka allows your NonStop applications and data sources to be completely integrated with Kafka. uLinga takes a unique approach to Kafka integration: it runs as a natively compiled Guardian process pair, and supports the Kafka communications protocols directly over TCP/IP.</p>
+                    <a href="#" class="read-more" target="_blank">Learn More</a>
+                </div>
+
+                <!-- Card 14 -->
+                <div class="news-card">
+                    <div class="news-card-date">January 2024 (Great Neck, NY)</div>
+                    <h3>Webinar: A Tutorial of Kafka and NonStop Use Cases</h3>
+                    <p>Thank you for registering for the webinar! Learn about what Kafka is, and the benefits it can bring to many different use cases. Discover the world of Kafka connectors, ready-to-use components that enable your applications to integrate with SQL Server, Oracle, AWS, Azure, Salesforce, and many other systems.</p>
+                    <span class="news-status">Webinar Passed</span>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pagination -->
+        <section>
+            <div class="pagination">
+                <a href="tic-news.html">← Previous Page</a>
+                <span>Page 2</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

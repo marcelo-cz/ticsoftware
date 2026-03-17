@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHC Success Story - TIC Software</title>
+    <meta name="description" content="See how Intermountain Health Care integrates fax with mainframe systems using TIC and Biscom solutions.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: var(--white);
+        }
+
+        .hero-left img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            width: 212px;
+        }
+
+        .hero-right {
+            background-color: #001a4d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-right h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: bold;
+            margin: auto 0;
+        }
+
+        .hero-products {
+            background-color: #001a4d;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            align-self: flex-start;
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .hero-products strong {
+            color: var(--white);
+            font-size: 0.9rem;
+            display: inline;
+            margin-right: 0.5rem;
+        }
+
+        .hero-product-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--white);
+            color: #001a4d;
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid var(--white);
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin: 0.2rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .hero-product-tag:hover {
+            background-color: #001a4d;
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .product-info {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .product-tag {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.7rem;
+            margin-right: 0.3rem;
+            white-space: nowrap;
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-right h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <img src="./images/Logos/ihc_logo.jpg" alt="Intermountain Health Care Logo">
+        </div>
+        <div class="hero-right">
+            <h1>TIC/Biscom help Intermountain Health Care Integrate Fax with Mainframe System</h1>
+            <div class="hero-products">
+                <strong>Products:</strong>
+                <a href="./PDF/Telemail_Datasheet.pdf" class="hero-product-tag">TeleMail</a>
+                <a href="./PDF/TeleFax_Datasheet.pdf" class="hero-product-tag">TeleFax</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+
+            <p class="subtitle">Integrating Fax and Mainframe Systems for Healthcare Information Delivery</p>
+
+            <p>Intermountain Health Care (IHC) is a network of community hospitals and clinics throughout Utah. Many of their mission-critical clinical and IT systems are developed in-house, but when it was time to automate the faxing of radiology results to affiliate physicians, they turned to the experts at Transaction Innovation Corporation (TIC) and (longtime business partner) Biscom to address the issue.</p>
+
+            <p>Bryce Thompson is a clinical system technical analyst for IHC, and it is his responsibility to evaluate and implement new IT resources for the organization. Bryce must take into account the cost conscious yet responsive environment that pervades IHC when choosing new technologies to employ. In this case, when looking for a solution for faxing radiology reports and transcription annotations from radiologists to physicians, he was searching for a system that would be extremely reliable and cost-effective.</p>
+
+            <p>After examining the options on the market, IHC chose the TIC/Biscom solution due to its HP NonStop Server Computer integration, Federal Government Health Information Privacy and Accountability Act (HIPAA) patient privacy compliance, system reliability and fax document image quality. They also quickly discovered that integration of the system into the daily routine of their users was seamless, thereby increasing productivity while at the same time further decreasing the time required to get important healthcare information into physicians hands.</p>
+
+            <p>"Our previous fax system wasn't as responsive and there were fax queuing (transmitting backlog) issues," explained Thompson. "Our new TIC/Biscom solution is a lot faster – there are virtually no fax queuing backlogs, even though we've increased our outbound fax volume. Plus, the fax activity log exports right into Microsoft Excel for easy fax traffic monitoring and verification."</p>
+
+            <p>IHC's 15,000 fax users currently send approximately 3,000 faxes per day. Now, with the new TIC/FAXCOM solution implementation, they've cut their fax transmission time in half, enabling a greater volume of healthcare information to flow more efficiently and better serve their physicians and ultimately, their patients.</p>
+
+            <p>"Another plus, with the new solution over the old, is the greatly reduced monitoring required," continued Thompson. "The previous fax system had to be very closely monitored to ensure system continuity. That is a thing of the past with the new servers; they just run and run."</p>
+
+            <p>Biscom's FAXCOM Servers are industry-leading enterprise fax management solutions. Transaction Innovation provides software integration of FAXCOM fax servers in the HP NonStop Server environment. TIC worked with IHC to assist with the integration of Biscom's FAXCOM fax server with their HP NonStop Server system to enable automated outbound faxing of clinical data to physicians.</p>
+
+            <p>Another recent innovation in communications that hospitals have employed is the method by which patient prescriptions are handled. By using an integrated hospital administrative system, such as GE, or as is the case with IHC, an in-house solution; doctors are able to fax prescriptions to the patients' pharmacy of choice before they even leave the hospital. TIC is able to seamlessly integrate the administrative system with the FAXCOM Server no matter if the healthcare provider is using an off-the-shelf system, or has developed a custom solution.</p>
+
+            <p>Biscom and TIC are proud to be part of the healthcare information management and delivery solution for Intermountain Health Care. We wish them continued success!</p>
+
+            <div class="section-separator"></div>
+
+            <h2>About Intermountain Health Care</h2>
+
+            <p>Intermountain Health Care (IHC) was created in 1975 through the donation of 15 community hospitals by the Church of Jesus Christ of Latter-day Saints, which had founded the facilities. IHC was conceived to be the governing body of the healthcare system as a charitable, nonprofit non-denominational organization. Today, IHC member hospitals number 21 with more than 2,500 physician affiliates. In addition to hospitals, IHC created a network of physician clinics called IHC Health Centers. Most residents in the communities served by IHC are within a 15-minute drive of an IHC-affiliated physician. Health services are provided from more than 150 IHC facilities and physician offices.</p>
+
+            <h2>About Biscom</h2>
+
+            <p>Since 1986, Biscom has been widely recognized for its pioneering advances in the technology of enterprise fax management. Biscom provides software-based and complete turnkey information technology systems to some of the world's leading companies. The company's FAXCOM servers provide enterprise-wide solutions that are reliable, scalable and flexible.</p>
+
+            <h2>About TIC Software</h2>
+
+            <p>TIC Software has been providing solutions for the HP NonStop platform since 1983 - predominantly in the banking, financial services and health care markets. The firm's dedication to creating innovative solutions and providing responsive services has enabled its clients to best leverage modern technology and optimize productivity.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

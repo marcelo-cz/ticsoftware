@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3Utils - TIC Software</title>
+    <meta name="description" content="S3Utils - Data transfer for HPE Nonstop and AWS Storage. Easily transfer data between your Native Nonstop Applications and your Enterprise cloud AWS S3.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 140px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: var(--white);
+        }
+
+        .hero-left img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            width: 150px;
+        }
+
+        .hero-right {
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 0.5rem 0 0.5rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .product-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            margin-right: 1rem;
+            transition: all 0.3s;
+        }
+
+        .product-link:hover {
+            background-color: var(--light-blue);
+        }
+
+        .section-separator {
+            border-top: 2px solid var(--primary-blue);
+            margin: 1rem 0;
+        }
+
+        .contact-title {
+            text-align: left;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .contact-section {
+            padding: 0;
+            text-align: left;
+            margin-top: 0;
+            max-width: 400px;
+        }
+
+        .contact-section p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--dark-text);
+            text-align: left;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .contact-section a:hover {
+            background-color: var(--light-blue);
+        }
+
+        .blog-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        .blog-link:hover {
+            background-color: var(--light-blue);
+        }
+
+        /* Sticky Datasheet Button */
+        .sticky-datasheet-btn {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .sticky-datasheet-btn:hover {
+            background-color: var(--light-blue);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tabbed Interface */
+        .tabs-container {
+            margin: 2rem 0;
+            border: 2px solid var(--primary-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: var(--white);
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            transition: all 0.3s;
+        }
+
+        .tab-button:hover {
+            color: var(--primary-blue);
+            background-color: #e8e8e8;
+        }
+
+        .tab-button.active {
+            color: var(--white);
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .tabs-content {
+            padding: 0;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tab-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .tab-content-text {
+            padding-right: 1rem;
+        }
+
+        .tab-content-text ul {
+            margin-left: 1.5rem;
+        }
+
+        .tab-content-image {
+            text-align: center;
+        }
+
+        .tab-content-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .hero-title {
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .wrapped-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 200px;
+        }
+
+        .wrapped-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <img src="./images/Products/Gateway/S3utils/S3Utils_Logo.png" alt="S3Utils Logo">
+        </div>
+        <div class="hero-right" style="background-image: url('./images/Products/Gateway/S3utils/s3utils_NuWave.jpg');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2 class="hero-title">Data Transfer for HPE Nonstop and AWS Storage</h2>
+
+            <p class="hero-subtitle">Easily transfer data between your Native Nonstop Applications and your Enterprise cloud AWS Simple Storage Server (S3)</p>
+
+            <div class="wrapped-image">
+                <img src="./images/Products/Gateway/S3utils/S3_Logo.webp" alt="AWS S3 Logo">
+            </div>
+
+            <p>Since the introduction of AWS Simple Storage Service (S3), S3 compatible object services have become highly popular, with each of the major cloud services providing S3 compatible storage, and a number of "S3 only" storage services also available.</p>
+
+            <p>These services provide low cost, durable storage, and are used for both archiving of file data and transferring data to other parties or services. However, while there are a number of utilities available to integrate with S3 object storage, none are available in HPE Nonstop Server Guardian environment. Of those that may be available in the OSS environment, none support online transaction processing (OLTP), the model used by most Nonstop Server applications.</p>
+
+            <div style="clear: both;"></div>
+
+            <div class="section-separator"></div>
+
+            <h2>S3 Integration made easy</h2>
+
+            <p>The S3COM utility provides a command line interface to S3 storage which is compatible with the Guardian COM program model. This allows the program to be driven by batch scripts written in TACL. After some simple configuration, customers can begin reading and writing data directly to S3 storage. The utility also provides the ability to list, delete, or move objects within the object store.</p>
+
+            <p>The S3SERV process can be deployed as a standalone server or TS/MP serverclass and provides integration with S3 object storage services via a simple IPM based application programming interface. This allows existing or new Nonstop applications to integrate with S3 storage as part of their online transaction processing.</p>
+
+            <div class="section-separator"></div>
+
+            <h2>Core Benefits</h2>
+
+            <p>S3UTILS leverages years of experience of our team with REST, Nonstop, and AWS environments to present a solution that does the heavy lifting of integration of AWS with HPE Nonstop based applications.</p>
+
+            <p><strong>Benefits include:</strong></p>
+            <ul>
+                <li>Modernize programmatic access to existing enterprise applications</li>
+                <li>Respond faster to changing business demands</li>
+                <li>Securely transact business with partners and customers using AWS</li>
+                <li>Integrate with internal and external third-party application</li>
+            </ul>
+
+            <p>Leverage the data and functionality of existing Nonstop applications and increase revenue potential through introduction of new business services and expansion of existing ones.</p>
+
+            <div class="section-separator"></div>
+
+            <h2>Potential Uses</h2>
+
+            <ul>
+                <li>Backup data to inexpensive and durable S3 storage.</li>
+                <li>Export Nonstop data to AWS services such as Glue, Redshift, Athena, or Quicksight via S3</li>
+                <li>Exchange data with Business Partners</li>
+            </ul>
+
+            <div class="section-separator"></div>
+
+            <h2>Nonstop Fundamentals</h2>
+
+            <p><strong>Guardian-based</strong> - No need to run OSS, or to have any additional software installed. Much simpler installation and management for Nonstop environments.</p>
+
+            <p><strong>Fault tolerant</strong> - Eliminates the risk of downtime with hardware that is dual redundant everything, and system and application software that is robust and self healing. The goal of every Nonstop developer is "no single point of failure".</p>
+
+            <div class="section-separator"></div>
+
+            <h2>Strategic Advantages</h2>
+
+            <ul>
+                <li>Securely exchange data with partners and customers through AWS S3 as a trusted medium</li>
+                <li>Adapt to business partners using AWS connectivity, without costly software development</li>
+                <li>Expand business offerings to increase market share</li>
+                <li>Facilitate incremental migration to modern, standards-based technology</li>
+            </ul>
+
+            <div class="section-separator"></div>
+
+            <h2>Financial Advantages</h2>
+
+            <ul>
+                <li>Extend the value of your Nonstop applications and data</li>
+                <li>Position your IT organization to adopt new technology with minimal effort</li>
+            </ul>
+
+            <div class="section-separator"></div>
+
+            <h2>Key Features</h2>
+
+            <!-- Tabbed Interface -->
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="nonstop-fundamentals">NonStop Fundamentals</button>
+                    <button class="tab-button" data-tab="performance-monitoring">Performance Monitoring</button>
+                    <button class="tab-button" data-tab="rapid-development">Rapid Development</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="nonstop-fundamentals">
+                        <div class="tab-content-grid">
+                            <div class="tab-content-text">
+                                <ul>
+                                    <li>Runs in Guardian</li>
+                                    <li>Available on TNS/E and TNS/X systems</li>
+                                    <li>Fault-tolerant</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content-image">
+                                <img src="./images/Products/Gateway/S3utils/S3Utils_Logo.png" alt="NonStop Fundamentals">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="performance-monitoring">
+                        <div class="tab-content-grid">
+                            <div class="tab-content-text">
+                                <ul>
+                                    <li>EMS Process event logging</li>
+                                    <li>Diagnostic logging</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content-image">
+                                <img src="./images/Products/Gateway/S3utils/S3Utils_Logo.png" alt="Performance Monitoring">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="rapid-development">
+                        <div class="tab-content-grid">
+                            <div class="tab-content-text">
+                                <ul>
+                                    <li>Standards-based (TLS/AWS S3)</li>
+                                    <li>Easy to use</li>
+                                    <li>Rapid AWS Simple Storage Service (S3) integration</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content-image">
+                                <img src="./images/Products/Gateway/S3utils/S3Utils_Logo.png" alt="Rapid Development">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="contact-title">Ready to learn more about how S3Utils can transform your data transfer strategy? Contact Us for More Information</p>
+
+            <div class="contact-section">
+                <p><a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky Datasheet Button -->
+    <a href="./PDF/S3Utils_Datasheet.pdf" class="sticky-datasheet-btn">📄 Datasheet</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+    <script>
+        // Tabbed Interface functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and panes
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding pane
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
