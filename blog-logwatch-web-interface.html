@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a Web Interface to a Centralized View of Application Logs with LogWatch - TIC Software Blog</title>
+    <meta name="description" content="Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.1rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .product-emphasis {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px;
+            border-radius: 8px;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px;
+            border-radius: 8px;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Building a Web Interface to a Centralized View of Application Logs with LogWatch</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Blog Header -->
+    <div style="max-width: 1200px; margin: 0 auto; padding: 2rem; border-bottom: 2px solid var(--border-gray); margin-bottom: 0;">
+        <div style="display: flex; gap: 2rem; font-size: 0.95rem; color: #666; flex-wrap: wrap;">
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span>📅</span>
+                <span>Mar 18, 2024</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                <span>Phil Ly</span>
+            </div>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+            <span style="display: inline-block; padding: 0.35rem 0.75rem; background-color: var(--light-gray); color: var(--primary-blue); font-size: 0.75rem; border-radius: 20px; font-weight: 600; text-transform: uppercase;">LogWatch</span>
+            <span style="display: inline-block; padding: 0.35rem 0.75rem; background-color: var(--light-gray); color: var(--primary-blue); font-size: 0.75rem; border-radius: 20px; font-weight: 600; text-transform: uppercase;">Monitoring</span>
+            <span style="display: inline-block; padding: 0.35rem 0.75rem; background-color: var(--light-gray); color: var(--primary-blue); font-size: 0.75rem; border-radius: 20px; font-weight: 600; text-transform: uppercase;">Nonstop</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-content">
+            <p>Managing and analyzing log data proved inefficient due to the sheer volume and dispersion of log files across various services and applications. Locating specific entries often necessitated time-consuming manual searches through individual log files.</p>
+
+            <p>TIC LogWatch is a Nonstop application log monitoring product that detects anomalies and raises alerts to enable proactive handling of errors. LogWatch is relevant in many different use cases, including monitoring EMS logs, 3rd party products like TIC's TeleMail, NuWave product logs, comforte's Escarps logs, and many others. One of our LogWatch users shares how he has built a useful Web interface to view his application logs easily, including EMS and TIC TeleMail.</p>
+
+            <h2>Overview</h2>
+            <p>The idea for this application was to create an easy way for our development team to find log files quickly and easily all in a single place. The application allows the user to pick a log file from the list and it would simply display as much data from the log as could be read in just 10 seconds. The most recent events are always on top. As you scroll down, you can click to see more data. You can even specify a starting date/time in the text box at the top. This will allow you to quickly jump to the logs several days in the past. Built-in filtering allows the user to see only lines that contain keywords.</p>
+
+            <h2>Steps</h2>
+
+            <h3>LogWatch and Log Data</h3>
+            <ul>
+                <li>I use LogWatch to pull information from EMS and Telemail logs then write them to a single multi-purpose log file.</li>
+                <li>The logfile key is an application ID plus the date/time to the millisecond.</li>
+                <li>Then the LOG data can be a long string of text or any number of delimited fields to be displayed.</li>
+                <li>The delimiters allow data to be presented in a web grid with headings.</li>
+            </ul>
+
+            <h3>Custom COBOL Programs</h3>
+            <ul>
+                <li>This log application has a small config file that identifies the log ID, Title, Headings, and log retention period so that the logs will be constantly trimmed according to retention needed.</li>
+                <li>An additional Log service was built to allow all other applications to write to this log file in a simple way using as few lines of code as possible.</li>
+                <li>Another service was built to feed data to a web application that displays these logs using a straightforward interface.</li>
+            </ul>
+
+            <h2>Result</h2>
+            <p>A browser-based GUI that allows easy access to application logs, organized in a standard easy-to-understand format. For example, developers can point and click to view EMS logs for the past 90 days or to view TeleMail errors for the past 60 days.</p>
+
+            <img src="./images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="System and Application Logs Interface" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>Benefits</h2>
+            <p>The centralized log viewer significantly enhanced our log management workflow:</p>
+            <ul>
+                <li><strong>Improved Efficiency:</strong> By consolidating logs, we eliminated the need to search through numerous individual files, streamlining the process of locating relevant information.</li>
+                <li><strong>Enhanced Search Capabilities:</strong> LogWatch's filtering mechanisms enabled focused searches based on specific keywords or date ranges, facilitating targeted analysis of log data.</li>
+                <li><strong>Optimized Log Presentation:</strong> The customized web interface provided a clear and structured view of log entries, improving the comprehension and analysis of log data.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>LogWatch serves as a valuable tool for centralizing and managing logs. Its features significantly improve the efficiency and effectiveness of log analysis, making it a valuable asset for any organization grappling with managing diverse log data. Contact Us today at 📧 <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a> for more information.</p>
+
+            <p>Do you find this tutorial blog helpful? Let us know what you think, and how we can improve it. Don't forget, that you can subscribe to our blogs to get automatic email notifications when a new blog is available.</p>
+        </div>
+
+        <a href="blog.html" class="back-button">← Back to Blog</a>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
+
+        <div class="feedback-section">
+            <h3>Feedback Please</h3>
+            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+        <div class="company-section">
+            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
+            <div style="clear: both;"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

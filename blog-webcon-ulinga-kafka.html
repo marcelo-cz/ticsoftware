@@ -355,7 +355,7 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <img src="./images/TIC_2026.png" alt="TIC Software Logo">
             </a>
             <nav>
@@ -374,6 +374,7 @@
                     <div class="dropdown-menu">
                         <a href="messaging.html">Messaging</a>
                         <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
                         <a href="modernize.html">Modernize</a>
                     </div>
                 </div>
@@ -434,11 +435,17 @@
         <div class="blog-content">
             <p>In today's rapidly evolving data landscape, you as NonStop technical professionals understand the challenges of bridging the gap between your high-availability systems and the diverse ecosystem of contemporary data tools. uLinga for Kafka addresses this precise challenge, providing a robust, reliable bridge between NonStop applications and Apache Kafka's powerful distributed streaming capabilities. With our latest release featuring significant WebCon UI enhancements, we've made it even easier to implement, manage, and monitor these critical integrations while maintaining the performance and reliability your NonStop environments demand.</p>
 
+            <img src="./images/Logos/kafka grey logo.png" alt="Apache Kafka Logo" style="max-width: 30%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <h2>Apache Kafka Overview</h2>
             <p>Apache Kafka is an open-source distributed streaming system used for stream processing, real-time data pipelines, and data integration at scale. It offers a scalable and fault-tolerant platform for handling large volumes of data, making it ideal for applications requiring immediate insights and high throughput. Kafka's benefits include its ability to handle trillions of messages daily, support for distributed streaming, and a rich set of third-party product connectors for easy integration.</p>
 
+            <img src="./images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka Cluster.jpg" alt="Kafka Cluster Architecture" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <h2>uLinga for Kafka</h2>
             <p>uLinga for Kafka from Infrasoft integrates NonStop applications and data with Kafka, offering robust capabilities in integration and data transformation. This integration enhances real-time data processing and analytics by connecting NonStop systems with Kafka clusters seamlessly.</p>
+
+            <img src="./images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka data transformation.png" alt="Kafka Data Transformation" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <h2>Key Use Cases for uLinga and Kafka</h2>
             <p>uLinga for Kafka enables NonStop systems to seamlessly integrate with Kafka, unlocking powerful use cases across industries. Here are some examples:</p>
@@ -449,6 +456,8 @@
                 <li><strong>Asynchronous Messaging Interface for E-Commerce Platforms:</strong> By leveraging Kafka's event streaming architecture, uLinga allows NonStop systems to replace traditional synchronous communication with event-driven workflows. This enables real-time updates across order management, inventory tracking, and customer notifications.</li>
             </ul>
 
+            <img src="./images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka use cases.jpg" alt="Kafka Use Cases" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <h2>Exciting New WebCon UI Features</h2>
             <p>WebCon is the browser-based user interface included with all uLinga products, designed to simplify resource management and monitoring. It is served directly by the uLinga process running under Guardian, eliminating the need for additional web server software or OSS components.</p>
 
@@ -456,6 +465,8 @@
 
             <h3>Traffic Light Status Indicators: Instant Resource Monitoring</h3>
             <p>A new feature in WebCon includes "traffic light" status indicators, allowing users to instantly identify resources that are started, stopped, or in an abnormal state.</p>
+
+            <img src="./images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka Traffic Light Status.png" alt="Kafka Traffic Light Status Indicators" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <ul>
                 <li><strong>Green:</strong> Indicates that the resource is active and functioning normally.</li>
@@ -467,6 +478,8 @@
 
             <h3>Resource Configuration Relationships: Visualizing Interconnected Resources</h3>
             <p>The Resource Configuration Relationships feature, introduced in the V3R2 release of uLinga for Kafka, offers a powerful way to visualize how resources interact within a configuration. This feature provides a graphical representation of resource dependencies, making it easier for administrators to understand and manage complex setups.</p>
+
+            <img src="./images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka Resource Configuration Relationships.png" alt="Kafka Resource Configuration Relationships" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <p>Key benefits of this feature include:</p>
 
@@ -481,7 +494,11 @@
 
             <h3>Key Features of the Data Transformation Tab</h3>
 
-            <p><strong>Flexible Configuration Options:</strong> The Data Transformation tab allows users to create or modify data transformation configurations with multiple options:</p>
+            <p style="margin-bottom: 0.5rem;"><strong>Flexible Configuration Options</strong></p>
+
+            <p style="margin-top: 0;">The Data Transformation tab allows users to create or modify data transformation configurations with multiple options.</p>
+
+            <img src="./images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Flexible Configuration Options.png" alt="Flexible Configuration Options" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <ul>
                 <li>Load from DATATRANSFORMER Resource: Retrieve existing configurations directly from a DATATRANSFORMER resource.</li>
@@ -491,21 +508,34 @@
 
             <p>Users can easily select their preferred method and begin configuring their data transformations with just a few clicks.</p>
 
-            <p><strong>Intuitive Mapping Interface:</strong> The mapping interface provides a clear layout for defining input-to-output transformations. Users can map fields between input data structures (e.g., Enscribe files or binary formats) and output formats (e.g., JSON). Each mapping is displayed in an organized table, allowing users to quickly identify and adjust mappings as needed.</p>
+            <h3>Intuitive Mapping Interface</h3>
+            <p>The mapping interface provides a clear layout for defining input-to-output transformations. Users can map fields between input data structures (e.g., Enscribe files or binary formats) and output formats (e.g., JSON). Each mapping is displayed in an organized table, allowing users to quickly identify and adjust mappings as needed.</p>
 
-            <p><strong>Preview Data Transformation:</strong> One of the most powerful enhancements is the Preview Data Transformation feature, which allows users to test their configurations with real data before deploying them. Input data can be provided in raw text or retrieved directly from an Enscribe file on the NonStop host. The preview displays transformed output in real time, helping users validate their configurations.</p>
+            <img src="./images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Intuitive Mapping Interface.png" alt="Intuitive Mapping Interface" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p><strong>Benefits of Enhanced Data Transformation:</strong></p>
+            <h3>Preview Data Transformation</h3>
+            <p>One of the most powerful enhancements is the Preview Data Transformation feature, which allows users to test their configurations with real data before deploying them. Input data can be provided in raw text or retrieved directly from an Enscribe file on the NonStop host. The preview displays transformed output in real time, helping users validate their configurations.</p>
+
+            <img src="./images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Preview Data Transformation.png" alt="Preview Data Transformation" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <ul>
-                <li>Efficiency: Automates complex data conversion tasks, reducing manual effort.</li>
-                <li>Accuracy: Real-time previews help eliminate errors before deployment.</li>
-                <li>Flexibility: Supports various input/output formats and custom mapping requirements.</li>
-                <li>Integration: Simplifies interoperability between NonStop systems and modern platforms like Kafka.</li>
+                <li>Users can specify input and output formats (e.g., Binary to JSON).</li>
+                <li>The preview displays transformed output in real time, helping users validate their configurations.</li>
+            </ul>
+
+            <p>In this example, raw input text (ABCA12 123456789) is transformed into a structured JSON object with nested keys (JOBS-KEY, JOBS-ZIP), showcasing how uLinga simplifies complex data transformations.</p>
+
+            <h3>Benefits of Enhanced Data Transformation</h3>
+
+            <ul>
+                <li><strong>Efficiency:</strong> Automates complex data conversion tasks, reducing manual effort.</li>
+                <li><strong>Accuracy:</strong> Real-time previews help eliminate errors before deployment.</li>
+                <li><strong>Flexibility:</strong> Supports various input/output formats and custom mapping requirements.</li>
+                <li><strong>Integration:</strong> Simplifies interoperability between NonStop systems and modern platforms like Kafka.</li>
             </ul>
 
             <h2>Success Story: US Foods and uLinga for Kafka</h2>
-            <p>In the January-February 2025 issue of Connection Magazine, Dale Hiatt highlighted <a href="https://connect2nonstop.com/us-foods-utilizes-ulinga-for-kafka-to-access-the-kafka-cloud/" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">US Foods' implementation of uLinga for Kafka</a>, demonstrating the power and flexibility of integrating NonStop systems with modern event streaming platforms. By leveraging Kafka Producers and Consumers, US Foods has streamlined workflows, enabled real-time data processing, and achieved seamless communication between legacy systems and cloud-based applications. Their use of uLinga's Data Transformer to convert fixed-structure data into JSON messages has further enhanced their ability to publish and consume data efficiently.</p>
+            <p>In the January-February 2025 issue of Connection Magazine, Dale Hiatt highlighted <a href="https://connect2nonstop.com/us-foods-utilizes-ulinga-for-kafka-to-access-the-kafka-cloud/" style="color: #001a4d; text-decoration: none; font-weight: 600;">US Foods' implementation of uLinga for Kafka</a>, demonstrating the power and flexibility of integrating NonStop systems with modern event streaming platforms. By leveraging Kafka Producers and Consumers, US Foods has streamlined workflows, enabled real-time data processing, and achieved seamless communication between legacy systems and cloud-based applications. Their use of uLinga's Data Transformer to convert fixed-structure data into JSON messages has further enhanced their ability to publish and consume data efficiently.</p>
 
             <h2>Conclusion</h2>
             <p>These uLinga for Kafka enhancements and success stories reflect Infrasoft's commitment to delivering user-driven improvements that address real-world needs. With uLinga for Kafka, technical managers can rely on a reliable and adaptable tool for their Kafka integration requirements, knowing that Infrasoft is dedicated to excellence and continuous innovation based on customer feedback.</p>
@@ -533,7 +563,7 @@
 
         <div class="company-section">
             <img src="../ticsoftwareAI/images/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
-            <p class="company-text">Phil Ly is the president of TIC Software, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
+            <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
         </div>
     </main>

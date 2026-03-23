@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using TOP with NonStop TCP/IP - TIC Software Blog</title>
+    <meta name="description" content="Learn how to use TOP to easily manage and monitor NonStop TCP/IP communications and CLIM configurations.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px !important;
+            width: 75px !important;
+            border-radius: 8px;
+            display: block !important;
+            margin: 0 1.5rem 1rem 0 !important;
+        }
+
+        .feedback-section a {
+            display: block;
+            float: left;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            display: block;
+            margin: 0 !important;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px !important;
+            border-radius: 8px;
+            display: inline !important;
+            margin: 0 0.75rem 1rem 0 !important;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .subtitle-light {
+            color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html" class="active">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Using TOP with NonStop TCP/IP</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Jan 23, 2023</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="./images/TIC Team/Matt_Riesz.jpg" alt="Matt Riesz" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Matt Riesz</span>
+                </div>
+            </div>
+            <div>
+                <span class="blog-tag">TOP</span>
+                <span class="blog-tag">TCP/IP</span>
+                <span class="blog-tag">Administration</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="Using TOP with NonStop TCP/IP" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p><strong><a href="file:///C:/ticsoftware/modernize.html#top" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TOP</a> is a great GUI for just about everything you need to do on your NonStop system.</strong> One of the most helpful features is the ability to easily look at data communications information, especially as it pertains to <strong>CLIM IP, or "CIP".</strong></p>
+
+            <p><strong>Let's suppose that you want to see who is using TCP/IP on your NonStop system, and what programs are listening for incoming connections on a particular IP address, and which IP ports they're using.</strong> Seems simple, right? But even if you do this on a frequent basis and can recall all of the SCF commands involved, it can be a tedious and time-consuming task:</p>
+
+            <h2>It is Easy Using TOP</h2>
+
+            <p>Sign on to TOP and select your system. The system's components appear in a familiar, Windows Explorer-style interface.</p>
+
+            <p>Navigate to "Comms", "TCP/IP", "IP CIP"</p>
+
+            <p>TOP now shows the available IP CLIMs. Select one and click on its "Interfaces". You now see the CLIM's interface information, including which providers are using them and which IP addresses are being served:</p>
+
+            <p>Now click on "Providers". TOP shows information on all the providers:</p>
+
+            <p>Next, right-click on a provider and select "Sockets" from the pull-down menu. TOP provides information for all of the current active sockets for that provider:</p>
+
+            <p>Sort it however you want by clicking on a column heading. For example, by Foreign IP Address, to see who has an active session:</p>
+
+            <p><strong>Total time to do this with TOP: about 1 minute, and you don't need to know any command syntax.</strong> Information from the TOP display can also be easily copied and pasted into your favorite spreadsheet. It's EASY!</p>
+
+            <h2>Doing it the Long Way Using SCF</h2>
+
+            <p>Now, the tedious way to do the same thing using SCF:</p>
+
+            <p>Note that the command returns both IP CLIMs and Storage CLIMs. So, pick an IP CLIM and look at the detailed status. There's a LOT of information that needs to be parsed and understood:</p>
+
+            <p>Now you have the information needed to find out which IP addresses are associated with which interface on that CLIM. But who is using those addresses?</p>
+
+            <p>Next, find all of the CIPSAM processes – These are called "Providers" in CIP, and are the processes that your program accesses when it wants a connection. Each provider is associated with one or more CLIMs, and there may be more than one provider for a given CLIM:</p>
+
+            <p>Well that wasn't too hard. Next, find out which provider is associated with the IP address you're interested in:</p>
+
+            <p>You might need to look at all the providers to find the one you're looking for. But great, now we know which CLIM, interface and IP address is driven by this provider. Now, enter another command to find all of the listeners and established sessions through the provider for that interface:</p>
+
+            <p>There may be a LOT of listeners and sessions, appearing in no particular order in the SCF output and, as you can see, it's not very easy to read. So next you copy the output from your screen (or log it to a file and copy that) into a spreadsheet, separate it into useful columns of information, and sort it to find what you're looking for.</p>
+
+            <p>That all will probably take you about 15 to 20 minutes if you know the commands by heart or maybe an hour or more if, like many, you have to read through the SCF manuals looking for them.</p>
+
+            <h2>The Comparison</h2>
+
+            <p><strong>1 minute versus 15-20 minutes. Which way would you prefer?</strong></p>
+
+            <p>You can use TOP to facilitate many other NonStop operations. <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Contact us</a> to see all the ways it can help you.</p>
+
+            <div class="feedback-section">
+                <h3>Feedback Please</h3>
+                <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+                <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+            <div class="company-section">
+                <p class="company-text"><a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> is a leading provider of software and services for the NonStop community focused on NonStop application modernization. With a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies, TIC Software delivers innovative solutions that unlock the full potential and longevity of NonStop platforms.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <a href="blog.html" class="back-button">← Back to Blog</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved.</p>
+    </footer>
+</body>
+</html>

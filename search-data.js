@@ -230,5 +230,75 @@ window.SEARCH_DATA = [
     description: "Learn about TIC's Tele family technologies designed for NonStop application modernization through messaging and data delivery. Covering TeleMail, TeleWeb, TeleFax, and TeleFTP.",
     keywords: "Tele, TeleMail, TeleWeb, TeleFax, TeleFTP, messaging, email, fax, FTP, report delivery, NonStop modernization",
     type: "blog"
+  },
+  {
+    title: "Business Intelligence",
+    url: "business-intelligence.html",
+    description: "TIC's Business Intelligence products are designed to transform NonStop report information into multi-dimensional views to facilitate data analysis for decision support. LogWatch and Cypress.",
+    keywords: "Business Intelligence, LogWatch, Cypress, reporting, analysis, NonStop, data visualization, monitoring",
+    type: "product"
+  },
+  {
+    title: "LogWatch",
+    url: "logwatch.html",
+    description: "LogWatch is a Guardian program that watches log files for new entries. LogWatch captures log records, looks for configurable patterns and generates alerts for anomalies.",
+    keywords: "LogWatch, log monitoring, alerts, Guardian, OSS files, VHS logs, EMS logs, error detection, NonStop",
+    type: "product"
+  },
+  {
+    title: "LogWatch FAQ",
+    url: "logwatch-faq.html",
+    description: "Frequently asked questions about LogWatch - real-time log monitoring and alerting for NonStop systems. Setup, benefits, and use cases.",
+    keywords: "LogWatch, FAQ, monitoring, alerts, setup, benefits, NonStop log files",
+    type: "faq"
+  },
+  {
+    title: "Building a Web Interface to Centralized Logs with LogWatch",
+    url: "blog-logwatch-web-interface.html",
+    description: "Discover how to build a centralized web interface for managing and analyzing application logs across your NonStop environment using LogWatch.",
+    keywords: "LogWatch, web interface, log management, monitoring, NonStop applications, centralized logging",
+    type: "blog"
+  },
+  {
+    title: "Minimize Application Downtime with LogWatch Monitoring",
+    url: "blog-minimize-downtime-logwatch.html",
+    description: "Learn how LogWatch monitoring helps minimize application downtime by detecting errors and application health issues in NonStop environments.",
+    keywords: "LogWatch, downtime prevention, monitoring, error detection, application health, NonStop",
+    type: "blog"
+  },
+  {
+    title: "LightWave Client Supports Multiple Payload Formats",
+    url: "blog-lightwave-client-json-payload.html",
+    description: "Explore how LightWave Client supports multiple payload formats beyond JSON including XML, YAML, and custom formats for flexible API integration.",
+    keywords: "LightWave Client, JSON, XML, YAML, payload formats, REST API, NonStop integration",
+    type: "blog"
+  },
+  {
+    title: "How to Aggregate NonStop Logs to Kafka in One Simple Step",
+    url: "blog-aggregate-nonstop-logs-kafka.html",
+    description: "Streamline your NonStop logging infrastructure by aggregating logs to Apache Kafka. Learn the simple setup process and benefits.",
+    keywords: "Kafka, log aggregation, NonStop, streaming, uLinga, data integration",
+    type: "blog"
+  },
+  {
+    title: "WebCon uLinga and Kafka Integration",
+    url: "blog-webcon-ulinga-kafka.html",
+    description: "WebCon's innovative use of TIC's uLinga for Kafka enables real-time NonStop event streaming and integration with modern data platforms.",
+    keywords: "WebCon, uLinga, Kafka, integration, event streaming, NonStop modernization",
+    type: "blog"
+  },
+  {
+    title: "2025: The Year to Transform Your HPE NonStop Platform",
+    url: "blog-2025-transform-nonstop.html",
+    description: "Address misconceptions about NonStop modernization and explore digital transformation strategies for 2025.",
+    keywords: "modernization, transformation, NonStop platform, future-proof, strategy, 2025",
+    type: "blog"
+  },
+  {
+    title: "Training",
+    url: "training.html",
+    description: "TIC Software provides just-in-time training solutions customized to your needs. Fast Track Training Service for NonStop teams.",
+    keywords: "training, NonStop, Fast Track, learning, education, team development, TACL, TAL",
+    type: "service"
   }
 ];

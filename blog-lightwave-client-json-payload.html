@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightWave Client supports more than JSON payload - TIC Software Blog</title>
+    <meta name="description" content="Discover how LightWave Client supports multiple payload formats beyond JSON, including XML, YAML, and BLOB data types for flexible REST integration.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px !important;
+            width: 75px !important;
+            border-radius: 8px;
+            display: block !important;
+            margin: 0 1.5rem 1rem 0 !important;
+        }
+
+        .feedback-section a {
+            display: block;
+            float: left;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            display: block;
+            margin: 0 !important;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px !important;
+            border-radius: 8px;
+            display: inline !important;
+            margin: 0 0.75rem 1rem 0 !important;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .subtitle-light {
+            color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html" class="active">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>LightWave Client supports more than JSON payload</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Mar 29, 2023</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Phil Ly</span>
+                </div>
+            </div>
+            <div>
+                <span class="blog-tag">Gateway</span>
+                <span class="blog-tag">REST API</span>
+                <span class="blog-tag">Integration</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <img src="./images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave Client Chart" style="max-width: 60%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>RESTful API opens up NonStop by enabling its applications to interoperate with services within the enterprise, in the cloud or anywhere on the Internet. <a href="./PDF/LightWave_Client_Datasheet.pdf" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">LightWave Client™</a> from our partner NuWave Technologies is the most popular REST client product to run on NonStop. It enables you to create NonStop applications to consume remote RESTful Web Services in minutes.</p>
+
+            <p>There are many factors that attribute to its success, including a browser-based GUI dashboard, its high performance, extensive diagnostic logging, and more. In addition, one outstanding feature is the ease of configuring and managing API definitions.</p>
+
+            <p>In another blog, we have covered how LightWave Client™ can support without Swagger. In this article, we will discuss another unique feature in LightWave Client™ that differentiates the product from other REST products for NonStop – the ability to support payload other than JSON.</p>
+
+            <h2>What is JSON?</h2>
+
+            <img src="./images/Blogs & Articles/LightWave Client supports more than JSON payload/JSON_blog_chart.png?v=2" alt="JSON Chart" style="max-width: 20%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p><a href="json-thunder.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">JSON</a> is a lightweight data format that is easy to read and write. It is widely supported by programming languages and frameworks. JSON is also compatible with JavaScript, which makes it a popular choice for web applications. However, JSON has some limitations. For example, it cannot handle binary data efficiently. This is because JSON is a text-based format and binary data needs to be encoded into text before it can be sent. This can increase the size of the payload, which can have an impact on performance.</p>
+
+            <p>Another limitation of JSON is that it is not suitable for all types of data. For example, if you are working with large datasets, or data that contains complex structures, then JSON may not be the best choice. In these cases, other data formats such as XML, YAML or Protocol Buffers may be more appropriate.</p>
+
+            <h2>Other popular payload formats</h2>
+
+            <img src="./images/Blogs & Articles/LightWave Client supports more than JSON payload/xml_yaml.jpg?v=3" alt="XML and YAML" style="max-width: 30%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>There may be cases where an application requires more control over the Web service request or response payload. For example, the Web service requires a message structure that can't be created or parsed by the native LightWave Client JSON support, or the message payload is larger than the maximum message size allowed by an interprocess message. For these cases LightWave Client™ supports the BLOB data type.</p>
+
+            <h2>LightWave Client IPM BLOB Support</h2>
+
+            <p>When using BLOBs (Binary Large Objects), your application provides or receives the Web service payload as raw data in the IPM or in an Enscribe file. When a file is used, the name of the file is supplied in the request and/or response IPMs.</p>
+
+            <h2>Use Case – BMC Remedy API</h2>
+
+            <p>BMC Remedy ITSM is a service management tool that automates the ITIL process in the modern era. They support various forms of service tickets by which users can create requests that flow to other systems within an organization. <a href="https://bmc.okta.com/oauth2/aus1kn8py0oe6i0UB1d8/v1/authorize?scope=openid+profile+email+XWiki_Group&claims=%7B%22id_token%22%3A%7B%22xwiki_instance_id%22%3Anull%7D%2C%22userinfo%22%3A%7B%22xwiki_user_accessibility%22%3Anull%2C%22xwiki_user_displayHiddenDocuments%22%3Anull%2C%22xwiki_user_editor%22%3Anull%2C%22xwiki_user_usertype%22%3Anull%2C%22xwiki_user_company%22%3Anull%7D%7D&response_type=code&redirect_uri=https%3A%2F%2Fdocs.bmc.com%2Fxwiki%2Foidc%2Fauthenticator%2Fcallback&state=tbsUMQLLY8NKfHhpnnTcXV1mWzIh5tV9i_-K_AXrYwo&client_id=0oa1s9hg2tyDeIpst1d8" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">...Read More</a></p>
+
+            <p>The Remedy API is one example of how REST payload sometimes is not JSON.</p>
+
+            <h3 class="subtitle-light">Initiate a REST API call to request for a token.</h3>
+
+            <h3>Example API call</h3>
+
+            <p>The following example shows how a client creates a POST call and passes the user name, password, and authString in the Request headers using the /x-www-form-urlencoded content type:</p>
+
+            <div class="code-block">POST /api/jwt/login HTTP/1.1<br>host: www.example.com<br><br>username=SomeUser&password=mysecretAuthString=authenticationstring</div>
+
+            <h3 class="subtitle-light">The returned token is in the HTTP body in the form of a string, not in JSON format.</h3>
+
+            <p>The JWT is signed and base64 encoded string, and is sent back as a response body to the HTTP request:</p>
+
+            <div class="code-block">HTTP/1.1 200 OK<br><br>eyJ0eXAiOjJVVI1LaA8ICJhbGciOjIzTzJlSMzlkA0E4DTAaTkzOAsQogIqhd4AHaLy9lG5tcgxLLmWb59pc19y.</div>
+
+            <h3 class="subtitle-light">This token will need to be embedded in the HTTP request header to pass authentication.</h3>
+
+            <p>The client receives the token and uses it in all subsequent REST API calls through the Authorization header using the AR-JWT scheme:</p>
+
+            <div class="code-block">GET /api/arsys/v1/entry/SomeForm HTTP/1.1<br>Authorization: AR-JWT eyJ0eXAiOjJVVI1LaA8ICJhbGciOjIzTzJlSMzlkA0E4DTAaTkzOAsQogIqhd4AHaLy9lG5tcgxLLmWb59pc19y.</div>
+
+            <p><strong>LightWave Client can handle this easily via BLOB IPM support.</strong></p>
+
+            <img src="./images/Blogs & Articles/LightWave Client supports more than JSON payload/BLOB IPM.jpg" alt="BLOB IPM Support" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>File BLOB Support</h2>
+
+            <p>Another usage of LightWave Client™ BLOB support is the ability to receive binary file. File BLOBs are similar to IPM BLOBs but Enscribe files are used to transfer the data. When an API definition specifies the HTTP Response Body Source or Target Content Schema as BLOB, and the Data Source or Target as FILE, the DDL generated for the operation will contain a single character field representing the name of the Enscribe file representing the data that is to be sent with the request or that was received in the response.</p>
+
+            <p>The data in the file BLOB represents exactly the data that is to be sent or that was received, it is not manipulated by the CLIENT process in any way. File BLOBs are Enscribe unstructured files that are treated as binary streams by the CLIENT process.</p>
+
+            <div class="feedback-section">
+                <h3>Feedback Please</h3>
+                <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+                <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+            <div class="company-section">
+                <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+                <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <a href="blog.html" class="back-button">← Back to Blog</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

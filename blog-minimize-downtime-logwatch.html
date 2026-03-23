@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimize Application Downtime with LogWatch Monitoring - TIC Software Blog</title>
+    <meta name="description" content="Learn how LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises and downtime.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.1rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .product-emphasis {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px;
+            border-radius: 8px;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px;
+            border-radius: 8px;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Minimize Application Downtime with LogWatch Monitoring</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Oct 17, 2023</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Phil Ly</span>
+                </div>
+            </div>
+            <div class="blog-tags">
+                <span class="blog-tag">LogWatch</span>
+                <span class="blog-tag">Monitoring</span>
+                <span class="blog-tag">Nonstop</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <img src="./images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/log_monitoring.png" alt="Log Monitoring" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p style="text-align: center;"><strong>LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises.</strong></p>
+
+            <p>In many NonStop installations, there are robust tools and procedures to monitor events in EMS logs. However, the monitoring of running application health is often overlooked. Applications may log error statuses to a file, but these logs are not regularly reviewed.</p>
+
+            <p><strong>Question:</strong> When do you look at your application log?</p>
+
+            <p><strong>Common answer:</strong> After a problem has been reported.</p>
+
+            <p>Unfortunately, this often translates to a significant delay after the problem has occurred.</p>
+
+            <h2>How does LogWatch work?</h2>
+
+            <p>LogWatch allows you to define the files and anomaly conditions you want to monitor in its configuration. Once configured, LogWatch actively monitors and alerts you when it detects an anomaly condition. Alerts can be sent via email, routed to EMS, written to disk, or directed to an external enterprise monitoring system.</p>
+
+            <img src="./images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch.png" alt="LogWatch Architecture" style="max-width: 60%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>Detecting Application Issues</h2>
+
+            <p>LogWatch can be configured to scan your application log for error patterns, using simple word patterns such as "warning," "error," or "failure." Additionally, LogWatch's REGULAR EXPRESSION feature enables you to define complex rules to monitor and report specific combinations of patterns.</p>
+
+            <img src="./images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch_Regular_Expressions.png" alt="LogWatch Regular Expressions" style="max-width: 50%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>Third Party Product Logs</h2>
+
+            <p>LogWatch is highly effective in monitoring third-party product logs to detect error conditions. It has been proven to work seamlessly with various third-party products, including:</p>
+
+            <ul>
+                <li>TeleMail (TIC)</li>
+                <li>LightWave Server and LightWave Client (NuWave)</li>
+                <li>Shadowbase (Gravic)</li>
+                <li>SecurDPS and CSL (Comforte)</li>
+            </ul>
+
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 2rem 0;">
+                <div style="text-align: center;">
+                    <img src="./images/TIC_2026.png" alt="TIC Software" style="max-width: 120px; height: auto; border-radius: 8px;">
+                </div>
+                <div style="text-align: center;">
+                    <img src="./images/Logos/NuWave_logo.png" alt="NuWave" style="max-width: 120px; height: auto; border-radius: 8px;">
+                </div>
+                <div style="text-align: center;">
+                    <img src="./images/Logos/Gravic_logo.jpeg" alt="Gravic" style="max-width: 120px; height: auto; border-radius: 8px;">
+                </div>
+                <div style="text-align: center;">
+                    <img src="./images/Logos/comforte_logo.jpg" alt="Comforte" style="max-width: 120px; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+
+            <p>If you use any of these products as well as other third-party products, check out how LogWatch can help you monitor their errors.</p>
+
+            <h2>Detecting Pathway Server Failures</h2>
+
+            <p>Most Pathway servers are defined with their HOMETERM set as VHS. However, if a server abends, the abend message and trace stack appear on VHS, where nobody may notice for a while. LogWatch can be configured to monitor VHS for server abend messages and automatically send an email notification to SUPPORT or designated recipients about the error instantly.</p>
+
+            <img src="./images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch_VHS_Messages.png" alt="LogWatch VHS Messages" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>Minimize Downtime – Be Proactive!</h2>
+
+            <img src="./images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/Minimize_Downtime.jpg" alt="Minimize Downtime" style="max-width: 50%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>Studies estimate downtime costs at around $9,000 per minute, with larger organizations facing hundreds of thousands per hour. Every minute matters when your application is down. Utilize LogWatch to instantly detect application errors, enabling you to minimize downtime and save significant amounts of money.</p>
+        </div>
+
+        <a href="blog.html" class="back-button">← Back to Blog</a>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
+
+        <div class="feedback-section">
+            <h3>Feedback Please</h3>
+            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+        <div class="company-section">
+            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
+            <div style="clear: both;"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

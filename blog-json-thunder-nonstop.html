@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-Enable NonStop COBOL and C programs with JSON Thunder - TIC Software Blog</title>
+    <meta name="description" content="Learn how JSON Thunder enables seamless JSON support in NonStop COBOL and C programs, making data exchange with modern applications simple and efficient.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px !important;
+            width: 75px !important;
+            border-radius: 8px;
+            display: block !important;
+            margin: 0 1.5rem 1rem 0 !important;
+        }
+
+        .feedback-section a {
+            display: block;
+            float: left;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            display: block;
+            margin: 0 !important;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px !important;
+            border-radius: 8px;
+            display: inline !important;
+            margin: 0 0.75rem 1rem 0 !important;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .subtitle-light {
+            color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html" class="active">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>JSON-Enable NonStop COBOL and C programs with JSON Thunder</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Feb 1, 2023</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Phil Ly</span>
+                </div>
+            </div>
+            <div>
+                <span class="blog-tag">JSON Thunder</span>
+                <span class="blog-tag">COBOL</span>
+                <span class="blog-tag">Modernization</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/JSON Thunder_Logo.png" alt="JSON Thunder Logo" style="float: left; margin-right: 1.5rem; margin-bottom: 1rem; max-width: 120px; border-radius: 8px; margin-top: 0;">
+            <p>Quite often, NonStop applications need to exchange data with other platforms internally in the enterprise, or with external applications in the cloud. The data format of choice for data exchange today is <a href="json-thunder.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">JSON</a>.</p>
+
+            <h2>What is JSON?</h2>
+
+            <p><img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/JSON_Bracket.png" alt="JSON Bracket" style="float: right; margin-left: 1.5rem; margin-bottom: 1rem; max-width: 120px; border-radius: 8px; margin-top: 0;">JSON (JavaScript Object Notation) is a lightweight data-interchange format that has become an essential tool for interoperability between different applications and platforms. In today's digital landscape, where data is constantly flowing between various systems and devices, the ability to easily exchange and understand data is vital to the success of any application. JSON provides a simple and consistent way to do just that.</p>
+
+            <img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="Features of JSON" style="max-width: 30%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>Advantages of JSON</h2>
+
+            <p>One of the main advantages of JSON is that it is language-independent, meaning it can be used with any programming language that supports it. This makes it a versatile choice for building cross-platform applications, as developers can easily share data between different systems and platforms. While XML continues to be in use by some applications, almost all new modern applications adopt JSON as the data format of choice.</p>
+
+            <img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/JSON Language.png" alt="JSON Language" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>Another advantage of JSON is its human-readable format, making it easy for developers to work with and understand the data. This is particularly useful in cases where different systems need to communicate with each other and the data needs to be parsed and interpreted.</p>
+
+            <p>JSON is also widely used in modern web service development, including <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">RESTful API</a> services. Developers can easily access and use data from these services by simply serializing and deserializing the JSON data using built-in features in their IDE such as Visual Studio. This enables developers to quickly and easily build new applications and services that integrate with these existing platforms.</p>
+
+            <img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/JSON_Thunder_chart.png" alt="JSON Thunder Chart" style="max-width: 50%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>JSON Thunder for NonStop</h2>
+
+            <p>If you want to incorporate JSON support in your COBOL or C programs, JSON Thunder can make the job really easy. Thunder generates all of the source code required for COBOL programs to interface with JSON. Using the toolset's Visual Designer, develop JSON Handlers to convert (i.e. parse) JSON messages to program fields or create JSON messages from program fields. These JSON Handlers – called Readers and Writers – are created in just three easy steps.</p>
+
+            <img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/JSON_Handlers.png" alt="JSON Handlers" style="max-width: 60%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Developer_Workflow_Chart.png" alt="Developer Workflow Chart" style="max-width: 60%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+
+            <h2>Conclusion</h2>
+
+            <p>In conclusion, JSON is an essential tool for interoperability between different applications and platforms. JSON Thunder enables seamless data exchange and easy integration between NonStop applications and other different systems and platforms.</p>
+
+            <p>For more information on JSON Thunder, visit our <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC website</a> or contact us via <a href="mailto:salessupport@ticsoftware.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">salessupport@ticsoftware.com</a></p>
+
+            <div class="feedback-section">
+                <h3>Feedback Please</h3>
+                <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+                <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+            <div class="company-section">
+                <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+                <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <a href="blog.html" class="back-button">← Back to Blog</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved.</p>
+    </footer>
+</body>
+</html>

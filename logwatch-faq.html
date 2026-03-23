@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogWatch FAQ - TIC Software</title>
+    <meta name="description" content="Frequently asked questions about LogWatch - real-time log monitoring and alerting for NonStop systems.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 2rem;
+            color: var(--white);
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* FAQ Styling */
+        .faq-item {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #e8e8e8;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>LogWatch</h1>
+            <h1 style="margin-top: 0.5rem;">FAQ</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/FAQ Pages/FAQ_Image.png');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Frequently Asked Questions</h2>
+
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is LogWatch?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>LogWatch helps you prevent extended outage because of undetected issues. LogWatch is a tool that monitors log files for anomalies and alerts you as soon as they are detected. It runs in Guardian space, but can monitor OSS and Guardian files, in addition to VHS and EMS logs.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What are LogWatch's benefits?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Prevents production outage by minimizing your down time as errors are detected by LogWatch and acted upon immediately</li>
+                        <li>Helps Operation monitor OSS log files for errors without having to learn OSS</li>
+                        <li>Facilitates QA team in testing new code by detecting log file patterns</li>
+                        <li>Allows Developers to be notified of program problems in QA or production environments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>I already have MOMI or Prognosis, why do I need LogWatch?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>MOMI and Prognosis are great tools to monitor system resources, but they are not designed for monitor application disk log files. In contrast, LogWatch is designed to monitor log files for error patterns and is a great complementary tool to MOMI and Prognosis.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is LogWatch scalable?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can have multiple instances of LogWatch running at the same time, monitoring different log files.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does LogWatch monitor for new log entry?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For Guardian files, LogWatch uses CONTROL 27. For OSS files, it uses a timer to wake and check the EOF entry to detect if there is new data.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How many files can one LogWatch instance monitor?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>LogWatch allows you to configure multiple files to monitor, as many as you want to. The best practice for the number of files to be monitored by one instance depends on how "busy" the file is, i.e. what is the new data arrival rate of the file. This is similar to the standard best practice in scaling servers according to the expected transaction rate. So, if you are monitoring very busy file(s), you would want to have a dedicated LogWatch instance to process the entries. Likewise, for files with infrequent insertion, a single instance of LogWatch will be able to handle many of them.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How can LogWatch help me monitor my iTP Web Server environment?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Discover missing web pages by monitoring httpd.log or access.log</li>
+                        <li>Detect application errors by monitoring access.log for error 500</li>
+                        <li>Capture servlet errors by monitoring servlet.log</li>
+                        <li>Upon catching any of these errors, LogWatch can raise an alert by:
+                            <ul>
+                                <li>Sending a message to EMS (optionally routed via SNMP to an external Enterprise Manager)</li>
+                                <li>Sending an email to Operation or Support</li>
+                                <li>Writing the errors to a Guardian error file</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How quickly can I set up LogWatch?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>LogWatch can be installed in 30 minutes.</p>
+                    <p>You can set up a configuration to monitor OSS or Guardian files in about 10 minutes.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 9 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is LogWatch available for free evaluation?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Contact us for a FREE trial copy by sending an email to 📧 <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved. | Contact Us</p>
+    </footer>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
