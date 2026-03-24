@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kafka and HPE NonStop – A Perfect Combo! - TIC Software Blog</title>
+    <meta name="description" content="Learn how Kafka and HPE NonStop integrate for modernization and real-time data streaming.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px;
+            border-radius: 8px;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            overflow: hidden;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px;
+            border-radius: 8px;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .company-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .company-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html" class="active">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Kafka and HPE NonStop – A Perfect Combo!</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Mar 16, 2022</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Phil Ly</span>
+                </div>
+            </div>
+            <div>
+                <span class="blog-tag">Kafka</span>
+                <span class="blog-tag">NonStop</span>
+                <span class="blog-tag">Integration</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/a perfect combo.png" alt="Kafka and HPE NonStop Perfect Combo" style="max-width: 34%; margin: 0 auto 2rem auto; display: block;">
+
+            <h2>Introduction</h2>
+
+            <p>One of the best ways to modernize NonStop is to integrate its applications with other software, platforms and cloud services. This interoperability is extremely important as it will extend the value of the NonStop applications, and underscore the flexibility of the platform in the enterprise. Over the past few years, one of the most popular tools that have been adopted by many corporations is Apache Kafka. To date, it has been reported that over 20,000 companies in the US alone are using Kafka for real time stream processing, messaging, queueing and other applications. Integration with Kafka will open NonStop to interoperate with many different platforms and applications.</p>
+
+            <p>The purpose of this article is to provide an overview of Kafka's architecture and benefits, and to show how uLinga for Kafka from Infrasoft can enable NonStop applications to interoperate with the Kafka ecosystem.</p>
+
+            <h2>History</h2>
+
+            <p>Kafka was originally developed at LinkedIn by Jay Kreps, Neha Narkhede and Jun Rao Jay. The original project aimed to provide a unified, high-throughput, low-latency platform for handling real-time data feeds. Kreps chose to name the software after the author Franz Kafka because it is "a system optimized for writing", and he liked Kafka's work. It was subsequently open sourced in early 2011 and became a fully fledged Apache project in October 2012. While Apache Kafka is an open-source project, enterprise support is backed up by Confluent, a company founded by the product's original developers. The Confluent Platform is a complete Kafka distribution, with additional community and commercial enhanced features.</p>
+
+            <h2>Kafka Architecture</h2>
+
+            <p>Kafka is a distributed publish-subscribe messaging system and a robust queue that can handle a high volume of data. Kafka messages are persisted on the disk and can be replicated to provide fault tolerance. It works very well for real-time streaming applications, as well as data distribution to other platforms.</p>
+
+            <p>Kafka supports low latency message delivery and gives guarantee for fault tolerance in the presence of machine failures. Kafka is very fast, with the ability to support millions of messages/sec. Kafka persists all data to the disk, utilizing a very efficient transfer method to achieve a high throughput.</p>
+
+            <h2>Kafka Terminology</h2>
+
+            <p>Kafka has Producers which publish messages to a Topic, and Consumers which pull the Topic data as subscribers. You can partition a Topic across multiple Brokers to allow parallel production or consumption. This enables the load to be balanced across multiple partitions and brokers for higher performance. Similarly, a single broker can house one or more such partitions, allowing flexibility to balance workload. All messages written to Kafka are persisted on disk and can be replicated to multiple Brokers for fault tolerance. In addition, you can configure messages to be stored for a configurable period of time, for days or weeks or longer.</p>
+
+            <div style="display: flex; gap: 2rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap;">
+                <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka terminology.png" alt="Kafka Terminology" style="max-width: 40%; flex: 1; min-width: 200px;">
+                <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka Cluster.png" alt="Kafka Cluster" style="max-width: 40%; flex: 1; min-width: 200px;">
+            </div>
+
+            <h2>Why use Kafka?</h2>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka flowchart.png" alt="Why use Kafka - Integration Challenges" style="max-width: 35%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
+
+            <p>Here is an example of the challenges that an enterprise might encounter when trying to integrate data from different sources, including application logs, events, relational databases, OLTP transactions, CSV files, search systems, monitoring systems, OLAP stores, etc. Each of these needs data feeds in a distributed environment. The result is a total mess that is difficult to implement and impossible to manage.</p>
+
+            <h2 style="white-space: nowrap; text-align: left; margin-left: 0; clear: both;">Kafka solution: Publish once, consumed by many</h2>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Apache Kafka chart.png" alt="Kafka Solution Architecture" style="max-width: 35%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
+
+            <p>Kafka solves this problem by acting as a kind of universal data connector. Each system can feed into this central pipeline (producer) or be fed by it (consumer). Applications or stream processors can tap into it to create new data streams, when then can be fed back into the various systems for serving. Continuous feeds of well-formed data act as a kind of standard across different systems, applications, and data repositories. The result is a high-performance architecture that is simple, scalable and more manageable.</p>
+
+            <h2>Kafka Benefit – High Performance</h2>
+
+            <p>Kafka has high throughput for both publishing and subscribing messages, being able to support up to millions of messages/sec. Kafka takes advantage of multiple partitions to achieve parallel processing. Also, a Kafka consumer group is a group of consumers that can process the same Topic in parallel. <strong>This enables the record processing to be load-balanced over the consumer instances. This is similar to the high-performance architecture achieved on NonStop via the use of partitioned disks and application server classes scaled across multiple CPUs.</strong></p>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka partition.png" alt="Kafka Partition Architecture" style="max-width: 35%; margin: 0 auto 2rem auto; display: block; text-align: center;">
+
+            <p>Another contributing factor to Kafka's high performance is its Zero Copy feature. Kafka makes use of this zero-copy principal by requesting the operating system to move the data directly to the network rather than moving it via the application. This greatly reduces the number of context switches and speeds up the operation drastically.</p>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Zero Copy.png" alt="Zero Copy Feature" style="max-width: 35%; margin: 0 auto 2rem auto; display: block;">
+
+            <p>All data published to Kafka is written to disk. Kafka provides fail-over capability or fault tolerance for a topic via data replication. Replication is accomplished by copying the partition data to other brokers, also known as replicas. Imagine this is like NonStop disk processes that provide automatic fault tolerance via replicating data between mirrored Primary and Backup disks. But Kafka takes it to the next level by allowing more than one copy of backup data. You can specify how many copies of the partition you need via a configuration parameter called Replication Factor. So, a partition having a replication factor of 5 will guarantee there be five copies of the data residing in different brokers for redundancy. If a "primary" Broker (Leader) where the Topic resides goes down, Kafka automatically selects one of the replicas to stand in and continue processing without losing consistency.</p>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka Cluster Replication.png" alt="Kafka Cluster Replication" style="max-width: 35%; margin: 0 auto 2rem auto; display: block;">
+
+            <h2 style="clear: both;">Kafka Benefit – Guarantees Message Order</h2>
+
+            <p>Kafka preserves the order of messages within a partition. This means that if messages were sent from the Producer in a specific order, they will be guaranteed to be written to a partition in that exact same order. The result is that all the consumers will be able to read and process them in that same order. This can be a critical feature for some applications which demand the messages or transactions must be processed in order. One example is database replication, which requires that change data capture (CDC) transactions be processed in order. Similarly, in a payment environment, transaction log files often contain the delta of a transaction (withdraw $50 or deposit $100 for example) so the order that these transactions are fed into the core banking application can be critical.</p>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Partition.png" alt="Kafka Partitions and Consumer Groups" style="max-width: 30%; margin: 0 auto 2rem auto; display: block;">
+
+            <h2>uLinga for Kafka Features</h2>
+
+            <p>uLinga for Kafka takes a distinctly NonStop approach to Kafka integration: it runs as a natively compiled Guardian (or OSS) process pair, and supports the Kafka communications protocols directly over TCP/IP. This removes the need for Java libraries or intermediate servers and databases, providing the best possible performance on NonStop. It also allows uLinga for Kafka to directly communicate with the Kafka cluster, ensuring data is streamed as quickly and reliably as possible.</p>
+
+            <p>Other NonStop Kafka integration solutions require an interim application and/or database, generally running on another platform. This can be less than ideal as that additional platform may not have the reliability of the NonStop, and could introduce a single point of failure. It can also increase latency, in terms of getting the data into Kafka as quickly as possible.</p>
+
+            <h2>Features</h2>
+
+            <p>uLinga for Kafka supports the same access points available with other uLinga products to enable applications to stream their data to Kafka. These include Inter-Process Communication (IPC), Pathsend and HTTP/REST. IPC and Pathsend interfaces allow NonStop applications to open uLinga for Kafka and send data via Guardian IPC, or via a Pathsend message. The HTTP/REST interface allows applications on the NonStop or on any other platform, such as API gateways, to stream via HTTP to Kafka. uLinga for Kafka also introduces a new access point which allows for Enscribe files to be monitored and read in real-time as they are being written by an application.</p>
+
+            <h3 style="color: #4a6fa5;">Entry-Sequenced and Relative Enscribe File Support</h3>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/uLinga_filereader_chart.png" alt="uLinga File Reader Support" style="max-width: 30%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
+
+            <p>Entry-sequenced or relative files (such as a transaction log file from a payment application, or an access log for an in-house application), can be supported by uLinga for Kafka. uLinga for Kafka performs an "end of file chase" whereby new records are read from the Enscribe file as they are written by the application, and immediately streamed to the Kafka cluster. uLinga for Kafka monitors for the creation of new files and automatically picks them up and begins processing them.</p>
+
+            <h3 style="color: #4a6fa5;">Pathsend and Guardian IPC Support</h3>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/uLinga_pathsend_chart.png" alt="uLinga Pathsend and IPC Support" style="max-width: 30%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
+
+            <p>Applications can also explicitly send data via the Pathsend and IPC interfaces provided by uLinga for Kafka. This might be useful where specific data streams need to be generated and sent directly from the application. A Pathsend client, such as a Pathway Requestor or Pathway Server, simply sends the relevant data via a Pathsend request to uLinga. A NonStop process sends the data to uLinga for Kafka via IPC calls. uLinga for Kafka's support for the native Kafka protocols ensures that this data will be streamed with the lowest latency possible.</p>
+
+            <h3 style="color: #4a6fa5;">NonStop Application Streaming via HTTP/REST</h3>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/uLinga_HTTP_chart.png" alt="uLinga HTTP/REST Streaming" style="max-width: 30%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
+
+            <p>uLinga for Kafka's HTTP interface can be used by any HTTP Client, on NonStop, or any other platform. This might be useful with API gateways, such as the new product recently launched by HPE. API gateways, with the central position they occupy within the enterprise, will often produce data that will need to be streamed to Kafka. Administrators of an API gateway, which of course is inherently REST-capable, might decide to utilize the REST interface into uLinga for Kafka – it's simple, it's well-understood, and it will work "out of the box" with a REST-capable client.</p>
+
+            <p><strong>uLinga for Kafka provides the additional following key features:</strong></p>
+
+            <ul>
+                <li>Online configuration via the built-in browser UI WebCon, allowing for simple management of uLinga processes and resources.</li>
+                <li>Extensive tracing via uLinga's tracing capabilities and standard logging support</li>
+                <li>Interactive command line interface and REST-based command interface to allow command and control from any environment</li>
+                <li>Kafka Exactly Once Semantics support, along with traditional NonStop fault-tolerance, provide unparalled reliability and ensure that every transaction is streamed to Kafka</li>
+                <li>Superior performance – uLinga's well-proven C code-base and NonStop optimisations allow for transaction rates of 25,000 TPS and higher.</li>
+            </ul>
+
+            <h2>How uLinga for Kafka Can Benefit NonStop Applications</h2>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka_connectors_image.png" alt="Kafka Connectors Architecture" style="max-width: 61%; margin: 0 auto 2rem auto; display: block;">
+
+            <h3>Kafka Connectors</h3>
+
+            <p>One major benefit of using Kafka is the extensive number of off-the-shelf connectors available for different third-party products. Kafka Connectors are ready-to-use components, which can help you import data from external systems into Kafka topics (source connectors) and export data from Kafka topics into external systems (sink connectors). Some are commercial products, while others are open source. Regardless of your application needs, chances are there is already an available connector for the application you want to integrate with. You just need to publish your message into Kafka, and the connector will do the rest.</p>
+
+            <p>You can take advantage of these available connectors by using uLinga to publish your NonStop data or messages to Kafka, which can be consumed by any number of sink connectors of your choice.</p>
+
+            <h3>Use Case: Log Analysis</h3>
+
+            <p>With uLinga, you can send NonStop application logs or system events to Kafka for real time analysis by off-platform SIEM (Security Information and Event Management) packages, log analysis tools like Splunk, or observability platform like New Relic One.</p>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/kafka_log_analysis_image.png" alt="Log Analysis Use Case" style="max-width: 35%; margin: 0 auto 2rem auto; display: block;">
+
+            <h3>Use Case: Database replication</h3>
+
+            <p>uLinga can work in concert with database replication products like Gravic's Shadowbase to send NonStop changed data to Kafka for use by other database platforms like SQL Server or Oracle.</p>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/kafka_database_rep_image.png" alt="Database Replication Use Case" style="max-width: 61%; margin: 0 auto 2rem auto; display: block;">
+
+            <h3>Use Case: Application Integration</h3>
+
+            <p>uLinga enables your NonStop applications to easily generate workflow events or send messages to applications running on other platforms like Windows or Linux, or even third-party packages like SAP. An example could be a Base24 transaction on NonStop resulting in a message being sent to another system for back-office reconciliation. Kafka is increasingly being used as a foundation for fraud detection systems, and with real-time transaction data being sent by uLinga, that data can easily be integrated with Kafka-based fraud detection systems. All these messages can be delivered by Kafka in a reliable and asynchronous manner, and not slow down processing on the NonStop independent of the target system consumers. Your NonStop application can accomplish that by sending an IPC message to uLinga, or simply writing a record to a file being monitored by uLinga. This allows NonStop to seamlessly integrate well with the rest of the enterprise environment.</p>
+
+            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/kafka_application_integration_image.png" alt="Application Integration Use Case" style="max-width: 35%; margin: 0 auto 2rem auto; display: block;">
+
+            <h2>Conclusion</h2>
+
+            <p>Hopefully this article has given you an idea of how Kafka works, what is possible with it, and how you might integrate and modernize your NonStop applications and data by integrating with Kafka. If you'd like to learn more about uLinga for Kafka, please get in touch – it's easy to arrange a demo or Proof of Concept, to allow you to see how it performs in your environment.</p>
+        </div>
+
+        <a href="blog.html" class="back-button">← Back to Blog</a>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
+
+        <div class="feedback-section">
+            <h3>Feedback Please</h3>
+            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+        <div class="company-section">
+            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <p class="company-text"><strong>Phil Ly</strong> is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
+            <div style="clear: both;"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved.</p>
+    </footer>
+</body>
+</html>
