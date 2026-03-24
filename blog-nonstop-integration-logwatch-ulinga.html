@@ -469,6 +469,8 @@
 
             <p>One of the best ways to modernize NonStop is to integrate its applications with other software, platforms and cloud services. Integration with Kafka will open NonStop to interoperate with many different platforms and applications. <strong>uLinga for Kafka from Infrasoft provides the perfect mechanism to integrate NonStop applications with Kafka.</strong></p>
 
+            <img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/Apache_Kafka Chart.png" alt="Apache Kafka Chart" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <h2>uLinga for Kafka</h2>
 
             <p>uLinga for Kafka is an Infrasoft product that enables NonStop applications to publish data or events to Kafka topics easily. uLinga is a natively compiled Guardian process pair and supports the Kafka communications protocols directly over TCP/IP. uLinga communicates directly with the Kafka cluster, ensuring data is streamed as quickly and reliably as possible.</p>
@@ -476,11 +478,17 @@
             <p>uLinga for Kafka provides multiple ways for applications to publish data into Kafka topics, including:</p>
 
             <ul>
-                <li>Enscribe file monitor – New records in a monitored file are automatically streamed to specific Kafka topics</li>
+                <li>Enscribe file monitor – New records in a monitored file are automatically streamed to specific Kafka topics.</li>
                 <li>Pathsend and IPC support – Via a Pathsend or a WRITE/READ operation to uLinga, a NonStop process can invoke data to be published into a Kafka topic.</li>
             </ul>
 
+            <img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/uLinga_filereader_chart.png" alt="uLinga File Reader Chart" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/uLinga_pathsend_chart.png" alt="uLinga Pathsend Chart" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <p><strong>LogWatch from TIC Software, an Infrasoft partner, makes it even easier for NonStop applications to benefit from uLinga with its unique features like filtering and reformatting.</strong></p>
+
+            <img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/logwatch_diagram_infrasoft_logo.png" alt="LogWatch Diagram" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <h2>LogWatch</h2>
 
@@ -488,8 +496,11 @@
 
             <p>LogWatch can be used to extend the interface to uLinga for Kafka easily. LogWatch extends uLinga File Interface by monitoring EMS logs and Guardian files with additional capabilities, and leverages the uLinga Pathsend interface to publish the data to Kafka topics.</p>
 
+            <img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/logwatch_kafka_cluster.png" alt="LogWatch Kafka Cluster" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <h2>Here are some of the LogWatch features which add value to the interface with uLinga.</h2>
 
+            <a href="#"><img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/filter 2.png" alt="Filter" class="company-image"></a>
             <p>Instead of sending all the records to Kafka, one may want to only send selective records. For example, those with errors or warnings, or ones with certain data fields such as certain RESPONSE CODE, etc. LogWatch has a <strong>MATCHING PATTERN</strong> feature which allows one to easily specify which records are of interest. This can be as simple as a pattern data match or as sophisticated as using REGEX.</p>
 
             <p>Matching Patterns can be one of the following:</p>
@@ -502,6 +513,7 @@
                 <li>A regular expression which can specify any combination of pattern matching</li>
             </ul>
 
+            <a href="#"><img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/Reformat 2.png" alt="Reformat" class="company-image"></a>
             <p>While Kafka can work with any type of data, best practice dictates that published data should be in a structured format, preferably with meta data. Instead of just sending the raw data to Kafka, LogWatch can transfer it into a more structured meaning format by configuring a reformatting rule.</p>
 
             <p><strong>Original Raw Data (9001)</strong><br>
@@ -517,8 +529,9 @@
             Pname=$DMR,Error=00390,<br>
             Text=AWAITIO to SMTP-GATEWAY failed ERROR (9001)</p>
 
-            <p>In fact, LogWatch's reformatting rule can be used to convert the raw data into a JSON payload.</p>
+            <p><strong>In fact, LogWatch's reformatting rule can be used to convert the raw data into a <a href="file:///C:/ticsoftware/json-thunder.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">JSON</a> payload.</strong></p>
 
+            <a href="#"><img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/Topics 2.png" alt="Topics" class="company-image"></a>
             <p>LogWatch can monitor a single input file or EMS for different match pattern. It can be configured to take a different ACTION based on the matched pattern. One simple example is that if EMS Log contains the key word "BASE24", LogWatch can send that to uLinga for Kafka producer that handles the "BASE24" topic, while a record with the keyword "ACH" will be routed to a different topic accordingly.</p>
 
             <h2>Summary</h2>
