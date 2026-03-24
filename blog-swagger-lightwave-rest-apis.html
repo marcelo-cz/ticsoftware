@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swagger or no Swagger - LightWave Client lets you create REST APIs in minutes - TIC Software Blog</title>
+    <meta name="description" content="Learn how LightWave Client makes it easy to create REST APIs on NonStop systems, whether you have Swagger files or not.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px !important;
+            width: 75px !important;
+            border-radius: 8px;
+            display: block !important;
+            margin: 0 1.5rem 1rem 0 !important;
+        }
+
+        .feedback-section a {
+            display: block;
+            float: left;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            display: block;
+            margin: 0 !important;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px !important;
+            border-radius: 8px;
+            display: inline !important;
+            margin: 0 0.75rem 1rem 0 !important;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html" class="active">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Jan 4, 2023</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Phil Ly</span>
+                </div>
+            </div>
+            <div>
+                <span class="blog-tag">LightWave Client</span>
+                <span class="blog-tag">REST APIs</span>
+                <span class="blog-tag">Swagger</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="API Chart" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>RESTful API opens up NonStop by enabling its applications to interoperate with services within the enterprise, in the cloud or anywhere on the Internet. <strong>LightWave Client™ from our partner NuWave Technologies is the most popular REST client product to run on NonStop.</strong> It enables you to create NonStop applications to consume remote RESTful Web Services in minutes.</p>
+
+            <img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/LWC_CHART.png" alt="LightWave Client Chart" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>There are many factors that attribute to its success, including a browser-based GUI dashboard, its high performance, extensive diagnostic logging, etc. In addition, one outstanding feature is the ease of configuring and managing API definitions.</p>
+
+            <img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Swagger_banner.png" alt="Swagger Banner" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>Swagger</h2>
+
+            <p>Swagger allows the RESTful Web Service developer to describe the structure of their APIs so that the REST Client knows how to call them. The ability of APIs to describe their own structure is the root of all benefits in Swagger. This file is essentially a resource listing of your API which adheres to OpenAPI Specification. The specification asks you to include information like:</p>
+
+            <ul>
+                <li>What are all the operations that your API supports?</li>
+                <li>What are your API's parameters and what does it return?</li>
+                <li>Does your API need some authorization? Etc.</li>
+            </ul>
+
+            <img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Swagger_file.png" alt="Swagger File" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>A Swagger file for a RESTful service greatly facilitates the job of the REST Client program developer because it enables the creation of the methods and operations more easily. <strong>LightWave Client™ supports the use of Swagger in defining the APIs to consume the RESTful web service.</strong></p>
+
+            <h2>Swagger Support in LightWave Client – Point and Click</h2>
+
+            <p>With LightWave Client™, you can create an API to consume the remote RESTful service instantly by importing its Swagger file. This can be done via a point-and-click operation.</p>
+
+            <img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/swagger_support_LWC.png" alt="Swagger Support LightWave Client" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Import_API_from_swagger_openAPI.png" alt="Import API from Swagger OpenAPI" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>Once the Swagger has been imported, LightWave Client™ will generate a schema with all the methods and operations as defined in the Swagger file. And the API is done!</p>
+
+            <p>LightWave Client™ also provides a feature that allows you to customize some of the schema attributes, like field size, array size, etc. to fit your application environment.</p>
+
+            <img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Schema Editor.jpg" alt="Schema Editor" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>What if there is no Swagger?</h2>
+
+            <p>The reality is that not every RESTful web service provider supplies a Swagger. This presents a potential problem to some other REST Client products on NonStop which require that you must have a Swagger file for it to work. If you don't have it, then you are stuck. You will need to "make up" (create) one manually. It can be a tedious process that is prone to incompleteness and errors.</p>
+
+            <h2>LightWave Client – Schema By Example</h2>
+
+            <p>This is not an issue for LightWave Client™. No need to fumble around trying to create a Swagger manually. With LightWave Client™, all you need is a sample Request and Response. Then you can take advantage of the product's <strong>"Schema By Example"</strong> feature. As the name implies, LightWave Client™ will use the sample that you provide as an example to build a schema to be used for creating the request and response necessary to access the remote API.</p>
+
+            <p>When you use the LightWave Client™ GUI Dashboard to create the API definition, one of the options is "Add By Example." Paste in a sample Request or Response, and LightWave Client™ will process it accordingly.</p>
+
+            <p>Once the request and the response definitions are imported via the Example, you can optionally edit the schema to fit your application needs.</p>
+
+            <p><strong>That's it: your API definition is now complete by using LightWave Client's™ Schema By Example feature.</strong></p>
+
+            <p>For more information about LightWave Client™, visit <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> or NuWave Technologies website.</p>
+
+            <div class="feedback-section">
+                <h3>Feedback Please</h3>
+                <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+                <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+            <div class="company-section">
+                <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+                <p class="company-text"><strong>Phil Ly</strong> is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <a href="blog.html" class="back-button">← Back to Blog</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved.</p>
+    </footer>
+</body>
+</html>
