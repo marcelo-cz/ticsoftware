@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NonStop Integration – LogWatch and uLinga - TIC Software Blog</title>
+    <meta name="description" content="Learn how LogWatch and uLinga integrate NonStop applications with Kafka for modernization and data streaming.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
+        }
+
+        .hero-left h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .hero-right {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px !important;
+            width: 75px !important;
+            border-radius: 8px;
+            display: block !important;
+            margin: 0 1.5rem 1rem 0 !important;
+        }
+
+        .feedback-section a {
+            display: block;
+            float: left;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            display: block;
+            margin: 0 !important;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px !important;
+            border-radius: 8px;
+            display: inline !important;
+            margin: 0 0.75rem 1rem 0 !important;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html" class="active">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>NonStop Integration – LogWatch and uLinga</h1>
+        </div>
+        <div class="hero-right" style="background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Jul 26, 2023</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Phil Ly</span>
+                </div>
+            </div>
+            <div>
+                <span class="blog-tag">Kafka</span>
+                <span class="blog-tag">Integration</span>
+                <span class="blog-tag">Modernization</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <h2>Modernization via Integration</h2>
+
+            <p>One of the best ways to modernize NonStop is to integrate its applications with other software, platforms and cloud services. Integration with Kafka will open NonStop to interoperate with many different platforms and applications. <strong>uLinga for Kafka from Infrasoft provides the perfect mechanism to integrate NonStop applications with Kafka.</strong></p>
+
+            <h2>uLinga for Kafka</h2>
+
+            <p>uLinga for Kafka is an Infrasoft product that enables NonStop applications to publish data or events to Kafka topics easily. uLinga is a natively compiled Guardian process pair and supports the Kafka communications protocols directly over TCP/IP. uLinga communicates directly with the Kafka cluster, ensuring data is streamed as quickly and reliably as possible.</p>
+
+            <p>uLinga for Kafka provides multiple ways for applications to publish data into Kafka topics, including:</p>
+
+            <ul>
+                <li>Enscribe file monitor – New records in a monitored file are automatically streamed to specific Kafka topics</li>
+                <li>Pathsend and IPC support – Via a Pathsend or a WRITE/READ operation to uLinga, a NonStop process can invoke data to be published into a Kafka topic.</li>
+            </ul>
+
+            <p><strong>LogWatch from TIC Software, an Infrasoft partner, makes it even easier for NonStop applications to benefit from uLinga with its unique features like filtering and reformatting.</strong></p>
+
+            <h2>LogWatch</h2>
+
+            <p>LogWatch is a TIC product that provides real time detection of errors and raise alerts to facilitate quick resolution. LogWatch is a Guardian program that monitors system log files (EMS and VHS), application logs, OSS files and third-party product logs. When a configured error pattern is detected, LogWatch takes preconfigured actions to forward the data to a variety of targets including email, text, another application or another system. Using LogWatch with uLinga provides an easy way to publish NonStop data and events to Kafka topics.</p>
+
+            <p>LogWatch can be used to extend the interface to uLinga for Kafka easily. LogWatch extends uLinga File Interface by monitoring EMS logs and Guardian files with additional capabilities, and leverages the uLinga Pathsend interface to publish the data to Kafka topics.</p>
+
+            <h2>Here are some of the LogWatch features which add value to the interface with uLinga.</h2>
+
+            <p>Instead of sending all the records to Kafka, one may want to only send selective records. For example, those with errors or warnings, or ones with certain data fields such as certain RESPONSE CODE, etc. LogWatch has a <strong>MATCHING PATTERN</strong> feature which allows one to easily specify which records are of interest. This can be as simple as a pattern data match or as sophisticated as using REGEX.</p>
+
+            <p>Matching Patterns can be one of the following:</p>
+
+            <ul>
+                <li>A pattern to match, e.g.<br>
+                "*" Matches anything<br>
+                "*warning" Matches anything with trailing "warning" in it<br>
+                "*error*" Matches any occurrence of "error" in it</li>
+                <li>A regular expression which can specify any combination of pattern matching</li>
+            </ul>
+
+            <p>While Kafka can work with any type of data, best practice dictates that published data should be in a structured format, preferably with meta data. Instead of just sending the raw data to Kafka, LogWatch can transfer it into a more structured meaning format by configuring a reformatting rule.</p>
+
+            <p><strong>Original Raw Data (9001)</strong><br>
+            2021/03/03 17:02:24.75 $DMR 00390 ERROR AWAITIO to SMTP-GATEWAY failed ERROR (9001)</p>
+
+            <p><strong>Reformatting Rule</strong><br>
+            Format String="Node=\K2K,Date=%P1%,Time=%P2%,Pname=%C24.6.T%,Error=%C30.5.T%,Text=%C43.100 .T%"</p>
+
+            <p><strong>Output is Name/Value Pair</strong><br>
+            Node=\K2K,<br>
+            Date=2011/03/03,<br>
+            Time=17:02:24.75,<br>
+            Pname=$DMR,Error=00390,<br>
+            Text=AWAITIO to SMTP-GATEWAY failed ERROR (9001)</p>
+
+            <p>In fact, LogWatch's reformatting rule can be used to convert the raw data into a JSON payload.</p>
+
+            <p>LogWatch can monitor a single input file or EMS for different match pattern. It can be configured to take a different ACTION based on the matched pattern. One simple example is that if EMS Log contains the key word "BASE24", LogWatch can send that to uLinga for Kafka producer that handles the "BASE24" topic, while a record with the keyword "ACH" will be routed to a different topic accordingly.</p>
+
+            <h2>Summary</h2>
+
+            <p>Kafka is a growing platform in the enterprise, and it opens up opportunity for NonStop to integrate easily with rest of the enterprise and cloud services. uLinga from Infrasoft makes it easy to interface to Kafka with its available interfaces. LogWatch from TIC extends those interfaces and serves a perfect companion product to uLinga to further facilitate publish NonStop data to Kafka.</p>
+
+            <div class="feedback-section">
+                <h3>Feedback Please</h3>
+                <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+                <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+            <div class="company-section">
+                <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+                <p class="company-text"><strong>Phil Ly</strong> is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <a href="blog.html" class="back-button">← Back to Blog</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TIC Software. All rights reserved.</p>
+    </footer>
+</body>
+</html>
