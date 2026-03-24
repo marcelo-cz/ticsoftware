@@ -305,6 +305,7 @@
             text-align: justify;
             display: block;
             margin: 0 !important;
+            overflow: hidden;
         }
 
         .feedback-text a {
@@ -469,7 +470,7 @@
         </div>
 
         <div class="blog-content">
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="Using TOP with NonStop TCP/IP" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="Using TOP with NonStop TCP/IP" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <p><strong><a href="file:///C:/ticsoftware/modernize.html#top" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TOP</a> is a great GUI for just about everything you need to do on your NonStop system.</strong> One of the most helpful features is the ability to easily look at data communications information, especially as it pertains to <strong>CLIM IP, or "CIP".</strong></p>
 
@@ -479,15 +480,25 @@
 
             <p>Sign on to TOP and select your system. The system's components appear in a familiar, Windows Explorer-style interface.</p>
 
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/All_Nodes_TOP.jpg" alt="All Nodes TOP" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <p>Navigate to "Comms", "TCP/IP", "IP CIP"</p>
 
             <p>TOP now shows the available IP CLIMs. Select one and click on its "Interfaces". You now see the CLIM's interface information, including which providers are using them and which IP addresses are being served:</p>
 
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TICX_COMMS.jpg" alt="TICX COMMS" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <p>Now click on "Providers". TOP shows information on all the providers:</p>
+
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TICX_COMMS_Providers.jpg" alt="TICX COMMS Providers" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <p>Next, right-click on a provider and select "Sockets" from the pull-down menu. TOP provides information for all of the current active sockets for that provider:</p>
 
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/socket_opens_for_IP.jpg" alt="Socket Opens for IP" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <p>Sort it however you want by clicking on a column heading. For example, by Foreign IP Address, to see who has an active session:</p>
+
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/Foreign IP Address.jpg" alt="Foreign IP Address" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <p><strong>Total time to do this with TOP: about 1 minute, and you don't need to know any command syntax.</strong> Information from the TOP display can also be easily copied and pasted into your favorite spreadsheet. It's EASY!</p>
 
@@ -495,15 +506,25 @@
 
             <p>Now, the tedious way to do the same thing using SCF:</p>
 
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TACL_SCF.jpg" alt="TACL SCF" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <p>Note that the command returns both IP CLIMs and Storage CLIMs. So, pick an IP CLIM and look at the detailed status. There's a LOT of information that needs to be parsed and understood:</p>
+
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/status clim NCLIM000.jpg" alt="Status CLIM NCLIM000" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <p>Now you have the information needed to find out which IP addresses are associated with which interface on that CLIM. But who is using those addresses?</p>
 
             <p>Next, find all of the CIPSAM processes – These are called "Providers" in CIP, and are the processes that your program accesses when it wants a connection. Each provider is associated with one or more CLIMs, and there may be more than one provider for a given CLIM:</p>
 
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/CIP Status PROVIDER.png" alt="CIP Status PROVIDER" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <p>Well that wasn't too hard. Next, find out which provider is associated with the IP address you're interested in:</p>
 
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/CIP Detailed Status.jpg" alt="CIP Detailed Status" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
             <p>You might need to look at all the providers to find the one you're looking for. But great, now we know which CLIM, interface and IP address is driven by this provider. Now, enter another command to find all of the listeners and established sessions through the provider for that interface:</p>
+
+            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/listopens provider.jpg" alt="ListOpens Provider" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <p>There may be a LOT of listeners and sessions, appearing in no particular order in the SCF output and, as you can see, it's not very easy to read. So next you copy the output from your screen (or log it to a file and copy that) into a spreadsheet, separate it into useful columns of information, and sort it to find what you're looking for.</p>
 
@@ -525,7 +546,24 @@
             <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
             <div class="company-section">
-                <p class="company-text"><a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> is a leading provider of software and services for the NonStop community focused on NonStop application modernization. With a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies, TIC Software delivers innovative solutions that unlock the full potential and longevity of NonStop platforms.</p>
+                <img src="./images/TIC Team/Matt_Riesz.jpg" alt="Matt Riesz" class="company-image">
+                <p class="company-text"><strong>Matt Riesz</strong> is a technical consultant at TIC Software. Matt's career spans the corporate transitions of what is now HPE NonStop. He started at Tandem in 1982 as a system engineer, and saw the company evolve from Tandem to Compaq, and finally to HP/HPE – from where he retired with the title of Master System Architect. Throughout the course of these changes, Matt's job was focused on pre-and post-sales technical support for software and systems.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+            <div class="company-section">
+                <img src="./images/TIC_2026.png" alt="TIC Software" class="company-image">
+                <p class="company-text"><a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a New York-based company specializing in software and services that integrate NonStop with the latest technologies, including Web Services, .NET and Java. Prior to founding TIC in 1983, Phil worked for Tandem Computer in technical support and software development.</p>
+                <div style="clear: both;"></div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+            <div class="company-section">
+                <img src="./images/Logos/comforte_logo.jpg" alt="comForte" class="company-image">
+                <p class="company-text">TIC Software partners with comForte to offer a suite of innovative security, modernization, and connectivity solutions for NonStop systems users. comForte develops, markets, and supports proven and innovative modernization, middleware, connectivity, and security solutions for users of HP NonStop systems.</p>
                 <div style="clear: both;"></div>
             </div>
 
