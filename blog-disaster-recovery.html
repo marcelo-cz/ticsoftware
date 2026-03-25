@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modernize - TIC Software</title>
-    <meta name="description" content="TIC's Modernize Solutions - Transform legacy applications with GUI replacement and code modernization to .NET and Java.">
+    <title>How quickly can you bring up critical reports on your DR system? - TIC Software Blog</title>
+    <meta name="description" content="Learn how to quickly replicate spooler jobs and critical reports to your Disaster Recovery system using TIC's TeleFTP product.">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <style>
         * {
@@ -89,11 +89,6 @@
             color: var(--primary-blue);
         }
 
-        .search-icon {
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
         .nav-dropdown {
             position: relative;
             display: inline-block;
@@ -132,152 +127,201 @@
 
         /* Main Content */
         main {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        .page-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+        .blog-header {
             margin-bottom: 2rem;
-            align-items: center;
             padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
         }
 
-        .page-header-image {
-            width: 100%;
-            height: 300px;
-            background: url('./images/modernize.jpg') center/cover no-repeat;
+        .blog-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .product-emphasis {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
             border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px;
+            border-radius: 8px;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            overflow: hidden;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 144px;
+            border-radius: 8px;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 3rem;
         }
 
-        .page-header-content h1 {
+        .hero-left h1 {
             font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            border: 2px solid var(--dark-text);
-            padding: 0.75rem 1rem;
-            display: inline-block;
-        }
-
-        .page-header-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-top: 1rem;
-            max-width: 500px;
-        }
-
-        .product-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .product-tab {
-            border: 2px solid var(--dark-text);
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 600;
-            border-radius: 4px;
-            transition: all 0.3s;
-            font-size: 0.85rem;
-        }
-
-        .product-tab:hover {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            border-color: var(--primary-blue);
-        }
-
-        .product-section {
-            margin-bottom: 0.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--border-gray);
-            scroll-margin-top: 150px;
-        }
-
-        main > .product-section:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .product-section h2 {
-            font-size: 1.8rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.75rem;
+            text-align: center;
+            padding: 2rem;
             font-weight: bold;
         }
 
-        .product-section p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 0.75rem;
-            text-align: justify;
-        }
-
-        .product-link {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 0.75rem;
-            margin-right: 1rem;
-            transition: all 0.3s;
-        }
-
-        .product-link:hover {
-            background-color: var(--light-blue);
-        }
-
-        .blog-section {
-            margin-top: 1rem;
-            padding: 0;
-        }
-
-        .blog-section h3 {
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .blog-section p {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
-            text-align: justify;
-        }
-
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-        }
-
-        .read-more:hover {
-            background-color: var(--light-blue);
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
         }
 
         /* Footer */
@@ -287,28 +331,34 @@
             padding: 2rem;
             text-align: center;
             font-size: 0.9rem;
+            margin-top: 3rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .page-header {
+            .hero-section {
                 grid-template-columns: 1fr;
+                height: auto;
             }
 
-            .page-header-image {
-                height: 300px;
+            .hero-left h1 {
+                font-size: 1.8rem;
             }
-
             nav {
                 gap: 1rem;
                 font-size: 0.85rem;
             }
 
-            .product-tabs {
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
                 flex-direction: column;
+                gap: 0.5rem;
             }
         }
-    
+
         /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
@@ -614,6 +664,15 @@
                 width: 100%;
             }
         }
+
+        /* Blog content images */
+        .blog-content img {
+            max-width: 50%;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -639,7 +698,7 @@
                         <a href="messaging.html">Messaging</a>
                         <a href="gateway.html">Gateway</a>
                         <a href="business-intelligence.html">Business Intelligence</a>
-                        <a href="modernize.html" class="active">Modernize</a>
+                        <a href="modernize.html">Modernize</a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
@@ -656,7 +715,7 @@
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
                         <a href="blog.html">Blog</a>
-                </div>
+                    </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
                 <div class="nav-search" style="position: relative;">
@@ -668,115 +727,134 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>How quickly can you bring up critical reports on your DR system?</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
     <!-- Main Content -->
     <main>
-        <div class="page-header">
-            <div class="page-header-image">💡</div>
-            <div class="page-header-content">
-                <h1>Modernize</h1>
-                <p>TIC provides modernization solutions, ranging from replacing Green Screen interface with GUI, to completely transforming COBOL and SCOBOL code into .NET and Java applications.</p>
-                <div class="product-tabs">
-                    <a href="#lightwave" class="product-tab">LightWave</a>
-                    <a href="#xmlthunder" class="product-tab">XML Thunder</a>
-                    <a href="#ulinga" class="product-tab">uLinga</a>
-                    <a href="#jsonthunder" class="product-tab">JSON Thunder</a>
-                    <a href="#ipforwarder" class="product-tab">IP Forwarder</a>
-                    <a href="#top" class="product-tab">TOP</a>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>March 4, 2020</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <span>Phil Ly</span>
                 </div>
             </div>
-        </div>
-
-        <!-- LightWave REST Suite Section -->
-        <div class="product-section" id="lightwave">
-            <h2>LightWave REST Suite</h2>
-            <p>LightWave products utilize REST APIs to facilitate the exchange of data between NonStop applications and applications running on disparate systems, including PCs and mobile devices.</p>
-            <a href="./PDF/LightWave_Client_Datasheet.pdf" class="product-link">📄 LightWave Client</a>
-            <a href="./PDF/LightWave_Server_Datasheet.pdf" class="product-link">📄 LightWave Server</a>
-            <a href="https://www.youtube.com/watch?v=A62W3UCQdy8&feature=youtu.be" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Overview</a>
-            <a href="https://www.youtube.com/watch?v=dVzQw5t5lPA" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Client Demo</a>
-            <a href="https://www.youtube.com/watch?v=-gHY_1YtP4w" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Server Demo</a>
-            <a href="lightwave-client-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> LightWave Client FAQ</a>
-            <a href="lightwave-server-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> LightWave Server FAQ</a>
-
-            <div class="blog-section">
-                <h3 style="color: black;">Blog: What is REST Web Service?</h3>
-                <p>Explore the fundamentals of REST Web Services, understand the differences between REST and SOAP, and learn how REST APIs enable seamless integration with modern web applications.</p>
-                <a href="blog-rest-web-service.html" class="read-more">📝 Read Blog</a>
+            <div class="blog-tags">
+                <span class="blog-tag">Disaster Recovery</span>
+                <span class="blog-tag">Messaging</span>
+                <span class="blog-tag">NonStop</span>
             </div>
         </div>
 
-        <!-- uLinga Section -->
-        <div class="product-section" id="ulinga">
-            <h2>uLinga</h2>
-            <p>It is a NonStop application that can publish NonStop events and data to Kafka clusters to be picked up by any consuming subscribers on any platforms.</p>
-            <a href="./ulinga.html" class="product-link">→ Learn More</a>
+        <div class="blog-content">
+            <h2>Ensuring Business Continuity Through Spooler Job Replication</h2>
 
-            <div class="blog-section">
-                <h3 style="color: black;">Blog: Kafka and HPE NonStop – A Perfect Combo!</h3>
-                <p>Discover how uLinga enables NonStop systems to connect with modern event streaming platforms like Kafka.</p>
-                <a href="file:///C:/ticsoftware/blog-kafka-hpe-nonstop-perfect-combo.html" class="read-more">📝 Read Blog</a>
+            <img src="./images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/Disaster_Recovery.png" alt="Disaster Recovery Architecture">
+
+            <p>Most, if not all, of NonStop customers have a DR (Disaster Recovery) system, as well as a plan to ensure business continuity of their mission-critical applications in the event of a disaster. A company's goal is to be able to resume business operation as quickly as possible with minimum interruption. The main focus of the daily operation plan is to ensure applications and third-party packages are up-to-date on the DR system, and that the database and files are synchronized regularly from Production to DR.</p>
+
+            <h3>The Challenge: How About Spooler Jobs?</h3>
+
+            <p>Many NonStop installations have hundreds, and maybe even thousands, of daily jobs in their spoolers. Many of them are reports from batch applications, online transaction logs, and other important output data needed for critical business analysis. While spooler jobs are not necessarily critical to online transaction processing, much of the report data may be crucial to a company's efficient daily operations.</p>
+
+            <p>In the event of a disaster requiring a failover to the DR system, the absence of these critical reports can impact business continuity. Organizations need a reliable method to ensure that spooler jobs are replicated and available on the DR system, ready to be brought online quickly when needed.</p>
+
+            <h3>The Solution: How to Replicate Spooler Jobs</h3>
+
+            <p>One simple and elegant method to replicate spooler jobs from Production to DR system easily is to use TIC's Tele2000 product. Tele2000 provides an architecture framework that extracts spooler jobs, stores them in disk files, and delivers them to external systems via email, FTP, or Web.</p>
+
+            <img src="./images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/FTP_Process.png" alt="FTP Process Flow" style="max-width: 30%;">
+
+            <h3>TeleFTP: The Key Component</h3>
+
+            <p>The FTP module TeleFTP automates the transmission of NonStop Server files and Spooler reports to FTP Servers. Besides FTP Client capability, Tele2000 also includes options to convert data to different formats prior to transmission, including: PDF, HTML, and ZIP. TeleFTP is built on Tele2000 architecture, which offers flexibility, high performance, and scalability.</p>
+
+            <p>The TeleFTP workflow operates as follows:</p>
+
+            <ul>
+                <li>Tele2000 can be configured to monitor spooler jobs in specific collectors and LOCs (Line of Credit).</li>
+                <li>Data content of those spooler jobs is extracted and stored into disk files.</li>
+                <li>Each disk file is then sent by the TeleFTP module via FTP protocol directly into the DR's target Spoolers, including preserving the LOC and DEST information.</li>
+                <li>NonStop system's FTP server allows spoolers to be a target destination.</li>
+                <li>DR Spoolers will then have a duplicate of all the critical spooler jobs in Production System.</li>
+            </ul>
+
+            <img src="./images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/TeleFTP_Module.png" alt="TeleFTP Module Architecture">
+
+            <div class="product-emphasis">
+                <p><strong>Using TeleFTP for Disaster Recovery</strong> provides a simple and elegant way to replicate spooler jobs to your DR system. This automated approach ensures that when disaster strikes, your DR system already has the critical reports and data needed to maintain business continuity with minimal delay.</p>
             </div>
+
+            <h2>Beyond Disaster Recovery</h2>
+
+            <p>As depicted above, using TeleFTP is a simple and elegant way to replicate Spooler Jobs to a DR system. Of course, TeleFTP is not limited to DR use; in fact, TeleFTP users are relying on its extensive features for all of their FTP transmissions from NonStop to external systems, daily.</p>
+
+            <p>TeleFTP's capabilities extend beyond disaster recovery scenarios. Many organizations use TeleFTP for:</p>
+
+            <ul>
+                <li>Regular report distribution to stakeholders across multiple systems</li>
+                <li>Integration with external applications and partners</li>
+                <li>Automated data formatting and transformation</li>
+                <li>Secure transmission of critical business information</li>
+            </ul>
+
+            <h2>Key Features of Tele2000 and TeleFTP</h2>
+
+            <ul>
+                <li><strong>Automatic Monitoring:</strong> Monitor specific collectors and LOCs for spooler jobs</li>
+                <li><strong>Format Conversion:</strong> Convert data to PDF, HTML, ZIP, and other formats</li>
+                <li><strong>FTP Transmission:</strong> Reliable, automated FTP transmission to external systems</li>
+                <li><strong>Metadata Preservation:</strong> Maintains LOC and DEST information during transfer</li>
+                <li><strong>Scalability:</strong> Built on robust architecture to handle high-volume operations</li>
+                <li><strong>Flexibility:</strong> Configurable for various deployment scenarios</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+
+            <p>Disaster recovery is not just about having a backup system in place—it's about ensuring that critical business data and reports are readily available when you need them most. By implementing TeleFTP for automatic spooler job replication, organizations can:</p>
+
+            <ul>
+                <li>Reduce manual intervention during disaster recovery operations</li>
+                <li>Ensure critical reports are available on the DR system immediately</li>
+                <li>Minimize business interruption and recovery time</li>
+                <li>Maintain data integrity and LOC/DEST information consistency</li>
+                <li>Leverage proven, reliable NonStop integration technology</li>
+            </ul>
+
+            <p>With TIC Software's Tele2000 and TeleFTP products, you can answer the question "How quickly can you bring up critical reports on your DR system?" with confidence: instantly, with all critical data intact and ready for business operations.</p>
         </div>
 
-        <!-- XML Thunder Section -->
-        <div class="product-section" id="xmlthunder">
-            <h2>XML Thunder</h2>
-            <p>XML Thunder by Canam Software focuses on XML integration and application reporting solutions to maximize value of existing and new applications.</p>
-            <a href="./PDF/XML_Thunder_Product _Overview.pdf" class="product-link">📄 Thunder Suite Datasheet</a>
-            <a href="https://www.canamsoftware.com/thunder-suite/tutorials" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> Thunder Suite Overview</a>
-            <a href="./thunder-suite-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> Thunder Suite FAQ</a>
+        <a href="blog.html" class="back-button">← Back to Blog</a>
 
-            <div class="blog-section">
-                <h3>Blog: XML Thunder Overview</h3>
-                <p>Explore how XML Thunder enables seamless XML integration and reporting capabilities for your NonStop applications.</p>
-                <a href="#" class="read-more">Read more</a>
-            </div>
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
+
+        <div class="feedback-section">
+            <h3>Feedback Please</h3>
+            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+            <div style="clear: both;"></div>
         </div>
 
-        <!-- JSON Thunder Section -->
-        <div class="product-section" id="jsonthunder">
-            <h2>JSON Thunder</h2>
-            <p>The automated development and maintenance low-code software tool that gets COBOL programs parsing and creating JSON messages quickly and easily.</p>
-            <a href="./json-thunder.html" class="product-link">→ Learn More</a>
-            <a href="./PDF/JSON Product Overview.pdf" class="product-link">📄 JSON Thunder Datasheet</a>
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
-            <div class="blog-section">
-                <h3>Blog: JSON Thunder Features</h3>
-                <p>Learn how JSON Thunder simplifies JSON handling in COBOL applications with low-code development.</p>
-                <a href="#" class="read-more">Read more</a>
-            </div>
-        </div>
-
-        <!-- IP Forwarder Section -->
-        <div class="product-section" id="ipforwarder">
-            <h2>IP Forwarder</h2>
-            <p>A high performance, low latency process to distribute NonStop data to Splunk and other tools via TCP/IP or UDP.</p>
-            <a href="./ipforwarder.html" class="product-link">→ Learn More</a>
-        </div>
-
-        <!-- TOP Section -->
-        <div class="product-section" id="top">
-            <h2>TOP</h2>
-            <p>TOP provides a graphical user interface (GUI) to HPE NonStop servers through a Windows program. New staff can now become productive on the NonStop in no time using a GUI tool, instead of struggling through a command interface like TACL.</p>
-            <a href="./PDF/TOP_DataSheet.pdf" class="product-link">📄 TOP Datasheet</a>
-            <a href="https://www.youtube.com/watch?v=UGf2Gk8yhrM" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> TOP Overview</a>
-            <a href="./top-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> TOP FAQ</a>
-
-            <div class="blog-section">
-                <h3>Blog: TOP GUI Solutions</h3>
-                <p>Discover how TOP transforms the NonStop user experience with an intuitive graphical interface.</p>
-                <a href="#" class="read-more">Read more</a>
-            </div>
-        </div>
-
-        <div style="padding-top: 2rem; margin-top: 2rem; display: flex; gap: 2rem; justify-content: center;">
-            <a href="./messaging.html" class="product-link" style="padding: 0.75rem 1.5rem; font-size: 1rem;">→ Messaging</a>
-            <a href="./gateway.html" class="product-link" style="padding: 0.75rem 1.5rem; font-size: 1rem;">→ Gateway</a>
+        <div class="company-section">
+            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image" style="max-width: 72px;">
+            <p class="company-text">Phil Ly is the president and founder of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a New York-based company specializing in software and services that integrate NonStop with the latest technologies, including Web Services, .NET and Java. Prior to founding TIC in 1983, Phil worked for Tandem Computer in technical support and software development.</p>
+            <div style="clear: both;"></div>
         </div>
     </main>
 
     <!-- Footer -->
-    
+
     <script src="search-data.js"></script>
     <script src="search.js"></script>
 

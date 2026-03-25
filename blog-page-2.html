@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modernize - TIC Software</title>
-    <meta name="description" content="TIC's Modernize Solutions - Transform legacy applications with GUI replacement and code modernization to .NET and Java.">
+    <title>Blog - TIC Software</title>
+    <meta name="description" content="TIC Software Blog - Insights on NonStop modernization, messaging, gateway solutions, and application development.">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <style>
         * {
@@ -89,11 +89,6 @@
             color: var(--primary-blue);
         }
 
-        .search-icon {
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
         .nav-dropdown {
             position: relative;
             display: inline-block;
@@ -138,145 +133,143 @@
         }
 
         .page-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
             padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
         }
 
-        .page-header-image {
-            width: 100%;
-            height: 300px;
-            background: url('./images/modernize.jpg') center/cover no-repeat;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 3rem;
-        }
-
-        .page-header-content h1 {
+        .page-header h1 {
             font-size: 2.5rem;
             color: var(--primary-blue);
             margin-bottom: 0.5rem;
             font-weight: bold;
-            border: 2px solid var(--dark-text);
-            padding: 0.75rem 1rem;
-            display: inline-block;
         }
 
-        .page-header-content p {
+        .page-header p {
             font-size: 1.1rem;
-            line-height: 1.8;
-            margin-top: 1rem;
-            max-width: 500px;
+            color: #666;
+            max-width: 600px;
+            margin: 1rem auto 0;
         }
 
-        .product-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-            flex-wrap: wrap;
+        .year-section {
+            margin-bottom: 3rem;
         }
 
-        .product-tab {
-            border: 2px solid var(--dark-text);
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 600;
-            border-radius: 4px;
-            transition: all 0.3s;
-            font-size: 0.85rem;
-        }
-
-        .product-tab:hover {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            border-color: var(--primary-blue);
-        }
-
-        .product-section {
-            margin-bottom: 0.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--border-gray);
-            scroll-margin-top: 150px;
-        }
-
-        main > .product-section:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .product-section h2 {
+        .year-title {
             font-size: 1.8rem;
             color: var(--primary-blue);
-            margin-bottom: 0.75rem;
             font-weight: bold;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--primary-blue);
         }
 
-        .product-section p {
-            font-size: 0.95rem;
-            line-height: 1.8;
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .blog-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-card:first-of-type .blog-card-image img {
+            object-fit: contain;
+        }
+
+        .blog-card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card-title {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            font-weight: bold;
             margin-bottom: 0.75rem;
-            text-align: justify;
+            line-height: 1.4;
         }
 
-        .product-link {
+        .blog-card-excerpt {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .blog-card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .blog-tag {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.35rem 0.75rem;
+            background-color: #f0f0f0;
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-card-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
             background-color: var(--primary-blue);
             color: var(--white);
             text-decoration: none;
             border-radius: 4px;
             font-weight: 600;
             font-size: 0.85rem;
-            margin-bottom: 0.75rem;
-            margin-right: 1rem;
             transition: all 0.3s;
+            text-align: center;
         }
 
-        .product-link:hover {
-            background-color: var(--light-blue);
-        }
-
-        .blog-section {
-            margin-top: 1rem;
-            padding: 0;
-        }
-
-        .blog-section h3 {
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .blog-section p {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
-            text-align: justify;
-        }
-
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-        }
-
-        .read-more:hover {
+        .blog-card-button:hover {
             background-color: var(--light-blue);
         }
 
@@ -291,12 +284,8 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .page-header {
+            .blog-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .page-header-image {
-                height: 300px;
             }
 
             nav {
@@ -304,11 +293,11 @@
                 font-size: 0.85rem;
             }
 
-            .product-tabs {
-                flex-direction: column;
+            .page-header h1 {
+                font-size: 2rem;
             }
         }
-    
+
         /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
@@ -338,8 +327,6 @@
             display: flex;
             flex-direction: column;
         }
-
-
 
         /* Footer Title */
         .footer-title {
@@ -639,7 +626,7 @@
                         <a href="messaging.html">Messaging</a>
                         <a href="gateway.html">Gateway</a>
                         <a href="business-intelligence.html">Business Intelligence</a>
-                        <a href="modernize.html" class="active">Modernize</a>
+                        <a href="modernize.html">Modernize</a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
@@ -655,8 +642,8 @@
                     <div class="dropdown-menu">
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
-                        <a href="blog.html">Blog</a>
-                </div>
+                        <a href="blog.html">TIC Blog</a>
+                    </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
                 <div class="nav-search" style="position: relative;">
@@ -668,115 +655,71 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
         <div class="page-header">
-            <div class="page-header-image">💡</div>
-            <div class="page-header-content">
-                <h1>Modernize</h1>
-                <p>TIC provides modernization solutions, ranging from replacing Green Screen interface with GUI, to completely transforming COBOL and SCOBOL code into .NET and Java applications.</p>
-                <div class="product-tabs">
-                    <a href="#lightwave" class="product-tab">LightWave</a>
-                    <a href="#xmlthunder" class="product-tab">XML Thunder</a>
-                    <a href="#ulinga" class="product-tab">uLinga</a>
-                    <a href="#jsonthunder" class="product-tab">JSON Thunder</a>
-                    <a href="#ipforwarder" class="product-tab">IP Forwarder</a>
-                    <a href="#top" class="product-tab">TOP</a>
+            <h1>Blog</h1>
+            <p>Insights on NonStop modernization, messaging, gateway solutions, and application development.</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Card 1 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/a perfect combo.png" alt="Kafka and HPE NonStop A Perfect Combo"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Mar 16, 2022</div>
+                    <h3 class="blog-card-title">Kafka and HPE NonStop – A Perfect Combo!</h3>
+                    <p class="blog-card-excerpt">Discover how Kafka and HPE NonStop work together to create a powerful, reliable, and scalable solution for modern enterprise integration.</p>
+                    <div class="blog-card-tags">
+                        <span class="blog-tag">Kafka</span>
+                        <span class="blog-tag">NonStop</span>
+                        <span class="blog-tag">Integration</span>
+                    </div>
+                    <a href="blog-kafka-hpe-nonstop-perfect-combo.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="./images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/Disaster_Recovery.png" alt="Disaster Recovery"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Mar 4, 2020</div>
+                    <h3 class="blog-card-title">How quickly can you bring up critical reports on your DR system?</h3>
+                    <p class="blog-card-excerpt">Learn how to quickly replicate spooler jobs and critical reports to your Disaster Recovery system, ensuring business continuity with TIC's TeleFTP product.</p>
+                    <div class="blog-card-tags">
+                        <span class="blog-tag">Disaster Recovery</span>
+                        <span class="blog-tag">Messaging</span>
+                        <span class="blog-tag">NonStop</span>
+                    </div>
+                    <a href="blog-disaster-recovery.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="./images/Blogs & Articles/What is REST Web Service/Web Services.png" alt="Web Services"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Jan 24, 2018</div>
+                    <h3 class="blog-card-title">What is REST Web Service?</h3>
+                    <p class="blog-card-excerpt">Explore the fundamentals of REST Web Services, understand the differences between REST and SOAP, and learn how REST APIs enable seamless integration with modern web applications.</p>
+                    <div class="blog-card-tags">
+                        <span class="blog-tag">Web Services</span>
+                        <span class="blog-tag">REST</span>
+                        <span class="blog-tag">API</span>
+                    </div>
+                    <a href="blog-rest-web-service.html" class="blog-card-button">📝 Read Blog</a>
                 </div>
             </div>
         </div>
 
-        <!-- LightWave REST Suite Section -->
-        <div class="product-section" id="lightwave">
-            <h2>LightWave REST Suite</h2>
-            <p>LightWave products utilize REST APIs to facilitate the exchange of data between NonStop applications and applications running on disparate systems, including PCs and mobile devices.</p>
-            <a href="./PDF/LightWave_Client_Datasheet.pdf" class="product-link">📄 LightWave Client</a>
-            <a href="./PDF/LightWave_Server_Datasheet.pdf" class="product-link">📄 LightWave Server</a>
-            <a href="https://www.youtube.com/watch?v=A62W3UCQdy8&feature=youtu.be" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Overview</a>
-            <a href="https://www.youtube.com/watch?v=dVzQw5t5lPA" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Client Demo</a>
-            <a href="https://www.youtube.com/watch?v=-gHY_1YtP4w" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> LightWave Server Demo</a>
-            <a href="lightwave-client-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> LightWave Client FAQ</a>
-            <a href="lightwave-server-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> LightWave Server FAQ</a>
-
-            <div class="blog-section">
-                <h3 style="color: black;">Blog: What is REST Web Service?</h3>
-                <p>Explore the fundamentals of REST Web Services, understand the differences between REST and SOAP, and learn how REST APIs enable seamless integration with modern web applications.</p>
-                <a href="blog-rest-web-service.html" class="read-more">📝 Read Blog</a>
-            </div>
-        </div>
-
-        <!-- uLinga Section -->
-        <div class="product-section" id="ulinga">
-            <h2>uLinga</h2>
-            <p>It is a NonStop application that can publish NonStop events and data to Kafka clusters to be picked up by any consuming subscribers on any platforms.</p>
-            <a href="./ulinga.html" class="product-link">→ Learn More</a>
-
-            <div class="blog-section">
-                <h3 style="color: black;">Blog: Kafka and HPE NonStop – A Perfect Combo!</h3>
-                <p>Discover how uLinga enables NonStop systems to connect with modern event streaming platforms like Kafka.</p>
-                <a href="file:///C:/ticsoftware/blog-kafka-hpe-nonstop-perfect-combo.html" class="read-more">📝 Read Blog</a>
-            </div>
-        </div>
-
-        <!-- XML Thunder Section -->
-        <div class="product-section" id="xmlthunder">
-            <h2>XML Thunder</h2>
-            <p>XML Thunder by Canam Software focuses on XML integration and application reporting solutions to maximize value of existing and new applications.</p>
-            <a href="./PDF/XML_Thunder_Product _Overview.pdf" class="product-link">📄 Thunder Suite Datasheet</a>
-            <a href="https://www.canamsoftware.com/thunder-suite/tutorials" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> Thunder Suite Overview</a>
-            <a href="./thunder-suite-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> Thunder Suite FAQ</a>
-
-            <div class="blog-section">
-                <h3>Blog: XML Thunder Overview</h3>
-                <p>Explore how XML Thunder enables seamless XML integration and reporting capabilities for your NonStop applications.</p>
-                <a href="#" class="read-more">Read more</a>
-            </div>
-        </div>
-
-        <!-- JSON Thunder Section -->
-        <div class="product-section" id="jsonthunder">
-            <h2>JSON Thunder</h2>
-            <p>The automated development and maintenance low-code software tool that gets COBOL programs parsing and creating JSON messages quickly and easily.</p>
-            <a href="./json-thunder.html" class="product-link">→ Learn More</a>
-            <a href="./PDF/JSON Product Overview.pdf" class="product-link">📄 JSON Thunder Datasheet</a>
-
-            <div class="blog-section">
-                <h3>Blog: JSON Thunder Features</h3>
-                <p>Learn how JSON Thunder simplifies JSON handling in COBOL applications with low-code development.</p>
-                <a href="#" class="read-more">Read more</a>
-            </div>
-        </div>
-
-        <!-- IP Forwarder Section -->
-        <div class="product-section" id="ipforwarder">
-            <h2>IP Forwarder</h2>
-            <p>A high performance, low latency process to distribute NonStop data to Splunk and other tools via TCP/IP or UDP.</p>
-            <a href="./ipforwarder.html" class="product-link">→ Learn More</a>
-        </div>
-
-        <!-- TOP Section -->
-        <div class="product-section" id="top">
-            <h2>TOP</h2>
-            <p>TOP provides a graphical user interface (GUI) to HPE NonStop servers through a Windows program. New staff can now become productive on the NonStop in no time using a GUI tool, instead of struggling through a command interface like TACL.</p>
-            <a href="./PDF/TOP_DataSheet.pdf" class="product-link">📄 TOP Datasheet</a>
-            <a href="https://www.youtube.com/watch?v=UGf2Gk8yhrM" class="product-link" target="_blank" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">🎥</span> TOP Overview</a>
-            <a href="./top-faq.html" class="product-link" style="padding: 0.25rem 0.75rem;"><span style="font-size: 1.4em; vertical-align: -0.15em;">❓</span> TOP FAQ</a>
-
-            <div class="blog-section">
-                <h3>Blog: TOP GUI Solutions</h3>
-                <p>Discover how TOP transforms the NonStop user experience with an intuitive graphical interface.</p>
-                <a href="#" class="read-more">Read more</a>
-            </div>
-        </div>
-
-        <div style="padding-top: 2rem; margin-top: 2rem; display: flex; gap: 2rem; justify-content: center;">
-            <a href="./messaging.html" class="product-link" style="padding: 0.75rem 1.5rem; font-size: 1rem;">→ Messaging</a>
-            <a href="./gateway.html" class="product-link" style="padding: 0.75rem 1.5rem; font-size: 1rem;">→ Gateway</a>
+        <!-- Pagination -->
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; padding: 2rem 0;">
+            <a href="blog.html" style="padding: 0.6rem 1rem; background-color: var(--light-gray); color: var(--dark-text); text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s;">← Page 1</a>
+            <span style="padding: 0.6rem 1rem; background-color: var(--primary-blue); color: white; border-radius: 4px; font-weight: 600;">Page 2</span>
         </div>
     </main>
 
     <!-- Footer -->
-    
+
     <script src="search-data.js"></script>
     <script src="search.js"></script>
 
