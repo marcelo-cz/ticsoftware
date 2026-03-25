@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LightWave Client FAQ - TIC Software</title>
-    <meta name="description" content="Frequently asked questions about LightWave Client - REST API integration for NonStop systems.">
+    <title>Privacy Policy - TIC Software</title>
+    <meta name="description" content="Privacy Policy for TIC Software - Learn how we protect and use your personal information.">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <style>
         * {
@@ -125,129 +125,66 @@
             display: block;
         }
 
-        /* Hero Section */
-        .hero {
-            display: grid;
-            grid-template-columns: 20% 80%;
-            height: 254px;
-            background-color: var(--white);
-        }
-
-        .hero-left {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            background-color: #001a4d;
-            flex-direction: column;
-        }
-
-        .hero-left h1 {
-            font-size: 2rem;
-            color: var(--white);
-            text-align: center;
-            font-weight: bold;
-            line-height: 1.4;
-        }
-
-        .hero-right {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
         /* Main Content */
         main {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0.5rem 2rem 2rem 2rem;
+            padding: 1.5rem 2rem 3rem 2rem;
         }
 
-        section {
-            padding: 0;
-        }
-
-        h2 {
-            font-size: 1.8rem;
+        .page-title {
+            font-size: 2.5rem;
             color: var(--primary-blue);
-            margin: 2rem 0 1rem 0;
+            margin-bottom: 1rem;
             font-weight: bold;
         }
 
-        h3 {
-            font-size: 1.3rem;
-            color: var(--primary-blue);
-            margin: 1.5rem 0 1rem 0;
-            font-weight: bold;
+        .effective-date {
+            color: var(--light-blue);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
 
-        p {
+        .privacy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .privacy-section h2 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .privacy-section p {
             font-size: 0.95rem;
             line-height: 1.8;
             margin-bottom: 1rem;
             text-align: justify;
         }
 
-        /* FAQ Styling */
-        .faq-item {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .faq-question {
-            background-color: var(--light-gray);
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--primary-blue);
-            transition: all 0.3s;
-        }
-
-        .faq-question:hover {
-            background-color: #e8e8e8;
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            display: none;
-            padding: 1.5rem;
-            background-color: var(--white);
-            border-top: 1px solid var(--border-gray);
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        .faq-answer p {
-            margin-bottom: 0.75rem;
-        }
-
-        .faq-answer ul {
+        .privacy-section ul {
             margin-left: 2rem;
             margin-bottom: 1rem;
         }
 
-        .faq-answer li {
-            margin-bottom: 0.5rem;
+        .privacy-section li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .privacy-section a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .privacy-section a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -257,22 +194,35 @@
             padding: 2rem;
             text-align: center;
             font-size: 0.9rem;
+            margin-top: 0.75rem;
+        }
+
+        footer a {
+            color: var(--light-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .hero-left h1 {
-                font-size: 1.5rem;
-            }
-
             nav {
                 gap: 1rem;
                 font-size: 0.85rem;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.3rem;
             }
         }
     
@@ -578,15 +528,16 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="header-content">
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <img src="./images/TIC_2026.png" alt="TIC Software Logo">
             </a>
             <nav>
                 <a href="index.html">Home</a>
                 <div class="nav-dropdown">
-                    <a href="index.html#about">About Us</a>
+                    <a href="#about">About Us</a>
                     <div class="dropdown-menu">
                         <a href="who-we-are.html">Who We Are</a>
                         <a href="ticteam.html">TIC Team</a>
@@ -595,7 +546,7 @@
                     </div>
                 </div>
                 <div class="nav-dropdown">
-                    <a href="index.html#products">Products</a>
+                    <a href="#products">Products</a>
                     <div class="dropdown-menu">
                         <a href="messaging.html">Messaging</a>
                         <a href="gateway.html">Gateway</a>
@@ -604,7 +555,7 @@
                     </div>
                 </div>
                 <div class="nav-dropdown">
-                    <a href="index.html#services">Services</a>
+                    <a href="#services">Services</a>
                     <div class="dropdown-menu">
                         <a href="consulting.html">Consulting</a>
                         <a href="cloud.html">Cloud</a>
@@ -612,7 +563,7 @@
                     </div>
                 </div>
                 <div class="nav-dropdown">
-                    <a href="index.html#resources">Resources</a>
+                    <a href="#resources">Resources</a>
                     <div class="dropdown-menu">
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
@@ -620,150 +571,130 @@
                     </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
-                <div class="nav-search" style="position: relative;">
-                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
-                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
-                    <div id="search-results" class="search-results"></div>
-                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-left">
-            <h1>LightWave Client</h1>
-            <h1 style="margin-top: 0.5rem;">FAQ</h1>
-        </div>
-        <div class="hero-right" style="background-image: url('./images/FAQ Pages/FAQ_Image.png');"></div>
-    </section>
-
     <!-- Main Content -->
     <main>
-        <section>
-            <h2>Frequently Asked Questions</h2>
+        <h1 class="page-title">Privacy Policy</h1>
+        <p class="effective-date">Effective date: April 22, 2019</p>
 
-            <!-- FAQ 1 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What is LightWave Client?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>LightWave Client allows applications running on NonStop servers to securely access REST Web services anywhere, on any platform or operating system.</p>
-                </div>
-            </div>
+        <div class="privacy-section">
+            <p>This privacy policy sets out how TIC Software ("Company" or "We") collects, uses and protects any information that we may collect from you or that you may provide when you use any TIC Software owned website (<a href="http://www.ticsoftware.com">www.ticsoftware.com</a>, and other websites) (our "Sites"), our services or products. By accessing these Sites, you agree that you have read and understood the TIC Software's privacy statement, which describes how we use your information, and what options you have to update or request the deletion or correction of information submitted to us via the Sites. If you do not agree with the terms and conditions of this Statement, do not use our Sites.</p>
+        </div>
 
-            <!-- FAQ 2 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How does LightWave Client Work?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Your NonStop application simply sends a formatted interprocess message to the LightWave Client Process which handles all of the details of mapping the IPM elements to a JSON or XML message, exchanging the message with the Web service provider, and parsing the JSON or XML response into the reply IPM. The LightWave CLIENT process hides the complexity of the TCP/IP, HTTP, SSL/TLS, JSON, and XML protocols required to access REST Web services.</p>
-                    <div style="text-align: center; margin-top: 1.5rem;">
-                        <img src="./images/FAQ Pages/LWC_FAQ_Image.png" alt="LightWave Client Architecture" style="max-width: 100%; height: auto; border-radius: 8px;">
-                    </div>
-                </div>
-            </div>
+        <div class="privacy-section">
+            <h2>Information Collected</h2>
+            <p>The practices described in this Statement may also apply to information you provide to us in writing or by telephone, such as when you contact our customer service staff. Personal information may include items such as your name, company name, email, address, and telephone number. Unless you provide it to us voluntarily, we do not collect personal information about you in connection with your use of these Sites.</p>
+        </div>
 
-            <!-- FAQ 3 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How is LightWave Client performance and scalability?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>LightWave Client was designed to be fully scalable using NonStop Pathway. The CLIENT process is multi-threaded and can process multiple simultaneous requests. CLIENT can also be configured as a Pathway serverclass, allowing it to scale to match demand like any other Pathway server.</p>
-                </div>
-            </div>
+        <div class="privacy-section">
+            <h2>Cookies</h2>
+            <p>Cookies are small data files that are stored on an Internet user's computer by a web server. Cookies help us to deliver certain functionalities to you and to guarantee the best user experience possible. We use cookies for advertising, social media, and analytics purposes. When you visit our Sites, we may use cookies and similar technologies for the following purposes:</p>
+            <ul>
+                <li>To help us recognize you as a unique visitor (just a number) when you return to our Sites</li>
+                <li>To allow us to tailor content or advertisements to match your preferred interests</li>
+                <li>To avoid requiring registration for access to Site content</li>
+                <li>To develop leads for our sales organization and our business partners and provide direct marketing communications to you if you have consented to receive such communications</li>
+                <li>To compile anonymous, aggregated statistics that allow us to understand how users interact with our site</li>
+                <li>To help us improve the structure of our Sites</li>
+            </ul>
+            <p>We also use 3rd party remarketing cookies, including the Google AdWords and Google Analytics cookies. To see an overview of privacy at Google and how this applies to Google Analytics, visit <a href="https://www.google.com/policies/privacy/" target="_blank">https://www.google.com/policies/privacy/</a>. You may opt out of tracking by Google Analytics by visiting <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">https://tools.google.com/dlpage/gaoptout</a>. Similarly, you can opt out of Google's use of cookies by visiting Google's Ads Settings. You can use your browser settings to withdraw your consent to our use of cookies at any time and delete cookies that have already been set. Note that by disabling certain categories of cookies you may be prevented from accessing some features of our Sites, or certain content or functionality may not be available.</p>
+        </div>
 
-            <!-- FAQ 4 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How can I use LightWave Client?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>LightWave Client can be used to develop any number of applications using a NonStop Server application, for example:</p>
-                    <ul>
-                        <li>Use services provided by business partners to check inventory, place orders, obtain delivery schedules, etc.</li>
-                        <li>Integrate NonStop applications with ERP or CRM systems</li>
-                        <li>Access real-time securities pricing, currency exchange rates, and other time-sensitive data</li>
-                        <li>Incorporate centralized authentication and authorization services</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="privacy-section">
+            <h2>Transactional Information</h2>
+            <p>Certain information may be collected automatically as part of your use of these Sites, as well as from your transactions with us and our affiliates or non-affiliated third parties. This non-personal information is used to improve the overall Site operations, functionality and appearance. Nonpersonal information may include your web browser type, domain name, referring site, date/time and IP address, upon which you visited the Site.</p>
+        </div>
 
-            <!-- FAQ 5 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What are the LightWave components?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>LightWave Client consists of two major component processes: <strong>Console</strong> and <strong>Client</strong>.</p>
-                    <p><strong>Console</strong></p>
-                    <p>The role of the Console process is to support the administrative and management user interface for LightWave Client. Console provides a browser interface which allows you to:</p>
-                    <ul>
-                        <li>View Console status</li>
-                        <li>Manage APIs</li>
-                        <li>View Client diagnostic logs</li>
-                        <li>View Console HTTP logs</li>
-                        <li>Manage SSL/TLS Server Certificates (for Console)</li>
-                        <li>Manage LightWave Client users and groups (for access to Console)</li>
-                    </ul>
-                    <p>Once the Console process has been started, you access the LightWave Console application using your web browser.</p>
-                    <p><strong>Client</strong></p>
-                    <p>The role of Client is to provide the runtime implementation of a LightWave Client service you defined earlier using Console. Although you can run one or more client processes for a given service (e.g., for load balancing), each instance of the Client process supports exactly one service. The Client process accepts an interprocess message on $RECEIVE from a client application, which it transforms into a REST web-API request and forwards to a service endpoint using HTTP over TCP/IP. When the service responds, Client transforms the response into an interprocess message which it REPLYs to the original client requester application. Each Client process is capable of supporting simultaneous requests from multiple client applications.</p>
-                    <div style="text-align: center; margin-top: 1.5rem;">
-                        <img src="./images/FAQ Pages/LWC_FAQ_5_image.png" alt="LightWave Client Components" style="max-width: 100%; height: auto; border-radius: 8px;">
-                    </div>
-                </div>
-            </div>
+        <div class="privacy-section">
+            <h2>Usage of Data</h2>
+            <p>Personal information is used by the Company for the purpose for which it was submitted. For example, if you submit your email address and other information required to subscribe to our newsletter or blog, we will use that personal information to send you our newsletter or blog. We use your IP address to help diagnose problems with our server, and to administer the Site.</p>
+        </div>
 
-            <!-- FAQ 6 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How secure is LightWave?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>LightWave provides security features to ensure that your applications and NonStop Server remain secure.</p>
-                    <p><strong>Transport Security</strong></p>
-                    <p>LightWave Client uses OpenSSL to provide transport security using the latest version of TLS. Client applications can take advantage of this feature by configuring the Client process' base Url parameter to use the HTTPS protocol.</p>
-                    <p><strong>User Authentication</strong></p>
-                    <p>LightWave Client supports HTTP Basic/Digest authentication and SSL mutual authentication with web service endpoints.</p>
-                </div>
-            </div>
+        <div class="privacy-section">
+            <h2>Retention of Data</h2>
+            <p>TIC Software will retain your data only for as long as is necessary for the purposes of the reason for collection. We will retain and use your data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p>
+            <p>TIC Software will also retain usage data for internal analysis purposes.</p>
+        </div>
 
-            <!-- FAQ 7 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Does LightWave Client require OSS?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>No. LightWave Client runs in the Guardian environment and can connect to applications that run in both Guardian and OSS.</p>
-                </div>
-            </div>
-        </section>
+        <div class="privacy-section">
+            <h2>Legal Basis for Processing Personal Data Under General Data Protection Regulation (GDPR)</h2>
+            <p>If you are from the European Economic Area (EEA), TIC Software legal basis for collecting and using the personal information described in this Privacy Policy depends on the personal data we collect and the specific context in which we collect it. TIC Software may process your personal data because:</p>
+            <ul>
+                <li>We need to perform a contract with you</li>
+                <li>You have given us permission to do so</li>
+                <li>The processing is in our legitimate interests and it's not overridden by your rights</li>
+                <li>To comply with the law</li>
+            </ul>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Transfer of Data</h2>
+            <p>Your information, including personal data, may be transferred to and maintained on computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.</p>
+            <p>If you are located outside the United States and choose to provide information to us, please note that we transfer the data, including personal data, to the United States and process it there.</p>
+            <p>Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Your Data Protection Rights Under General Data Protection Regulation (GDPR)</h2>
+            <p>If you are a resident of the European Economic Area (EEA), you have certain data protection rights. TIC Software aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your personal data.</p>
+            <p>If you wish to be informed what personal data we hold about you and if you want it to be removed from our systems, please contact us.</p>
+            <p>In certain circumstances, you have the following data protection rights:</p>
+            <ul>
+                <li>The right to access, update or to delete the information we have on you</li>
+                <li>You have the right to have your information rectified if that information is inaccurate or incomplete</li>
+                <li>You have the right to object to our processing of your personal data</li>
+                <li>You have the right to request that we restrict the processing of your personal information</li>
+                <li>You have the right to be provided with a copy of the information we have on you</li>
+                <li>You also have the right to withdraw your consent at any time to process your personal information</li>
+            </ul>
+            <p>Please note that we may ask you to verify your identity before responding to such requests.</p>
+            <p>You have the right to complain to a Data Protection Authority about our collection and use of your personal data. For more information, please contact your local data protection authority in the European Economic Area (EEA).</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Information Pertaining to Minors</h2>
+            <p>We do not wish to collect personal information from minors (children under 18 years of age, or any other age defined under applicable law). If we become aware that a minor is attempting to or has submitted personal information via these Sites, we will notify the user that we may not accept his or her personal information. We will then delete any such personal information from our records.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Third Parties and Links</h2>
+            <p><strong>Linking:</strong> This Statement applies only to TIC Software Sites. These Sites may include links to other third-party web sites including access to content, products and services of such affiliated and non-affiliated entities. Whenever you choose to access third party content via this site, you may be taken to the third-parties website. We urge you to familiarize yourself with the individual privacy and other terms for each linked site prior to submitting your Information.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Disclosure of Information to Third Parties</h2>
+            <p>Demographic and aggregate Information may be shared by us with partners. We make every reasonable effort to preserve user privacy. However, we reserve the right to disclose personal information when required or permitted by law and we have a good-faith belief that such action is necessary to comply with an appropriate law enforcement investigation, current judicial proceeding, a court order, or legal process served on us.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Notification of Changes</h2>
+            <p>We reserve the right to modify or change any privacy policies at any time without any notice to you. Any modifications will be effective immediately as of the date the modified Privacy Policy is posted on our website.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Opt-Out from Newsletters</h2>
+            <p>Our emails provide users the opportunity to opt-out of receiving communications from us and our partners when you subscribe to our newsletter. You can always opt-out from receiving emails from us.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Consent</h2>
+            <p>By using these Sites, you consent to the use, storage and disclosure of your information by us in the manner described in this statement. We reserve the right to make changes to this statement from time to time and will alert you to such changes via the notification procedure described in the preceding paragraph.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Questions</h2>
+            <p>If you have questions or concerns regarding this statement, you should first contact the Webmaster by email at <a href="mailto:tic@ticsoftware.com">tic@ticsoftware.com</a></p>
+        </div>
     </main>
 
     <!-- Footer -->
     
+
     <script src="search-data.js"></script>
     <script src="search.js"></script>
-    <script>
-        // FAQ Accordion functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                faqItem.classList.toggle('active');
-            });
-        });
-    </script>
 
     <!-- FOOTER COMPONENT -->
 <footer class="site-footer">
