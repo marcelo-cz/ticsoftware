@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NonStop Operation Intelligence– Using TOP | TIC Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --dark-bg: #0a1929;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--white);
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-dropdown > a::after {
+            content: '▼';
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            border-top: 3px solid var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            width: 200px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: none;
+            width: 100%;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            align-items: center;
+            background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
+            padding: 4rem 2rem;
+            gap: 2rem;
+        }
+
+        .hero-left {
+            color: var(--white);
+            background-color: #001a4d;
+            padding: 3rem;
+            border-radius: 8px;
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: var(--white);
+        }
+
+        .hero-right {
+            text-align: center;
+        }
+
+        .hero-right img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+        }
+
+        /* Blog Content */
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .blog-content {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .blog-content h2 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 0.5rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .blog-content a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .blog-content a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-details h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        .author-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Feedback Section */
+        .feedback-section {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .feedback-section h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feedback-text {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Company Section */
+        .company-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        .company-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .company-text {
+            flex: 1;
+        }
+
+        .company-text h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-blue);
+        }
+
+        .company-text p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            text-align: left;
+        }
+
+        .footer-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #4a6fa5, transparent);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-section a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #4a6fa5;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 0.5rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+        }
+
+        .contact-text {
+            white-space: nowrap;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .company-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .company-text h4,
+            .company-text p {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </div>
+            <nav>
+                <a href="file:///C:/ticsoftware/index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="file:///C:/ticsoftware/who-we-are.html">Who We Are</a>
+                        <a href="file:///C:/ticsoftware/tic-team.html">TIC Team</a>
+                        <a href="file:///C:/ticsoftware/partners.html">Partners</a>
+                        <a href="file:///C:/ticsoftware/our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <a href="file:///C:/ticsoftware/products.html">Products</a>
+                <div class="nav-dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="file:///C:/ticsoftware/consulting.html">Consulting</a>
+                        <a href="file:///C:/ticsoftware/cloud.html">Cloud</a>
+                        <a href="file:///C:/ticsoftware/genai.html">GenAI</a>
+                    </div>
+                </div>
+                <a href="file:///C:/ticsoftware/blog.html">Blog</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>NonStop Operation Intelligence– Using TOP</h1>
+        </div>
+        <div class="hero-right">
+            <img src="./images/Blogs & Articles/TIC_blogs_main_banner.jpg" alt="NonStop Operation Intelligence">
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <div class="blog-container">
+        <div class="blog-meta">
+            <div class="author-info">
+                <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="author-img">
+                <div class="author-details">
+                    <h4>Phil Ly</h4>
+                    <p>President & Founder of TIC Software</p>
+                </div>
+            </div>
+            <div class="blog-meta-item">
+                📅 January 24, 2021
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <h2>Do you remember how you did that two years ago?</h2>
+            <p>I am sure that you can think of cases when you had a hard time remembering the syntax of how to perform certain NonStop operations because you rarely do them. For example:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li>How to set up a New Spooler</li>
+                <li>How to configure a new EMS Collector</li>
+                <li>How to add a new Netbatch Job, etc.</li>
+            </ul>
+            <p>It doesn't matter how much experience you have on NonStop, the reality is that if you don't use it, you lose it. You may even get desperate enough to resort to looking it up in the NonStop manuals, which sometimes could be challenging.</p>
+
+            <h2>TOP makes it easy</h2>
+            <p>If you use our TOP GUI tool, you can get these done in a breeze. To create a New Spooler, just click on the Spooler component and select New Spooler Config Wizard, which guides you through a step-by-step creation of a new Spooler.</p>
+
+            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Spoolers.png" alt="TOP Spoolers Configuration">
+            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">Creating a New Spooler</p>
+
+            <p><strong>Watch this video on how to create a new spooler:</strong> <a href="https://www.youtube.com/watch?v=MXLgTQb1n0M" target="_blank">https://www.youtube.com/watch?v=MXLgTQb1n0M</a></p>
+
+            <p>Similarly, use TOP and right click on the EMS icon to create a New Collector. You will get a step-by-step screen to guide you through the process.</p>
+
+            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/New_Collector.png" alt="New Collector Configuration">
+            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">Configuring a New EMS Collector</p>
+
+            <p><strong>Watch this video on how to configure a new EMS Collector:</strong> <a href="https://youtu.be/CuwYTpOXUrE" target="_blank">https://youtu.be/CuwYTpOXUrE</a></p>
+
+            <p>Managing Netbatch jobs is just as easy with TOP. You can list all the details about the jobs by clicking on JOBS, and right clicking shows the properties of an individual Netbatch job.</p>
+
+            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Job_Properties.png" alt="TOP Job Properties">
+            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">Netbatch Job Properties</p>
+
+            <p>And if you want to add a new one, just right click and select "Submit New Job" and you will be prompted through the process.</p>
+
+            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Properties.png" alt="TOP Properties Configuration">
+            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">TOP Properties Configuration</p>
+
+            <p>In summary, TOP helps everyone, NonStop novices and experts alike, to perform operations easily via a Graphical User Interface (GUI). Even if it involves an operation that you rarely perform, the dialog boxes and point-and-click interfaces helps you get it done easily.</p>
+
+            <h2>Are you still not using GUI?</h2>
+            <p>TOP is a powerful GUI operation tool for NonStop. It has been proven that GUI is more productive than a command line interface for many reasons. Yet, I am sure that some NonStop folks may insist that it is "easier" to use TACL to perform the same functions. I submit that is a matter of habit or preference, not because it is easier.</p>
+
+            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Remember.jpg" alt="Remember the Syntax">
+            <p style="text-align: center; font-weight: bold; margin-top: -0.5rem;">Remember the syntax? TOP makes it easy</p>
+
+            <p>For example, are you using the COMMAND PROMPT interface to do work on your desktop computer? I suspect not. Most of us, if not all, rely on the Windows Explorer and all its GUI components every day to do productive work on our desktop computers. With TOP, you can now achieve the same level of productivity performing NonStop operations.</p>
+
+            <p>Contact us to learn more about how TOP can help your novice and experienced NonStop team be more productive with systems operations.</p>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="feedback-section">
+            <h3>About the Author</h3>
+            <div class="feedback-text">
+                <p><strong>Phil Ly</strong> is the president and founder of TIC Software, a New York-based company specializing in software and services that integrate NonStop with the latest technologies, including Web Services, .NET and Java. Prior to founding TIC in 1983, Phil worked for Tandem Computer in technical support and software development.</p>
+            </div>
+        </div>
+
+        <!-- Company Section -->
+        <div class="company-section">
+            <img src="./images/TIC Team/Phil_Ly_main.png" alt="TIC Software" class="company-image">
+            <div class="company-text">
+                <h4>TIC Software</h4>
+                <p>A leading provider of modernization, middleware, connectivity, and security solutions for users of HP NonStop systems. We develop innovative products and services that help organizations integrate NonStop with the latest technologies.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-title">About Us</div>
+                <a href="file:///C:/ticsoftware/who-we-are.html">Who We Are</a>
+                <a href="file:///C:/ticsoftware/tic-team.html">TIC Team</a>
+                <a href="file:///C:/ticsoftware/partners.html">Partners</a>
+                <a href="file:///C:/ticsoftware/our-clients.html">Clients</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-title">Products</div>
+                <a href="file:///C:/ticsoftware/messaging.html">Messaging</a>
+                <a href="file:///C:/ticsoftware/gateway.html">Gateway</a>
+                <a href="file:///C:/ticsoftware/business-intelligence.html">Business Intelligence</a>
+                <a href="file:///C:/ticsoftware/modernize.html">Modernize</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-title">Services</div>
+                <a href="file:///C:/ticsoftware/consulting.html">Consulting</a>
+                <a href="file:///C:/ticsoftware/cloud.html">Cloud</a>
+                <a href="file:///C:/ticsoftware/genai.html">GenAI</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-title">Resources</div>
+                <a href="file:///C:/ticsoftware/success-stories.html">Success Stories</a>
+                <a href="file:///C:/ticsoftware/tic-news.html">TIC News</a>
+                <a href="file:///C:/ticsoftware/blog.html">TIC Blog</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-title">Contact Us</div>
+                <div class="contact-grid">
+                    <div class="contact-label">Address:</div>
+                    <div class="contact-text">New York, NY, USA</div>
+                    <div class="contact-label">Email:</div>
+                    <div class="contact-text">sales-support@ticsoftware.com</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TIC Software. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
