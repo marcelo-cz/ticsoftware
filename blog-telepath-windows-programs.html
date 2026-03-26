@@ -374,47 +374,48 @@
         }
 
         /* Footer */
-        footer {
+        .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
+            color: #e8e8e8;
+            padding: 3rem 1.5rem 0;
+            margin-top: 4.5rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .footer-content {
+        .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 2rem;
             padding: 0 2rem;
         }
 
-        .footer-section h3 {
-            position: relative;
-            padding-bottom: 0.75rem;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            font-weight: 600;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #4a6fa5 0%, transparent 100%);
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
         }
 
         .footer-links {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .footer-links li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
@@ -428,19 +429,93 @@
             color: #4a6fa5;
         }
 
+        .footer-contact {
+            grid-column: 5;
+            display: grid !important;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .footer-contact .footer-title {
+            grid-column: 1 / -1;
+            margin-bottom: 0;
+        }
+
+        .footer-contact .contact-item:first-of-type {
+            grid-column: 1 / -1;
+            margin-top: -0.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.64rem;
+            font-weight: 700;
+            color: #4a6fa5;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0 0 0.35rem 0;
+        }
+
         .contact-text {
-            color: white;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            white-space: nowrap;
+            font-size: 0.8rem;
+            color: #e8e8e8;
+            margin: 0;
+        }
+
+        .contact-text a {
+            color: #e8e8e8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-text a:hover {
+            color: #4a6fa5;
         }
 
         .footer-bottom {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding-top: 1.5rem;
-            margin-top: 1.5rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.85rem;
+        }
+
+        .footer-copyright {
+            margin: 0;
+        }
+
+        .footer-copyright p {
+            margin: 0;
+            color: white;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-legal a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: #4a6fa5;
+        }
+
+        .divider {
+            color: white;
         }
 
         /* Blog content images */
@@ -571,51 +646,77 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html#who-we-are">Who We Are</a></li>
-                    <li><a href="ticteam.html">TIC Team</a></li>
-                    <li><a href="index.html#partners">Partners</a></li>
-                    <li><a href="index.html#clients">Clients</a></li>
-                </ul>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="ticteam.html">TIC Team</a></li>
+                        <li><a href="our-partners.html">Partners</a></li>
+                        <li><a href="our-clients.html">Clients</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="messaging.html">Messaging</a></li>
+                        <li><a href="gateway.html">Gateway</a></li>
+                        <li><a href="business-intelligence.html">Business Intelligence</a></li>
+                        <li><a href="modernize.html">Modernize</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="consulting.html">Consulting</a></li>
+                        <li><a href="cloud.html">Cloud</a></li>
+                        <li><a href="https://ticsoftware.ai/" target="_blank">GenAI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="tic-news.html">TIC News</a></li>
+                        <li><a href="blog.html">TIC Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-contact">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <div class="contact-item">
+                        <p class="contact-label">Address</p>
+                        <p class="contact-text">
+                            TIC Software, 185 Great Neck RD<br>
+                            4th Floor, Suite 453, Great Neck, NY 11021
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <p class="contact-label">Sales & Support</p>
+                        <p class="contact-text">
+                            <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a>
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <p class="contact-label">Technical Support</p>
+                        <p class="contact-text">
+                            <a href="tel:516-466-7990">(516) 466-7990</a><br>
+                            <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Products</h3>
-                <ul class="footer-links">
-                    <li><a href="messaging.html">Messaging</a></li>
-                    <li><a href="gateway.html">Gateway</a></li>
-                    <li><a href="business-intelligence.html">Business Intelligence</a></li>
-                    <li><a href="modernize.html">Modernize</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 TIC Software. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <span class="divider">•</span>
+                    <a href="terms-of-use.html">Terms of Use</a>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul class="footer-links">
-                    <li><a href="consulting.html">Consulting</a></li>
-                    <li><a href="consulting.html#cloud">Cloud</a></li>
-                    <li><a href="consulting.html#genai">GenAI</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="success-stories.html">Success Stories</a></li>
-                    <li><a href="tic-news.html">TIC News</a></li>
-                    <li><a href="blog.html">TIC Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <div class="contact-text">TIC Software, Inc.</div>
-                <div class="contact-text">New York, USA</div>
-                <div class="contact-text" style="white-space: normal;">sales-support@ticsoftware.com</div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 TIC Software. All rights reserved. | <a href="privacy-policy.html" style="color: white;">Privacy Policy</a> | <a href="terms-of-use.html" style="color: white;">Terms of Use</a></p>
         </div>
     </footer>
 
