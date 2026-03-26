@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis and Distribution with Cypress - TIC Software Blog</title>
+    <meta name="description" content="Learn how Cypress enables easy legacy data analysis and distribution. Discover how this integrated document assembly system streamlines data management and accessibility for your organization.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-search-input {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            width: 180px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .nav-search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.25rem 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .nav-search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            max-width: 300px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 0.75rem 0;
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: var(--dark-text);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        /* Blog Content */
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px;
+            border-radius: 8px;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            overflow: hidden;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+
+        .company-text {
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: var(--white);
+        }
+
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: left;
+            padding: 2rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .blog-meta-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .blog-meta img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-right {
+                height: 200px;
+            }
+
+            main {
+                padding: 1rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section h3 {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #4a6fa5 0%, transparent 100%);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #4a6fa5;
+        }
+
+        .contact-text {
+            color: white;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Blog content images */
+        .blog-content img {
+            max-width: 50%;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: var(--light-blue);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 2rem 0 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Data Analysis and Distribution with Cypress</h1>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-meta">
+            <div class="blog-meta-item">
+                <span>📅</span>
+                <span>August 29, 2020</span>
+            </div>
+            <div class="blog-meta-item">
+                <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                <span>Phil Ly</span>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <h2>For Easy Legacy Data Analysis & Distribution – the answer is Cypress</h2>
+
+            <p>Compiling and leveraging legacy data to help your business can be a challenge at times. The disparate document and data types stored, that need to be accessed and integrated into cohesive and comprehensible information, can make this task seem daunting. But fear not, help is on the way in the name of Cypress.</p>
+
+            <p>Cypress is an integrated document assembly and distribution system for greatly enhanced data storage, management, accessibility and analysis. Designed for rapid deployment and requiring little or no user training, Cypress provides a solution for universal document capture and storage regardless of the document format or author application.</p>
+
+            <img src="./images/Blogs & Articles/Data Analysis and Distribution with Cypress/Cypress Dashboard.jpg" alt="Cypress Dashboard">
+
+            <h2>Document Capture and Repository Technology</h2>
+
+            <p>Cypress imaging and repository technology securely captures, indexes and stores information from a variety of inputs such as fax and scanned documents, online delivery, and all systems and applications. Once captured, documents may be searched, retrieved, assembled and delivered – providing information to streamline business processes and increase employee efficiency and effectiveness.</p>
+
+            <img src="./images/Blogs & Articles/Data Analysis and Distribution with Cypress/Cypress Repository.jpg" alt="Cypress Repository">
+
+            <h2>Data Mining and Analysis</h2>
+
+            <p>The data mining and analysis module functions in both client-server and legacy environments – providing fully automated report mining, generation and distribution. An organization's unique business rules may be entered into the system to further specify specific reporting parameters such as destination groups or individuals, report frequency, and which data is distributed and by what method.</p>
+
+            <p>Data output, delivery and forms management all may be automated through Cypress as well. Document delivery to all output devices within an organization may be centrally managed through a single-user interface if so desired; including job and print queues, and employee processes and requests related to document delivery. Cypress makes documents and reports accessible immediately via secure Web browser access, while maintained original document integrity by not converting documents to traditional Web formats. Cypress also conforms to an organization's predetermined document and reporting formats, applying pre-defined criteria during assembly.</p>
+
+            <h2>Enterprise Content Intelligence</h2>
+
+            <p>Cypress brings an enterprise's content together to enhance business processes and intelligence through faster information dissemination and analysis. Regardless of the data's origin, Cypress can process and deliver the information – to help an organization better leverage and respond to their market's needs.</p>
+        </div>
+
+        <a href="blog.html" class="back-button">← Back to Blog</a>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
+
+        <div class="feedback-section">
+            <h3>Feedback Please</h3>
+            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+        <div class="company-section">
+            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image" style="max-width: 72px;">
+            <p class="company-text">Phil Ly is the president and founder of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a New York-based company specializing in software and services that integrate NonStop with the latest technologies, including Web Services, .NET and Java. Prior to founding TIC in 1983, Phil worked for Tandem Computer in technical support and software development.</p>
+            <div style="clear: both;"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#who-we-are">Who We Are</a></li>
+                    <li><a href="ticteam.html">TIC Team</a></li>
+                    <li><a href="index.html#partners">Partners</a></li>
+                    <li><a href="index.html#clients">Clients</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Products</h3>
+                <ul class="footer-links">
+                    <li><a href="messaging.html">Messaging</a></li>
+                    <li><a href="gateway.html">Gateway</a></li>
+                    <li><a href="business-intelligence.html">Business Intelligence</a></li>
+                    <li><a href="modernize.html">Modernize</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="consulting.html">Consulting</a></li>
+                    <li><a href="consulting.html#cloud">Cloud</a></li>
+                    <li><a href="consulting.html#genai">GenAI</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="success-stories.html">Success Stories</a></li>
+                    <li><a href="tic-news.html">TIC News</a></li>
+                    <li><a href="blog.html">TIC Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-text">TIC Software, Inc.</div>
+                <div class="contact-text">New York, USA</div>
+                <div class="contact-text" style="white-space: normal;">sales-support@ticsoftware.com</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TIC Software. All rights reserved. | <a href="privacy-policy.html" style="color: white;">Privacy Policy</a> | <a href="terms-of-use.html" style="color: white;">Terms of Use</a></p>
+        </div>
+    </footer>
+
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>
