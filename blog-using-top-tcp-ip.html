@@ -195,6 +195,14 @@
             text-transform: uppercase;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .blog-tag:hover {
+            background-color: #e0e0e0;
+            color: var(--primary-blue);
         }
 
         .blog-content {
@@ -376,14 +384,126 @@
             .hero-left h1 {
                 font-size: 1.8rem;
             }
+
+            .related-blogs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
         }
-    
+
+        @media (max-width: 480px) {
+            .related-blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-blog-title {
+                font-size: 0.95rem;
+            }
+        }
+
+        .related-blogs {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-gray);
+        }
+
+        .related-blogs h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .related-blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .related-blog-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .related-blog-image {
+            width: 100%;
+            height: 160px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .related-blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-blog-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-blog-title {
+            font-size: 1rem;
+            color: var(--dark-text);
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .related-blog-excerpt {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .related-blog-button {
+            display: inline-block;
+            padding: 0.5rem 0.9rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .related-blog-button:hover {
+            background-color: var(--light-blue);
+        }
+
         /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
             color: #e8e8e8;
             padding: 3rem 1.5rem 0;
-            margin-top: 4.5rem;
+            margin-top: 2.7rem;
             border-top: 1px solid rgba(74, 111, 165, 0.3);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -759,9 +879,9 @@
                 </div>
             </div>
             <div>
-                <span class="blog-tag">TOP</span>
-                <span class="blog-tag">TCP/IP</span>
-                <span class="blog-tag">Administration</span>
+                <a href="blog.html?tag=TOP" class="blog-tag">TOP</a>
+                <a href="blog.html?tag=TCP/IP" class="blog-tag">TCP/IP</a>
+                <a href="blog.html?tag=Administration" class="blog-tag">Administration</a>
             </div>
         </div>
 
@@ -867,9 +987,53 @@
             <p class="company-text">TIC Software partners with comForte to offer a suite of innovative security, modernization, and connectivity solutions for NonStop systems users. comForte develops, markets, and supports proven and innovative modernization, middleware, connectivity, and security solutions for users of HP NonStop systems.</p>
             <div style="clear: both;"></div>
         </div>
+
+        <div class="related-blogs">
+            <h2>Related Blogs</h2>
+            <div class="related-blogs-grid">
+                <!-- Related Blog 1 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="NonStop TOP TCP IP">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">May 27, 2024</div>
+                        <h3 class="related-blog-title">How to Use TOP to Manage NonStop Processes and Resources</h3>
+                        <p class="related-blog-excerpt">Master the TOP command for efficient NonStop process and resource management.</p>
+                        <a href="blog-nonstop-operation-intelligence-top.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+
+                <!-- Related Blog 2 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="./images/Logos/kafka grey logo.png" alt="Kafka HPE NonStop">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Dec 2, 2023</div>
+                        <h3 class="related-blog-title">Kafka and HPE NonStop: A Perfect Combination to Empower Your Data-Driven Architecture</h3>
+                        <p class="related-blog-excerpt">Explore how Kafka and HPE NonStop integrate to create powerful data-driven architectures.</p>
+                        <a href="blog-kafka-hpe-nonstop-perfect-combo.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+
+                <!-- Related Blog 3 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="./images/Blogs & Articles/2025 The Year to Transform Your HPE NonStop Platform for Tomorrows Challenges/IT_Modernization.png" alt="Modernization NonStop">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Jan 29, 2024</div>
+                        <h3 class="related-blog-title">2025: The Year to Transform Your HPE NonStop Platform</h3>
+                        <p class="related-blog-excerpt">Explore strategies to transform your HPE NonStop platform for tomorrow's challenges.</p>
+                        <a href="blog-2025-transform-nonstop.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    
+
 
     <!-- FOOTER COMPONENT -->
 <footer class="site-footer">

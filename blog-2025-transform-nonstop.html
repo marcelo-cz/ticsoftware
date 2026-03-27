@@ -197,6 +197,14 @@
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .blog-tag:hover {
+            background-color: #e0e0e0;
+            color: var(--primary-blue);
         }
 
         .blog-content {
@@ -365,7 +373,7 @@
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
             color: #e8e8e8;
             padding: 3rem 1.5rem 0;
-            margin-top: 4.5rem;
+            margin-top: 2.7rem;
             border-top: 1px solid rgba(74, 111, 165, 0.3);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -665,6 +673,121 @@
                 width: 100%;
             }
         }
+
+        /* Related Blogs Section */
+        .related-blogs {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-gray);
+        }
+
+        .related-blogs h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .related-blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .related-blog-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .related-blog-image {
+            width: 100%;
+            height: 160px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .related-blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-blog-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-blog-title {
+            font-size: 1rem;
+            color: var(--dark-text);
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .related-blog-excerpt {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .related-blog-button {
+            display: inline-block;
+            padding: 0.5rem 0.9rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .related-blog-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        @media (max-width: 768px) {
+            .related-blogs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .related-blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-blog-title {
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -741,9 +864,9 @@
                 </div>
             </div>
             <div class="blog-tags">
-                <span class="blog-tag">Modernization</span>
-                <span class="blog-tag">Strategy</span>
-                <span class="blog-tag">Nonstop</span>
+                <a href="blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                <a href="blog.html?tag=Strategy" class="blog-tag">Strategy</a>
+                <a href="blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
             </div>
         </div>
 
@@ -827,6 +950,51 @@
             <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
             <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
+        </div>
+
+        <!-- Related Blogs Section -->
+        <div class="related-blogs">
+            <h2>Related Blogs</h2>
+            <div class="related-blogs-grid">
+                <!-- Related Blog 1 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="./images/Logos/kafka grey logo.png" alt="WebCon's New Features: How uLinga for Kafka Continues to Excel">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">March 25, 2025</div>
+                        <h3 class="related-blog-title">WebCon's New Features: How uLinga for Kafka Continues to Excel</h3>
+                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
+                        <a href="blog-webcon-ulinga-kafka.html" class="related-blog-button">Read Blog</a>
+                    </div>
+                </div>
+
+                <!-- Related Blog 2 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="./images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="Building a Web Interface to a Centralized View of Application Logs with LogWatch">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Mar 18, 2024</div>
+                        <h3 class="related-blog-title">Building a Web Interface to a Centralized View of Application Logs with LogWatch</h3>
+                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
+                        <a href="blog-logwatch-web-interface.html" class="related-blog-button">Read Blog</a>
+                    </div>
+                </div>
+
+                <!-- Related Blog 3 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="Using TOP with NonStop TCP/IP">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Jan 23, 2023</div>
+                        <h3 class="related-blog-title">Using TOP with NonStop TCP/IP</h3>
+                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
+                        <a href="blog-using-top-tcp-ip.html" class="related-blog-button">Read Blog</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
