@@ -491,7 +491,253 @@
         }
 
         .related-blog-button:hover {
+
+        /* Post Navigation */
+        .post-navigation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0 2.7rem;
+        }
+
+        .nav-post {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-post:hover {
+            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .nav-post.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .nav-post-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .nav-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-post-content {
+            padding: 1.2rem;
+        }
+
+        .nav-post-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--light-blue);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-post-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .nav-post-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .nav-post.prev {
+            text-align: left;
+        }
+
+        .nav-post.next {
+            text-align: right;
+        }
+
+        .nav-post.prev .nav-post-label::before {
+            content: "← ";
+        }
+
+        .nav-post.next .nav-post-label::after {
+            content: " →";
+        }
             background-color: var(--light-blue);
+
+        /* Post Navigation */
+        .post-navigation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0 2.7rem;
+        }
+
+        .nav-post {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-post:hover {
+            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .nav-post.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .nav-post-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .nav-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-post-content {
+            padding: 1.2rem;
+        }
+
+        .nav-post-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--light-blue);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-post-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .nav-post-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .nav-post.prev {
+            text-align: left;
+        }
+
+        .nav-post.next {
+            text-align: right;
+        }
+
+        .nav-post.prev .nav-post-label::before {
+            content: "← ";
+        }
+
+        .nav-post.next .nav-post-label::after {
+            content: " →";
+        }
+        }
+
+        /* Post Navigation */
+        .post-navigation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0 2.7rem;
+        }
+
+        .nav-post {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-post:hover {
+            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .nav-post.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .nav-post-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .nav-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-post-content {
+            padding: 1.2rem;
+        }
+
+        .nav-post-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--light-blue);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-post-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .nav-post-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .nav-post.prev {
+            text-align: left;
+        }
+
+        .nav-post.next {
+            text-align: right;
+        }
+
+        .nav-post.prev .nav-post-label::before {
+            content: "← ";
+        }
+
+        .nav-post.next .nav-post-label::after {
+            content: " →";
         }
 
         /* Footer Styles */
@@ -1023,6 +1269,29 @@
             </div>
         </div>
     </main>
+        <!-- Post Navigation -->
+        <div class="post-navigation">
+            <a href="./blog-tele-technology.html" class="nav-post prev">
+                <div class="nav-post-image">
+                    <img src="../images/Blogs & Articles/TIC_tools.jpg" alt="Previous Post">
+                </div>
+                <div class="nav-post-content">
+                    <div class="nav-post-label">Previous Post</div>
+                    <div class="nav-post-title">Messaging Product Suite – 'Tele' Technology with TIC Software</div>
+                    <div class="nav-post-date">December 29, 2022</div>
+                </div>
+            </a>
+            <a href="./blog-telepath-windows-programs.html" class="nav-post next">
+                <div class="nav-post-image">
+                    <img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath Server Class.png" alt="Next Post">
+                </div>
+                <div class="nav-post-content">
+                    <div class="nav-post-label">Next Post</div>
+                    <div class="nav-post-title">How to access Windows programs from NonStop Applications</div>
+                    <div class="nav-post-date">February 1, 2021</div>
+                </div>
+            </a>
+        </div>
 
 
 
