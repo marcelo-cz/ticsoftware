@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to access Windows programs from NonStop Applications - TIC Software Blog</title>
-    <meta name="description" content="Learn how TelePath enables NonStop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from NonStop systems.">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>A 10 Minute Guide on XML parser versus Thunder Suite - TIC Software Blog</title>
+    <meta name="description" content="Compare XML parsers and Thunder Suite. Learn the key differences and discover which solution is best for your COBOL, C, or TAL programs on NonStop systems.">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         * {
             margin: 0;
@@ -178,11 +178,6 @@
             color: var(--primary-blue);
         }
 
-        .search-icon {
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
         /* Blog Content */
         .blog-content {
             font-size: 0.95rem;
@@ -258,6 +253,16 @@
             text-decoration: underline;
         }
 
+        .blog-content a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .blog-content a:hover {
+            text-decoration: underline;
+        }
+
         .company-section {
             margin-top: 2rem;
         }
@@ -274,21 +279,6 @@
             line-height: 1.8;
         }
 
-        .back-button {
-            display: inline-block;
-            background-color: var(--light-blue);
-            color: var(--white);
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            margin: 2rem 0 1rem 0;
-            transition: all 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: var(--primary-blue);
-        }
-
         /* Hero Section */
         .hero-section {
             display: grid;
@@ -296,7 +286,7 @@
             height: 254px;
             background-color: var(--white);
             max-width: 100%;
-            overflow: hidden;
+            margin: 0;
         }
 
         .hero-left {
@@ -307,19 +297,16 @@
             color: var(--white);
         }
 
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
         .hero-left h1 {
             font-size: 2.5rem;
             text-align: left;
             padding: 2rem;
             font-weight: bold;
             color: var(--white);
-        }
-
-        .hero-right {
-            background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100%;
         }
 
         /* Main Content */
@@ -565,6 +552,21 @@
             border-radius: 4px;
         }
 
+        .back-button {
+            display: inline-block;
+            background-color: var(--light-blue);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 2rem 0 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-blue);
+        }
+
         /* Related Blogs Section */
         .related-blogs {
             margin-top: 4rem;
@@ -686,7 +688,7 @@
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">
-                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+                <img src="../images/TIC_2026.png" alt="TIC Software Logo">
             </a>
             <nav>
                 <a href="index.html">Home</a>
@@ -721,7 +723,7 @@
                     <div class="dropdown-menu">
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
-                        <a href="blog.html">Blog</a>
+                        <a href="./blog.html">Blog</a>
                     </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
@@ -737,7 +739,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>How to access Windows programs from NonStop Applications</h1>
+            <h1>A 10 Minute Guide on "XML parser versus Thunder Suite"</h1>
         </div>
         <div class="hero-right"></div>
     </section>
@@ -747,44 +749,62 @@
         <div class="blog-meta">
             <div class="blog-meta-item">
                 <span>📅</span>
-                <span>February 1, 2021</span>
+                <span>March 26, 2021</span>
             </div>
             <div class="blog-meta-item">
-                <img src="./images/TIC Team/Donald_profile.png" alt="Donald Wickham" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
-                <span>Donald Wickham</span>
+                <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                <span>Phil Ly</span>
             </div>
         </div>
 
         <div class="blog-content">
-            <h2>Accessing Windows Functionality from NonStop Systems</h2>
+            <h2>Understanding XML Parser versus Thunder Suite</h2>
 
-            <p>Several years ago we began exploring how we might make functionality that was readily available on Windows™ platforms available to NonStop applications. We looked at porting some of them to the NonStop. We have been able to do that to a very small number of tools, like an HTTP server and email client. Most of the other tools were either proprietary or need features that were not possible on NonStop.</p>
+            <img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/XML Logo.jpg" alt="XML Logo">
 
-            <p>We began by looking at how most applications might want to use these functions and which were the most needed. We identified PGP encryption and PDF conversion as the top two. These two functions are available on the Windows platforms and are also very, very inexpensive (like free!). In most cases existing and new NonStop applications wanted to use these functions as if they were standard NonStop serverclasses.</p>
+            <p><strong>What is the difference between using <a href="file:///C:/ticsoftware/modernize.html#xmlthunder">Thunder Suite</a> and an XML parser?</strong> Thunder Suite and XML parsers can both provide the ability to parse an input XML document, but they differ a lot in functions and features, especially when it comes to COBOL application development.</p>
 
-            <img src="./images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath Server Class.png" alt="TelePath Architecture">
+            <h2>XML Parsers</h2>
 
-            <p>This was the history of how TelePath came to be. We wanted to have a NonStop program, running as a serverclass, that would allow applications to simply do a Serverclass_Send or WRITEREAD sending instructions on what is to be done and, optionally include files to be processed. The reply could also point to files that returned.</p>
+            <ul>
+                <li>Parsers require developers to have some XML knowledge</li>
+                <li>Parsers usually support API such as DOM and SAX</li>
+                <li>Common programming languages for interfacing to parsers are object oriented languages like Java or C++ or C#</li>
+                <li>Parsers are used for handling input XML documents only</li>
+            </ul>
 
-            <h2>TelePath Architecture</h2>
+            <img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/Fix_it.jpg" alt="Fix It">
 
-            <p>Utilizing experience we had with Server Object Gateway (SOG), we built two primary components. The first was a serverclass, TREMSVR, that would receive the requests and send them, via TCP/IP to a Windows server. The second, TeleRemotePC, was a Windows application that would process the request and perform whatever operation was wanted. We also wanted to provide at least some of the Tandem/NonStop fundamentals. Not only can there be multiple instances of TREMSVR, but each TREMSVR process can communicate with multiple TeleRemotePC programs.</p>
+            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">Sample DOM API Calls</p>
 
-            <img src="./images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath_TREMSVR.png" alt="TREMSVR and TeleRemotePC Components" style="max-width: 70%;">
+            <p>XML parsers still require custom programming logic to navigate a given XML document and extract data values for processing. A parser simply makes an XML document available in memory, and its API — such as <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">Document Object Model (DOM)</a> or <a href="https://en.wikipedia.org/wiki/Simple_API_for_XML" target="_blank">Simple API for XML (SAX)</a> — can be used by custom application programming logic to obtain the XML data values. The parser simply raises programming events that need to be handled by programming logic. <strong>The larger and more complex the XML document is, the more complex the application logic will be.</strong> Logic branching for XML Choice, Namespaces, and optional vs. required XML nodes are just some of the challenges a developer will face. Complex decision trees and nested repeating structures (i.e. XML branches) also have to be accommodated.</p>
 
-            <h2>TelePath in Production</h2>
+            <img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/XML_Parsing.png" alt="XML Parsing">
 
-            <p>TelePath has been robustly providing a wide variety of Windows functionality for many years with a growing number of customers. Look for an upcoming Whitepaper which will provide more technical details of TelePath or request More Info about this product.</p>
+            <p style="text-align: center; font-weight: bold; margin-top: -0.5rem;">Calling an Thunder Suite Reader</p>
 
+            <h2>Thunder Suite</h2>
+
+            <ul>
+                <li>Thunder Suite is a visual GUI designer that developers can use to generate XML Handler code without requiring XML knowledge</li>
+                <li>The ability to generate COBOL or C code for both reading and creating XML documents (XML Parsers are used only for reading XML documents)</li>
+                <li>XML parsing logic with advanced validation capabilities beyond what most parsers are capable of, such as required field checking and data enumeration validation</li>
+            </ul>
+
+            <p>Unlike XML parsers, Thunder Suite <strong>generates the subroutine code needed to handle the XML processing</strong> for you. It also <strong>generates the needed data structures</strong> to be loaded or read from. There is <strong>no API</strong> interfacing, except to CALL the subroutine, from either <strong>COBOL or C programs.</strong> It hides all the complex XML processing from the calling program.</p>
+
+            <h2>So which should you use?</h2>
+
+            <p>If you are writing <strong>Java or C++</strong> code and are comfortable with XML, then XML parser would be an option to explore, since it is quite accessible in those environments. On the other hand, if you require XML handling in your <strong>COBOL, C or TAL programs on the NonStop, then Thunder Suite will make your job a lot easier.</strong></p>
         </div>
 
-        <a href="blog.html" class="back-button">← Back to Blog</a>
+        <a href="./blog.html" class="back-button">← Back to Blog</a>
 
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
 
         <div class="feedback-section">
             <h3>Feedback Please</h3>
-            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <a href="ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
             <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
             <div style="clear: both;"></div>
         </div>
@@ -792,8 +812,8 @@
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
         <div class="company-section">
-            <img src="./images/TIC Team/Donald_profile.png" alt="Donald Wickham" class="company-image" style="max-width: 72px;">
-            <p class="company-text">Donald Wickham has over 30 years of experience with Nonstop including 20 years for Tandem, Compaq and HP. He has been with <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> for over 20 years in the role of Chief Architect.</p>
+            <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image" style="max-width: 72px;">
+            <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
         </div>
 
@@ -804,39 +824,39 @@
                 <!-- Related Blog 1 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave Client supports more than JSON payload">
+                        <img src="../images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON-Enable NonStop COBOL and C programs with JSON Thunder">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Mar 29, 2023</div>
-                        <h3 class="related-blog-title">LightWave Client supports more than JSON payload</h3>
+                        <div class="related-blog-date">Feb 1, 2023</div>
+                        <h3 class="related-blog-title">JSON-Enable NonStop COBOL and C programs with JSON Thunder</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="blog-lightwave-client-json-payload.html" class="related-blog-button">Read Blog</a>
+                        <a href="./blog-json-thunder-nonstop.html" class="related-blog-button">Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 2 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger LightWave Client lets you create REST APIs in minutes">
+                        <img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave Client supports more than JSON payload">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Jan 4, 2023</div>
-                        <h3 class="related-blog-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h3>
+                        <div class="related-blog-date">Mar 29, 2023</div>
+                        <h3 class="related-blog-title">LightWave Client supports more than JSON payload</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="blog-swagger-lightwave-rest-apis.html" class="related-blog-button">Read Blog</a>
+                        <a href="./blog-lightwave-client-json-payload.html" class="related-blog-button">Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON-Enable NonStop COBOL and C programs with JSON Thunder">
+                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger LightWave Client lets you create REST APIs in minutes">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Feb 1, 2023</div>
-                        <h3 class="related-blog-title">JSON-Enable NonStop COBOL and C programs with JSON Thunder</h3>
+                        <div class="related-blog-date">Jan 4, 2023</div>
+                        <h3 class="related-blog-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="blog-json-thunder-nonstop.html" class="related-blog-button">Read Blog</a>
+                        <a href="./blog-swagger-lightwave-rest-apis.html" class="related-blog-button">Read Blog</a>
                     </div>
                 </div>
             </div>
@@ -878,7 +898,7 @@
                     <ul class="footer-links">
                         <li><a href="success-stories.html">Success Stories</a></li>
                         <li><a href="tic-news.html">TIC News</a></li>
-                        <li><a href="blog.html">TIC Blog</a></li>
+                        <li><a href="./blog.html">TIC Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-section footer-contact">

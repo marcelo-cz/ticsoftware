@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Using TOP with NonStop TCP/IP - TIC Software Blog</title>
-    <meta name="description" content="Learn how to use TOP to easily manage and monitor NonStop TCP/IP communications and CLIM configurations.">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>How to Aggregate NonStop Logs to Kafka in One Simple Step - TIC Software Blog</title>
+    <meta name="description" content="Learn how to aggregate NonStop logs to Kafka using uLinga for Kafka with three simple methods: File Reader Support, Pathsend/Guardian IPC, and LogWatch integration.">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         * {
             margin: 0;
@@ -131,57 +131,61 @@
             grid-template-columns: 40% 60%;
             height: 254px;
             background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
         }
 
         .hero-left {
+            background-color: #001a4d;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            background-color: #001a4d;
-            flex-direction: column;
+            color: var(--white);
         }
 
         .hero-left h1 {
-            font-size: 1.8rem;
-            color: var(--white);
+            font-size: 2.5rem;
             text-align: center;
+            padding: 2rem;
             font-weight: bold;
-            line-height: 1.4;
         }
 
         .hero-right {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
         }
 
         /* Main Content */
         main {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
 
         .blog-header {
             margin-bottom: 2rem;
+            padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
-            padding-bottom: 1.5rem;
         }
 
         .blog-meta {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
             flex-wrap: wrap;
         }
 
         .blog-meta-item {
             display: flex;
-            align-items: center;
             gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
+            align-items: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
         .blog-tag {
@@ -193,8 +197,6 @@
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
@@ -246,16 +248,12 @@
             border-radius: 8px;
         }
 
-        .code-block {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
+        .product-emphasis {
+            background-color: var(--light-gray);
             padding: 1.5rem;
-            border-radius: 4px;
+            border-left: 4px solid var(--primary-blue);
             margin: 1.5rem 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
+            border-radius: 4px;
         }
 
         .back-button {
@@ -324,30 +322,14 @@
             float: left;
             margin-right: 0.75rem;
             margin-bottom: 1rem;
-            max-width: 72px !important;
+            max-width: 72px;
             border-radius: 8px;
-            display: inline !important;
-            margin: 0 0.75rem 1rem 0 !important;
         }
 
         .company-text {
             font-size: 0.85rem;
             line-height: 1.8;
             text-align: justify;
-        }
-
-        .feedback-text a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .feedback-text a:hover {
-            text-decoration: underline;
-        }
-
-        .subtitle-light {
-            color: var(--light-blue);
         }
 
         /* Footer */
@@ -401,6 +383,7 @@
             }
         }
 
+        /* Footer Styles */
         .related-blogs {
             margin-top: 4rem;
             padding-top: 2rem;
@@ -498,7 +481,6 @@
             background-color: var(--light-blue);
         }
 
-        /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
             color: #e8e8e8;
@@ -809,7 +791,7 @@
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">
-                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+                <img src="../images/TIC_2026.png" alt="TIC Software Logo">
             </a>
             <nav>
                 <a href="index.html">Home</a>
@@ -844,7 +826,7 @@
                     <div class="dropdown-menu">
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
-                        <a href="blog.html" class="active">Blog</a>
+                        <a href="./blog.html">Blog</a>
                     </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
@@ -860,9 +842,9 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>Using TOP with NonStop TCP/IP</h1>
+            <h1>How to Aggregate NonStop Logs to Kafka in One Simple Step</h1>
         </div>
-        <div class="hero-right" style="background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+        <div class="hero-right"></div>
     </section>
 
     <!-- Main Content -->
@@ -871,95 +853,55 @@
             <div class="blog-meta">
                 <div class="blog-meta-item">
                     <span>📅</span>
-                    <span>Jan 23, 2023</span>
+                    <span>Nov 19, 2023</span>
                 </div>
                 <div class="blog-meta-item">
-                    <img src="./images/TIC Team/Matt_Riesz.jpg" alt="Matt Riesz" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
-                    <span>Matt Riesz</span>
+                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Phil Ly</span>
                 </div>
             </div>
-            <div>
-                <a href="blog.html?tag=TOP" class="blog-tag">TOP</a>
-                <a href="blog.html?tag=TCP/IP" class="blog-tag">TCP/IP</a>
-                <a href="blog.html?tag=Administration" class="blog-tag">Administration</a>
+            <div class="blog-tags">
+                <a href="./blog.html?tag=Messaging" class="blog-tag">Messaging</a>
+                <a href="./blog.html?tag=Kafka" class="blog-tag">Kafka</a>
+                <a href="./blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
             </div>
         </div>
 
         <div class="blog-content">
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="Using TOP with NonStop TCP/IP" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p>Apache Kafka is a powerful streaming platform that has become a popular choice for log aggregation due to its ability to handle large volumes of data with low latency and high throughput. It provides a reliable and scalable infrastructure for collecting, storing, and processing log events from various sources, enabling centralized log management and real-time monitoring. Kafka's strengths in distributed data streaming, durability, and fault tolerance make it well-suited for handling the demanding requirements of log aggregation in modern distributed systems.</p>
 
-            <p><strong><a href="file:///C:/ticsoftware/modernize.html#top" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TOP</a> is a great GUI for just about everything you need to do on your NonStop system.</strong> One of the most helpful features is the ability to easily look at data communications information, especially as it pertains to <strong>CLIM IP, or "CIP".</strong></p>
+            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/Log Aggregation.jpg" alt="Log Aggregation Architecture" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p><strong>Let's suppose that you want to see who is using TCP/IP on your NonStop system, and what programs are listening for incoming connections on a particular IP address, and which IP ports they're using.</strong> Seems simple, right? But even if you do this on a frequent basis and can recall all of the SCF commands involved, it can be a tedious and time-consuming task:</p>
+            <p>You can take advantage of this unique feature and aggregate all your NonStop logs to Kafka by using uLinga for Kafka from our partner Infrasoft. uLinga runs as a natively compiled Guardian (or OSS) process pair, and supports the Kafka communications protocols directly over TCP/IP. It enables NonStop applications to integrate easily with Kafka Clusters. By using uLinga, you can publish NonStop logs to Kafka in any one of these three simple methods below.</p>
 
-            <h2>It is Easy Using TOP</h2>
+            <h2>Method 1: uLinga File Reader Support</h2>
+            <p>uLinga for Kafka performs an "end-of-file chase" whereby new records are read from the entry-sequenced file as they are written by the application, and immediately streamed to the Kafka cluster. So just configure uLinga to monitor one of your log files, and new records will automatically be published to Kafka.</p>
 
-            <p>Sign on to TOP and select your system. The system's components appear in a familiar, Windows Explorer-style interface.</p>
+            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_File_Reader_Support_chart.png" alt="uLinga File Reader Support" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/All_Nodes_TOP.jpg" alt="All Nodes TOP" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <h2>Method 2: uLinga Pathsend and Guardian IPC Support</h2>
+            <p>Applications can also explicitly send data via the Pathsend and IPC interfaces provided by uLinga for Kafka. A Pathsend client, such as a Pathway Requestor or Pathway Server, simply sends the relevant data via a Pathsend request to uLinga. Just send your application logs to uLinga process to be published.</p>
 
-            <p>Navigate to "Comms", "TCP/IP", "IP CIP"</p>
+            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_Pathsend_Guardian_IPC_Support chart.png" alt="Pathsend and Guardian IPC Support" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>TOP now shows the available IP CLIMs. Select one and click on its "Interfaces". You now see the CLIM's interface information, including which providers are using them and which IP addresses are being served:</p>
+            <h2>Method 3: Leverage LogWatch</h2>
+            <p>Our TIC LogWatch product monitors application log files to provide real time detection of errors and raise alerts to facilitate quick resolution. It is a TIC product that watches log files for new entries and examines the content for a configured error pattern. When an anomaly is detected, LogWatch raises alert to notify team members via email, text, VHS or file records. By using LogWatch and uLinga, you can automate sending all your different NonStop logs easily.</p>
 
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TICX_COMMS.jpg" alt="TICX COMMS" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_Kafka_Logwatch chart.jpg" alt="LogWatch and uLinga Integration" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>Now click on "Providers". TOP shows information on all the providers:</p>
+            <h2>Conclusion</h2>
+            <p>By using uLinga for Kafka, you can easily aggregate all your NonStop logs to Kafka in any one of these three simple methods. This will enable you to take advantage of Kafka's powerful features for centralized log management and real-time monitoring.</p>
 
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TICX_COMMS_Providers.jpg" alt="TICX COMMS Providers" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>Next, right-click on a provider and select "Sockets" from the pull-down menu. TOP provides information for all of the current active sockets for that provider:</p>
-
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/socket_opens_for_IP.jpg" alt="Socket Opens for IP" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>Sort it however you want by clicking on a column heading. For example, by Foreign IP Address, to see who has an active session:</p>
-
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/Foreign IP Address.jpg" alt="Foreign IP Address" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p><strong>Total time to do this with TOP: about 1 minute, and you don't need to know any command syntax.</strong> Information from the TOP display can also be easily copied and pasted into your favorite spreadsheet. It's EASY!</p>
-
-            <h2>Doing it the Long Way Using SCF</h2>
-
-            <p>Now, the tedious way to do the same thing using SCF:</p>
-
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TACL_SCF.jpg" alt="TACL SCF" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>Note that the command returns both IP CLIMs and Storage CLIMs. So, pick an IP CLIM and look at the detailed status. There's a LOT of information that needs to be parsed and understood:</p>
-
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/status clim NCLIM000.jpg" alt="Status CLIM NCLIM000" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>Now you have the information needed to find out which IP addresses are associated with which interface on that CLIM. But who is using those addresses?</p>
-
-            <p>Next, find all of the CIPSAM processes – These are called "Providers" in CIP, and are the processes that your program accesses when it wants a connection. Each provider is associated with one or more CLIMs, and there may be more than one provider for a given CLIM:</p>
-
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/CIP Status PROVIDER.png" alt="CIP Status PROVIDER" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>Well that wasn't too hard. Next, find out which provider is associated with the IP address you're interested in:</p>
-
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/CIP Detailed Status.jpg" alt="CIP Detailed Status" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>You might need to look at all the providers to find the one you're looking for. But great, now we know which CLIM, interface and IP address is driven by this provider. Now, enter another command to find all of the listeners and established sessions through the provider for that interface:</p>
-
-            <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/listopens provider.jpg" alt="ListOpens Provider" style="max-width: 49%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>There may be a LOT of listeners and sessions, appearing in no particular order in the SCF output and, as you can see, it's not very easy to read. So next you copy the output from your screen (or log it to a file and copy that) into a spreadsheet, separate it into useful columns of information, and sort it to find what you're looking for.</p>
-
-            <p>That all will probably take you about 15 to 20 minutes if you know the commands by heart or maybe an hour or more if, like many, you have to read through the SCF manuals looking for them.</p>
-
-            <h2>The Comparison</h2>
-
-            <p><strong>1 minute versus 15-20 minutes. Which way would you prefer?</strong></p>
-
-            <p>You can use TOP to facilitate many other NonStop operations. <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Contact us</a> to see all the ways it can help you.</p>
+            <p>Visit our website to learn more about uLinga for Kafka and LogWatch.</p>
         </div>
 
-        <a href="blog.html" class="back-button">← Back to Blog</a>
+        <a href="./blog.html" class="back-button">← Back to Blog</a>
 
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
 
         <div class="feedback-section">
             <h3>Feedback Please</h3>
-            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <a href="ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
             <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
             <div style="clear: both;"></div>
         </div>
@@ -967,24 +909,8 @@
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
         <div class="company-section">
-            <img src="./images/TIC Team/Matt_Riesz.jpg" alt="Matt Riesz" class="company-image">
-            <p class="company-text"><strong>Matt Riesz</strong> is a technical consultant at TIC Software. Matt's career spans the corporate transitions of what is now HPE NonStop. He started at Tandem in 1982 as a system engineer, and saw the company evolve from Tandem to Compaq, and finally to HP/HPE – from where he retired with the title of Master System Architect. Throughout the course of these changes, Matt's job was focused on pre-and post-sales technical support for software and systems.</p>
-            <div style="clear: both;"></div>
-        </div>
-
-        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
-
-        <div class="company-section">
-            <img src="./images/TIC_2026.png" alt="TIC Software" class="company-image">
-            <p class="company-text"><a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a New York-based company specializing in software and services that integrate NonStop with the latest technologies, including Web Services, .NET and Java. Prior to founding TIC in 1983, Phil worked for Tandem Computer in technical support and software development.</p>
-            <div style="clear: both;"></div>
-        </div>
-
-        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
-
-        <div class="company-section">
-            <img src="./images/Logos/comforte_logo.jpg" alt="comForte" class="company-image">
-            <p class="company-text">TIC Software partners with comForte to offer a suite of innovative security, modernization, and connectivity solutions for NonStop systems users. comForte develops, markets, and supports proven and innovative modernization, middleware, connectivity, and security solutions for users of HP NonStop systems.</p>
+            <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
         </div>
 
@@ -994,46 +920,49 @@
                 <!-- Related Blog 1 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="NonStop TOP TCP IP">
+                        <img src="../images/Logos/kafka grey logo.png" alt="Kafka Microservices">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">May 27, 2024</div>
-                        <h3 class="related-blog-title">How to Use TOP to Manage NonStop Processes and Resources</h3>
-                        <p class="related-blog-excerpt">Master the TOP command for efficient NonStop process and resource management.</p>
-                        <a href="blog-nonstop-operation-intelligence-top.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Nov 12, 2023</div>
+                        <h3 class="related-blog-title">WebCon's Integration with uLinga for Kafka, Microservices and API Gateway</h3>
+                        <p class="related-blog-excerpt">Explore WebCon integration with uLinga for Kafka, enabling seamless microservices and API management.</p>
+                        <a href="./blog-webcon-ulinga-kafka.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 2 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Logos/kafka grey logo.png" alt="Kafka HPE NonStop">
+                        <img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="LogWatch Application Logs">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Dec 2, 2023</div>
-                        <h3 class="related-blog-title">Kafka and HPE NonStop: A Perfect Combination to Empower Your Data-Driven Architecture</h3>
-                        <p class="related-blog-excerpt">Explore how Kafka and HPE NonStop integrate to create powerful data-driven architectures.</p>
-                        <a href="blog-kafka-hpe-nonstop-perfect-combo.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Feb 5, 2024</div>
+                        <h3 class="related-blog-title">How to Minimize Downtime When Migrating from LogWatch to uLinga</h3>
+                        <p class="related-blog-excerpt">Learn strategies to minimize downtime during migration from LogWatch to uLinga.</p>
+                        <a href="./blog-minimize-downtime-logwatch.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Blogs & Articles/2025 The Year to Transform Your HPE NonStop Platform for Tomorrows Challenges/IT_Modernization.png" alt="Modernization NonStop">
+                        <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/Log Aggregation.jpg" alt="NonStop Log Aggregation">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Jan 29, 2024</div>
-                        <h3 class="related-blog-title">2025: The Year to Transform Your HPE NonStop Platform</h3>
-                        <p class="related-blog-excerpt">Explore strategies to transform your HPE NonStop platform for tomorrow's challenges.</p>
-                        <a href="blog-2025-transform-nonstop.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Mar 25, 2024</div>
+                        <h3 class="related-blog-title">NonStop Integration with LogWatch and uLinga for Better Visibility</h3>
+                        <p class="related-blog-excerpt">Integrate NonStop systems with LogWatch and uLinga for improved operational visibility.</p>
+                        <a href="./blog-nonstop-integration-logwatch-ulinga.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-
+    <!-- Footer -->
+    
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
 
     <!-- FOOTER COMPONENT -->
 <footer class="site-footer">
@@ -1079,7 +1008,7 @@
                 <ul class="footer-links">
                     <li><a href="success-stories.html">Success Stories</a></li>
                     <li><a href="tic-news.html">TIC News</a></li>
-                    <li><a href="blog.html">TIC Blog</a></li>
+                    <li><a href="./blog.html">TIC Blog</a></li>
                 </ul>
             </div>
 

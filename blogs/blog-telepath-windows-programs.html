@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NonStop Operation Intelligence– Using TOP | TIC Software</title>
+    <title>How to access Windows programs from NonStop Applications - TIC Software Blog</title>
+    <meta name="description" content="Learn how TelePath enables NonStop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from NonStop systems.">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         * {
             margin: 0;
@@ -14,46 +16,55 @@
         :root {
             --primary-blue: #003d99;
             --light-blue: #4a6fa5;
-            --dark-bg: #0a1929;
-            --white: #ffffff;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
             --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
             line-height: 1.6;
-            color: #333;
             background-color: var(--white);
         }
 
-        /* Header Navigation */
+        /* Header & Navigation */
         header {
             background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
             padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .header-container {
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 1rem;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
         }
 
         .logo img {
-            height: 40px;
+            height: 100%;
             width: auto;
+            object-fit: contain;
         }
 
         nav {
@@ -64,13 +75,70 @@
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: var(--dark-text);
             font-weight: 500;
-            position: relative;
+            transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         nav a:hover {
             color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-search-input {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            width: 180px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .nav-search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.25rem 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .nav-search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            max-width: 300px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .search-results.active {
+            display: block;
         }
 
         .nav-dropdown {
@@ -78,23 +146,18 @@
             display: inline-block;
         }
 
-        .nav-dropdown > a::after {
-            content: '▼';
-            font-size: 0.7rem;
-            margin-left: 0.5rem;
-        }
-
         .dropdown-menu {
             display: none;
             position: absolute;
             background-color: var(--white);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 1rem 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 0.75rem 0;
             z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
             top: 100%;
             left: 0;
-            border-top: 3px solid var(--primary-blue);
         }
 
         .nav-dropdown:hover .dropdown-menu {
@@ -102,11 +165,12 @@
         }
 
         .dropdown-menu a {
-            color: #333;
-            padding: 0.75rem 1.5rem;
+            color: var(--dark-text);
+            padding: 0.75rem 1rem;
             text-decoration: none;
             display: block;
-            font-size: 0.95rem;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
         }
 
         .dropdown-menu a:hover {
@@ -114,216 +178,59 @@
             color: var(--primary-blue);
         }
 
-        .search-bar {
-            display: flex;
-            align-items: center;
-            background-color: var(--light-gray);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            width: 200px;
-        }
-
-        .search-bar input {
-            border: none;
-            background: none;
-            width: 100%;
-            outline: none;
-            font-size: 0.9rem;
-        }
-
-        .search-bar button {
-            background: none;
-            border: none;
+        .search-icon {
             cursor: pointer;
-            color: #666;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            height: 254px;
-            background-color: var(--white);
-            max-width: 100%;
-            margin: 0;
-        }
-
-        .hero-left {
-            background-color: #001a4d;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            color: var(--white);
-        }
-
-        .hero-right {
-            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
-        }
-
-        .hero-left h1 {
-            font-size: 2.5rem;
-            text-align: left;
-            padding: 2rem;
-            font-weight: bold;
-            color: var(--white);
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .hero-left h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-right {
-                height: 200px;
-            }
-
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 0.5rem;
-                width: 100%;
-            }
-
-            .search-bar {
-                width: 100%;
-            }
+            font-size: 1.2rem;
         }
 
         /* Blog Content */
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
         .blog-content {
+            font-size: 0.95rem;
             line-height: 1.8;
-            color: #333;
         }
 
         .blog-content h2 {
+            font-size: 1.6rem;
             color: var(--primary-blue);
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--light-gray);
-            padding-bottom: 0.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
         }
 
         .blog-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-align: justify;
         }
 
-        .blog-content a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .blog-content a:hover {
-            text-decoration: underline;
+        .blog-content li {
+            margin-bottom: 0.75rem;
         }
 
-        .blog-content img {
-            max-width: 40%;
-            height: auto;
-            margin: 2rem auto;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .blog-content img:hover {
-            opacity: 0.8;
-        }
-
-        /* Lightbox Modal */
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox-modal.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90vh;
-        }
-
-        .lightbox-img {
-            max-width: 100%;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: -35px;
-            right: 0;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-            transition: transform 0.3s;
-        }
-
-        .lightbox-close:hover {
-            transform: scale(1.2);
-        }
-
-        .blog-meta {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.95rem;
-            color: #666;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-gray);
-        }
-
-        .blog-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-/* Feedback Section */
         .feedback-section {
-            padding: 0;
-            margin-top: 0;
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
             margin-bottom: 0;
         }
 
         .feedback-section h3 {
+            font-size: 1.4rem;
             color: var(--primary-blue);
-            margin-bottom: 1rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
         }
 
         .feedback-image {
@@ -335,11 +242,10 @@
         }
 
         .feedback-text {
+            font-size: 0.85rem;
             line-height: 1.8;
-            color: #666;
             text-align: justify;
             overflow: hidden;
-            font-size: 0.9rem;
         }
 
         .feedback-text a {
@@ -352,7 +258,6 @@
             text-decoration: underline;
         }
 
-        /* Company Section */
         .company-section {
             margin-top: 2rem;
         }
@@ -362,14 +267,11 @@
             margin-right: 1rem;
             margin-bottom: 1rem;
             border-radius: 8px;
-            max-width: 72px;
         }
 
         .company-text {
             text-align: justify;
             line-height: 1.8;
-            font-size: 0.9rem;
-            color: #666;
         }
 
         .back-button {
@@ -385,6 +287,90 @@
 
         .back-button:hover {
             background-color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: left;
+            padding: 2rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .hero-right {
+            background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .blog-meta-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .blog-meta img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-right {
+                height: 200px;
+            }
+
+            main {
+                padding: 1rem;
+            }
         }
 
         /* Footer */
@@ -570,21 +556,13 @@
             color: white;
         }
 
-        @media (max-width: 768px) {
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .company-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .company-text h4,
-            .company-text p {
-                text-align: center;
-            }
+        /* Blog content images */
+        .blog-content img {
+            max-width: 50%;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+            border-radius: 4px;
         }
 
         /* Related Blogs Section */
@@ -704,12 +682,12 @@
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
+    <!-- Header -->
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
-            </div>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
             <nav>
                 <a href="index.html">Home</a>
                 <div class="nav-dropdown">
@@ -717,8 +695,8 @@
                     <div class="dropdown-menu">
                         <a href="who-we-are.html">Who We Are</a>
                         <a href="ticteam.html">TIC Team</a>
-                        <a href="index.html#partners">Partners</a>
-                        <a href="index.html#clients">Clients</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
@@ -743,96 +721,70 @@
                     <div class="dropdown-menu">
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
-                        <a href="blog.html">Blog</a>
+                        <a href="./blog.html">Blog</a>
                     </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
             </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button>🔍</button>
-            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>NonStop Operation Intelligence– Using TOP</h1>
+            <h1>How to access Windows programs from NonStop Applications</h1>
         </div>
         <div class="hero-right"></div>
     </section>
 
-    <!-- Blog Content -->
+    <!-- Main Content -->
     <main>
         <div class="blog-meta">
             <div class="blog-meta-item">
                 <span>📅</span>
-                <span>January 24, 2021</span>
+                <span>February 1, 2021</span>
             </div>
             <div class="blog-meta-item">
-                <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
-                <span>Phil Ly</span>
+                <img src="../images/TIC Team/Donald_profile.png" alt="Donald Wickham" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                <span>Donald Wickham</span>
             </div>
         </div>
 
         <div class="blog-content">
-            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Tips.png" alt="TOP Tips">
+            <h2>Accessing Windows Functionality from NonStop Systems</h2>
 
-            <h2>Do you remember how you did that two years ago?</h2>
-            <p>I am sure that you can think of cases when you had a hard time remembering the syntax of how to perform certain NonStop operations because you rarely do them. For example:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-                <li>How to set up a New Spooler</li>
-                <li>How to configure a new EMS Collector</li>
-                <li>How to add a new Netbatch Job, etc.</li>
-            </ul>
-            <p>It doesn't matter how much experience you have on NonStop, the reality is that if you don't use it, you lose it. You may even get desperate enough to resort to looking it up in the NonStop manuals, which sometimes could be challenging.</p>
+            <p>Several years ago we began exploring how we might make functionality that was readily available on Windows™ platforms available to NonStop applications. We looked at porting some of them to the NonStop. We have been able to do that to a very small number of tools, like an HTTP server and email client. Most of the other tools were either proprietary or need features that were not possible on NonStop.</p>
 
-            <h2>TOP makes it easy</h2>
-            <p>If you use our TOP GUI tool, you can get these done in a breeze. To create a New Spooler, just click on the Spooler component and select New Spooler Config Wizard, which guides you through a step-by-step creation of a new Spooler.</p>
+            <p>We began by looking at how most applications might want to use these functions and which were the most needed. We identified PGP encryption and PDF conversion as the top two. These two functions are available on the Windows platforms and are also very, very inexpensive (like free!). In most cases existing and new NonStop applications wanted to use these functions as if they were standard NonStop serverclasses.</p>
 
-            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Spoolers.png" alt="TOP Spoolers Configuration">
-            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">Creating a New Spooler</p>
+            <img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath Server Class.png" alt="TelePath Architecture">
 
-            <p><strong>Watch this video on how to create a new spooler:</strong> <a href="https://www.youtube.com/watch?v=MXLgTQb1n0M" target="_blank">https://www.youtube.com/watch?v=MXLgTQb1n0M</a></p>
+            <p>This was the history of how TelePath came to be. We wanted to have a NonStop program, running as a serverclass, that would allow applications to simply do a Serverclass_Send or WRITEREAD sending instructions on what is to be done and, optionally include files to be processed. The reply could also point to files that returned.</p>
 
-            <p>Similarly, use TOP and right click on the EMS icon to create a New Collector. You will get a step-by-step screen to guide you through the process.</p>
+            <h2>TelePath Architecture</h2>
 
-            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/New_Collector.png" alt="New Collector Configuration">
-            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">Configuring a New EMS Collector</p>
+            <p>Utilizing experience we had with Server Object Gateway (SOG), we built two primary components. The first was a serverclass, TREMSVR, that would receive the requests and send them, via TCP/IP to a Windows server. The second, TeleRemotePC, was a Windows application that would process the request and perform whatever operation was wanted. We also wanted to provide at least some of the Tandem/NonStop fundamentals. Not only can there be multiple instances of TREMSVR, but each TREMSVR process can communicate with multiple TeleRemotePC programs.</p>
 
-            <p><strong>Watch this video on how to configure a new EMS Collector:</strong> <a href="https://youtu.be/CuwYTpOXUrE" target="_blank">https://youtu.be/CuwYTpOXUrE</a></p>
+            <img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath_TREMSVR.png" alt="TREMSVR and TeleRemotePC Components" style="max-width: 70%;">
 
-            <p>Managing Netbatch jobs is just as easy with TOP. You can list all the details about the jobs by clicking on JOBS, and right clicking shows the properties of an individual Netbatch job.</p>
+            <h2>TelePath in Production</h2>
 
-            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Job_Properties.png" alt="TOP Job Properties">
-            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">Netbatch Job Properties</p>
+            <p>TelePath has been robustly providing a wide variety of Windows functionality for many years with a growing number of customers. Look for an upcoming Whitepaper which will provide more technical details of TelePath or request More Info about this product.</p>
 
-            <p>And if you want to add a new one, just right click and select "Submit New Job" and you will be prompted through the process.</p>
-
-            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Properties.png" alt="TOP Properties Configuration">
-            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">TOP Properties Configuration</p>
-
-            <p>In summary, TOP helps everyone, NonStop novices and experts alike, to perform operations easily via a Graphical User Interface (GUI). Even if it involves an operation that you rarely perform, the dialog boxes and point-and-click interfaces helps you get it done easily.</p>
-
-            <h2>Are you still not using GUI?</h2>
-            <p>TOP is a powerful GUI operation tool for NonStop. It has been proven that GUI is more productive than a command line interface for many reasons. Yet, I am sure that some NonStop folks may insist that it is "easier" to use TACL to perform the same functions. I submit that is a matter of habit or preference, not because it is easier.</p>
-
-            <img src="./images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Remember.jpg" alt="Remember the Syntax">
-            <p style="text-align: center; font-weight: bold; margin-top: -0.5rem;">Remember the syntax? TOP makes it easy</p>
-
-            <p>For example, are you using the COMMAND PROMPT interface to do work on your desktop computer? I suspect not. Most of us, if not all, rely on the Windows Explorer and all its GUI components every day to do productive work on our desktop computers. With TOP, you can now achieve the same level of productivity performing NonStop operations.</p>
-
-            <p>Contact us to learn more about how TOP can help your novice and experienced NonStop team be more productive with systems operations.</p>
         </div>
 
-        <a href="blog.html" class="back-button">← Back to Blog</a>
+        <a href="./blog.html" class="back-button">← Back to Blog</a>
 
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
 
         <div class="feedback-section">
             <h3>Feedback Please</h3>
-            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <a href="ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
             <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
             <div style="clear: both;"></div>
         </div>
@@ -840,8 +792,8 @@
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
         <div class="company-section">
-            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
-            <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
+            <img src="../images/TIC Team/Donald_profile.png" alt="Donald Wickham" class="company-image" style="max-width: 72px;">
+            <p class="company-text">Donald Wickham has over 30 years of experience with Nonstop including 20 years for Tandem, Compaq and HP. He has been with <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> for over 20 years in the role of Chief Architect.</p>
             <div style="clear: both;"></div>
         </div>
 
@@ -852,39 +804,39 @@
                 <!-- Related Blog 1 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="Using TOP with NonStop TCP/IP">
+                        <img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave Client supports more than JSON payload">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Jan 23, 2023</div>
-                        <h3 class="related-blog-title">Using TOP with NonStop TCP/IP</h3>
+                        <div class="related-blog-date">Mar 29, 2023</div>
+                        <h3 class="related-blog-title">LightWave Client supports more than JSON payload</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="blog-using-top-tcp-ip.html" class="related-blog-button">Read Blog</a>
+                        <a href="./blog-lightwave-client-json-payload.html" class="related-blog-button">Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 2 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Blogs & Articles/2025 The Year to Transform Your HPE NonStop Platform for Tomorrows Challenges/IT_Modernization.png" alt="2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges">
+                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger LightWave Client lets you create REST APIs in minutes">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Dec 16, 2024</div>
-                        <h3 class="related-blog-title">2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges</h3>
+                        <div class="related-blog-date">Jan 4, 2023</div>
+                        <h3 class="related-blog-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="blog-2025-transform-nonstop.html" class="related-blog-button">Read Blog</a>
+                        <a href="./blog-swagger-lightwave-rest-apis.html" class="related-blog-button">Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="./images/Logos/kafka grey logo.png" alt="WebCon's New Features: How uLinga for Kafka Continues to Excel">
+                        <img src="../images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON-Enable NonStop COBOL and C programs with JSON Thunder">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">March 25, 2025</div>
-                        <h3 class="related-blog-title">WebCon's New Features: How uLinga for Kafka Continues to Excel</h3>
+                        <div class="related-blog-date">Feb 1, 2023</div>
+                        <h3 class="related-blog-title">JSON-Enable NonStop COBOL and C programs with JSON Thunder</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="blog-webcon-ulinga-kafka.html" class="related-blog-button">Read Blog</a>
+                        <a href="./blog-json-thunder-nonstop.html" class="related-blog-button">Read Blog</a>
                     </div>
                 </div>
             </div>
@@ -926,7 +878,7 @@
                     <ul class="footer-links">
                         <li><a href="success-stories.html">Success Stories</a></li>
                         <li><a href="tic-news.html">TIC News</a></li>
-                        <li><a href="blog.html">TIC Blog</a></li>
+                        <li><a href="./blog.html">TIC Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-section footer-contact">
@@ -966,44 +918,7 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox-modal" class="lightbox-modal">
-        <div class="lightbox-content">
-            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-            <img id="lightbox-img" class="lightbox-img" src="" alt="Expanded image">
-        </div>
-    </div>
-
-    <script>
-        // Lightbox functionality
-        const lightboxModal = document.getElementById('lightbox-modal');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const blogImages = document.querySelectorAll('.blog-content img');
-
-        blogImages.forEach(img => {
-            img.addEventListener('click', function() {
-                lightboxImg.src = this.src;
-                lightboxModal.classList.add('active');
-            });
-        });
-
-        function closeLightbox() {
-            lightboxModal.classList.remove('active');
-        }
-
-        // Close lightbox when clicking outside the image
-        lightboxModal.addEventListener('click', function(event) {
-            if (event.target === this) {
-                closeLightbox();
-            }
-        });
-
-        // Close lightbox with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-    </script>
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
 </body>
 </html>

@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - TIC Software</title>
+    <meta name="description" content="TIC Software Blog - Insights on NonStop modernization, messaging, gateway solutions, and application development.">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            padding: 2rem;
+            gap: 0.5rem;
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: bold;
+            color: var(--white);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .hero-left p {
+            color: var(--white);
+            font-size: 1rem;
+            max-width: 300px;
+            margin: 0;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+            display: none;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        .year-section {
+            margin-bottom: 3rem;
+        }
+
+        .year-title {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .blog-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-card:first-of-type .blog-card-image img {
+            object-fit: contain;
+        }
+
+        .blog-card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card-title {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-card-excerpt {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .blog-card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: #f0f0f0;
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .blog-tag:hover {
+            background-color: #e0e0e0;
+            color: var(--primary-blue);
+        }
+
+        .blog-card.hidden {
+            display: none;
+        }
+
+        #filter-message {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            display: none;
+        }
+
+        #clear-filter {
+            margin-left: 1rem;
+            cursor: pointer;
+            color: var(--accent-red);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        #clear-filter:hover {
+            text-decoration: none;
+        }
+
+        .blog-card-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .blog-card-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-left p {
+                max-width: 100%;
+            }
+
+            .hero-right {
+                height: 200px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
+            color: #e8e8e8;
+            padding: 3rem 1.5rem 0;
+            margin-top: 4.5rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer Content Grid */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.125rem;
+            padding: 0 1.5rem 2.25rem 1.5rem;
+            border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+        }
+
+        /* Footer Section */
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+        /* Footer Title */
+        .footer-title {
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 0.56rem;
+            text-align: left;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #4a6fa5, rgba(74, 111, 165, 0));
+        }
+
+        /* Footer Links */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.56rem;
+            text-align: left;
+        }
+
+        .footer-links a {
+            color: #b0b8c1;
+            text-decoration: none;
+            font-size: 0.71rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4a6fa5;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #4a6fa5;
+        }
+
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .footer-contact {
+            grid-column: 5;
+            display: grid !important;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .footer-contact .footer-title {
+            grid-column: 1 / -1;
+            margin-bottom: 0;
+        }
+
+        .footer-contact .contact-item:first-of-type {
+            grid-column: 1 / -1;
+            margin-top: -0.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.64rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #4a6fa5;
+            margin-bottom: 0.38rem;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .contact-text {
+            font-size: 0.68rem;
+            line-height: 1.7;
+            color: #b0b8c1;
+            margin: 0;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .contact-text a {
+            color: #4a6fa5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: #5a7fb5;
+            text-decoration: underline;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.68rem;
+            color: #7a8292;
+        }
+
+        .footer-copyright p {
+            margin: 0;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            font-size: 0.68rem;
+        }
+
+        .footer-legal a {
+            color: #7a8292;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #4a6fa5;
+        }
+
+        .divider {
+            color: rgba(74, 111, 165, 0.4);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .footer-social .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(74, 111, 165, 0.15);
+            border: 1px solid rgba(74, 111, 165, 0.3);
+            border-radius: 6px;
+            color: #4a6fa5;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-social .social-link:hover {
+            background: rgba(74, 111, 165, 0.25);
+            border-color: rgba(74, 111, 165, 0.5);
+            color: #5a7fb5;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.875rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                padding: 2.25rem 1.125rem 0;
+                margin-top: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                padding: 0 1.5rem 1.5rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-title {
+                font-size: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 0.68rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-legal {
+                justify-content: center;
+                order: 2;
+            }
+
+            .footer-copyright {
+                order: 1;
+            }
+
+            .footer-social {
+                order: 3;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.125rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-section {
+                border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+                padding-bottom: 1.125rem;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+
+            .footer-contact {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-contact .contact-item:first-of-type {
+                grid-column: 1 !important;
+            }
+
+            .footer-title::after {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#about">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="./blog.html" class="active">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>TIC Software Blog</h1>
+            <p>Insights on NonStop modernization, messaging, gateway solutions, and application development.</p>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>TIC Software Blog</h1>
+            <p>Insights on NonStop modernization, messaging, gateway solutions, and application development.</p>
+        </div>
+
+        <div id="filter-message">
+            Showing blogs tagged with: <strong id="active-tag"></strong>
+            <span id="clear-filter">Clear Filter</span>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Card 1 - Most Recent -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Logos/kafka grey logo.png" alt="WebCon uLinga Kafka"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">March 25, 2025</div>
+                    <h3 class="blog-card-title">WebCon's New Features: How uLinga for Kafka Continues to Excel</h3>
+                    <p class="blog-card-excerpt">Discover the powerful new WebCon UI features that make it easier to implement, manage, and monitor Kafka integrations with NonStop systems. Learn about traffic light status indicators, resource visualization, and enhanced data transformation capabilities.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=Messaging" class="blog-tag">Messaging</a>
+                        <a href="./blog.html?tag=Kafka" class="blog-tag">Kafka</a>
+                        <a href="./blog.html?tag=Integration" class="blog-tag">Integration</a>
+                    </div>
+                    <a href="./blog-webcon-ulinga-kafka.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/2025 The Year to Transform Your HPE NonStop Platform for Tomorrows Challenges/IT_Modernization.png" alt="2025 Transform Nonstop"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Dec 16, 2024</div>
+                    <h3 class="blog-card-title">2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges</h3>
+                    <p class="blog-card-excerpt">Explore strategies to transform your HPE Nonstop platform for tomorrow's challenges. Address misconceptions and unlock your platform's full potential through modernization and strategic investment.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                        <a href="./blog.html?tag=Strategy" class="blog-tag">Strategy</a>
+                        <a href="./blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                    </div>
+                    <a href="./blog-2025-transform-nonstop.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 4 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="LogWatch Web Interface"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Mar 18, 2024</div>
+                    <h3 class="blog-card-title">Building a Web Interface to a Centralized View of Application Logs with LogWatch</h3>
+                    <p class="blog-card-excerpt">Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team with improved efficiency and search capabilities.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
+                        <a href="./blog.html?tag=Monitoring" class="blog-tag">Monitoring</a>
+                        <a href="./blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                    </div>
+                    <a href="./blog-logwatch-web-interface.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 5 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/Log Aggregation.jpg" alt="NonStop Logs to Kafka"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Nov 19, 2023</div>
+                    <h3 class="blog-card-title">How to Aggregate NonStop Logs to Kafka in One Simple Step</h3>
+                    <p class="blog-card-excerpt">Learn how to aggregate NonStop logs to Kafka using uLinga for Kafka with three simple methods: File Reader Support, Pathsend/Guardian IPC, and LogWatch integration.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=Messaging" class="blog-tag">Messaging</a>
+                        <a href="./blog.html?tag=Kafka" class="blog-tag">Kafka</a>
+                        <a href="./blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
+                    </div>
+                    <a href="./blog-aggregate-nonstop-logs-kafka.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 7 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/log_monitoring.png" alt="Minimize Application Downtime"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Oct 17, 2023</div>
+                    <h3 class="blog-card-title">Minimize Application Downtime with LogWatch Monitoring</h3>
+                    <p class="blog-card-excerpt">LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises. Learn how to minimize downtime and save significant costs.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
+                        <a href="./blog.html?tag=Monitoring" class="blog-tag">Monitoring</a>
+                        <a href="./blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                    </div>
+                    <a href="./blog-minimize-downtime-logwatch.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 8 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave Client"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Mar 29, 2023</div>
+                    <h3 class="blog-card-title">LightWave Client supports more than JSON payload</h3>
+                    <p class="blog-card-excerpt">Discover how LightWave Client supports multiple payload formats beyond JSON, including XML, YAML, and BLOB data types for flexible REST integration with NonStop systems.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=Gateway" class="blog-tag">Gateway</a>
+                        <a href="./blog.html?tag=REST API" class="blog-tag">REST API</a>
+                        <a href="./blog.html?tag=Integration" class="blog-tag">Integration</a>
+                    </div>
+                    <a href="./blog-lightwave-client-json-payload.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 9 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="Features of JSON"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Feb 1, 2023</div>
+                    <h3 class="blog-card-title">JSON-Enable NonStop COBOL and C programs with JSON Thunder</h3>
+                    <p class="blog-card-excerpt">Learn how JSON Thunder enables seamless JSON support in NonStop COBOL and C programs, making data exchange with modern applications simple and efficient.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=JSON Thunder" class="blog-tag">JSON Thunder</a>
+                        <a href="./blog.html?tag=COBOL" class="blog-tag">COBOL</a>
+                        <a href="./blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                    </div>
+                    <a href="./blog-json-thunder-nonstop.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 10 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="Using TOP with NonStop TCP/IP"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Jan 23, 2023</div>
+                    <h3 class="blog-card-title">Using TOP with NonStop TCP/IP</h3>
+                    <p class="blog-card-excerpt">Learn how to easily manage and monitor NonStop TCP/IP communications using TOP. Discover how TOP simplifies complex TCP/IP administration tasks in just minutes.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=TOP" class="blog-tag">TOP</a>
+                        <a href="./blog.html?tag=TCP/IP" class="blog-tag">TCP/IP</a>
+                        <a href="./blog.html?tag=Administration" class="blog-tag">Administration</a>
+                    </div>
+                    <a href="./blog-using-top-tcp-ip.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 11 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Jan 4, 2023</div>
+                    <h3 class="blog-card-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h3>
+                    <p class="blog-card-excerpt">Learn how LightWave Client makes it easy to create REST APIs on NonStop systems, whether you have Swagger files or not.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=LightWave Client" class="blog-tag">LightWave Client</a>
+                        <a href="./blog.html?tag=REST APIs" class="blog-tag">REST APIs</a>
+                        <a href="./blog.html?tag=Swagger" class="blog-tag">Swagger</a>
+                    </div>
+                    <a href="./blog-swagger-lightwave-rest-apis.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 12 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/TIC_tools.jpg" alt="TIC Tools"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Dec 29, 2022</div>
+                    <h3 class="blog-card-title">'Tele' Technology with TIC Software</h3>
+                    <p class="blog-card-excerpt">Learn how TIC's Tele family technologies enable application modernization and seamless integration with NonStop systems.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=Messaging" class="blog-tag">Messaging</a>
+                        <a href="./blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                    </div>
+                    <a href="./blog-tele-technology.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 13 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/Apache_Kafka Chart.png" alt="NonStop Integration LogWatch uLinga"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Jul 26, 2022</div>
+                    <h3 class="blog-card-title">NonStop Integration – LogWatch and uLinga</h3>
+                    <p class="blog-card-excerpt">Learn how LogWatch and uLinga integrate NonStop applications with Kafka for modernization and data streaming.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=Kafka" class="blog-tag">Kafka</a>
+                        <a href="./blog.html?tag=Integration" class="blog-tag">Integration</a>
+                        <a href="./blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                    </div>
+                    <a href="./blog-nonstop-integration-logwatch-ulinga.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 14 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath Server Class.png" alt="TelePath Windows Programs"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Feb 1, 2021</div>
+                    <h3 class="blog-card-title">How to access Windows programs from NonStop Applications</h3>
+                    <p class="blog-card-excerpt">Learn how TelePath enables NonStop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from NonStop systems.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=TelePath" class="blog-tag">TelePath</a>
+                        <a href="./blog.html?tag=Integration" class="blog-tag">Integration</a>
+                    </div>
+                    <a href="./blog-telepath-windows-programs.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; padding: 2rem 0;">
+            <span style="padding: 0.6rem 1rem; background-color: var(--primary-blue); color: white; border-radius: 4px; font-weight: 600;">Page 1</span>
+            <a href="./blog-page-2.html" style="padding: 0.6rem 1rem; background-color: var(--light-gray); color: var(--dark-text); text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s;">Page 2 →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+
+    <!-- FOOTER COMPONENT -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Footer Content -->
+        <div class="footer-content">
+
+            <!-- About Us Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">About Us</h3>
+                <ul class="footer-links">
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li><a href="ticteam.html">TIC Team</a></li>
+                    <li><a href="our-partners.html">Partners</a></li>
+                    <li><a href="our-clients.html">Clients</a></li>
+                </ul>
+            </div>
+
+            <!-- Products Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Products</h3>
+                <ul class="footer-links">
+                    <li><a href="messaging.html">Messaging</a></li>
+                    <li><a href="gateway.html">Gateway</a></li>
+                    <li><a href="business-intelligence.html">Business Intelligence</a></li>
+                    <li><a href="modernize.html">Modernize</a></li>
+                </ul>
+            </div>
+
+            <!-- Services Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="consulting.html">Consulting</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="https://ticsoftware.ai/" target="_blank">GenAI</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="success-stories.html">Success Stories</a></li>
+                    <li><a href="tic-news.html">TIC News</a></li>
+                    <li><a href="./blog.html">TIC Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-section footer-contact">
+                <h3 class="footer-title">Contact Us</h3>
+                <div class="contact-item">
+                    <p class="contact-label">Address</p>
+                    <p class="contact-text">
+                        TIC Software, 185 Great Neck RD<br>
+                        4th Floor, Suite 453, Great Neck, NY 11021
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Sales & Support</p>
+                    <p class="contact-text">
+                        <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a>
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Technical Support</p>
+                    <p class="contact-text">
+                        <a href="tel:516-466-7990">(516) 466-7990</a><br>
+                        <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>&copy; 2026 TIC Software. All rights reserved.</p>
+            </div>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span class="divider">•</span>
+                <a href="terms-of-use.html">Terms of Use</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/tic-software" target="_blank" aria-label="LinkedIn" class="social-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.048-8.829 0-9.743h3.554v1.379c-.009.015-.021.029-.03.042h.03v-.042c.395-.609 1.101-1.473 2.681-1.473 1.957 0 3.425 1.277 3.425 4.024v5.813zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.954-1.71 1.185 0 1.915.755 1.94 1.71 0 .951-.755 1.71-1.979 1.71zm1.581 11.597H3.756V9.567h3.162v10.885zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Tag filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the tag parameter from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedTag = urlParams.get('tag');
+
+    const filterMessage = document.getElementById('filter-message');
+    const activeTag = document.getElementById('active-tag');
+    const clearFilter = document.getElementById('clear-filter');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    if (selectedTag) {
+        // Show filter message
+        filterMessage.style.display = 'block';
+        activeTag.textContent = selectedTag;
+
+        // Filter blog cards
+        blogCards.forEach(card => {
+            const tags = card.querySelectorAll('.blog-tag');
+            let hasTag = false;
+
+            tags.forEach(tag => {
+                if (tag.textContent.trim() === selectedTag) {
+                    hasTag = true;
+                }
+            });
+
+            if (hasTag) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // Clear filter button
+    clearFilter.addEventListener('click', function() {
+        window.location.href = 'blog.html';
+    });
+
+    // Make tags clickable
+    const allTags = document.querySelectorAll('.blog-tag');
+    allTags.forEach(tag => {
+        tag.style.cursor = 'pointer';
+        tag.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tagText = this.textContent.trim();
+            window.location.href = 'blog.html?tag=' + encodeURIComponent(tagText);
+        });
+    });
+});
+</script>
+
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kafka and HPE NonStop – A Perfect Combo! - TIC Software Blog</title>
-    <meta name="description" content="Learn how Kafka and HPE NonStop integrate for modernization and real-time data streaming.">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>Swagger or no Swagger - LightWave Client lets you create REST APIs in minutes - TIC Software Blog</title>
+    <meta name="description" content="Learn how LightWave Client makes it easy to create REST APIs on NonStop systems, whether you have Swagger files or not.">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         * {
             margin: 0;
@@ -195,6 +195,14 @@
             text-transform: uppercase;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .blog-tag:hover {
+            background-color: #e0e0e0;
+            color: var(--primary-blue);
         }
 
         .blog-content {
@@ -316,8 +324,10 @@
             float: left;
             margin-right: 0.75rem;
             margin-bottom: 1rem;
-            max-width: 72px;
+            max-width: 72px !important;
             border-radius: 8px;
+            display: inline !important;
+            margin: 0 0.75rem 1rem 0 !important;
         }
 
         .company-text {
@@ -326,13 +336,13 @@
             text-align: justify;
         }
 
-        .company-text a {
+        .feedback-text a {
             color: var(--primary-blue);
             text-decoration: none;
             font-weight: 600;
         }
 
-        .company-text a:hover {
+        .feedback-text a:hover {
             text-decoration: underline;
         }
 
@@ -370,14 +380,126 @@
             .hero-left h1 {
                 font-size: 1.8rem;
             }
+
+            .related-blogs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
         }
-    
+
+        @media (max-width: 480px) {
+            .related-blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-blog-title {
+                font-size: 0.95rem;
+            }
+        }
+
+        .related-blogs {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-gray);
+        }
+
+        .related-blogs h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .related-blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .related-blog-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .related-blog-image {
+            width: 100%;
+            height: 160px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .related-blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-blog-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-blog-title {
+            font-size: 1rem;
+            color: var(--dark-text);
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .related-blog-excerpt {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .related-blog-button {
+            display: inline-block;
+            padding: 0.5rem 0.9rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .related-blog-button:hover {
+            background-color: var(--light-blue);
+        }
+
         /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
             color: #e8e8e8;
             padding: 3rem 1.5rem 0;
-            margin-top: 4.5rem;
+            margin-top: 2.7rem;
             border-top: 1px solid rgba(74, 111, 165, 0.3);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -683,7 +805,7 @@
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">
-                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+                <img src="../images/TIC_2026.png" alt="TIC Software Logo">
             </a>
             <nav>
                 <a href="index.html">Home</a>
@@ -718,7 +840,7 @@
                     <div class="dropdown-menu">
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
-                        <a href="blog.html" class="active">Blog</a>
+                        <a href="./blog.html" class="active">Blog</a>
                     </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
@@ -734,7 +856,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>Kafka and HPE NonStop – A Perfect Combo!</h1>
+            <h1>Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h1>
         </div>
         <div class="hero-right" style="background-image: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
     </section>
@@ -745,158 +867,90 @@
             <div class="blog-meta">
                 <div class="blog-meta-item">
                     <span>📅</span>
-                    <span>Mar 16, 2022</span>
+                    <span>Jan 4, 2023</span>
                 </div>
                 <div class="blog-meta-item">
-                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
                     <span>Phil Ly</span>
                 </div>
             </div>
             <div>
-                <span class="blog-tag">Kafka</span>
-                <span class="blog-tag">NonStop</span>
-                <span class="blog-tag">Integration</span>
+                <a href="./blog.html?tag=LightWave Client" class="blog-tag">LightWave Client</a>
+                <a href="./blog.html?tag=REST APIs" class="blog-tag">REST APIs</a>
+                <a href="./blog.html?tag=Swagger" class="blog-tag">Swagger</a>
             </div>
         </div>
 
         <div class="blog-content">
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/a perfect combo.png" alt="Kafka and HPE NonStop Perfect Combo" style="max-width: 34%; margin: 0 auto 2rem auto; display: block;">
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="API Chart" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <h2>Introduction</h2>
+            <p>RESTful API opens up NonStop by enabling its applications to interoperate with services within the enterprise, in the cloud or anywhere on the Internet. <strong>LightWave Client™ from our partner NuWave Technologies is the most popular REST client product to run on NonStop.</strong> It enables you to create NonStop applications to consume remote RESTful Web Services in minutes.</p>
 
-            <p>One of the best ways to modernize NonStop is to integrate its applications with other software, platforms and cloud services. This interoperability is extremely important as it will extend the value of the NonStop applications, and underscore the flexibility of the platform in the enterprise. Over the past few years, one of the most popular tools that have been adopted by many corporations is Apache Kafka. To date, it has been reported that over 20,000 companies in the US alone are using Kafka for real time stream processing, messaging, queueing and other applications. Integration with Kafka will open NonStop to interoperate with many different platforms and applications.</p>
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/LWC_CHART.png" alt="LightWave Client Chart" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>The purpose of this article is to provide an overview of Kafka's architecture and benefits, and to show how uLinga for Kafka from Infrasoft can enable NonStop applications to interoperate with the Kafka ecosystem.</p>
+            <p>There are many factors that attribute to its success, including a browser-based GUI dashboard, its high performance, extensive diagnostic logging, etc. In addition, one outstanding feature is the ease of configuring and managing API definitions.</p>
 
-            <h2>History</h2>
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Swagger_banner.png" alt="Swagger Banner" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>Kafka was originally developed at LinkedIn by Jay Kreps, Neha Narkhede and Jun Rao Jay. The original project aimed to provide a unified, high-throughput, low-latency platform for handling real-time data feeds. Kreps chose to name the software after the author Franz Kafka because it is "a system optimized for writing", and he liked Kafka's work. It was subsequently open sourced in early 2011 and became a fully fledged Apache project in October 2012. While Apache Kafka is an open-source project, enterprise support is backed up by Confluent, a company founded by the product's original developers. The Confluent Platform is a complete Kafka distribution, with additional community and commercial enhanced features.</p>
+            <h2>Swagger</h2>
 
-            <h2>Kafka Architecture</h2>
-
-            <p>Kafka is a distributed publish-subscribe messaging system and a robust queue that can handle a high volume of data. Kafka messages are persisted on the disk and can be replicated to provide fault tolerance. It works very well for real-time streaming applications, as well as data distribution to other platforms.</p>
-
-            <p>Kafka supports low latency message delivery and gives guarantee for fault tolerance in the presence of machine failures. Kafka is very fast, with the ability to support millions of messages/sec. Kafka persists all data to the disk, utilizing a very efficient transfer method to achieve a high throughput.</p>
-
-            <h2>Kafka Terminology</h2>
-
-            <p>Kafka has Producers which publish messages to a Topic, and Consumers which pull the Topic data as subscribers. You can partition a Topic across multiple Brokers to allow parallel production or consumption. This enables the load to be balanced across multiple partitions and brokers for higher performance. Similarly, a single broker can house one or more such partitions, allowing flexibility to balance workload. All messages written to Kafka are persisted on disk and can be replicated to multiple Brokers for fault tolerance. In addition, you can configure messages to be stored for a configurable period of time, for days or weeks or longer.</p>
-
-            <div style="display: flex; gap: 2rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap;">
-                <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka terminology.png" alt="Kafka Terminology" style="max-width: 40%; flex: 1; min-width: 200px;">
-                <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka Cluster.png" alt="Kafka Cluster" style="max-width: 40%; flex: 1; min-width: 200px;">
-            </div>
-
-            <h2>Why use Kafka?</h2>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka flowchart.png" alt="Why use Kafka - Integration Challenges" style="max-width: 35%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
-
-            <p>Here is an example of the challenges that an enterprise might encounter when trying to integrate data from different sources, including application logs, events, relational databases, OLTP transactions, CSV files, search systems, monitoring systems, OLAP stores, etc. Each of these needs data feeds in a distributed environment. The result is a total mess that is difficult to implement and impossible to manage.</p>
-
-            <h2 style="white-space: nowrap; text-align: left; margin-left: 0; clear: both;">Kafka solution: Publish once, consumed by many</h2>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Apache Kafka chart.png" alt="Kafka Solution Architecture" style="max-width: 35%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
-
-            <p>Kafka solves this problem by acting as a kind of universal data connector. Each system can feed into this central pipeline (producer) or be fed by it (consumer). Applications or stream processors can tap into it to create new data streams, when then can be fed back into the various systems for serving. Continuous feeds of well-formed data act as a kind of standard across different systems, applications, and data repositories. The result is a high-performance architecture that is simple, scalable and more manageable.</p>
-
-            <h2>Kafka Benefit – High Performance</h2>
-
-            <p>Kafka has high throughput for both publishing and subscribing messages, being able to support up to millions of messages/sec. Kafka takes advantage of multiple partitions to achieve parallel processing. Also, a Kafka consumer group is a group of consumers that can process the same Topic in parallel. <strong>This enables the record processing to be load-balanced over the consumer instances. This is similar to the high-performance architecture achieved on NonStop via the use of partitioned disks and application server classes scaled across multiple CPUs.</strong></p>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka partition.png" alt="Kafka Partition Architecture" style="max-width: 35%; margin: 0 auto 2rem auto; display: block; text-align: center;">
-
-            <p>Another contributing factor to Kafka's high performance is its Zero Copy feature. Kafka makes use of this zero-copy principal by requesting the operating system to move the data directly to the network rather than moving it via the application. This greatly reduces the number of context switches and speeds up the operation drastically.</p>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Zero Copy.png" alt="Zero Copy Feature" style="max-width: 35%; margin: 0 auto 2rem auto; display: block;">
-
-            <p>All data published to Kafka is written to disk. Kafka provides fail-over capability or fault tolerance for a topic via data replication. Replication is accomplished by copying the partition data to other brokers, also known as replicas. Imagine this is like NonStop disk processes that provide automatic fault tolerance via replicating data between mirrored Primary and Backup disks. But Kafka takes it to the next level by allowing more than one copy of backup data. You can specify how many copies of the partition you need via a configuration parameter called Replication Factor. So, a partition having a replication factor of 5 will guarantee there be five copies of the data residing in different brokers for redundancy. If a "primary" Broker (Leader) where the Topic resides goes down, Kafka automatically selects one of the replicas to stand in and continue processing without losing consistency.</p>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka Cluster Replication.png" alt="Kafka Cluster Replication" style="max-width: 35%; margin: 0 auto 2rem auto; display: block;">
-
-            <h2 style="clear: both;">Kafka Benefit – Guarantees Message Order</h2>
-
-            <p>Kafka preserves the order of messages within a partition. This means that if messages were sent from the Producer in a specific order, they will be guaranteed to be written to a partition in that exact same order. The result is that all the consumers will be able to read and process them in that same order. This can be a critical feature for some applications which demand the messages or transactions must be processed in order. One example is database replication, which requires that change data capture (CDC) transactions be processed in order. Similarly, in a payment environment, transaction log files often contain the delta of a transaction (withdraw $50 or deposit $100 for example) so the order that these transactions are fed into the core banking application can be critical.</p>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Partition.png" alt="Kafka Partitions and Consumer Groups" style="max-width: 30%; margin: 0 auto 2rem auto; display: block;">
-
-            <h2>uLinga for Kafka Features</h2>
-
-            <p>uLinga for Kafka takes a distinctly NonStop approach to Kafka integration: it runs as a natively compiled Guardian (or OSS) process pair, and supports the Kafka communications protocols directly over TCP/IP. This removes the need for Java libraries or intermediate servers and databases, providing the best possible performance on NonStop. It also allows uLinga for Kafka to directly communicate with the Kafka cluster, ensuring data is streamed as quickly and reliably as possible.</p>
-
-            <p>Other NonStop Kafka integration solutions require an interim application and/or database, generally running on another platform. This can be less than ideal as that additional platform may not have the reliability of the NonStop, and could introduce a single point of failure. It can also increase latency, in terms of getting the data into Kafka as quickly as possible.</p>
-
-            <h2>Features</h2>
-
-            <p>uLinga for Kafka supports the same access points available with other uLinga products to enable applications to stream their data to Kafka. These include Inter-Process Communication (IPC), Pathsend and HTTP/REST. IPC and Pathsend interfaces allow NonStop applications to open uLinga for Kafka and send data via Guardian IPC, or via a Pathsend message. The HTTP/REST interface allows applications on the NonStop or on any other platform, such as API gateways, to stream via HTTP to Kafka. uLinga for Kafka also introduces a new access point which allows for Enscribe files to be monitored and read in real-time as they are being written by an application.</p>
-
-            <h3 style="color: #4a6fa5;">Entry-Sequenced and Relative Enscribe File Support</h3>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/uLinga_filereader_chart.png" alt="uLinga File Reader Support" style="max-width: 30%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
-
-            <p>Entry-sequenced or relative files (such as a transaction log file from a payment application, or an access log for an in-house application), can be supported by uLinga for Kafka. uLinga for Kafka performs an "end of file chase" whereby new records are read from the Enscribe file as they are written by the application, and immediately streamed to the Kafka cluster. uLinga for Kafka monitors for the creation of new files and automatically picks them up and begins processing them.</p>
-
-            <h3 style="color: #4a6fa5;">Pathsend and Guardian IPC Support</h3>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/uLinga_pathsend_chart.png" alt="uLinga Pathsend and IPC Support" style="max-width: 30%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
-
-            <p>Applications can also explicitly send data via the Pathsend and IPC interfaces provided by uLinga for Kafka. This might be useful where specific data streams need to be generated and sent directly from the application. A Pathsend client, such as a Pathway Requestor or Pathway Server, simply sends the relevant data via a Pathsend request to uLinga. A NonStop process sends the data to uLinga for Kafka via IPC calls. uLinga for Kafka's support for the native Kafka protocols ensures that this data will be streamed with the lowest latency possible.</p>
-
-            <h3 style="color: #4a6fa5;">NonStop Application Streaming via HTTP/REST</h3>
-
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/uLinga_HTTP_chart.png" alt="uLinga HTTP/REST Streaming" style="max-width: 30%; margin: 1.5rem 1.5rem 1.5rem 0; float: left;">
-
-            <p>uLinga for Kafka's HTTP interface can be used by any HTTP Client, on NonStop, or any other platform. This might be useful with API gateways, such as the new product recently launched by HPE. API gateways, with the central position they occupy within the enterprise, will often produce data that will need to be streamed to Kafka. Administrators of an API gateway, which of course is inherently REST-capable, might decide to utilize the REST interface into uLinga for Kafka – it's simple, it's well-understood, and it will work "out of the box" with a REST-capable client.</p>
-
-            <p><strong>uLinga for Kafka provides the additional following key features:</strong></p>
+            <p>Swagger allows the RESTful Web Service developer to describe the structure of their APIs so that the REST Client knows how to call them. The ability of APIs to describe their own structure is the root of all benefits in Swagger. This file is essentially a resource listing of your API which adheres to OpenAPI Specification. The specification asks you to include information like:</p>
 
             <ul>
-                <li>Online configuration via the built-in browser UI WebCon, allowing for simple management of uLinga processes and resources.</li>
-                <li>Extensive tracing via uLinga's tracing capabilities and standard logging support</li>
-                <li>Interactive command line interface and REST-based command interface to allow command and control from any environment</li>
-                <li>Kafka Exactly Once Semantics support, along with traditional NonStop fault-tolerance, provide unparalled reliability and ensure that every transaction is streamed to Kafka</li>
-                <li>Superior performance – uLinga's well-proven C code-base and NonStop optimisations allow for transaction rates of 25,000 TPS and higher.</li>
+                <li>What are all the operations that your API supports?</li>
+                <li>What are your API's parameters and what does it return?</li>
+                <li>Does your API need some authorization? Etc.</li>
             </ul>
 
-            <h2>How uLinga for Kafka Can Benefit NonStop Applications</h2>
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Swagger_file.png" alt="Swagger File" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/Kafka_connectors_image.png" alt="Kafka Connectors Architecture" style="max-width: 61%; margin: 0 auto 2rem auto; display: block;">
+            <p>A Swagger file for a RESTful service greatly facilitates the job of the REST Client program developer because it enables the creation of the methods and operations more easily. <strong>LightWave Client™ supports the use of Swagger in defining the APIs to consume the RESTful web service.</strong></p>
 
-            <h3>Kafka Connectors</h3>
+            <h2>Swagger Support in LightWave Client – Point and Click</h2>
 
-            <p>One major benefit of using Kafka is the extensive number of off-the-shelf connectors available for different third-party products. Kafka Connectors are ready-to-use components, which can help you import data from external systems into Kafka topics (source connectors) and export data from Kafka topics into external systems (sink connectors). Some are commercial products, while others are open source. Regardless of your application needs, chances are there is already an available connector for the application you want to integrate with. You just need to publish your message into Kafka, and the connector will do the rest.</p>
+            <p>With LightWave Client™, you can create an API to consume the remote RESTful service instantly by importing its Swagger file. This can be done via a point-and-click operation.</p>
 
-            <p>You can take advantage of these available connectors by using uLinga to publish your NonStop data or messages to Kafka, which can be consumed by any number of sink connectors of your choice.</p>
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/swagger_support_LWC.png" alt="Swagger Support LightWave Client" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <h3>Use Case: Log Analysis</h3>
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Import_API_from_swagger_openAPI.png" alt="Import API from Swagger OpenAPI" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>With uLinga, you can send NonStop application logs or system events to Kafka for real time analysis by off-platform SIEM (Security Information and Event Management) packages, log analysis tools like Splunk, or observability platform like New Relic One.</p>
+            <p>Once the Swagger has been imported, LightWave Client™ will generate a schema with all the methods and operations as defined in the Swagger file. And the API is done!</p>
 
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/kafka_log_analysis_image.png" alt="Log Analysis Use Case" style="max-width: 35%; margin: 0 auto 2rem auto; display: block;">
+            <p>LightWave Client™ also provides a feature that allows you to customize some of the schema attributes, like field size, array size, etc. to fit your application environment.</p>
 
-            <h3>Use Case: Database replication</h3>
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Schema Editor.jpg" alt="Schema Editor" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>uLinga can work in concert with database replication products like Gravic's Shadowbase to send NonStop changed data to Kafka for use by other database platforms like SQL Server or Oracle.</p>
+            <h2>What if there is no Swagger?</h2>
 
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/kafka_database_rep_image.png" alt="Database Replication Use Case" style="max-width: 61%; margin: 0 auto 2rem auto; display: block;">
+            <p>The reality is that not every RESTful web service provider supplies a Swagger. <strong>This presents a potential problem to some other REST Client products on NonStop which require that you must have a Swagger file for it to work. If you don't have it, then you are stuck.</strong> You will need to "make up" (create) one manually. It can be a tedious process that is prone to incompleteness and errors.</p>
 
-            <h3>Use Case: Application Integration</h3>
+            <h2>LightWave Client – Schema By Example</h2>
 
-            <p>uLinga enables your NonStop applications to easily generate workflow events or send messages to applications running on other platforms like Windows or Linux, or even third-party packages like SAP. An example could be a Base24 transaction on NonStop resulting in a message being sent to another system for back-office reconciliation. Kafka is increasingly being used as a foundation for fraud detection systems, and with real-time transaction data being sent by uLinga, that data can easily be integrated with Kafka-based fraud detection systems. All these messages can be delivered by Kafka in a reliable and asynchronous manner, and not slow down processing on the NonStop independent of the target system consumers. Your NonStop application can accomplish that by sending an IPC message to uLinga, or simply writing a record to a file being monitored by uLinga. This allows NonStop to seamlessly integrate well with the rest of the enterprise environment.</p>
+            <p>This is not an issue for LightWave Client™. No need to fumble around trying to create a Swagger manually. With LightWave Client™, all you need is a sample Request and Response. Then you can take advantage of the product's <strong>"Schema By Example"</strong> feature. As the name implies, LightWave Client™ will use the sample that you provide as an example to build a schema to be used for creating the request and response necessary to access the remote API.</p>
 
-            <img src="./images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/kafka_application_integration_image.png" alt="Application Integration Use Case" style="max-width: 35%; margin: 0 auto 2rem auto; display: block;">
+            <p>When you use the LightWave Client™ GUI Dashboard to create the API definition, one of the options is "Add By Example."</p>
 
-            <h2>Conclusion</h2>
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/LWC GUI Dashboard.png" alt="LightWave Client GUI Dashboard" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>Hopefully this article has given you an idea of how Kafka works, what is possible with it, and how you might integrate and modernize your NonStop applications and data by integrating with Kafka. If you'd like to learn more about uLinga for Kafka, please get in touch – it's easy to arrange a demo or Proof of Concept, to allow you to see how it performs in your environment.</p>
+            <p>Paste in a sample Request or Response, and LightWave Client™ will process it accordingly.</p>
+
+            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Schema Type by Example.png" alt="Schema Type by Example" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>Once the request and the response definitions are imported via the Example, you can optionally edit the schema to fit your application needs.</p>
+
+            <p><strong>That's it: your API definition is now complete by using LightWave Client's™ Schema By Example feature.</strong></p>
+
+            <p>For more information about LightWave Client™, visit <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> or NuWave Technologies website.</p>
+
         </div>
 
-        <a href="blog.html" class="back-button">← Back to Blog</a>
+        <a href="./blog.html" class="back-button">← Back to Blog</a>
 
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
 
         <div class="feedback-section">
             <h3>Feedback Please</h3>
-            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <a href="ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
             <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
             <div style="clear: both;"></div>
         </div>
@@ -904,13 +958,57 @@
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
         <div class="company-section">
-            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
             <p class="company-text"><strong>Phil Ly</strong> is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
         </div>
+
+        <div class="related-blogs">
+            <h2>Related Blogs</h2>
+            <div class="related-blogs-grid">
+                <!-- Related Blog 1 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave JSON Payload">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Sep 11, 2023</div>
+                        <h3 class="related-blog-title">LightWave Client Supports More Than JSON Payload</h3>
+                        <p class="related-blog-excerpt">Explore LightWave Client's advanced payload handling capabilities.</p>
+                        <a href="./blog-lightwave-client-json-payload.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+
+                <!-- Related Blog 2 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON Thunder NonStop">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Oct 2, 2023</div>
+                        <h3 class="related-blog-title">JSON Thunder & NonStop: A Perfect Match in the World of APIs and Microservices</h3>
+                        <p class="related-blog-excerpt">Discover how JSON Thunder and NonStop create a perfect match for modern APIs and microservices.</p>
+                        <a href="./blog-json-thunder-nonstop.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+
+                <!-- Related Blog 3 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="REST APIs">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Sep 25, 2023</div>
+                        <h3 class="related-blog-title">REST APIs with LightWave Client</h3>
+                        <p class="related-blog-excerpt">Master REST API creation and management with LightWave Client.</p>
+                        <a href="./blog-rest-apis-lightwave.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    
+
 
     <!-- FOOTER COMPONENT -->
 <footer class="site-footer">
@@ -956,7 +1054,7 @@
                 <ul class="footer-links">
                     <li><a href="success-stories.html">Success Stories</a></li>
                     <li><a href="tic-news.html">TIC News</a></li>
-                    <li><a href="blog.html">TIC Blog</a></li>
+                    <li><a href="./blog.html">TIC Blog</a></li>
                 </ul>
             </div>
 

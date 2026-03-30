@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - TIC Software</title>
     <meta name="description" content="TIC Software Blog - Insights on NonStop modernization, messaging, gateway solutions, and application development.">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         * {
             margin: 0;
@@ -125,49 +125,6 @@
             display: block;
         }
 
-        /* Hero Section */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            height: 254px;
-            background-color: var(--white);
-            max-width: 100%;
-            margin: 0;
-        }
-
-        .hero-left {
-            background-color: #001a4d;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--white);
-            padding: 2rem;
-            gap: 0.5rem;
-        }
-
-        .hero-left h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            font-weight: bold;
-            color: var(--white);
-            line-height: 1.3;
-            margin: 0;
-        }
-
-        .hero-left p {
-            color: var(--white);
-            font-size: 1rem;
-            max-width: 300px;
-            margin: 0;
-            line-height: 1.5;
-            text-align: center;
-        }
-
-        .hero-right {
-            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
-        }
-
         /* Main Content */
         main {
             max-width: 1200px;
@@ -180,7 +137,6 @@
             margin-bottom: 3rem;
             padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
-            display: none;
         }
 
         .page-header h1 {
@@ -298,41 +254,6 @@
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .blog-tag:hover {
-            background-color: #e0e0e0;
-            color: var(--primary-blue);
-        }
-
-        .blog-card.hidden {
-            display: none;
-        }
-
-        #filter-message {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--primary-blue);
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background-color: var(--light-gray);
-            border-radius: 4px;
-            display: none;
-        }
-
-        #clear-filter {
-            margin-left: 1rem;
-            cursor: pointer;
-            color: var(--accent-red);
-            font-weight: 600;
-            text-decoration: underline;
-        }
-
-        #clear-filter:hover {
-            text-decoration: none;
         }
 
         .blog-card-button {
@@ -363,23 +284,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-section {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .hero-left h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-left p {
-                max-width: 100%;
-            }
-
-            .hero-right {
-                height: 200px;
-            }
-
             .blog-grid {
                 grid-template-columns: 1fr;
             }
@@ -393,7 +297,7 @@
                 font-size: 2rem;
             }
         }
-    
+
         /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
@@ -423,8 +327,6 @@
             display: flex;
             flex-direction: column;
         }
-
-
 
         /* Footer Title */
         .footer-title {
@@ -698,6 +600,66 @@
             .footer-title::after {
                 width: 100%;
             }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-left p {
+                max-width: 100%;
+            }
+
+            .hero-right {
+                height: 200px;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            padding: 2rem;
+            gap: 0.5rem;
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: bold;
+            color: var(--white);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .hero-left p {
+            color: var(--white);
+            font-size: 1rem;
+            max-width: 300px;
+            margin: 0;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
         }
     </style>
 </head>
@@ -705,7 +667,7 @@
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">
-                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+                <img src="../images/TIC_2026.png" alt="TIC Software Logo">
             </a>
             <nav>
                 <a href="index.html">Home</a>
@@ -740,7 +702,7 @@
                     <div class="dropdown-menu">
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
-                        <a href="blog.html" class="active">Blog</a>
+                        <a href="./blog.html">TIC Blog</a>
                     </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
@@ -762,220 +724,111 @@
         <div class="hero-right"></div>
     </section>
 
-    <!-- Main Content -->
     <main>
-        <div class="page-header">
-            <h1>TIC Software Blog</h1>
-            <p>Insights on NonStop modernization, messaging, gateway solutions, and application development.</p>
-        </div>
-
-        <div id="filter-message">
-            Showing blogs tagged with: <strong id="active-tag"></strong>
-            <span id="clear-filter">Clear Filter</span>
-        </div>
-
         <div class="blog-grid">
-            <!-- Blog Card 1 - Most Recent -->
+            <!-- Blog Card 1 -->
             <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Logos/kafka grey logo.png" alt="WebCon uLinga Kafka"></div>
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Kafka and HPE NonStop – A Perfect Combo!/a perfect combo.png" alt="Kafka and HPE NonStop A Perfect Combo"></div>
                 <div class="blog-card-content">
-                    <div class="blog-card-date">March 25, 2025</div>
-                    <h3 class="blog-card-title">WebCon's New Features: How uLinga for Kafka Continues to Excel</h3>
-                    <p class="blog-card-excerpt">Discover the powerful new WebCon UI features that make it easier to implement, manage, and monitor Kafka integrations with NonStop systems. Learn about traffic light status indicators, resource visualization, and enhanced data transformation capabilities.</p>
+                    <div class="blog-card-date">Mar 16, 2022</div>
+                    <h3 class="blog-card-title">Kafka and HPE NonStop – A Perfect Combo!</h3>
+                    <p class="blog-card-excerpt">Discover how Kafka and HPE NonStop work together to create a powerful, reliable, and scalable solution for modern enterprise integration.</p>
                     <div class="blog-card-tags">
-                        <a href="blog.html?tag=Messaging" class="blog-tag">Messaging</a>
-                        <a href="blog.html?tag=Kafka" class="blog-tag">Kafka</a>
-                        <a href="blog.html?tag=Integration" class="blog-tag">Integration</a>
+                        <span class="blog-tag">Kafka</span>
+                        <span class="blog-tag">NonStop</span>
+                        <span class="blog-tag">Integration</span>
                     </div>
-                    <a href="blog-webcon-ulinga-kafka.html" class="blog-card-button">📝 Read Blog</a>
+                    <a href="./blog-kafka-hpe-nonstop-perfect-combo.html" class="blog-card-button">📝 Read Blog</a>
                 </div>
             </div>
 
             <!-- Blog Card 2 -->
             <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/2025 The Year to Transform Your HPE NonStop Platform for Tomorrows Challenges/IT_Modernization.png" alt="2025 Transform Nonstop"></div>
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/XML Logo.jpg" alt="XML Thunder"></div>
                 <div class="blog-card-content">
-                    <div class="blog-card-date">Dec 16, 2024</div>
-                    <h3 class="blog-card-title">2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges</h3>
-                    <p class="blog-card-excerpt">Explore strategies to transform your HPE Nonstop platform for tomorrow's challenges. Address misconceptions and unlock your platform's full potential through modernization and strategic investment.</p>
+                    <div class="blog-card-date">Mar 26, 2021</div>
+                    <h3 class="blog-card-title">A 10 Minute Guide on "XML parser versus Thunder Suite"</h3>
+                    <p class="blog-card-excerpt">Compare XML parsers and Thunder Suite. Learn the key differences and discover which solution is best for your COBOL, C, or TAL programs on NonStop systems.</p>
                     <div class="blog-card-tags">
-                        <a href="blog.html?tag=Modernization" class="blog-tag">Modernization</a>
-                        <a href="blog.html?tag=Strategy" class="blog-tag">Strategy</a>
-                        <a href="blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                        <span class="blog-tag">XML Thunder</span>
+                        <span class="blog-tag">Development</span>
                     </div>
-                    <a href="blog-2025-transform-nonstop.html" class="blog-card-button">📝 Read Blog</a>
+                    <a href="./blog-xml-parser-thunder-suite.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/NonStop Operation Intelligence_Using TOP/TOP_Tips.png" alt="NonStop Operation Intelligence Using TOP"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Jan 24, 2021</div>
+                    <h3 class="blog-card-title">NonStop Operation Intelligence– Using TOP</h3>
+                    <p class="blog-card-excerpt">Discover how TOP GUI tool simplifies NonStop operations management. Learn how to efficiently manage Spoolers, EMS Collectors, and Netbatch jobs with step-by-step visual guidance.</p>
+                    <div class="blog-card-tags">
+                        <span class="blog-tag">TOP</span>
+                        <span class="blog-tag">Operations</span>
+                    </div>
+                    <a href="./blog-nonstop-operation-intelligence-top.html" class="blog-card-button">📝 Read Blog</a>
                 </div>
             </div>
 
             <!-- Blog Card 4 -->
             <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="LogWatch Web Interface"></div>
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Data Analysis and Distribution with Cypress/Cypress Dashboard.jpg" alt="Cypress Dashboard"></div>
                 <div class="blog-card-content">
-                    <div class="blog-card-date">Mar 18, 2024</div>
-                    <h3 class="blog-card-title">Building a Web Interface to a Centralized View of Application Logs with LogWatch</h3>
-                    <p class="blog-card-excerpt">Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team with improved efficiency and search capabilities.</p>
+                    <div class="blog-card-date">Aug 29, 2020</div>
+                    <h3 class="blog-card-title">Data Analysis and Distribution with Cypress</h3>
+                    <p class="blog-card-excerpt">Learn how Cypress enables easy legacy data analysis and distribution. Discover how this integrated document assembly system streamlines data management and accessibility for your organization.</p>
                     <div class="blog-card-tags">
-                        <a href="blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
-                        <a href="blog.html?tag=Monitoring" class="blog-tag">Monitoring</a>
-                        <a href="blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                        <span class="blog-tag">Cypress</span>
+                        <span class="blog-tag">Data Management</span>
                     </div>
-                    <a href="blog-logwatch-web-interface.html" class="blog-card-button">📝 Read Blog</a>
+                    <a href="./blog-cypress-data-analysis.html" class="blog-card-button">📝 Read Blog</a>
                 </div>
             </div>
 
             <!-- Blog Card 5 -->
             <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/Log Aggregation.jpg" alt="NonStop Logs to Kafka"></div>
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/Disaster_Recovery.png" alt="Disaster Recovery"></div>
                 <div class="blog-card-content">
-                    <div class="blog-card-date">Nov 19, 2023</div>
-                    <h3 class="blog-card-title">How to Aggregate NonStop Logs to Kafka in One Simple Step</h3>
-                    <p class="blog-card-excerpt">Learn how to aggregate NonStop logs to Kafka using uLinga for Kafka with three simple methods: File Reader Support, Pathsend/Guardian IPC, and LogWatch integration.</p>
+                    <div class="blog-card-date">Mar 4, 2020</div>
+                    <h3 class="blog-card-title">How quickly can you bring up critical reports on your DR system?</h3>
+                    <p class="blog-card-excerpt">Learn how to quickly replicate spooler jobs and critical reports to your Disaster Recovery system, ensuring business continuity with TIC's TeleFTP product.</p>
                     <div class="blog-card-tags">
-                        <a href="blog.html?tag=Messaging" class="blog-tag">Messaging</a>
-                        <a href="blog.html?tag=Kafka" class="blog-tag">Kafka</a>
-                        <a href="blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
+                        <span class="blog-tag">Disaster Recovery</span>
+                        <span class="blog-tag">Messaging</span>
+                        <span class="blog-tag">NonStop</span>
                     </div>
-                    <a href="blog-aggregate-nonstop-logs-kafka.html" class="blog-card-button">📝 Read Blog</a>
+                    <a href="./blog-disaster-recovery.html" class="blog-card-button">📝 Read Blog</a>
                 </div>
             </div>
 
-            <!-- Blog Card 7 -->
+            <!-- Blog Card 6 -->
             <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/log_monitoring.png" alt="Minimize Application Downtime"></div>
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/What is REST Web Service/Web Services.png" alt="Web Services"></div>
                 <div class="blog-card-content">
-                    <div class="blog-card-date">Oct 17, 2023</div>
-                    <h3 class="blog-card-title">Minimize Application Downtime with LogWatch Monitoring</h3>
-                    <p class="blog-card-excerpt">LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises. Learn how to minimize downtime and save significant costs.</p>
+                    <div class="blog-card-date">Jan 24, 2018</div>
+                    <h3 class="blog-card-title">What is REST Web Service?</h3>
+                    <p class="blog-card-excerpt">Explore the fundamentals of REST Web Services, understand the differences between REST and SOAP, and learn how REST APIs enable seamless integration with modern web applications.</p>
                     <div class="blog-card-tags">
-                        <a href="blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
-                        <a href="blog.html?tag=Monitoring" class="blog-tag">Monitoring</a>
-                        <a href="blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                        <span class="blog-tag">Web Services</span>
+                        <span class="blog-tag">REST</span>
+                        <span class="blog-tag">API</span>
                     </div>
-                    <a href="blog-minimize-downtime-logwatch.html" class="blog-card-button">📝 Read Blog</a>
+                    <a href="./blog-rest-web-service.html" class="blog-card-button">📝 Read Blog</a>
                 </div>
             </div>
-
-            <!-- Blog Card 8 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave Client"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Mar 29, 2023</div>
-                    <h3 class="blog-card-title">LightWave Client supports more than JSON payload</h3>
-                    <p class="blog-card-excerpt">Discover how LightWave Client supports multiple payload formats beyond JSON, including XML, YAML, and BLOB data types for flexible REST integration with NonStop systems.</p>
-                    <div class="blog-card-tags">
-                        <a href="blog.html?tag=Gateway" class="blog-tag">Gateway</a>
-                        <a href="blog.html?tag=REST API" class="blog-tag">REST API</a>
-                        <a href="blog.html?tag=Integration" class="blog-tag">Integration</a>
-                    </div>
-                    <a href="blog-lightwave-client-json-payload.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
-            </div>
-
-            <!-- Blog Card 9 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="Features of JSON"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Feb 1, 2023</div>
-                    <h3 class="blog-card-title">JSON-Enable NonStop COBOL and C programs with JSON Thunder</h3>
-                    <p class="blog-card-excerpt">Learn how JSON Thunder enables seamless JSON support in NonStop COBOL and C programs, making data exchange with modern applications simple and efficient.</p>
-                    <div class="blog-card-tags">
-                        <a href="blog.html?tag=JSON Thunder" class="blog-tag">JSON Thunder</a>
-                        <a href="blog.html?tag=COBOL" class="blog-tag">COBOL</a>
-                        <a href="blog.html?tag=Modernization" class="blog-tag">Modernization</a>
-                    </div>
-                    <a href="blog-json-thunder-nonstop.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
-            </div>
-
-            <!-- Blog Card 10 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/Using TOP with NonStop TCPIP/TOP_TCP_IP.png" alt="Using TOP with NonStop TCP/IP"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Jan 23, 2023</div>
-                    <h3 class="blog-card-title">Using TOP with NonStop TCP/IP</h3>
-                    <p class="blog-card-excerpt">Learn how to easily manage and monitor NonStop TCP/IP communications using TOP. Discover how TOP simplifies complex TCP/IP administration tasks in just minutes.</p>
-                    <div class="blog-card-tags">
-                        <a href="blog.html?tag=TOP" class="blog-tag">TOP</a>
-                        <a href="blog.html?tag=TCP/IP" class="blog-tag">TCP/IP</a>
-                        <a href="blog.html?tag=Administration" class="blog-tag">Administration</a>
-                    </div>
-                    <a href="blog-using-top-tcp-ip.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
-            </div>
-
-            <!-- Blog Card 11 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Jan 4, 2023</div>
-                    <h3 class="blog-card-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h3>
-                    <p class="blog-card-excerpt">Learn how LightWave Client makes it easy to create REST APIs on NonStop systems, whether you have Swagger files or not.</p>
-                    <div class="blog-card-tags">
-                        <a href="blog.html?tag=LightWave Client" class="blog-tag">LightWave Client</a>
-                        <a href="blog.html?tag=REST APIs" class="blog-tag">REST APIs</a>
-                        <a href="blog.html?tag=Swagger" class="blog-tag">Swagger</a>
-                    </div>
-                    <a href="blog-swagger-lightwave-rest-apis.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
-            </div>
-
-            <!-- Blog Card 12 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/TIC_tools.jpg" alt="TIC Tools"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Dec 29, 2022</div>
-                    <h3 class="blog-card-title">'Tele' Technology with TIC Software</h3>
-                    <p class="blog-card-excerpt">Learn how TIC's Tele family technologies enable application modernization and seamless integration with NonStop systems.</p>
-                    <div class="blog-card-tags">
-                        <a href="blog.html?tag=Messaging" class="blog-tag">Messaging</a>
-                        <a href="blog.html?tag=Modernization" class="blog-tag">Modernization</a>
-                    </div>
-                    <a href="blog-tele-technology.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
-            </div>
-
-            <!-- Blog Card 13 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/Apache_Kafka Chart.png" alt="NonStop Integration LogWatch uLinga"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Jul 26, 2022</div>
-                    <h3 class="blog-card-title">NonStop Integration – LogWatch and uLinga</h3>
-                    <p class="blog-card-excerpt">Learn how LogWatch and uLinga integrate NonStop applications with Kafka for modernization and data streaming.</p>
-                    <div class="blog-card-tags">
-                        <a href="blog.html?tag=Kafka" class="blog-tag">Kafka</a>
-                        <a href="blog.html?tag=Integration" class="blog-tag">Integration</a>
-                        <a href="blog.html?tag=Modernization" class="blog-tag">Modernization</a>
-                    </div>
-                    <a href="blog-nonstop-integration-logwatch-ulinga.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
-            </div>
-
-            <!-- Blog Card 14 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="./images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath Server Class.png" alt="TelePath Windows Programs"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Feb 1, 2021</div>
-                    <h3 class="blog-card-title">How to access Windows programs from NonStop Applications</h3>
-                    <p class="blog-card-excerpt">Learn how TelePath enables NonStop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from NonStop systems.</p>
-                    <div class="blog-card-tags">
-                        <a href="blog.html?tag=TelePath" class="blog-tag">TelePath</a>
-                        <a href="blog.html?tag=Integration" class="blog-tag">Integration</a>
-                    </div>
-                    <a href="blog-telepath-windows-programs.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
-            </div>
-
         </div>
 
         <!-- Pagination -->
         <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; padding: 2rem 0;">
-            <span style="padding: 0.6rem 1rem; background-color: var(--primary-blue); color: white; border-radius: 4px; font-weight: 600;">Page 1</span>
-            <a href="blog-page-2.html" style="padding: 0.6rem 1rem; background-color: var(--light-gray); color: var(--dark-text); text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s;">Page 2 →</a>
+            <a href="./blog.html" style="padding: 0.6rem 1rem; background-color: var(--light-gray); color: var(--dark-text); text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s;">← Page 1</a>
+            <span style="padding: 0.6rem 1rem; background-color: var(--primary-blue); color: white; border-radius: 4px; font-weight: 600;">Page 2</span>
         </div>
     </main>
 
     <!-- Footer -->
-    
+
     <script src="search-data.js"></script>
     <script src="search.js"></script>
 
@@ -1023,7 +876,7 @@
                 <ul class="footer-links">
                     <li><a href="success-stories.html">Success Stories</a></li>
                     <li><a href="tic-news.html">TIC News</a></li>
-                    <li><a href="blog.html">TIC Blog</a></li>
+                    <li><a href="./blog.html">TIC Blog</a></li>
                 </ul>
             </div>
 
@@ -1073,60 +926,6 @@
         </div>
     </div>
 </footer>
-
-<script>
-// Tag filtering functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the tag parameter from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const selectedTag = urlParams.get('tag');
-
-    const filterMessage = document.getElementById('filter-message');
-    const activeTag = document.getElementById('active-tag');
-    const clearFilter = document.getElementById('clear-filter');
-    const blogCards = document.querySelectorAll('.blog-card');
-
-    if (selectedTag) {
-        // Show filter message
-        filterMessage.style.display = 'block';
-        activeTag.textContent = selectedTag;
-
-        // Filter blog cards
-        blogCards.forEach(card => {
-            const tags = card.querySelectorAll('.blog-tag');
-            let hasTag = false;
-
-            tags.forEach(tag => {
-                if (tag.textContent.trim() === selectedTag) {
-                    hasTag = true;
-                }
-            });
-
-            if (hasTag) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        });
-    }
-
-    // Clear filter button
-    clearFilter.addEventListener('click', function() {
-        window.location.href = 'blog.html';
-    });
-
-    // Make tags clickable
-    const allTags = document.querySelectorAll('.blog-tag');
-    allTags.forEach(tag => {
-        tag.style.cursor = 'pointer';
-        tag.addEventListener('click', function(e) {
-            e.preventDefault();
-            const tagText = this.textContent.trim();
-            window.location.href = 'blog.html?tag=' + encodeURIComponent(tagText);
-        });
-    });
-});
-</script>
 
 </body>
 </html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How quickly can you bring up critical reports on your DR system? - TIC Software Blog</title>
-    <meta name="description" content="Learn how to quickly replicate spooler jobs and critical reports to your Disaster Recovery system using TIC's TeleFTP product.">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>WebCon's New Features: How uLinga for Kafka Continues to Excel - TIC Software Blog</title>
+    <meta name="description" content="Learn about WebCon's new UI features and how uLinga for Kafka enables NonStop systems to seamlessly integrate with Apache Kafka for real-time data streaming.">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         * {
             margin: 0;
@@ -125,6 +125,35 @@
             display: block;
         }
 
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
         /* Main Content */
         main {
             max-width: 800px;
@@ -136,14 +165,6 @@
             margin-bottom: 2rem;
             padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
-        }
-
-        .blog-header h1 {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            font-weight: bold;
-            margin-bottom: 1rem;
-            line-height: 1.3;
         }
 
         .blog-meta {
@@ -176,6 +197,14 @@
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .blog-tag:hover {
+            background-color: #e0e0e0;
+            color: var(--primary-blue);
         }
 
         .blog-content {
@@ -285,7 +314,7 @@
             float: left;
             margin-right: 0.75rem;
             margin-bottom: 1rem;
-            max-width: 144px;
+            max-width: 72px;
             border-radius: 8px;
         }
 
@@ -295,33 +324,102 @@
             text-align: justify;
         }
 
-        /* Hero Section */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            height: 254px;
-            background-color: var(--white);
-            max-width: 100%;
-            margin: 0;
+        /* Related Blogs Section */
+        .related-blogs {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-gray);
         }
 
-        .hero-left {
-            background-color: #001a4d;
+        .related-blogs h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .related-blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .related-blog-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .related-blog-image {
+            width: 100%;
+            height: 160px;
+            background-color: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            overflow: hidden;
         }
 
-        .hero-left h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            padding: 2rem;
+        .related-blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-blog-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-blog-title {
+            font-size: 1rem;
+            color: var(--dark-text);
             font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
         }
 
-        .hero-right {
-            background: url('./images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        .related-blog-excerpt {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .related-blog-button {
+            display: inline-block;
+            padding: 0.5rem 0.9rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .related-blog-button:hover {
+            background-color: var(--light-blue);
         }
 
         /* Footer */
@@ -336,14 +434,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-section {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .hero-left h1 {
-                font-size: 1.8rem;
-            }
             nav {
                 gap: 1rem;
                 font-size: 0.85rem;
@@ -357,14 +447,38 @@
                 flex-direction: column;
                 gap: 0.5rem;
             }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
+
+            .related-blogs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
         }
 
+        @media (max-width: 480px) {
+            .related-blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-blog-title {
+                font-size: 0.95rem;
+            }
+        }
+    
         /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
             color: #e8e8e8;
             padding: 3rem 1.5rem 0;
-            margin-top: 4.5rem;
+            margin-top: 2.7rem;
             border-top: 1px solid rgba(74, 111, 165, 0.3);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -664,22 +778,13 @@
                 width: 100%;
             }
         }
-
-        /* Blog content images */
-        .blog-content img {
-            max-width: 50%;
-            height: auto;
-            margin: 1.5rem auto;
-            display: block;
-            border-radius: 4px;
-        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">
-                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+                <img src="../images/TIC_2026.png" alt="TIC Software Logo">
             </a>
             <nav>
                 <a href="index.html">Home</a>
@@ -714,7 +819,7 @@
                     <div class="dropdown-menu">
                         <a href="success-stories.html">Success Stories</a>
                         <a href="tic-news.html">TIC News</a>
-                        <a href="blog.html">Blog</a>
+                        <a href="./blog.html">Blog</a>
                     </div>
                 </div>
                 <a href="ticteam.html#get-in-touch">Contact Us</a>
@@ -730,7 +835,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>How quickly can you bring up critical reports on your DR system?</h1>
+            <h1>WebCon's New Features: How uLinga for Kafka Continues to Excel</h1>
         </div>
         <div class="hero-right"></div>
     </section>
@@ -741,105 +846,136 @@
             <div class="blog-meta">
                 <div class="blog-meta-item">
                     <span>📅</span>
-                    <span>March 4, 2020</span>
+                    <span>March 25, 2025</span>
                 </div>
                 <div class="blog-meta-item">
-                    <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
                     <span>Phil Ly</span>
                 </div>
             </div>
             <div class="blog-tags">
-                <span class="blog-tag">Disaster Recovery</span>
-                <span class="blog-tag">Messaging</span>
-                <span class="blog-tag">NonStop</span>
+                <a href="./blog.html?tag=Messaging" class="blog-tag">Messaging</a>
+                <a href="./blog.html?tag=Kafka" class="blog-tag">Kafka</a>
+                <a href="./blog.html?tag=Integration" class="blog-tag">Integration</a>
             </div>
         </div>
 
         <div class="blog-content">
-            <h2>Ensuring Business Continuity Through Spooler Job Replication</h2>
+            <p>In today's rapidly evolving data landscape, you as NonStop technical professionals understand the challenges of bridging the gap between your high-availability systems and the diverse ecosystem of contemporary data tools. uLinga for Kafka addresses this precise challenge, providing a robust, reliable bridge between NonStop applications and Apache Kafka's powerful distributed streaming capabilities. With our latest release featuring significant WebCon UI enhancements, we've made it even easier to implement, manage, and monitor these critical integrations while maintaining the performance and reliability your NonStop environments demand.</p>
 
-            <img src="./images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/Disaster_Recovery.png" alt="Disaster Recovery Architecture">
+            <img src="../images/Logos/kafka grey logo.png" alt="Apache Kafka Logo" style="max-width: 30%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>Most, if not all, of NonStop customers have a DR (Disaster Recovery) system, as well as a plan to ensure business continuity of their mission-critical applications in the event of a disaster. A company's goal is to be able to resume business operation as quickly as possible with minimum interruption. The main focus of the daily operation plan is to ensure applications and third-party packages are up-to-date on the DR system, and that the database and files are synchronized regularly from Production to DR.</p>
+            <h2>Apache Kafka Overview</h2>
+            <p>Apache Kafka is an open-source distributed streaming system used for stream processing, real-time data pipelines, and data integration at scale. It offers a scalable and fault-tolerant platform for handling large volumes of data, making it ideal for applications requiring immediate insights and high throughput. Kafka's benefits include its ability to handle trillions of messages daily, support for distributed streaming, and a rich set of third-party product connectors for easy integration.</p>
 
-            <h3>The Challenge: How About Spooler Jobs?</h3>
+            <img src="../images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka Cluster.jpg" alt="Kafka Cluster Architecture" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>Many NonStop installations have hundreds, and maybe even thousands, of daily jobs in their spoolers. Many of them are reports from batch applications, online transaction logs, and other important output data needed for critical business analysis. While spooler jobs are not necessarily critical to online transaction processing, much of the report data may be crucial to a company's efficient daily operations.</p>
+            <h2>uLinga for Kafka</h2>
+            <p>uLinga for Kafka from Infrasoft integrates NonStop applications and data with Kafka, offering robust capabilities in integration and data transformation. This integration enhances real-time data processing and analytics by connecting NonStop systems with Kafka clusters seamlessly.</p>
 
-            <p>In the event of a disaster requiring a failover to the DR system, the absence of these critical reports can impact business continuity. Organizations need a reliable method to ensure that spooler jobs are replicated and available on the DR system, ready to be brought online quickly when needed.</p>
+            <img src="../images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka data transformation.png" alt="Kafka Data Transformation" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <h3>The Solution: How to Replicate Spooler Jobs</h3>
-
-            <p>One simple and elegant method to replicate spooler jobs from Production to DR system easily is to use TIC's Tele2000 product. Tele2000 provides an architecture framework that extracts spooler jobs, stores them in disk files, and delivers them to external systems via email, FTP, or Web.</p>
-
-            <img src="./images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/FTP_Process.png" alt="FTP Process Flow" style="max-width: 30%;">
-
-            <h3>TeleFTP: The Key Component</h3>
-
-            <p>The FTP module TeleFTP automates the transmission of NonStop Server files and Spooler reports to FTP Servers. Besides FTP Client capability, Tele2000 also includes options to convert data to different formats prior to transmission, including: PDF, HTML, and ZIP. TeleFTP is built on Tele2000 architecture, which offers flexibility, high performance, and scalability.</p>
-
-            <p>The TeleFTP workflow operates as follows:</p>
+            <h2>Key Use Cases for uLinga and Kafka</h2>
+            <p>uLinga for Kafka enables NonStop systems to seamlessly integrate with Kafka, unlocking powerful use cases across industries. Here are some examples:</p>
 
             <ul>
-                <li>Tele2000 can be configured to monitor spooler jobs in specific collectors and LOCs (Line of Credit).</li>
-                <li>Data content of those spooler jobs is extracted and stored into disk files.</li>
-                <li>Each disk file is then sent by the TeleFTP module via FTP protocol directly into the DR's target Spoolers, including preserving the LOC and DEST information.</li>
-                <li>NonStop system's FTP server allows spoolers to be a target destination.</li>
-                <li>DR Spoolers will then have a duplicate of all the critical spooler jobs in Production System.</li>
+                <li><strong>Change Data Capture (CDC):</strong> uLinga for Kafka facilitates the capture of changes from NonStop databases and streams them to other data platforms ensuring real-time data synchronization across different systems. This capability is crucial for maintaining data consistency and supporting advanced analytics.</li>
+                <li><strong>Application Integration with Cloud Service and Service Buses:</strong> uLinga for Kafka can integrate NonStop applications with services like Salesforce or Mulesoft, enabling efficient data exchange and workflow automation between diverse systems. This integration enhances interoperability and supports complex business processes.</li>
+                <li><strong>Asynchronous Messaging Interface for E-Commerce Platforms:</strong> By leveraging Kafka's event streaming architecture, uLinga allows NonStop systems to replace traditional synchronous communication with event-driven workflows. This enables real-time updates across order management, inventory tracking, and customer notifications.</li>
             </ul>
 
-            <img src="./images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/TeleFTP_Module.png" alt="TeleFTP Module Architecture">
+            <img src="../images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka use cases.jpg" alt="Kafka Use Cases" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <div class="product-emphasis">
-                <p><strong>Using TeleFTP for Disaster Recovery</strong> provides a simple and elegant way to replicate spooler jobs to your DR system. This automated approach ensures that when disaster strikes, your DR system already has the critical reports and data needed to maintain business continuity with minimal delay.</p>
-            </div>
+            <h2>Exciting New WebCon UI Features</h2>
+            <p>WebCon is the browser-based user interface included with all uLinga products, designed to simplify resource management and monitoring. It is served directly by the uLinga process running under Guardian, eliminating the need for additional web server software or OSS components.</p>
 
-            <h2>Beyond Disaster Recovery</h2>
+            <p>WebCon supports all essential uLinga command and control operations, while also offering advanced functionalities for configuration and monitoring. This intuitive interface ensures users can efficiently manage their Kafka integrations without requiring additional tools or complex setups. uLinga for Kafka now offers exciting new features in its WebCon administrative user interface.</p>
 
-            <p>As depicted above, using TeleFTP is a simple and elegant way to replicate Spooler Jobs to a DR system. Of course, TeleFTP is not limited to DR use; in fact, TeleFTP users are relying on its extensive features for all of their FTP transmissions from NonStop to external systems, daily.</p>
+            <h3>Traffic Light Status Indicators: Instant Resource Monitoring</h3>
+            <p>A new feature in WebCon includes "traffic light" status indicators, allowing users to instantly identify resources that are started, stopped, or in an abnormal state.</p>
 
-            <p>TeleFTP's capabilities extend beyond disaster recovery scenarios. Many organizations use TeleFTP for:</p>
+            <img src="../images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka Traffic Light Status.png" alt="Kafka Traffic Light Status Indicators" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <ul>
-                <li>Regular report distribution to stakeholders across multiple systems</li>
-                <li>Integration with external applications and partners</li>
-                <li>Automated data formatting and transformation</li>
-                <li>Secure transmission of critical business information</li>
+                <li><strong>Green:</strong> Indicates that the resource is active and functioning normally.</li>
+                <li><strong>Red:</strong> Signals that the resource is stopped or inactive.</li>
+                <li><strong>Yellow:</strong> Highlights resources in an abnormal or warning state, requiring attention.</li>
             </ul>
 
-            <h2>Key Features of Tele2000 and TeleFTP</h2>
+            <p>This visual feedback allows administrators to quickly identify which components are running smoothly and which require intervention. It is particularly useful in large, complex configurations involving multiple interconnected resources like producers, consumers, file readers, and data transformers.</p>
+
+            <h3>Resource Configuration Relationships: Visualizing Interconnected Resources</h3>
+            <p>The Resource Configuration Relationships feature, introduced in the V3R2 release of uLinga for Kafka, offers a powerful way to visualize how resources interact within a configuration. This feature provides a graphical representation of resource dependencies, making it easier for administrators to understand and manage complex setups.</p>
+
+            <img src="../images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Kafka Resource Configuration Relationships.png" alt="Kafka Resource Configuration Relationships" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <p>Key benefits of this feature include:</p>
 
             <ul>
-                <li><strong>Automatic Monitoring:</strong> Monitor specific collectors and LOCs for spooler jobs</li>
-                <li><strong>Format Conversion:</strong> Convert data to PDF, HTML, ZIP, and other formats</li>
-                <li><strong>FTP Transmission:</strong> Reliable, automated FTP transmission to external systems</li>
-                <li><strong>Metadata Preservation:</strong> Maintains LOC and DEST information during transfer</li>
-                <li><strong>Scalability:</strong> Built on robust architecture to handle high-volume operations</li>
-                <li><strong>Flexibility:</strong> Configurable for various deployment scenarios</li>
+                <li><strong>Interactive Navigation:</strong> Each resource in the graphic is hyperlinked, allowing users to click through and explore related resources directly. This simplifies troubleshooting and configuration management by enabling quick access to detailed information about interconnected components.</li>
+                <li><strong>Dynamic Adjustments:</strong> The graphic dynamically adjusts based on the resource being viewed. Whether you are examining a producer, consumer, or other resource type, the visualization updates to reflect only relevant relationships.</li>
+                <li><strong>Streamlined Management:</strong> By providing a clear overview of how resources are connected, administrators can ensure consistency across configurations and quickly identify potential issues or misconfigurations.</li>
             </ul>
+
+            <h2>Data Transformation: Streamlining Data Processing with uLinga</h2>
+            <p>The Data Transformation feature in uLinga for Kafka has been significantly enhanced, making it easier than ever to configure, test, and deploy data transformation processes. This functionality is crucial for organizations that need to convert data formats—such as transforming NonStop fixed-structure data into JSON objects for Kafka topics. The updated WebCon interface provides a streamlined, user-friendly experience.</p>
+
+            <h3>Key Features of the Data Transformation Tab</h3>
+
+            <p style="margin-bottom: 0.5rem;"><strong>Flexible Configuration Options</strong></p>
+
+            <p style="margin-top: 0;">The Data Transformation tab allows users to create or modify data transformation configurations with multiple options.</p>
+
+            <img src="../images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Flexible Configuration Options.png" alt="Flexible Configuration Options" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <ul>
+                <li>Load from DATATRANSFORMER Resource: Retrieve existing configurations directly from a DATATRANSFORMER resource.</li>
+                <li>Generate from Schema: Automatically generate a configuration using NonStop DDL definitions or other schema formats.</li>
+                <li>Create from Scratch: Build a new configuration manually, offering complete flexibility for custom use cases.</li>
+            </ul>
+
+            <p>Users can easily select their preferred method and begin configuring their data transformations with just a few clicks.</p>
+
+            <h3>Intuitive Mapping Interface</h3>
+            <p>The mapping interface provides a clear layout for defining input-to-output transformations. Users can map fields between input data structures (e.g., Enscribe files or binary formats) and output formats (e.g., JSON). Each mapping is displayed in an organized table, allowing users to quickly identify and adjust mappings as needed.</p>
+
+            <img src="../images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Intuitive Mapping Interface.png" alt="Intuitive Mapping Interface" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h3>Preview Data Transformation</h3>
+            <p>One of the most powerful enhancements is the Preview Data Transformation feature, which allows users to test their configurations with real data before deploying them. Input data can be provided in raw text or retrieved directly from an Enscribe file on the NonStop host. The preview displays transformed output in real time, helping users validate their configurations.</p>
+
+            <img src="../images/Blogs & Articles/WebCons New Features_How uLinga for Kafka Continues to Excel/Preview Data Transformation.png" alt="Preview Data Transformation" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <ul>
+                <li>Users can specify input and output formats (e.g., Binary to JSON).</li>
+                <li>The preview displays transformed output in real time, helping users validate their configurations.</li>
+            </ul>
+
+            <p>In this example, raw input text (ABCA12 123456789) is transformed into a structured JSON object with nested keys (JOBS-KEY, JOBS-ZIP), showcasing how uLinga simplifies complex data transformations.</p>
+
+            <h3>Benefits of Enhanced Data Transformation</h3>
+
+            <ul>
+                <li><strong>Efficiency:</strong> Automates complex data conversion tasks, reducing manual effort.</li>
+                <li><strong>Accuracy:</strong> Real-time previews help eliminate errors before deployment.</li>
+                <li><strong>Flexibility:</strong> Supports various input/output formats and custom mapping requirements.</li>
+                <li><strong>Integration:</strong> Simplifies interoperability between NonStop systems and modern platforms like Kafka.</li>
+            </ul>
+
+            <h2>Success Story: US Foods and uLinga for Kafka</h2>
+            <p>In the January-February 2025 issue of Connection Magazine, Dale Hiatt highlighted <a href="https://connect2nonstop.com/us-foods-utilizes-ulinga-for-kafka-to-access-the-kafka-cloud/" style="color: #001a4d; text-decoration: none; font-weight: 600;">US Foods' implementation of uLinga for Kafka</a>, demonstrating the power and flexibility of integrating NonStop systems with modern event streaming platforms. By leveraging Kafka Producers and Consumers, US Foods has streamlined workflows, enabled real-time data processing, and achieved seamless communication between legacy systems and cloud-based applications. Their use of uLinga's Data Transformer to convert fixed-structure data into JSON messages has further enhanced their ability to publish and consume data efficiently.</p>
 
             <h2>Conclusion</h2>
-
-            <p>Disaster recovery is not just about having a backup system in place—it's about ensuring that critical business data and reports are readily available when you need them most. By implementing TeleFTP for automatic spooler job replication, organizations can:</p>
-
-            <ul>
-                <li>Reduce manual intervention during disaster recovery operations</li>
-                <li>Ensure critical reports are available on the DR system immediately</li>
-                <li>Minimize business interruption and recovery time</li>
-                <li>Maintain data integrity and LOC/DEST information consistency</li>
-                <li>Leverage proven, reliable NonStop integration technology</li>
-            </ul>
-
-            <p>With TIC Software's Tele2000 and TeleFTP products, you can answer the question "How quickly can you bring up critical reports on your DR system?" with confidence: instantly, with all critical data intact and ready for business operations.</p>
+            <p>These uLinga for Kafka enhancements and success stories reflect Infrasoft's commitment to delivering user-driven improvements that address real-world needs. With uLinga for Kafka, technical managers can rely on a reliable and adaptable tool for their Kafka integration requirements, knowing that Infrasoft is dedicated to excellence and continuous innovation based on customer feedback.</p>
         </div>
 
-        <a href="blog.html" class="back-button">← Back to Blog</a>
+        <a href="./blog.html" class="back-button">← Back to Blog</a>
 
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
 
         <div class="feedback-section">
             <h3>Feedback Please</h3>
-            <a href="ticteam.html#get-in-touch"><img src="./images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <a href="ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
             <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
             <div style="clear: both;"></div>
         </div>
@@ -847,14 +983,59 @@
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
         <div class="company-section">
-            <img src="./images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image" style="max-width: 72px;">
-            <p class="company-text">Phil Ly is the president and founder of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a New York-based company specializing in software and services that integrate NonStop with the latest technologies, including Web Services, .NET and Java. Prior to founding TIC in 1983, Phil worked for Tandem Computer in technical support and software development.</p>
+            <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <p class="company-text">Phil Ly is the president of <a href="index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the NonStop community focused on NonStop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate NonStop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their NonStop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
+        </div>
+
+        <!-- Related Blogs Section -->
+        <div class="related-blogs">
+            <h2>Related Blogs</h2>
+            <div class="related-blogs-grid">
+                <!-- Related Blog 1 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/Log Aggregation.jpg" alt="NonStop Logs to Kafka">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Nov 19, 2023</div>
+                        <h3 class="related-blog-title">How to Aggregate NonStop Logs to Kafka in One Simple Step</h3>
+                        <p class="related-blog-excerpt">Learn how to aggregate NonStop logs to Kafka using uLinga for Kafka with three simple methods.</p>
+                        <a href="./blog-aggregate-nonstop-logs-kafka.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+
+                <!-- Related Blog 2 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="LogWatch Web Interface">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Mar 18, 2024</div>
+                        <h3 class="related-blog-title">Building a Web Interface to a Centralized View of Application Logs with LogWatch</h3>
+                        <p class="related-blog-excerpt">Learn how to build a web interface for centralized application log viewing with LogWatch.</p>
+                        <a href="./blog-logwatch-web-interface.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+
+                <!-- Related Blog 3 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Blogs & Articles/2025 The Year to Transform Your HPE NonStop Platform for Tomorrows Challenges/IT_Modernization.png" alt="2025 Transform Nonstop">
+                    </div>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Dec 16, 2024</div>
+                        <h3 class="related-blog-title">2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges</h3>
+                        <p class="related-blog-excerpt">Explore strategies to transform your HPE Nonstop platform for tomorrow's challenges.</p>
+                        <a href="./blog-2025-transform-nonstop.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- Footer -->
-
+    
     <script src="search-data.js"></script>
     <script src="search.js"></script>
 
@@ -902,7 +1083,7 @@
                 <ul class="footer-links">
                     <li><a href="success-stories.html">Success Stories</a></li>
                     <li><a href="tic-news.html">TIC News</a></li>
-                    <li><a href="blog.html">TIC Blog</a></li>
+                    <li><a href="./blog.html">TIC Blog</a></li>
                 </ul>
             </div>
 
