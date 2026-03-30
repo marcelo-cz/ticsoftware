@@ -663,249 +663,45 @@
 
         /* Post Navigation */
         .post-navigation {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             gap: 2rem;
-            margin: 4rem 0 2.7rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--border-gray);
         }
 
-        .nav-post {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.3s;
+        .nav-post-link {
             text-decoration: none;
-            color: inherit;
+            color: var(--primary-blue);
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .nav-post:hover {
-            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
-            transform: translateY(-4px);
+        .nav-post-link:hover:not(.disabled) {
+            color: var(--light-blue);
         }
 
-        .nav-post.disabled {
-            opacity: 0.5;
-            pointer-events: none;
+        .nav-post-link.disabled {
+            color: #ccc;
             cursor: default;
         }
 
-        .nav-post-image {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .nav-post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .nav-post-content {
-            padding: 1.2rem;
-        }
-
-        .nav-post-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--light-blue);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-post-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .nav-post-date {
-            font-size: 0.8rem;
+        .nav-post-center {
             color: #999;
+            font-size: 0.9rem;
         }
 
-        .nav-post.prev {
-            text-align: left;
-        }
-
-        .nav-post.next {
-            text-align: right;
-        }
-
-        .nav-post.prev .nav-post-label::before {
-            content: "← ";
-        }
-
-        .nav-post.next .nav-post-label::after {
             content: " →";
         }
             background-color: var(--light-blue);
 
-        /* Post Navigation */
-        .post-navigation {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 4rem 0 2.7rem;
-        }
-
-        .nav-post {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.3s;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .nav-post:hover {
-            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .nav-post.disabled {
-            opacity: 0.5;
-            pointer-events: none;
-            cursor: default;
-        }
-
-        .nav-post-image {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .nav-post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .nav-post-content {
-            padding: 1.2rem;
-        }
-
-        .nav-post-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--light-blue);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-post-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .nav-post-date {
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        .nav-post.prev {
-            text-align: left;
-        }
-
-        .nav-post.next {
-            text-align: right;
-        }
-
-        .nav-post.prev .nav-post-label::before {
-            content: "← ";
-        }
-
-        .nav-post.next .nav-post-label::after {
             content: " →";
         }
         }
 
-        /* Post Navigation */
-        .post-navigation {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 4rem 0 2.7rem;
-        }
-
-        .nav-post {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.3s;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .nav-post:hover {
-            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .nav-post.disabled {
-            opacity: 0.5;
-            pointer-events: none;
-            cursor: default;
-        }
-
-        .nav-post-image {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .nav-post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .nav-post-content {
-            padding: 1.2rem;
-        }
-
-        .nav-post-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--light-blue);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-post-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .nav-post-date {
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        .nav-post.prev {
-            text-align: left;
-        }
-
-        .nav-post.next {
-            text-align: right;
-        }
-
-        .nav-post.prev .nav-post-label::before {
-            content: "← ";
-        }
-
-        .nav-post.next .nav-post-label::after {
             content: " →";
         }
 
@@ -1025,14 +821,6 @@
         </div>
 
         <a href="./blog.html" class="back-button">← Back to Blog</a>
-
-        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
-
-        <div class="feedback-section">
-            <h3>Feedback Please</h3>
-            <a href="ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
-            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
-            <div style="clear: both;"></div>
         </div>
 
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
@@ -1088,103 +876,3 @@
             </div>
         </div>
     </main>
-        <!-- Post Navigation -->
-        <div class="post-navigation">
-            <a href="./blog-nonstop-integration-logwatch-ulinga.html" class="nav-post prev">
-                <div class="nav-post-image">
-                    <img src="../images/Blogs & Articles/NonStop Integration – LogWatch and uLinga/Apache_Kafka Chart.png" alt="Previous Post">
-                </div>
-                <div class="nav-post-content">
-                    <div class="nav-post-label">Previous Post</div>
-                    <div class="nav-post-title">NonStop Integration – LogWatch and uLinga</div>
-                    <div class="nav-post-date">Jul 26, 2022</div>
-                </div>
-            </a>
-            <a href="#" class="nav-post next disabled">
-                <div class="nav-post-image" style="background-color: #f0f0f0;"></div>
-                <div class="nav-post-content">
-                    <div class="nav-post-label">Next Post</div>
-                    <div class="nav-post-title">No newer posts</div>
-                </div>
-            </a>
-        </div>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">About Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="who-we-are.html">Who We Are</a></li>
-                        <li><a href="ticteam.html">TIC Team</a></li>
-                        <li><a href="our-partners.html">Partners</a></li>
-                        <li><a href="our-clients.html">Clients</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Products</h3>
-                    <ul class="footer-links">
-                        <li><a href="messaging.html">Messaging</a></li>
-                        <li><a href="gateway.html">Gateway</a></li>
-                        <li><a href="business-intelligence.html">Business Intelligence</a></li>
-                        <li><a href="modernize.html">Modernize</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="consulting.html">Consulting</a></li>
-                        <li><a href="cloud.html">Cloud</a></li>
-                        <li><a href="https://ticsoftware.ai/" target="_blank">GenAI</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="success-stories.html">Success Stories</a></li>
-                        <li><a href="tic-news.html">TIC News</a></li>
-                        <li><a href="./blog.html">TIC Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section footer-contact">
-                    <h3 class="footer-title">Contact Us</h3>
-                    <div class="contact-item">
-                        <p class="contact-label">Address</p>
-                        <p class="contact-text">
-                            TIC Software, 185 Great Neck RD<br>
-                            4th Floor, Suite 453, Great Neck, NY 11021
-                        </p>
-                    </div>
-                    <div class="contact-item">
-                        <p class="contact-label">Sales & Support</p>
-                        <p class="contact-text">
-                            <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a>
-                        </p>
-                    </div>
-                    <div class="contact-item">
-                        <p class="contact-label">Technical Support</p>
-                        <p class="contact-text">
-                            <a href="tel:516-466-7990">(516) 466-7990</a><br>
-                            <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>&copy; 2026 TIC Software. All rights reserved.</p>
-                </div>
-                <div class="footer-legal">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <span class="divider">•</span>
-                    <a href="terms-of-use.html">Terms of Use</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../search-data.js"></script>
-    <script src="../search.js"></script>
-</body>
-</html>

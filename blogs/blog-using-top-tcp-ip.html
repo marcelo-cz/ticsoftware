@@ -498,249 +498,45 @@
 
         /* Post Navigation */
         .post-navigation {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             gap: 2rem;
-            margin: 4rem 0 2.7rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--border-gray);
         }
 
-        .nav-post {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.3s;
+        .nav-post-link {
             text-decoration: none;
-            color: inherit;
+            color: var(--primary-blue);
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .nav-post:hover {
-            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
-            transform: translateY(-4px);
+        .nav-post-link:hover:not(.disabled) {
+            color: var(--light-blue);
         }
 
-        .nav-post.disabled {
-            opacity: 0.5;
-            pointer-events: none;
+        .nav-post-link.disabled {
+            color: #ccc;
             cursor: default;
         }
 
-        .nav-post-image {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .nav-post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .nav-post-content {
-            padding: 1.2rem;
-        }
-
-        .nav-post-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--light-blue);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-post-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .nav-post-date {
-            font-size: 0.8rem;
+        .nav-post-center {
             color: #999;
+            font-size: 0.9rem;
         }
 
-        .nav-post.prev {
-            text-align: left;
-        }
-
-        .nav-post.next {
-            text-align: right;
-        }
-
-        .nav-post.prev .nav-post-label::before {
-            content: "← ";
-        }
-
-        .nav-post.next .nav-post-label::after {
             content: " →";
         }
             background-color: var(--light-blue);
 
-        /* Post Navigation */
-        .post-navigation {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 4rem 0 2.7rem;
-        }
-
-        .nav-post {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.3s;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .nav-post:hover {
-            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .nav-post.disabled {
-            opacity: 0.5;
-            pointer-events: none;
-            cursor: default;
-        }
-
-        .nav-post-image {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .nav-post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .nav-post-content {
-            padding: 1.2rem;
-        }
-
-        .nav-post-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--light-blue);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-post-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .nav-post-date {
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        .nav-post.prev {
-            text-align: left;
-        }
-
-        .nav-post.next {
-            text-align: right;
-        }
-
-        .nav-post.prev .nav-post-label::before {
-            content: "← ";
-        }
-
-        .nav-post.next .nav-post-label::after {
             content: " →";
         }
         }
 
-        /* Post Navigation */
-        .post-navigation {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 4rem 0 2.7rem;
-        }
-
-        .nav-post {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.3s;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .nav-post:hover {
-            box-shadow: 0 4px 12px rgba(0, 61, 153, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .nav-post.disabled {
-            opacity: 0.5;
-            pointer-events: none;
-            cursor: default;
-        }
-
-        .nav-post-image {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .nav-post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .nav-post-content {
-            padding: 1.2rem;
-        }
-
-        .nav-post-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--light-blue);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-post-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .nav-post-date {
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        .nav-post.prev {
-            text-align: left;
-        }
-
-        .nav-post.next {
-            text-align: right;
-        }
-
-        .nav-post.prev .nav-post-label::before {
-            content: "← ";
-        }
-
-        .nav-post.next .nav-post-label::after {
             content: " →";
         }
 
@@ -1200,14 +996,6 @@
         </div>
 
         <a href="./blog.html" class="back-button">← Back to Blog</a>
-
-        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
-
-        <div class="feedback-section">
-            <h3>Feedback Please</h3>
-            <a href="ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
-            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
-            <div style="clear: both;"></div>
         </div>
 
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
@@ -1278,126 +1066,3 @@
             </div>
         </div>
     </main>
-        <!-- Post Navigation -->
-        <div class="post-navigation">
-            <a href="./blog-json-thunder-nonstop.html" class="nav-post prev">
-                <div class="nav-post-image">
-                    <img src="../images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="Previous Post">
-                </div>
-                <div class="nav-post-content">
-                    <div class="nav-post-label">Previous Post</div>
-                    <div class="nav-post-title">JSON-Enable NonStop COBOL and C programs with JSON Thunder</div>
-                    <div class="nav-post-date">Feb 1, 2023</div>
-                </div>
-            </a>
-            <a href="./blog-swagger-lightwave-rest-apis.html" class="nav-post next">
-                <div class="nav-post-image">
-                    <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Next Post">
-                </div>
-                <div class="nav-post-content">
-                    <div class="nav-post-label">Next Post</div>
-                    <div class="nav-post-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</div>
-                    <div class="nav-post-date">Jan 4, 2023</div>
-                </div>
-            </a>
-        </div>
-
-
-
-    <!-- FOOTER COMPONENT -->
-<footer class="site-footer">
-    <div class="footer-container">
-        <!-- Footer Content -->
-        <div class="footer-content">
-
-            <!-- About Us Column -->
-            <div class="footer-section">
-                <h3 class="footer-title">About Us</h3>
-                <ul class="footer-links">
-                    <li><a href="who-we-are.html">Who We Are</a></li>
-                    <li><a href="ticteam.html">TIC Team</a></li>
-                    <li><a href="our-partners.html">Partners</a></li>
-                    <li><a href="our-clients.html">Clients</a></li>
-                </ul>
-            </div>
-
-            <!-- Products Column -->
-            <div class="footer-section">
-                <h3 class="footer-title">Products</h3>
-                <ul class="footer-links">
-                    <li><a href="messaging.html">Messaging</a></li>
-                    <li><a href="gateway.html">Gateway</a></li>
-                    <li><a href="business-intelligence.html">Business Intelligence</a></li>
-                    <li><a href="modernize.html">Modernize</a></li>
-                </ul>
-            </div>
-
-            <!-- Services Column -->
-            <div class="footer-section">
-                <h3 class="footer-title">Services</h3>
-                <ul class="footer-links">
-                    <li><a href="consulting.html">Consulting</a></li>
-                    <li><a href="cloud.html">Cloud</a></li>
-                    <li><a href="https://ticsoftware.ai/" target="_blank">GenAI</a></li>
-                </ul>
-            </div>
-
-            <!-- Resources Column -->
-            <div class="footer-section">
-                <h3 class="footer-title">Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="success-stories.html">Success Stories</a></li>
-                    <li><a href="tic-news.html">TIC News</a></li>
-                    <li><a href="./blog.html">TIC Blog</a></li>
-                </ul>
-            </div>
-
-            <!-- Contact Column -->
-            <div class="footer-section footer-contact">
-                <h3 class="footer-title">Contact Us</h3>
-                <div class="contact-item">
-                    <p class="contact-label">Address</p>
-                    <p class="contact-text">
-                        TIC Software, 185 Great Neck RD<br>
-                        4th Floor, Suite 453, Great Neck, NY 11021
-                    </p>
-                </div>
-                <div class="contact-item">
-                    <p class="contact-label">Sales & Support</p>
-                    <p class="contact-text">
-                        <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a>
-                    </p>
-                </div>
-                <div class="contact-item">
-                    <p class="contact-label">Technical Support</p>
-                    <p class="contact-text">
-                        <a href="tel:516-466-7990">(516) 466-7990</a><br>
-                        <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="footer-copyright">
-                <p>&copy; 2026 TIC Software. All rights reserved.</p>
-            </div>
-            <div class="footer-legal">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <span class="divider">•</span>
-                <a href="terms-of-use.html">Terms of Use</a>
-            </div>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/company/tic-software" target="_blank" aria-label="LinkedIn" class="social-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.048-8.829 0-9.743h3.554v1.379c-.009.015-.021.029-.03.042h.03v-.042c.395-.609 1.101-1.473 2.681-1.473 1.957 0 3.425 1.277 3.425 4.024v5.813zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.954-1.71 1.185 0 1.915.755 1.94 1.71 0 .951-.755 1.71-1.979 1.71zm1.581 11.597H3.756V9.567h3.162v10.885zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-</body>
-</html>
