@@ -156,7 +156,7 @@
 
         /* Main Content */
         main {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -202,6 +202,10 @@
             text-decoration: none;
         }
 
+        .blog-tag:link, .blog-tag:visited {
+            color: var(--primary-blue);
+        }
+
         .blog-tag:hover {
             background-color: #e0e0e0;
             color: var(--primary-blue);
@@ -216,7 +220,7 @@
             font-size: 1.6rem;
             color: var(--primary-blue);
             font-weight: bold;
-            margin: 2rem 0 1rem 0;
+            margin: 0.5rem 0 1rem 0;
         }
 
         .blog-content h3 {
@@ -478,16 +482,7 @@
         }
 
         .related-blog-button:hover {
-
-            content: " →";
-        }
             background-color: var(--light-blue);
-
-            content: " →";
-        }
-        }
-
-            content: " →";
         }
 
         .site-footer {
@@ -879,24 +874,24 @@
         <div class="blog-content">
             <p>Apache Kafka is a powerful streaming platform that has become a popular choice for log aggregation due to its ability to handle large volumes of data with low latency and high throughput. It provides a reliable and scalable infrastructure for collecting, storing, and processing log events from various sources, enabling centralized log management and real-time monitoring. Kafka's strengths in distributed data streaming, durability, and fault tolerance make it well-suited for handling the demanding requirements of log aggregation in modern distributed systems.</p>
 
-            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/Log Aggregation.jpg" alt="Log Aggregation Architecture" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/Log Aggregation.jpg" alt="Log Aggregation Architecture" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <p>You can take advantage of this unique feature and aggregate all your NonStop logs to Kafka by using uLinga for Kafka from our partner Infrasoft. uLinga runs as a natively compiled Guardian (or OSS) process pair, and supports the Kafka communications protocols directly over TCP/IP. It enables NonStop applications to integrate easily with Kafka Clusters. By using uLinga, you can publish NonStop logs to Kafka in any one of these three simple methods below.</p>
 
             <h2>Method 1: uLinga File Reader Support</h2>
             <p>uLinga for Kafka performs an "end-of-file chase" whereby new records are read from the entry-sequenced file as they are written by the application, and immediately streamed to the Kafka cluster. So just configure uLinga to monitor one of your log files, and new records will automatically be published to Kafka.</p>
 
-            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_File_Reader_Support_chart.png" alt="uLinga File Reader Support" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_File_Reader_Support_chart.png" alt="uLinga File Reader Support" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <h2>Method 2: uLinga Pathsend and Guardian IPC Support</h2>
             <p>Applications can also explicitly send data via the Pathsend and IPC interfaces provided by uLinga for Kafka. A Pathsend client, such as a Pathway Requestor or Pathway Server, simply sends the relevant data via a Pathsend request to uLinga. Just send your application logs to uLinga process to be published.</p>
 
-            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_Pathsend_Guardian_IPC_Support chart.png" alt="Pathsend and Guardian IPC Support" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_Pathsend_Guardian_IPC_Support chart.png" alt="Pathsend and Guardian IPC Support" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <h2>Method 3: Leverage LogWatch</h2>
             <p>Our TIC LogWatch product monitors application log files to provide real time detection of errors and raise alerts to facilitate quick resolution. It is a TIC product that watches log files for new entries and examines the content for a configured error pattern. When an anomaly is detected, LogWatch raises alert to notify team members via email, text, VHS or file records. By using LogWatch and uLinga, you can automate sending all your different NonStop logs easily.</p>
 
-            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_Kafka_Logwatch chart.jpg" alt="LogWatch and uLinga Integration" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="../images/Blogs & Articles/How to Aggregate NonStop Logs to Kafka/uLinga_Kafka_Logwatch chart.jpg" alt="LogWatch and uLinga Integration" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
             <h2>Conclusion</h2>
             <p>By using uLinga for Kafka, you can easily aggregate all your NonStop logs to Kafka in any one of these three simple methods. This will enable you to take advantage of Kafka's powerful features for centralized log management and real-time monitoring.</p>
@@ -905,6 +900,14 @@
         </div>
 
         <a href="./blog.html" class="back-button">← Back to Blog</a>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
+
+        <div class="feedback-section">
+            <h3>Feedback Please</h3>
+            <a href="../ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="../ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+            <div style="clear: both;"></div>
         </div>
 
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
@@ -959,3 +962,105 @@
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <script src="../search-data.js"></script>
+    <script src="../search.js"></script>
+
+    <!-- FOOTER COMPONENT -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Footer Content -->
+        <div class="footer-content">
+
+            <!-- About Us Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">About Us</h3>
+                <ul class="footer-links">
+                    <li><a href="../who-we-are.html">Who We Are</a></li>
+                    <li><a href="../ticteam.html">TIC Team</a></li>
+                    <li><a href="../our-partners.html">Partners</a></li>
+                    <li><a href="../our-clients.html">Clients</a></li>
+                </ul>
+            </div>
+
+            <!-- Products Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Products</h3>
+                <ul class="footer-links">
+                    <li><a href="../messaging.html">Messaging</a></li>
+                    <li><a href="../gateway.html">Gateway</a></li>
+                    <li><a href="../business-intelligence.html">Business Intelligence</a></li>
+                    <li><a href="../modernize.html">Modernize</a></li>
+                </ul>
+            </div>
+
+            <!-- Services Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="../consulting.html">Consulting</a></li>
+                    <li><a href="../cloud.html">Cloud</a></li>
+                    <li><a href="https://ticsoftware.ai/" target="_blank">GenAI</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="../success-stories.html">Success Stories</a></li>
+                    <li><a href="../tic-news.html">TIC News</a></li>
+                    <li><a href="./blog.html">TIC Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-section footer-contact">
+                <h3 class="footer-title">Contact Us</h3>
+                <div class="contact-item">
+                    <p class="contact-label">Address</p>
+                    <p class="contact-text">
+                        TIC Software, 185 Great Neck RD<br>
+                        4th Floor, Suite 453, Great Neck, NY 11021
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Sales & Support</p>
+                    <p class="contact-text">
+                        <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a>
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Technical Support</p>
+                    <p class="contact-text">
+                        <a href="tel:516-466-7990">(516) 466-7990</a><br>
+                        <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>&copy; 2026 TIC Software. All rights reserved.</p>
+            </div>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span class="divider">•</span>
+                <a href="terms-of-use.html">Terms of Use</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/tic-software" target="_blank" aria-label="LinkedIn" class="social-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.048-8.829 0-9.743h3.554v1.379c-.009.015-.021.029-.03.042h.03v-.042c.395-.609 1.101-1.473 2.681-1.473 1.957 0 3.425 1.277 3.425 4.024v5.813zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.954-1.71 1.185 0 1.915.755 1.94 1.71 0 .951-.755 1.71-1.979 1.71zm1.581 11.597H3.756V9.567h3.162v10.885zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
