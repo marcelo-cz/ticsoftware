@@ -176,6 +176,18 @@
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .blog-tag:link, .blog-tag:visited {
+            color: var(--primary-blue);
+        }
+
+        .blog-tag:hover {
+            background-color: #e0e0e0;
+            color: var(--primary-blue);
         }
 
         .blog-content {
@@ -749,9 +761,9 @@
                 </div>
             </div>
             <div class="blog-tags">
-                <span class="blog-tag">Disaster Recovery</span>
-                <span class="blog-tag">Messaging</span>
-                <span class="blog-tag">NonStop</span>
+                <a href="./blog.html?tag=TelePath" class="blog-tag">TelePath</a>
+                <a href="./blog.html?tag=Messaging" class="blog-tag">Messaging</a>
+                <a href="./blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
             </div>
         </div>
 

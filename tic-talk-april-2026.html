@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC Talk April 2026 - TIC Software Newsletter</title>
+    <meta name="description" content="TIC Talk April 2026 newsletter featuring insights on NonStop business rules, NYTUG 2026 event, and TIC Navigator AI-powered intelligence platform.">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+            border: 3px solid var(--primary-blue);
+            margin: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .nav-search {
+            position: relative;
+        }
+
+        .nav-search-input {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        .nav-search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            width: 100%;
+            height: 240px;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-left {
+            flex: 0 0 20%;
+            background-color: #001f4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.6rem;
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            color: var(--white);
+            font-weight: bold;
+            text-align: center;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .hero-subtext {
+            font-size: 1rem;
+            color: var(--white);
+            text-align: center;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .hero-right {
+            flex: 0 0 80%;
+            background: url('./TIC_Talk_Files/Images/TIC_Talk%20Banner%201.jpg') left 40%/cover no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .newsletter-section {
+            margin-bottom: 3rem;
+        }
+
+        .newsletter-section:last-of-type {
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+        .section-title.with-border-top {
+            border-top: 2px solid var(--border-gray);
+            padding-top: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .section-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .section-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .event-card {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+            margin: 1.5rem 0;
+        }
+
+        .event-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .event-card p {
+            margin-bottom: 0.75rem;
+        }
+
+        .event-card strong {
+            color: var(--dark-text);
+        }
+
+        .full-width-section {
+            display: block;
+        }
+
+        .full-width-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
+        }
+
+        .feature-box {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-box p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-box ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-box li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .features-grid > div {
+            flex: 1;
+        }
+
+        .features-grid h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .features-grid p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .features-grid ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* What's New Section */
+        .newsletter-section:first-of-type .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .navigator-title {
+            font-size: 2.5rem !important;
+            text-align: center;
+        }
+
+        .newsletter-section:nth-of-type(3) .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .whats-new-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .whats-new-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .whats-new-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .whats-new-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .whats-new-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            margin: 1.5rem 1.5rem 1rem 1.5rem;
+            padding: 0;
+        }
+
+        .whats-new-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0 1.5rem 1.5rem 1.5rem;
+            flex-grow: 1;
+        }
+
+        .whats-new-card .cta-button {
+            margin: 0 1.5rem 1.5rem 1.5rem;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .whats-new-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
+            color: #e8e8e8;
+            padding: 3rem 1.5rem 0;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.125rem;
+            padding: 0 1.5rem 2.25rem 1.5rem;
+            border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-title {
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links a {
+            color: #b0b8c1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #4a6fa5;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-copyright {
+            margin: 0;
+            color: white;
+        }
+
+        /* TIC Talk specific footer */
+        .tic-talk-footer .footer-content {
+            display: flex;
+            justify-content: center;
+            grid-template-columns: auto;
+            padding: 0 1.5rem 0 1.5rem;
+        }
+
+        .tic-talk-footer .footer-section {
+            text-align: center;
+        }
+
+        .tic-talk-footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .tic-talk-footer .footer-links li {
+            list-style: none;
+        }
+
+        .tic-talk-footer .footer-bottom {
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .section-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section {
+                height: 250px;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <div>
+                <h1>TIC Talk Newsletter</h1>
+                <p class="hero-subtext">April, 2026  Edition</p>
+            </div>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- What's New Section -->
+        <div class="newsletter-section">
+            <h2 class="section-title">What's New</h2>
+            <div class="whats-new-grid">
+                <div class="whats-new-card">
+                    <img src="./images/Business_Rules.jpg" alt="NonStop Business Rules" class="whats-new-image">
+                    <h3>Nonstop Business Rules: From Code to Business Specs with TIC Navigator</h3>
+                    <p>Explore how automated business rule extraction transforms hidden logic in legacy Nonstop code into clear, actionable business specifications. Learn why this matters for modernization.</p>
+                    <a href="https://ticsoftware.ai/blogs/blog-nonstop-business-rules" class="cta-button">Read More →</a>
+                </div>
+                <div class="whats-new-card">
+                    <img src="./images/Gen_AI.jpg" alt="Beyond the Hype: GenAI for NonStop" class="whats-new-image">
+                    <h3>Beyond the Hype: A Practical Guide to GenAI Success for NonStop</h3>
+                    <p>Learn practical strategies for successful GenAI implementation in NonStop environments. Discover how to move beyond the hype and achieve measurable business outcomes.</p>
+                    <a href="https://ticsoftware.ai/blogs/blog-beyond-the-hype-genai" class="cta-button">Read More →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: TIC Navigator Feature -->
+        <div class="newsletter-section">
+            <h2 class="section-title with-border-top navigator-title" id="navigator">TIC Navigator</h2>
+            <div class="full-width-section">
+                <img src="./TIC_Talk_Files/Images/TIC_Talk_42626/TIC Navigator.jpg" alt="TIC Navigator Platform" class="section-image" style="width: 56%; margin: 0 auto; display: block;">
+            </div>
+            <div class="feature-box">
+                <h3>What is TIC Navigator?</h3>
+                <p>TIC Navigator is an AI-powered intelligence platform that unlocks the business value hidden inside HPE NonStop applications. It automatically analyzes NonStop source code—COBOL, SCOBOL, TAL/pTAL, C/C++, and TACL—and transforms complex, decades-old systems into clear, searchable insights.</p>
+            </div>
+
+            <div class="features-grid">
+                <div>
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Automatic Code Analysis:</strong> Intelligently parses and understands NonStop source code in multiple languages</li>
+                        <li><strong>Business Rules Extraction:</strong> Identifies and documents business logic and workflows</li>
+                        <li><strong>Searchable Documentation:</strong> Creates comprehensive, searchable documentation of your systems</li>
+                        <li><strong>AI-Powered Insights:</strong> Leverages machine learning to provide actionable recommendations</li>
+                        <li><strong>Modernization Roadmap:</strong> Helps identify opportunities for system improvement and modernization</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Why TIC Navigator?</h3>
+                    <p>Understanding legacy NonStop systems is critical for maintenance, compliance, and modernization initiatives. TIC Navigator makes it easier than ever to:</p>
+                    <ul>
+                        <li>Onboard new team members faster</li>
+                        <li>Ensure compliance with business rules</li>
+                        <li>Plan modernization strategies</li>
+                        <li>Reduce operational risk</li>
+                        <li>Maximize the value of your NonStop investments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://ticsoftware.ai/code-navigator" class="cta-button">Explore Navigator →</a>
+            </div>
+        </div>
+
+        <!-- Section 3: Upcoming Events -->
+        <div class="newsletter-section">
+            <h2 class="section-title with-border-top">Upcoming Events</h2>
+            <div class="section-content">
+                <div style="text-align: center;">
+                    <img src="./TIC_Talk_Files/Images/TIC_Talk_42626/NYTUG_2026.png" alt="NYTUG 2026 Event" class="section-image" style="width: 90%; margin: 0 auto; display: block;">
+                    <p style="text-align: justify; font-size: 0.95rem; line-height: 1.8; margin-top: 1rem;">Join us at the New York Technical User Group conference to learn about the latest innovations in NonStop technology, network with industry professionals, and discover how TIC Software solutions can help modernize your systems.</p>
+                </div>
+                <div>
+                    <div class="event-card">
+                        <h3>NYTUG 2026 Conference</h3>
+                        <p><strong>Date:</strong> Thursday, May 14, 2026</p>
+                        <p><strong>Location:</strong> HPE Office, Berkeley Heights, NJ</p>
+                        <p><strong>Address:</strong> 200 Connell Dr, Berkeley Heights, NJ 07922</p>
+                        <a href="https://connect-community.org/event-calendar/nytug-2/" class="cta-button" target="_blank">Register for NYTUG →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="tic-talk-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sales-support@ticsoftware.com">Sales & Support</a></li>
+                        <li><a href="mailto:support@ticsoftware.com">Technical Support</a></li>
+                        <li><a href="tel:516-466-7990">(516) 466-7990</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 TIC Software. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
