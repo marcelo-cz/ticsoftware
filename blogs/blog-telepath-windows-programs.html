@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to access Windows programs from NonStop Applications - TIC Software Blog</title>
-    <meta name="description" content="Learn how TelePath enables NonStop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from NonStop systems.">
+    <title>How to access Windows programs from Nonstop Applications - TIC Software Blog</title>
+    <meta name="description" content="Learn how TelePath enables Nonstop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from Nonstop systems.">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         * {
@@ -87,58 +87,6 @@
 
         nav a.active {
             color: var(--primary-blue);
-        }
-
-        .nav-search {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-search-input {
-            padding: 0.5rem 0.75rem;
-            border: 1px solid var(--border-gray);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            width: 180px;
-            transition: border-color 0.3s;
-        }
-
-        .nav-search-input:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-        }
-
-        .nav-search-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            padding: 0.25rem 0.5rem;
-            transition: transform 0.2s;
-        }
-
-        .nav-search-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .search-results {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--white);
-            border: 1px solid var(--border-gray);
-            border-radius: 4px;
-            max-width: 300px;
-            max-height: 300px;
-            overflow-y: auto;
-            z-index: 100;
-            display: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .search-results.active {
-            display: block;
         }
 
         .nav-dropdown {
@@ -737,7 +685,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>How to access Windows programs from NonStop Applications</h1>
+            <h1>How to access Windows programs from Nonstop Applications</h1>
         </div>
         <div class="hero-right"></div>
     </section>
@@ -756,19 +704,19 @@
         </div>
 
         <div class="blog-content">
-            <h2>Accessing Windows Functionality from NonStop Systems</h2>
+            <h2>Accessing Windows Functionality from Nonstop Systems</h2>
 
-            <p>Several years ago we began exploring how we might make functionality that was readily available on Windows™ platforms available to NonStop applications. We looked at porting some of them to the NonStop. We have been able to do that to a very small number of tools, like an HTTP server and email client. Most of the other tools were either proprietary or need features that were not possible on NonStop.</p>
+            <p>Several years ago we began exploring how we might make functionality that was readily available on Windows™ platforms available to Nonstop applications. We looked at porting some of them to the Nonstop. We have been able to do that to a very small number of tools, like an HTTP server and email client. Most of the other tools were either proprietary or need features that were not possible on Nonstop.</p>
 
-            <p>We began by looking at how most applications might want to use these functions and which were the most needed. We identified PGP encryption and PDF conversion as the top two. These two functions are available on the Windows platforms and are also very, very inexpensive (like free!). In most cases existing and new NonStop applications wanted to use these functions as if they were standard NonStop serverclasses.</p>
+            <p>We began by looking at how most applications might want to use these functions and which were the most needed. We identified PGP encryption and PDF conversion as the top two. These two functions are available on the Windows platforms and are also very, very inexpensive (like free!). In most cases existing and new Nonstop applications wanted to use these functions as if they were standard Nonstop serverclasses.</p>
 
             <img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath Server Class.png" alt="TelePath Architecture">
 
-            <p>This was the history of how TelePath came to be. We wanted to have a NonStop program, running as a serverclass, that would allow applications to simply do a Serverclass_Send or WRITEREAD sending instructions on what is to be done and, optionally include files to be processed. The reply could also point to files that returned.</p>
+            <p>This was the history of how TelePath came to be. We wanted to have a Nonstop program, running as a serverclass, that would allow applications to simply do a Serverclass_Send or WRITEREAD sending instructions on what is to be done and, optionally include files to be processed. The reply could also point to files that returned.</p>
 
             <h2>TelePath Architecture</h2>
 
-            <p>Utilizing experience we had with Server Object Gateway (SOG), we built two primary components. The first was a serverclass, TREMSVR, that would receive the requests and send them, via TCP/IP to a Windows server. The second, TeleRemotePC, was a Windows application that would process the request and perform whatever operation was wanted. We also wanted to provide at least some of the Tandem/NonStop fundamentals. Not only can there be multiple instances of TREMSVR, but each TREMSVR process can communicate with multiple TeleRemotePC programs.</p>
+            <p>Utilizing experience we had with Server Object Gateway (SOG), we built two primary components. The first was a serverclass, TREMSVR, that would receive the requests and send them, via TCP/IP to a Windows server. The second, TeleRemotePC, was a Windows application that would process the request and perform whatever operation was wanted. We also wanted to provide at least some of the Tandem/Nonstop fundamentals. Not only can there be multiple instances of TREMSVR, but each TREMSVR process can communicate with multiple TeleRemotePC programs.</p>
 
             <img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath_TREMSVR.png" alt="TREMSVR and TeleRemotePC Components" style="max-width: 70%;">
 
@@ -830,11 +778,11 @@
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/JSON-Enable NonStop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON-Enable NonStop COBOL and C programs with JSON Thunder">
+                        <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON-Enable Nonstop COBOL and C programs with JSON Thunder">
                     </div>
                     <div class="related-blog-content">
                         <div class="related-blog-date">Feb 1, 2023</div>
-                        <h3 class="related-blog-title">JSON-Enable NonStop COBOL and C programs with JSON Thunder</h3>
+                        <h3 class="related-blog-title">JSON-Enable Nonstop COBOL and C programs with JSON Thunder</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
                         <a href="./blog-json-thunder-nonstop.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
