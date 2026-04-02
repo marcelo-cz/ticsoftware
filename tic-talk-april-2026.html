@@ -151,10 +151,11 @@
         /* Hero Section */
         .hero-section {
             width: 100%;
-            height: 240px;
+            height: 194px;
             display: flex;
             margin: 0;
             padding: 0;
+            gap: 0;
         }
 
         .hero-left {
@@ -184,7 +185,16 @@
 
         .hero-right {
             flex: 0 0 80%;
-            background: url('./TIC_Talk_Files/Images/TIC_Talk%20Banner%201.jpg') left 40%/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-right-img {
+            width: 105%;
+            height: 105%;
+            object-fit: scale-down;
         }
 
         /* Main Content */
@@ -578,7 +588,9 @@
                 <p class="hero-subtext">April, 2026  Edition</p>
             </div>
         </div>
-        <div class="hero-right"></div>
+        <div class="hero-right">
+            <img src="./TIC_Talk_Files/Images/TIC_Talk_Banner 2.jpg" alt="TIC Talk Banner" class="hero-right-img">
+        </div>
     </section>
 
     <!-- Main Content -->
