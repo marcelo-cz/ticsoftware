@@ -264,6 +264,14 @@
             font-size: 0.85rem;
             color: #999;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .blog-card-readtime {
+            font-size: 0.85rem;
+            color: #999;
         }
 
         .blog-card-title {
@@ -350,6 +358,105 @@
 
         .blog-card-button:hover {
             background-color: var(--light-blue);
+        }
+
+        /* Blog Controls */
+        .blog-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .category-btn {
+            padding: 0.4rem 1rem;
+            border: 2px solid var(--primary-blue);
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover {
+            background-color: var(--light-blue);
+            color: var(--white);
+        }
+
+        .category-btn.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .blog-controls-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        #blog-search {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            width: 200px;
+            transition: border-color 0.3s;
+        }
+
+        #blog-search:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        #blog-sort {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background-color: var(--white);
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        #blog-sort:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        #load-more-btn {
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #load-more-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        #load-more-btn.hidden {
+            display: none;
         }
 
         /* Footer */
@@ -774,9 +881,31 @@
             <span id="clear-filter">Clear Filter</span>
         </div>
 
+        <div class="blog-controls">
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="Modernization">Modernization</button>
+                <button class="category-btn" data-category="Integration">Integration</button>
+                <button class="category-btn" data-category="Monitoring">Monitoring</button>
+                <button class="category-btn" data-category="Messaging">Messaging</button>
+                <button class="category-btn" data-category="Kafka">Kafka</button>
+                <button class="category-btn" data-category="Gateway">Gateway</button>
+                <button class="category-btn" data-category="REST API">REST API</button>
+                <button class="category-btn" data-category="Thunder Suite">Thunder Suite</button>
+                <button class="category-btn" data-category="Operations">Operations</button>
+            </div>
+            <div class="blog-controls-right">
+                <input type="text" id="blog-search" placeholder="Search blogs..." />
+                <select id="blog-sort">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                </select>
+            </div>
+        </div>
+
         <div class="blog-grid">
             <!-- Blog Card 1 - Most Recent -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2025-03-25" data-tags="Messaging,Kafka,Integration" data-title="WebCon's New Features: How uLinga for Kafka Continues to Excel" data-readtime="6">
                 <div class="blog-card-image"><img src="../images/Logos/kafka grey logo.png" alt="WebCon uLinga Kafka"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">March 25, 2025</div>
@@ -792,7 +921,7 @@
             </div>
 
             <!-- Blog Card 2 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2024-12-16" data-tags="Modernization,Strategy,Nonstop" data-title="2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges" data-readtime="3">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/2025 The Year to Transform Your HPE Nonstop Platform for Tomorrows Challenges/IT_Modernization.png" alt="2025 Transform Nonstop"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Dec 16, 2024</div>
@@ -808,7 +937,7 @@
             </div>
 
             <!-- Blog Card 4 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2024-03-18" data-tags="LogWatch,Monitoring,Nonstop" data-title="Building a Web Interface to a Centralized View of Application Logs with LogWatch" data-readtime="3">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="LogWatch Web Interface"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Mar 18, 2024</div>
@@ -824,7 +953,7 @@
             </div>
 
             <!-- Blog Card 5 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2023-11-19" data-tags="Messaging,Kafka,LogWatch" data-title="How to Aggregate Nonstop Logs to Kafka in One Simple Step" data-readtime="3">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/How to Aggregate Nonstop Logs to Kafka/Log Aggregation.jpg" alt="Nonstop Logs to Kafka"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Nov 19, 2023</div>
@@ -840,7 +969,7 @@
             </div>
 
             <!-- Blog Card 7 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2023-10-17" data-tags="LogWatch,Monitoring,Nonstop" data-title="Minimize Application Downtime with LogWatch Monitoring" data-readtime="2">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/log_monitoring.png" alt="Minimize Application Downtime"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Oct 17, 2023</div>
@@ -856,7 +985,7 @@
             </div>
 
             <!-- Blog Card 8 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2023-03-29" data-tags="Gateway,REST API,Integration" data-title="LightWave Client supports more than JSON payload" data-readtime="3">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave Client"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Mar 29, 2023</div>
@@ -872,7 +1001,7 @@
             </div>
 
             <!-- Blog Card 9 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2023-02-01" data-tags="JSON Thunder,COBOL,Modernization" data-title="JSON-Enable Nonstop COBOL and C programs with JSON Thunder" data-readtime="3">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="Features of JSON"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Feb 1, 2023</div>
@@ -888,7 +1017,7 @@
             </div>
 
             <!-- Blog Card 10 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2023-01-23" data-tags="TOP,TCP/IP,Administration" data-title="Using TOP with Nonstop TCP/IP" data-readtime="3">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/Using TOP with Nonstop TCPIP/TOP_TCP_IP.png" alt="Using TOP with Nonstop TCP/IP"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Jan 23, 2023</div>
@@ -904,7 +1033,7 @@
             </div>
 
             <!-- Blog Card 11 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2023-01-04" data-tags="LightWave Client,REST API,Swagger" data-title="Swagger or no Swagger LightWave Client lets you create REST APIs in minutes" data-readtime="3">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Jan 4, 2023</div>
@@ -920,7 +1049,7 @@
             </div>
 
             <!-- Blog Card 12 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2022-12-29" data-tags="Messaging,Modernization" data-title="'Tele' Technology with TIC Software" data-readtime="2">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/TIC_tools.jpg" alt="TIC Tools"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Dec 29, 2022</div>
@@ -935,7 +1064,7 @@
             </div>
 
             <!-- Blog Card 13 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2022-07-26" data-tags="Kafka,Integration,Modernization" data-title="Nonstop Integration – LogWatch and uLinga" data-readtime="4">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/Nonstop Integration – LogWatch and uLinga/Apache_Kafka Chart.png" alt="Nonstop Integration LogWatch uLinga"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Jul 26, 2022</div>
@@ -951,7 +1080,7 @@
             </div>
 
             <!-- Blog Card 14 -->
-            <div class="blog-card">
+            <div class="blog-card" data-date="2021-02-01" data-tags="TelePath,Integration" data-title="How to access Windows programs from Nonstop Applications" data-readtime="2">
                 <div class="blog-card-image"><img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath Server Class.png" alt="TelePath Windows Programs"></div>
                 <div class="blog-card-content">
                     <div class="blog-card-date">Feb 1, 2021</div>
@@ -965,12 +1094,103 @@
                 </div>
             </div>
 
+            <!-- Blog Card 15 -->
+            <div class="blog-card" data-date="2022-03-16" data-tags="Kafka,Nonstop,Integration" data-title="Kafka and HPE Nonstop – A Perfect Combo!" data-readtime="3">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Kafka and HPE Nonstop – A Perfect Combo!/a perfect combo.png" alt="Kafka and HPE Nonstop A Perfect Combo"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Mar 16, 2022</div>
+                    <h3 class="blog-card-title">Kafka and HPE Nonstop – A Perfect Combo!</h3>
+                    <p class="blog-card-excerpt">Discover how Kafka and HPE Nonstop work together to create a powerful, reliable, and scalable solution for modern enterprise integration.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=Kafka" class="blog-tag">Kafka</a>
+                        <a href="./blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                        <a href="./blog.html?tag=Integration" class="blog-tag">Integration</a>
+                    </div>
+                    <a href="./blog-kafka-hpe-nonstop-perfect-combo.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 16 -->
+            <div class="blog-card" data-date="2021-03-26" data-tags="Thunder Suite,Modernization" data-title="A 10 Minute Guide on XML parser versus Thunder Suite" data-readtime="3">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/XML Logo.jpg" alt="XML Thunder"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Mar 26, 2021</div>
+                    <h3 class="blog-card-title">A 10 Minute Guide on "XML parser versus Thunder Suite"</h3>
+                    <p class="blog-card-excerpt">Compare XML parsers and Thunder Suite. Learn the key differences and discover which solution is best for your COBOL, C, or TAL programs on Nonstop systems.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=Thunder Suite" class="blog-tag">Thunder Suite</a>
+                        <a href="./blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                    </div>
+                    <a href="./blog-xml-parser-thunder-suite.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 17 -->
+            <div class="blog-card" data-date="2021-01-24" data-tags="TOP,Operations" data-title="Nonstop Operation Intelligence– Using TOP" data-readtime="3">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Nonstop Operation Intelligence_Using TOP/TOP_Tips.png" alt="Nonstop Operation Intelligence Using TOP"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Jan 24, 2021</div>
+                    <h3 class="blog-card-title">Nonstop Operation Intelligence– Using TOP</h3>
+                    <p class="blog-card-excerpt">Discover how TOP GUI tool simplifies Nonstop operations management. Learn how to efficiently manage Spoolers, EMS Collectors, and Netbatch jobs with step-by-step visual guidance.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=TOP" class="blog-tag">TOP</a>
+                        <a href="./blog.html?tag=Operations" class="blog-tag">Operations</a>
+                    </div>
+                    <a href="./blog-nonstop-operation-intelligence-top.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 18 -->
+            <div class="blog-card" data-date="2020-08-29" data-tags="JSON Thunder,Modernization" data-title="Data Analysis and Distribution with Cypress" data-readtime="2">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/Data Analysis and Distribution with Cypress/Cypress Dashboard.jpg" alt="Cypress Dashboard"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Aug 29, 2020</div>
+                    <h3 class="blog-card-title">Data Analysis and Distribution with Cypress</h3>
+                    <p class="blog-card-excerpt">Learn how Cypress enables easy legacy data analysis and distribution. Discover how this integrated document assembly system streamlines data management and accessibility for your organization.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=JSON Thunder" class="blog-tag">JSON Thunder</a>
+                        <a href="./blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                    </div>
+                    <a href="./blog-cypress-data-analysis.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 19 -->
+            <div class="blog-card" data-date="2020-03-04" data-tags="TelePath,Messaging,Nonstop" data-title="How quickly can you bring up critical reports on your DR system?" data-readtime="3">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/Disaster_Recovery.png" alt="Disaster Recovery"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Mar 4, 2020</div>
+                    <h3 class="blog-card-title">How quickly can you bring up critical reports on your DR system?</h3>
+                    <p class="blog-card-excerpt">Learn how to quickly replicate spooler jobs and critical reports to your Disaster Recovery system, ensuring business continuity with TIC's TeleFTP product.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=TelePath" class="blog-tag">TelePath</a>
+                        <a href="./blog.html?tag=Messaging" class="blog-tag">Messaging</a>
+                        <a href="./blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                    </div>
+                    <a href="./blog-disaster-recovery.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 20 -->
+            <div class="blog-card" data-date="2018-01-24" data-tags="REST API,Gateway,Integration" data-title="What is REST Web Service?" data-readtime="3">
+                <div class="blog-card-image"><img src="../images/Blogs & Articles/What is REST Web Service/Web Services.png" alt="Web Services"></div>
+                <div class="blog-card-content">
+                    <div class="blog-card-date">Jan 24, 2018</div>
+                    <h3 class="blog-card-title">What is REST Web Service?</h3>
+                    <p class="blog-card-excerpt">Explore the fundamentals of REST Web Services, understand the differences between REST and SOAP, and learn how REST APIs enable seamless integration with modern web applications.</p>
+                    <div class="blog-card-tags">
+                        <a href="./blog.html?tag=REST API" class="blog-tag">REST API</a>
+                        <a href="./blog.html?tag=Gateway" class="blog-tag">Gateway</a>
+                        <a href="./blog.html?tag=Integration" class="blog-tag">Integration</a>
+                    </div>
+                    <a href="./blog-rest-web-service.html" class="blog-card-button">📝 Read Blog</a>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Pagination -->
-        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; padding: 2rem 0;">
-            <span style="padding: 0.6rem 1rem; background-color: var(--primary-blue); color: white; border-radius: 4px; font-weight: 600;">Page 1</span>
-            <a href="./blog-page-2.html" style="padding: 0.6rem 1rem; background-color: var(--light-gray); color: var(--dark-text); text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s;">Page 2 →</a>
+        <div class="load-more-container">
+            <button id="load-more-btn">Load More</button>
         </div>
     </main>
 
@@ -1075,45 +1295,144 @@
 </footer>
 
 <script>
-// Tag filtering functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the tag parameter from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const selectedTag = urlParams.get('tag');
+    const CARDS_PER_PAGE = 6;
+    let state = {
+        activeCategory: 'all',
+        activeSearch: '',
+        activeSort: 'newest',
+        visibleCount: CARDS_PER_PAGE,
+        urlTag: new URLSearchParams(window.location.search).get('tag') || null
+    };
 
+    const blogCards = document.querySelectorAll('.blog-card');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const searchInput = document.getElementById('blog-search');
+    const sortSelect = document.getElementById('blog-sort');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const clearFilter = document.getElementById('clear-filter');
     const filterMessage = document.getElementById('filter-message');
     const activeTag = document.getElementById('active-tag');
-    const clearFilter = document.getElementById('clear-filter');
-    const blogCards = document.querySelectorAll('.blog-card');
 
-    if (selectedTag) {
-        // Show filter message
-        filterMessage.style.display = 'block';
-        activeTag.textContent = selectedTag;
 
-        // Filter blog cards
-        blogCards.forEach(card => {
-            const tags = card.querySelectorAll('.blog-tag');
-            let hasTag = false;
+    function getVisibleCards() {
+        const cards = [];
+        blogCards.forEach((card, idx) => {
+            const cardDate = card.getAttribute('data-date');
+            const cardTags = card.getAttribute('data-tags').split(',').map(tag => tag.trim());
+            const cardTitle = card.getAttribute('data-title').toLowerCase();
 
-            tags.forEach(tag => {
-                if (tag.textContent.trim() === selectedTag) {
-                    hasTag = true;
-                }
-            });
+            // Get excerpt text if it exists
+            const excerptEl = card.querySelector('.blog-card-excerpt');
+            const cardExcerpt = excerptEl ? excerptEl.textContent.toLowerCase() : '';
 
-            if (hasTag) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
+            // Check category filter
+            const categoryMatch = state.activeCategory === 'all' || cardTags.includes(state.activeCategory);
+
+            // Check search filter - search in title, excerpt, AND tags
+            let searchMatch = true;
+            if (state.activeSearch !== '') {
+                const searchTerm = state.activeSearch.toLowerCase();
+
+                // Helper function: check if any word starts with search term
+                const matchesWordStart = (text) => {
+                    const words = text.split(/\s+/);
+                    return words.some(word => word.toLowerCase().startsWith(searchTerm));
+                };
+
+                // For tags: match exact tags, not substrings
+                const tagMatch = cardTags.some(tag => tag.toLowerCase() === searchTerm);
+                searchMatch = matchesWordStart(cardTitle) ||
+                             matchesWordStart(cardExcerpt) ||
+                             tagMatch;
+
             }
+
+            // Check URL tag filter (backward compat)
+            const tagMatch = !state.urlTag || cardTags.includes(state.urlTag);
+
+            if (categoryMatch && searchMatch && tagMatch) {
+                cards.push({ card, date: cardDate });
+            }
+        });
+
+        // Sort
+        cards.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return state.activeSort === 'newest' ? dateB - dateA : dateA - dateB;
+        });
+
+        return cards.map(item => item.card);
+    }
+
+    function applyFilters() {
+        const gridContainer = document.querySelector('.blog-grid');
+        const visibleCards = getVisibleCards();
+        const cardsToShow = visibleCards.slice(0, state.visibleCount);
+
+        // Hide all cards and remove from DOM temporarily
+        blogCards.forEach(card => card.classList.add('hidden'));
+
+        // Re-insert visible cards in sorted order
+        cardsToShow.forEach(card => {
+            card.classList.remove('hidden');
+            gridContainer.appendChild(card);
+        });
+
+        // Update Load More button
+        const hasMore = visibleCards.length > state.visibleCount;
+        loadMoreBtn.classList.toggle('hidden', !hasMore);
+
+        // Update filter message
+        if (state.urlTag) {
+            filterMessage.style.display = 'block';
+            activeTag.textContent = state.urlTag;
+        } else {
+            filterMessage.style.display = 'none';
+        }
+    }
+
+    // Event listeners
+    if (categoryBtns.length > 0) {
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                state.activeCategory = this.getAttribute('data-category');
+                state.visibleCount = CARDS_PER_PAGE;
+                applyFilters();
+            });
         });
     }
 
-    // Clear filter button
-    clearFilter.addEventListener('click', function() {
-        window.location.href = 'blog.html';
-    });
+    if (searchInput) {
+        searchInput.addEventListener('keyup', function() {
+            state.activeSearch = this.value.trim();
+            state.visibleCount = CARDS_PER_PAGE;
+            applyFilters();
+        });
+    }
+
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            state.activeSort = this.value;
+            applyFilters();
+        });
+    }
+
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            state.visibleCount += CARDS_PER_PAGE;
+            applyFilters();
+        });
+    }
+
+    if (clearFilter) {
+        clearFilter.addEventListener('click', function() {
+            window.location.href = 'blog.html';
+        });
+    }
 
     // Make tags clickable
     const allTags = document.querySelectorAll('.blog-tag');
@@ -1125,6 +1444,21 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'blog.html?tag=' + encodeURIComponent(tagText);
         });
     });
+
+    // Add read time to each card
+    blogCards.forEach(card => {
+        const dateEl = card.querySelector('.blog-card-date');
+        const readTimeAttr = card.getAttribute('data-readtime');
+        if (dateEl && readTimeAttr) {
+            const readTimeSpan = document.createElement('span');
+            readTimeSpan.className = 'blog-card-readtime';
+            readTimeSpan.textContent = `${readTimeAttr} min read`;
+            dateEl.appendChild(readTimeSpan);
+        }
+    });
+
+    // Initial render
+    applyFilters();
 });
 </script>
 
