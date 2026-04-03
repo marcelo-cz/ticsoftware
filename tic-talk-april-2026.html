@@ -28,8 +28,7 @@
             color: var(--dark-text);
             line-height: 1.6;
             background-color: var(--white);
-            border: 3px solid var(--primary-blue);
-            margin: 10px;
+            margin: 0;
             box-sizing: border-box;
         }
 
@@ -156,6 +155,7 @@
             margin: 0;
             padding: 0;
             gap: 0;
+            border-bottom: 5px solid var(--accent-red);
         }
 
         .hero-left {
@@ -193,9 +193,8 @@
 
         .hero-right-img {
             width: 100%;
-            height: auto;
-            object-fit: contain;
-            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
@@ -215,7 +214,7 @@
         }
 
         .newsletter-section {
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .newsletter-section:last-of-type {
@@ -228,6 +227,21 @@
             font-weight: bold;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
+        }
+
+        .section-title.with-red-line {
+            position: relative;
+        }
+
+        .section-title.with-red-line::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
         }
 
         .section-title.with-border-top {
@@ -472,7 +486,7 @@
             color: #e8e8e8;
             padding: 3rem 1.5rem 0;
             margin-top: 1rem;
-            border-top: 1px solid rgba(74, 111, 165, 0.3);
+            border-top: 5px solid var(--accent-red);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -600,7 +614,7 @@
 
         <!-- What's New Section -->
         <div class="newsletter-section">
-            <h2 class="section-title">What's New</h2>
+            <h2 class="section-title with-red-line">What's New</h2>
             <div class="whats-new-grid">
                 <div class="whats-new-card">
                     <img src="./images/Business_Rules.jpg" alt="NonStop Business Rules" class="whats-new-image">
@@ -619,13 +633,18 @@
 
         <!-- Section 2: TIC Navigator Feature -->
         <div class="newsletter-section">
-            <h2 class="section-title with-border-top navigator-title" id="navigator">TIC Navigator</h2>
-            <div class="full-width-section">
-                <img src="./TIC_Talk_Files/Images/TIC_Talk_42626/TIC Navigator.jpg" alt="TIC Navigator Platform" class="section-image" style="width: 56%; margin: 0 auto; display: block;">
-            </div>
-            <div class="feature-box">
-                <h3>What is TIC Navigator?</h3>
-                <p>TIC Navigator is an AI-powered intelligence platform that unlocks the business value hidden inside HPE NonStop applications. It automatically analyzes NonStop source code—COBOL, SCOBOL, TAL/pTAL, C/C++, and TACL—and transforms complex, decades-old systems into clear, searchable insights.</p>
+            <h2 class="section-title with-border-top navigator-title with-red-line" id="navigator">TIC Navigator</h2>
+            <div class="feature-box" style="display: grid; grid-template-columns: 1fr 3fr; gap: 1rem; align-items: flex-start; padding-bottom: 0.6rem;">
+                <div>
+                    <img src="./images/compass white bg.png" alt="TIC Navigator Platform" class="section-image" style="width: 98%; display: block;">
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                    <div>
+                        <h3>What is TIC Navigator?</h3>
+                        <p>TIC Navigator is an AI-powered intelligence platform that unlocks the business value hidden inside HPE NonStop applications. It automatically analyzes NonStop source code—COBOL, SCOBOL, TAL/pTAL, C/C++, and TACL—and transforms complex, decades-old systems into clear, searchable insights.</p>
+                    </div>
+                    <a href="https://ticsoftware.ai/code-navigator" class="cta-button" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; width: fit-content;">Explore Navigator →</a>
+                </div>
             </div>
 
             <div class="features-grid">
@@ -652,15 +671,11 @@
                     </ul>
                 </div>
             </div>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://ticsoftware.ai/code-navigator" class="cta-button">Explore Navigator →</a>
-            </div>
         </div>
 
         <!-- Section 3: Upcoming Events -->
         <div class="newsletter-section">
-            <h2 class="section-title with-border-top">Upcoming Events</h2>
+            <h2 class="section-title with-border-top with-red-line">Upcoming Events</h2>
             <div class="section-content">
                 <div style="text-align: center;">
                     <img src="./TIC_Talk_Files/Images/TIC_Talk_42626/NYTUG_2026.png" alt="NYTUG 2026 Event" class="section-image" style="width: 90%; margin: 0 auto; display: block;">
@@ -669,9 +684,8 @@
                 <div>
                     <div class="event-card">
                         <h3>NYTUG 2026 Conference</h3>
-                        <p><strong>Date:</strong> Thursday, May 14, 2026</p>
-                        <p><strong>Location:</strong> HPE Office, Berkeley Heights, NJ</p>
-                        <p><strong>Address:</strong> 200 Connell Dr, Berkeley Heights, NJ 07922</p>
+                        <p><strong>📌 When:</strong><br>Thursday, May 14, 2026</p>
+                        <p><strong>📍 Where:</strong><br>HPE Office<br>200 Connell Dr<br>Berkeley Heights, NJ 07922</p>
                         <a href="https://connect-community.org/event-calendar/nytug-2/" class="cta-button" target="_blank">Register for NYTUG →</a>
                     </div>
                 </div>
