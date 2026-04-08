@@ -212,6 +212,113 @@
             border-bottom: 2px solid var(--primary-blue);
         }
 
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-content {
+            display: flex;
+            width: 200%;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex: 0 0 50%;
+            min-width: 50%;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .carousel-slide .btn {
+            margin-top: 1rem;
+        }
+
+        .carousel-slide h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .carousel-slide img {
+            max-width: 240px;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+        }
+
+        .carousel-slide p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .event-details {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .event-details p {
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .carousel-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        .carousel-indicator {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--border-gray);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-dot.active {
+            background-color: var(--primary-blue);
+        }
+
         .btn {
             display: inline-block;
             padding: 0.75rem 2rem;
@@ -525,9 +632,10 @@
 
         .clients-carousel {
             position: relative;
-            max-width: 900px;
-            height: 180px;
+            max-width: 1200px;
+            height: 200px;
             margin: 0.3rem auto 0;
+            padding: 0 2rem;
             overflow: hidden;
         }
 
@@ -554,11 +662,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 250px;
-            height: 180px;
+            width: 268px;
+            height: 150px;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             background-color: #f9f9f9;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .client-logo img {
@@ -1004,12 +1114,39 @@
 
             <div class="about-box">
                 <h2>What's New</h2>
-                <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0; text-align: center;">Nonstop Business Rules: From Code to Business Specs with TIC Navigator</h3>
-                <div style="text-align: center; margin: 1.5rem 0;">
-                    <img src="./images/Business_Rules.jpg" alt="Business Rules" style="max-width: 240px; height: auto;">
+                <div class="carousel-wrapper">
+                    <div class="carousel-content" id="carouselContent">
+                        <!-- Slide 1: Business Rules -->
+                        <div class="carousel-slide">
+                            <h3>Nonstop Business Rules: From Code to Business Specs with TIC Navigator</h3>
+                            <img src="./images/Business_Rules.jpg" alt="Business Rules">
+                            <p>In the Nonstop world, we've always taken pride in systems that run reliably for decades. The architecture is fault-tolerant, the performance is scalable, and the reliability is peerless.</p>
+                            <a href="https://ticsoftware.ai/Blogs/blog-nonstop-business-rules.html" class="btn" target="_blank">Read Blog</a>
+                        </div>
+
+                        <!-- Slide 2: NYTUG Conference -->
+                        <div class="carousel-slide">
+                            <h3>NYTUG 2026 Conference</h3>
+                            <img src="./images/Conference Galleries/NYTUG Album/NYTUG '19/nytug_3rd_logo_900x545_1_38.png" alt="NYTUG Logo">
+                            <div class="event-details">
+                                <p><strong>📌 When:</strong> Thursday, May 14, 2026</p>
+                                <p><strong>📍 Where:</strong> HPE Office<br>200 Connell Dr<br>Berkeley Heights, NJ 07922</p>
+                            </div>
+                            <p>Join us at the New York Technical User Group conference to learn about the latest innovations in NonStop technology, network with industry professionals, and discover how TIC Software solutions can help modernize your systems.</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" id="prevBtn">❮</button>
+                        <div class="carousel-indicator">
+                            <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                            <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                        </div>
+                        <button class="carousel-btn" id="nextBtn">❯</button>
+                    </div>
                 </div>
-                <p>In the Nonstop world, we've always taken pride in systems that run reliably for decades. The architecture is fault-tolerant, the performance is scalable, and the reliability is peerless.</p>
-                <a href="https://ticsoftware.ai/Blogs/blog-nonstop-business-rules.html" class="btn" target="_blank">Read Blog</a>
             </div>
         </section>
 
@@ -1291,6 +1428,64 @@
         </div>
     </div>
 </footer>
+
+<script>
+    let currentSlide = 0;
+    const totalSlides = 2;
+    let autoRotateInterval;
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+        resetAutoRotate();
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const carouselContent = document.getElementById('carouselContent');
+        const offset = -currentSlide * 50;
+        carouselContent.style.transform = `translateX(${offset}%)`;
+
+        // Update dots
+        const dots = document.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    function startAutoRotate() {
+        autoRotateInterval = setInterval(() => {
+            nextSlide();
+        }, 3000);
+    }
+
+    function resetAutoRotate() {
+        clearInterval(autoRotateInterval);
+        startAutoRotate();
+    }
+
+    // Event listeners
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        nextSlide();
+        resetAutoRotate();
+    });
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        prevSlide();
+        resetAutoRotate();
+    });
+
+    // Start auto-rotation on page load
+    startAutoRotate();
+</script>
 
 </body>
 </html>
