@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIC Software - The Leader in Nonstop Modernization</title>
     <meta name="description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
+    <meta name="keywords" content="NonStop systems, Nonstop modernization, COBOL, messaging solutions, gateway products, business intelligence, TIC Navigator, HPE NonStop">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="TIC Software - The Leader in Nonstop Modernization">
+    <meta property="og:description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ticsoftware.com">
+    <meta property="og:image" content="https://www.ticsoftware.com/images/TIC_Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TIC Software - The Leader in Nonstop Modernization">
+    <meta name="twitter:description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
+    <meta name="twitter:image" content="https://www.ticsoftware.com/images/TIC_Logo.png">
+    <meta name="theme-color" content="#003d99">
+    <link rel="canonical" href="https://www.ticsoftware.com">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <style>
         * {
@@ -92,6 +105,62 @@
         .search-icon {
             cursor: pointer;
             font-size: 1.2rem;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-search-input {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 250px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.1);
+        }
+
+        .nav-search-btn {
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-search-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            display: block;
         }
 
         .nav-dropdown {
@@ -212,53 +281,6 @@
             border-bottom: 2px solid var(--primary-blue);
         }
 
-        .carousel-wrapper {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .carousel-content {
-            display: flex;
-            width: 200%;
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-slide {
-            flex: 0 0 50%;
-            min-width: 50%;
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-        }
-
-        .carousel-slide .btn {
-            margin-top: 1rem;
-        }
-
-        .carousel-slide h3 {
-            font-size: 1.3rem;
-            color: var(--primary-blue);
-            margin: 1rem 0;
-            text-align: center;
-        }
-
-        .carousel-slide img {
-            max-width: 240px;
-            height: auto;
-            margin: 1.5rem auto;
-            display: block;
-        }
-
-        .carousel-slide p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
         .event-details {
             margin: 1.5rem 0;
             padding: 1rem;
@@ -272,51 +294,73 @@
             text-align: left;
         }
 
-        .carousel-controls {
+        .nytug-box {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-gray);
+            flex-direction: column;
+            grid-column: 1 / -1;
+            width: 100%;
         }
 
-        .carousel-btn {
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
+        .nytug-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: background-color 0.3s;
+            gap: 2rem;
+            align-items: flex-start;
         }
 
-        .carousel-btn:hover {
-            background-color: var(--light-blue);
-        }
-
-        .carousel-indicator {
+        .nytug-logo {
+            flex: 0 0 330.625px;
+            text-align: center;
             display: flex;
-            gap: 0.5rem;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--border-gray);
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .nytug-logo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
         }
 
-        .carousel-dot.active {
-            background-color: var(--primary-blue);
+        .nytug-logo .event-details {
+            margin: 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nytug-logo .event-details p {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .address-indent {
+            display: block;
+            margin-left: 5.0rem;
+        }
+
+        .nytug-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nytug-details h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 0 0 1rem 0;
+        }
+
+        .nytug-details p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .nytug-details .btn {
+            margin-top: auto;
+            align-self: center;
         }
 
         .btn {
@@ -395,7 +439,7 @@
             color: var(--primary-blue);
             margin-bottom: 1.5rem;
             text-align: center;
-            font-family: 'DIN Neuzeit Grotesk', 'DIN Next', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .products-grid {
@@ -1035,6 +1079,96 @@
             }
         }
     </style>
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TIC Software",
+        "url": "https://www.ticsoftware.com",
+        "logo": "https://www.ticsoftware.com/images/TIC_Logo.png",
+        "description": "TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.",
+        "foundingDate": "2000",
+        "sameAs": [
+            "https://www.linkedin.com/company/tic-software",
+            "https://twitter.com/ticsoftware",
+            "https://www.facebook.com/ticsoftware"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-123-4567",
+            "contactType": "Sales & Support",
+            "email": "info@ticsoftware.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Business Avenue",
+            "addressLocality": "New York",
+            "addressRegion": "NY",
+            "postalCode": "10001",
+            "addressCountry": "US"
+        },
+        "areaServed": ["US", "CA", "UK", "AU"],
+        "knowsAbout": ["NonStop Systems", "COBOL Modernization", "Legacy System Integration", "AI Code Intelligence"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TIC Navigator",
+        "description": "AI-powered code intelligence platform for analyzing and modernizing NonStop systems. TIC Navigator helps enterprises extract information from complex COBOL, TAL, C/C++, and TACL code into a searchable, interactive knowledge base.",
+        "url": "https://ticsoftware.ai/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "NonStop, Windows, Linux, macOS",
+        "softwareVersion": "2024.1",
+        "author": {
+            "@type": "Organization",
+            "name": "TIC Software"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "5000",
+            "highPrice": "50000",
+            "offerCount": "3"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "150",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "screenshot": "https://www.ticsoftware.com/images/tic-navigator-dashboard.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.ticsoftware.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://www.ticsoftware.com/index.html#products"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Services",
+                "item": "https://www.ticsoftware.com/index.html#services"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -1114,37 +1248,29 @@
 
             <div class="about-box">
                 <h2>What's New</h2>
-                <div class="carousel-wrapper">
-                    <div class="carousel-content" id="carouselContent">
-                        <!-- Slide 1: Business Rules -->
-                        <div class="carousel-slide">
-                            <h3>Nonstop Business Rules: From Code to Business Specs with TIC Navigator</h3>
-                            <img src="./images/Business_Rules.jpg" alt="Business Rules">
-                            <p>In the Nonstop world, we've always taken pride in systems that run reliably for decades. The architecture is fault-tolerant, the performance is scalable, and the reliability is peerless.</p>
-                            <a href="https://ticsoftware.ai/Blogs/blog-nonstop-business-rules.html" class="btn" target="_blank">Read Blog</a>
-                        </div>
+                <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0; text-align: center;">Nonstop Business Rules: From Code to Business Specs with TIC Navigator</h3>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <img src="./images/Business_Rules.jpg" alt="Business Rules" style="max-width: 240px; height: auto;">
+                </div>
+                <p>In the Nonstop world, we've always taken pride in systems that run reliably for decades. The architecture is fault-tolerant, the performance is scalable, and the reliability is peerless.</p>
+                <a href="https://ticsoftware.ai/Blogs/blog-nonstop-business-rules.html" class="btn" target="_blank">Read Blog</a>
+            </div>
 
-                        <!-- Slide 2: NYTUG Conference -->
-                        <div class="carousel-slide">
-                            <h3>NYTUG 2026 Conference</h3>
-                            <img src="./images/Conference Galleries/NYTUG Album/NYTUG '19/nytug_3rd_logo_900x545_1_38.png" alt="NYTUG Logo">
-                            <div class="event-details">
-                                <p><strong>📌 When:</strong> Thursday, May 14, 2026</p>
-                                <p><strong>📍 Where:</strong> HPE Office<br>200 Connell Dr<br>Berkeley Heights, NJ 07922</p>
-                            </div>
-                            <p>Join us at the New York Technical User Group conference to learn about the latest innovations in NonStop technology, network with industry professionals, and discover how TIC Software solutions can help modernize your systems.</p>
-                            <a href="#" class="btn">Learn More</a>
+            <!-- Upcoming Events Box -->
+            <div class="about-box nytug-box" style="margin-top: -2.0rem;">
+                <h2>Upcoming Events</h2>
+                <div class="nytug-content">
+                    <div class="nytug-logo">
+                        <img src="./images/Conference Galleries/NYTUG Album/NYTUG '19/nytug_3rd_logo_900x545_1_38.png" alt="NYTUG Logo">
+                        <div class="event-details">
+                            <p><strong>📌 When:</strong> Thursday, May 14, 2026</p>
+                            <p><strong>📍 Where:</strong> HPE Office, 200 Connell Dr<br><span class="address-indent">Berkeley Heights, NJ 07922</span></p>
                         </div>
                     </div>
-
-                    <!-- Carousel Controls -->
-                    <div class="carousel-controls">
-                        <button class="carousel-btn" id="prevBtn">❮</button>
-                        <div class="carousel-indicator">
-                            <div class="carousel-dot active" onclick="goToSlide(0)"></div>
-                            <div class="carousel-dot" onclick="goToSlide(1)"></div>
-                        </div>
-                        <button class="carousel-btn" id="nextBtn">❯</button>
+                    <div class="nytug-details">
+                        <h3>NYTUG 2026 Conference</h3>
+                        <p>Join us at the New York Technical User Group conference to learn about the latest innovations in NonStop technology, network with industry professionals, and discover how TIC Software solutions can help modernize your systems.</p>
+                        <a href="https://connect-community.org/event-calendar/nytug-2/" class="btn" target="_blank">Register for NYTUG →</a>
                     </div>
                 </div>
             </div>
@@ -1246,7 +1372,7 @@
             </div>
             </div>
 
-            <h3 style="margin-top: 0.29rem; margin-bottom: 0.08rem; color: var(--primary-blue); font-size: 3.5rem; font-weight: bold; font-family: 'DIN Neuzeit Grotesk', 'DIN Next', sans-serif; transform: translateY(0.8rem);">Our Clients</h3>
+            <h3 style="margin-top: 0.29rem; margin-bottom: 0.08rem; color: var(--primary-blue); font-size: 3.5rem; font-weight: bold; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transform: translateY(0.8rem);">Our Clients</h3>
             <div class="clients-carousel">
                 <div class="client-carousel-slide active">
                     <div class="client-logo"><img src="./images/Logos/State_Street logo.png" alt="State Street"></div>
@@ -1430,61 +1556,6 @@
 </footer>
 
 <script>
-    let currentSlide = 0;
-    const totalSlides = 2;
-    let autoRotateInterval;
-
-    function goToSlide(index) {
-        currentSlide = index;
-        updateCarousel();
-        resetAutoRotate();
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-    }
-
-    function updateCarousel() {
-        const carouselContent = document.getElementById('carouselContent');
-        const offset = -currentSlide * 50;
-        carouselContent.style.transform = `translateX(${offset}%)`;
-
-        // Update dots
-        const dots = document.querySelectorAll('.carousel-dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-
-    function startAutoRotate() {
-        autoRotateInterval = setInterval(() => {
-            nextSlide();
-        }, 3000);
-    }
-
-    function resetAutoRotate() {
-        clearInterval(autoRotateInterval);
-        startAutoRotate();
-    }
-
-    // Event listeners
-    document.getElementById('nextBtn').addEventListener('click', () => {
-        nextSlide();
-        resetAutoRotate();
-    });
-    document.getElementById('prevBtn').addEventListener('click', () => {
-        prevSlide();
-        resetAutoRotate();
-    });
-
-    // Start auto-rotation on page load
-    startAutoRotate();
 </script>
 
 </body>

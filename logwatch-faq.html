@@ -582,6 +582,29 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is LogWatch?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "LogWatch is a Guardian program that monitors log files for new entries and generates alerts based on configurable patterns."
+                }
+            },            {
+                "@type": "Question",
+                "name": "How does LogWatch help prevent downtime?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "LogWatch monitors application logs in real-time and alerts you to potential issues before they become critical problems."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -639,7 +662,7 @@
     <section class="hero">
         <div class="hero-left">
             <h1>LogWatch</h1>
-            <h1 style="margin-top: 0.5rem;">FAQ</h1>
+            <h2 style="margin-top: 0.5rem;">FAQ</h2>
         </div>
         <div class="hero-right" style="background-image: url('./images/FAQ Pages/FAQ_Image.png');"></div>
     </section>

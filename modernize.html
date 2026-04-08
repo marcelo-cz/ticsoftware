@@ -90,9 +90,68 @@
         }
 
         .search-icon {
+
             cursor: pointer;
+
             font-size: 1.2rem;
+
         }
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-search-input {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 250px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.1);
+        }
+
+        .nav-search-btn {
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-search-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
 
         .nav-dropdown {
             position: relative;
@@ -615,6 +674,38 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Modernize",
+        "description": "Provide modernization solutions, ranging from replacing Green Screen interface with GUI, to completely transforming COBOL and SCOBOL code into .NET and Java applications.",
+        "brand": {
+            "@type": "Brand",
+            "name": "TIC Software"
+        },
+        "manufacturer": {
+            "@type": "Organization",
+            "name": "TIC Software",
+            "url": "https://www.ticsoftware.com"
+        },
+        "url": "https://www.ticsoftware.com/modernize.html",
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "5000",
+            "highPrice": "50000"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "120",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "category": "Enterprise Software"
+    }
+    </script>
 </head>
 <body>
     <header>
