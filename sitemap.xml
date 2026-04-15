@@ -234,7 +234,7 @@
 
   <!-- Blog Posts -->
   <url>
-    <loc>https://www.ticsoftware.com/blogs/blog.html</loc>
+    <loc>https://www.ticsoftware.com/blog.html</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
