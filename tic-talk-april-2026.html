@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIC Talk April 2026 - TIC Software Newsletter</title>
-    <meta name="description" content="TIC Talk April 2026 newsletter featuring insights on NonStop business rules, NYTUG 2026 event, and TIC Navigator AI-powered intelligence platform.">
+    <meta name="description" content="TIC Talk April 2026 newsletter featuring insights on Nonstop business rules, NYTUG 2026 event, and TIC Navigator AI-powered intelligence platform.">
     <meta property="og:title" content="TIC Talk April 2026 - TIC Software Newsletter">
-    <meta property="og:description" content="TIC Talk April 2026 newsletter featuring insights on NonStop business rules, NYTUG 2026 event, and TIC Navigator AI-powered intelligence platform.">
+    <meta property="og:description" content="TIC Talk April 2026 newsletter featuring insights on Nonstop business rules, NYTUG 2026 event, and TIC Navigator AI-powered intelligence platform.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://www.ticsoftware.com/tic-talk-april-2026.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TIC Talk April 2026 - TIC Software Newsletter">
-    <meta name="twitter:description" content="TIC Talk April 2026 newsletter featuring insights on NonStop business rules, NYTUG 2026 event, and TIC Navigator AI-powered intelligence platform.">
+    <meta name="twitter:description" content="TIC Talk April 2026 newsletter featuring insights on Nonstop business rules, NYTUG 2026 event, and TIC Navigator AI-powered intelligence platform.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <style>
@@ -603,6 +603,60 @@
                 gap: 2rem;
             }
         }
+
+        /* Lightbox Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            cursor: pointer;
+        }
+
+        .modal.open {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            cursor: default;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal-close:hover {
+            color: #ccc;
+        }
+
+        .clickable-image {
+            cursor: pointer;
+        }
+
+        .clickable-image:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -623,20 +677,67 @@
     <!-- Main Content -->
     <main>
 
+        <!-- Webinar Section -->
+        <div class="newsletter-section">
+            <h2 class="section-title with-red-line">Webinar: A Better Way to Develop and Navigate HPE Nonstop</h2>
+            <div class="section-content">
+                <div>
+                    <img src="./images/Webinar.jpg" alt="Webinar: A Better Way to Develop and Navigate HPE Nonstop" class="section-image">
+                </div>
+                <div class="section-text">
+                    <p>Nonstop systems are mission-critical by design — but developing and maintaining them doesn't have to feel like navigating without a map. Lack of documentation, complex dependencies, and hard-to-find expertise make everyday development and support work difficult.</p>
+                    <p><strong>TIC Software is hosting a live demo to show how TIC Navigator can help</strong> Nonstop developers and the technical managers who support them.</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="font-weight: bold; margin-bottom: 1rem;">TIC Navigator works directly with your Nonstop environment to:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <ul style="list-style: none; padding-left: 0; margin: 0;">
+                <li style="margin-bottom: 0.75rem;">•    Auto-generate architecture and data flow diagrams from COBOL, SCOBOL TAL, pTAL, and TACL source code</li>
+                <li style="margin-bottom: 0.75rem;">•    Produce clear, structured documentation from undocumented programs</li>
+            </ul>
+            <ul style="list-style: none; padding-left: 0; margin: 0;">
+                <li style="margin-bottom: 0.75rem;">•    Surface hidden dependencies and risks buried in complex code</li>
+                <li>•    Preserve and share institutional knowledge so it outlasts any one team member</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img id="diagramImage" class="clickable-image" src="./images/architecture_diagram.png" alt="TIC Navigator architecture diagram" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+            <p style="font-style: italic; color: #555; font-size: 0.9rem;">Example: TIC Navigator automatically generating an architecture diagram from Nonstop source code — in minutes.</p>
+        </div>
+
+        <!-- Modal for image expansion -->
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <img src="./images/architecture_diagram.png" alt="TIC Navigator architecture diagram">
+            </div>
+        </div>
+
+        <p style="font-weight: bold; margin-bottom: 1rem;">Attend and discover how to:</p>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 2rem;">
+            <li style="margin-bottom: 0.75rem;">•    Navigate complex Nonstop architectures with speed and confidence</li>
+            <li style="margin-bottom: 0.75rem;">•    Catch risks before they become production incidents</li>
+            <li style="margin-bottom: 0.75rem;">•    Get new team members productive in weeks, not months</li>
+            <li>•    Maintain development continuity as experienced staff retire or transition</li>
+        </ul>
+
         <!-- What's New Section -->
         <div class="newsletter-section">
             <h2 class="section-title with-red-line">What's New</h2>
             <div class="whats-new-grid">
                 <div class="whats-new-card">
-                    <img src="./images/Business_Rules.jpg" alt="NonStop Business Rules" class="whats-new-image">
+                    <img src="./images/Business_Rules.jpg" alt="Nonstop Business Rules" class="whats-new-image">
                     <h3>Nonstop Business Rules: From Code to Business Specs with TIC Navigator</h3>
                     <p>Explore how automated business rule extraction transforms hidden logic in legacy Nonstop code into clear, actionable business specifications. Learn why this matters for modernization.</p>
                     <a href="https://ticsoftware.ai/blogs/blog-nonstop-business-rules" class="cta-button">Read More →</a>
                 </div>
                 <div class="whats-new-card">
-                    <img src="./images/Gen_AI.jpg" alt="Beyond the Hype: GenAI for NonStop" class="whats-new-image">
-                    <h3>Beyond the Hype: A Practical Guide to GenAI Success for NonStop</h3>
-                    <p>Learn practical strategies for successful GenAI implementation in NonStop environments. Discover how to move beyond the hype and achieve measurable business outcomes.</p>
+                    <img src="./images/Gen_AI.jpg" alt="Beyond the Hype: GenAI for Nonstop" class="whats-new-image">
+                    <h3>Beyond the Hype: A Practical Guide to GenAI Success for Nonstop</h3>
+                    <p>Learn practical strategies for successful GenAI implementation in Nonstop environments. Discover how to move beyond the hype and achieve measurable business outcomes.</p>
                     <a href="https://ticsoftware.ai/blogs/blog-beyond-the-hype-genai" class="cta-button">Read More →</a>
                 </div>
             </div>
@@ -652,7 +753,7 @@
                 <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                     <div>
                         <h3>What is TIC Navigator?</h3>
-                        <p>TIC Navigator is an AI-powered intelligence platform that unlocks the business value hidden inside HPE NonStop applications. It automatically analyzes NonStop source code—COBOL, SCOBOL, TAL/pTAL, C/C++, and TACL—and transforms complex, decades-old systems into clear, searchable insights.</p>
+                        <p>TIC Navigator is an AI-powered intelligence platform that unlocks the business value hidden inside HPE Nonstop applications. It automatically analyzes Nonstop source code—COBOL, SCOBOL, TAL/pTAL, C/C++, and TACL—and transforms complex, decades-old systems into clear, searchable insights.</p>
                     </div>
                     <a href="https://ticsoftware.ai/code-navigator" class="cta-button" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; width: fit-content;">Explore Navigator →</a>
                 </div>
@@ -662,7 +763,7 @@
                 <div>
                     <h3>Key Features</h3>
                     <ul>
-                        <li><strong>Automatic Code Analysis:</strong> Intelligently parses and understands NonStop source code in multiple languages</li>
+                        <li><strong>Automatic Code Analysis:</strong> Intelligently parses and understands Nonstop source code in multiple languages</li>
                         <li><strong>Business Rules Extraction:</strong> Identifies and documents business logic and workflows</li>
                         <li><strong>Searchable Documentation:</strong> Creates comprehensive, searchable documentation of your systems</li>
                         <li><strong>AI-Powered Insights:</strong> Leverages machine learning to provide actionable recommendations</li>
@@ -672,13 +773,13 @@
 
                 <div>
                     <h3>Why TIC Navigator?</h3>
-                    <p>Understanding legacy NonStop systems is critical for maintenance, compliance, and modernization initiatives. TIC Navigator makes it easier than ever to:</p>
+                    <p>Understanding legacy Nonstop systems is critical for maintenance, compliance, and modernization initiatives. TIC Navigator makes it easier than ever to:</p>
                     <ul>
                         <li>Onboard new team members faster</li>
                         <li>Ensure compliance with business rules</li>
                         <li>Plan modernization strategies</li>
                         <li>Reduce operational risk</li>
-                        <li>Maximize the value of your NonStop investments</li>
+                        <li>Maximize the value of your Nonstop investments</li>
                     </ul>
                 </div>
             </div>
@@ -690,7 +791,7 @@
             <div class="section-content">
                 <div style="text-align: center;">
                     <img src="./TIC_Talk_Files/Images/TIC_Talk_42626/NYTUG_2026.png" alt="NYTUG 2026 Event" class="section-image" style="width: 90%; margin: 0 auto; display: block;">
-                    <p style="text-align: justify; font-size: 0.95rem; line-height: 1.8; margin-top: 1rem;">Join us at the New York Technical User Group conference to learn about the latest innovations in NonStop technology, network with industry professionals, and discover how TIC Software solutions can help modernize your systems.</p>
+                    <p style="text-align: justify; font-size: 0.95rem; line-height: 1.8; margin-top: 1rem;">Join us at the New York Technical User Group conference to learn about the latest innovations in Nonstop technology, network with industry professionals, and discover how TIC Software solutions can help modernize your systems.</p>
                 </div>
                 <div>
                     <div class="event-card">
@@ -725,5 +826,25 @@
             </div>
         </div>
     </footer>
+    <script>
+        const diagramImage = document.getElementById('diagramImage');
+        const imageModal = document.getElementById('imageModal');
+        const modalClose = document.querySelector('.modal-close');
+
+        diagramImage.addEventListener('click', function() {
+            imageModal.classList.add('open');
+        });
+
+        modalClose.addEventListener('click', function(e) {
+            e.stopPropagation();
+            imageModal.classList.remove('open');
+        });
+
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html>

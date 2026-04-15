@@ -215,6 +215,56 @@
             display: flex;
             flex-direction: column;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: left center;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .story-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-card.with-bg-us-foods::before {
+            background-image: url('./images/Logos/US_Foods_logo.jpg');
+        }
+
+        .story-card.with-bg-pape::before {
+            background-image: url('./images/Logos/Pape_logo.jpg');
+            background-position: 70% center;
+        }
+
+        .story-card.with-bg-telemail::before {
+            background-image: url('./images/Products/Messaging/TeleMail_blue.jpg');
+            background-position: left center;
+        }
+
+        .story-card.with-bg-cass::before {
+            background-image: url('./images/Logos/Cass_Information_logo.png');
+        }
+
+        .story-card.with-bg-gallagher::before {
+            background-image: url('./images/Logos/Gallagher_logo.jpg');
+            background-position: 10% center;
+        }
+
+        .story-card.with-bg-ihc::before {
+            background-image: url('./images/Logos/ihc_logo.jpg');
+            background-position: 50% center;
+            background-size: contain;
         }
 
         .story-card:hover {
@@ -228,12 +278,14 @@
             font-size: 1.2rem;
             line-height: 1.6;
             color: var(--primary-blue);
+            font-weight: bold;
         }
 
         .story-card p {
             flex-grow: 1;
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
+            font-weight: bold;
         }
 
         .story-card a.read-more {
@@ -746,30 +798,30 @@
     <main>
         <section>
             <div class="stories-grid">
-                <div class="story-card">
+                <div class="story-card with-bg-us-foods">
                     <h3>Premiere Wholesale Food Distributor, US Foods, Recruits TIC to Optimize Supply Chain Management</h3>
                     <div style="font-size: 0.9rem; color: var(--dark-text); margin-bottom: 1rem;">
                         <strong>Products:</strong>
-                        <a href="./PDF/XML_Thunder_Product _Overview.pdf" class="product-tag">Thunder Suite</a>
+                        <a href="./json-thunder.html" class="product-tag">Thunder Suite</a>
                         <a href="./PDF/LightWave_Client_Datasheet.pdf" class="product-tag">LightWave</a>
                     </div>
                     <p>Learn how TIC helped US Foods streamline their supply chain management processes and improve operational efficiency on NonStop systems.</p>
                     <a href="us-foods-success-story.html" class="read-more">Read More</a>
                 </div>
 
-                <div class="story-card">
+                <div class="story-card with-bg-pape">
                     <h3>Leading Agro-technological Distributor, Papé Group, Relies on TIC to Keep Its Fleet Management Running on Time</h3>
                     <div style="font-size: 0.9rem; color: var(--dark-text); margin-bottom: 1rem;">
                         <strong>Products:</strong>
                         <a href="./PDF/Telemail_Datasheet.pdf" class="product-tag">TeleMail</a>
-                        <a href="./PDF/TelePath_DataSheet.pdf" class="product-tag">TelePath</a>
+                        <a href="./PDF/TelePath.pdf" class="product-tag">TelePath</a>
                         <a href="./PDF/TeleFTP_Datasheet.pdf" class="product-tag">TeleFTP</a>
                     </div>
                     <p>Discover how TIC's solutions enabled Papé Group to maintain reliable fleet management operations and stay ahead of their competition.</p>
                     <a href="pape-success-story.html" class="read-more">Read More</a>
                 </div>
 
-                <div class="story-card">
+                <div class="story-card with-bg-telemail">
                     <h3>TeleMail: A Powerful Email-Based Report and Document Distribution System</h3>
                     <div style="font-size: 0.9rem; color: var(--dark-text); margin-bottom: 1rem;">
                         <strong>Products:</strong>
@@ -779,7 +831,7 @@
                     <a href="telemail-success-story.html" class="read-more">Read More</a>
                 </div>
 
-                <div class="story-card">
+                <div class="story-card with-bg-cass">
                     <h3>The Buck Stops Here: TIC Provides Automated Payment Solutions for Cass Information, A Leader in Expense Management</h3>
                     <div style="font-size: 0.9rem; color: var(--dark-text); margin-bottom: 1rem;">
                         <strong>Products:</strong>
@@ -790,19 +842,19 @@
                     <a href="cass-success-story.html" class="read-more">Read More</a>
                 </div>
 
-                <div class="story-card">
+                <div class="story-card with-bg-gallagher">
                     <h3>Safeguarding Exposure: TIC Helps Gallagher Bassett Minimize Risk With Its IT Solutions</h3>
                     <div style="font-size: 0.9rem; color: var(--dark-text); margin-bottom: 1rem;">
                         <strong>Products:</strong>
                         <a href="./PDF/Telemail_Datasheet.pdf" class="product-tag">TeleMail</a>
                         <a href="./PDF/TeleFTP_Datasheet.pdf" class="product-tag">TeleFTP</a>
-                        <a href="./PDF/Logwatch_Data sheet.pdf" class="product-tag">LogWatch</a>
+                        <a href="./logwatch.html" class="product-tag">LogWatch</a>
                     </div>
                     <p>Learn how Gallagher Bassett, a premiere third party claim processing company, leverages TIC solutions to reduce risk and enhance security.</p>
                     <a href="gallagher-bassett-success-story.html" class="read-more">Read More</a>
                 </div>
 
-                <div class="story-card">
+                <div class="story-card with-bg-ihc">
                     <h3>A Study In Interconnectivity: TIC Provides Solutions to Bridge Fax and Mainframe Systems to Intermountain Healthcare Network</h3>
                     <div style="font-size: 0.9rem; color: var(--dark-text); margin-bottom: 1rem;">
                         <strong>Products:</strong>
