@@ -170,13 +170,7 @@
         }
 
         .hero-left {
-            flex: 0 0 20%;
-            background-color: #001f4d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.6rem;
-            border-right: 5px solid var(--accent-red);
+            display: none;
         }
 
         .hero-left h1 {
@@ -196,11 +190,15 @@
         }
 
         .hero-right {
-            flex: 0 0 80%;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+        }
+
+        .hero-right {
+            position: relative;
         }
 
         .hero-right-img {
@@ -208,6 +206,28 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .hero-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero-text-overlay h1 {
+            font-size: 2rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .hero-text-overlay p {
+            font-size: 1rem;
+            margin: 0.5rem 0 0 0;
         }
 
         /* Main Content */
@@ -671,14 +691,12 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-left">
-            <div>
-                <h1>TIC Talk Newsletter</h1>
-                <p class="hero-subtext">April, 2026  Edition</p>
-            </div>
-        </div>
         <div class="hero-right">
             <img src="./TIC_Talk_Files/Images/TIC_Talk_Banner final.jpg" alt="TIC Talk Banner" class="hero-right-img">
+            <div class="hero-text-overlay">
+                <h1>TIC Talk Newsletter</h1>
+                <p>April, 2026 Edition</p>
+            </div>
         </div>
     </section>
 
