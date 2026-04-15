@@ -198,7 +198,11 @@
         }
 
         .hero-right {
-            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .hero-right-img {
@@ -208,26 +212,23 @@
             display: block;
         }
 
-        .hero-text-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
-            color: white;
-            padding: 4rem 2rem 2rem 2rem;
+        .hero-text-section {
             text-align: center;
+            padding: 2rem 2rem 0.5rem 2rem;
+            background-color: var(--white);
         }
 
-        .hero-text-overlay h1 {
+        .hero-text-section h1 {
             font-size: 2rem;
             margin: 0;
             font-weight: bold;
+            color: var(--dark-text);
         }
 
-        .hero-text-overlay p {
+        .hero-text-section p {
             font-size: 1rem;
             margin: 0.5rem 0 0 0;
+            color: var(--dark-text);
         }
 
         /* Main Content */
@@ -693,12 +694,13 @@
     <section class="hero-section">
         <div class="hero-right">
             <img src="./TIC_Talk_Files/Images/TIC_Talk_Banner final.jpg" alt="TIC Talk Banner" class="hero-right-img">
-            <div class="hero-text-overlay">
-                <h1>TIC Talk Newsletter</h1>
-                <p>April, 2026 Edition</p>
-            </div>
         </div>
     </section>
+
+    <div class="hero-text-section">
+        <h1>TIC Talk Newsletter</h1>
+        <p>April, 2026 Edition</p>
+    </div>
 
     <!-- Main Content -->
     <main>
