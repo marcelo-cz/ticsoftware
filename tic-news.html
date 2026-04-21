@@ -37,13 +37,14 @@
             color: var(--dark-text);
             line-height: 1.6;
             background-color: var(--white);
+            margin: 0;
         }
 
         /* Header & Navigation */
         header {
             background-color: var(--white);
             border-bottom: 1px solid var(--border-gray);
-            padding: 1rem 0;
+            padding: 1rem 0 0 0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -140,24 +141,30 @@
         .hero {
             display: grid;
             grid-template-columns: 40% 60%;
-            height: 280px;
+            height: 254px;
             background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
         }
 
         .hero-left {
             background-color: #001a4d;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             color: var(--white);
+            padding: 2rem;
+            gap: 0.5rem;
         }
 
         .hero-left h1 {
             font-size: 2.5rem;
             text-align: center;
-            padding: 2rem;
             font-weight: bold;
             color: var(--white);
+            line-height: 1.3;
+            margin: 0;
         }
 
         .hero-right {
@@ -172,7 +179,7 @@
         }
 
         .news-intro {
-            text-align: center;
+            text-align: left !important;
             line-height: 1.8;
             margin: 0.25rem auto 0.25rem auto;
             padding: 0;
@@ -407,8 +414,8 @@
         }
 
         .featured-card-4 .news-status {
-            background-color: rgba(0, 0, 0, 0.4);
-            color: var(--white);
+            background-color: #f0f0f0;
+            color: #666;
         }
 
         .featured-card-4 a {
@@ -478,8 +485,8 @@
         }
 
         .featured-card-8 .news-status {
-            background-color: rgba(0, 0, 0, 0.4);
-            color: var(--white);
+            background-color: #f0f0f0;
+            color: #666;
         }
 
         .featured-card-8 a {
@@ -549,8 +556,8 @@
         }
 
         .featured-card-13 .news-status {
-            background-color: rgba(0, 0, 0, 0.4);
-            color: var(--white);
+            background-color: #f0f0f0;
+            color: #666;
         }
 
         .featured-card-13 a {
@@ -576,8 +583,8 @@
         }
 
         .featured-card-14 .news-status {
-            background-color: rgba(0, 0, 0, 0.4);
-            color: var(--white);
+            background-color: #f0f0f0;
+            color: #666;
         }
 
         .featured-card-14 a {
@@ -1179,51 +1186,57 @@
     <section class="hero">
         <div class="hero-left">
             <h1>TIC News</h1>
+            <p style="color: white; font-size: 0.95rem; line-height: 1.6; margin-top: 0.5rem;">TIC News is focused on covering current and future events at TIC Software. Here you can find information on upcoming presentations, new team members, and partnerships.</p>
         </div>
         <div class="hero-right"></div>
     </section>
 
     <!-- Main Content -->
     <main>
-        <section>
-            <h2 class="news-intro">TIC News is focused on covering current and future events at TIC Software. Here you can find information on upcoming presentations, new team members, and partnerships.</h2>
-        </section>
 
         <!-- Featured Article -->
         <section>
             <div class="featured-article">
                 <div class="featured-article-content">
-                    <div class="featured-article-date">February 2026 (Great Neck, NY)</div>
-                    <h2>GenAI Tutorial for Nonstop Teams: From LLM and RAG to Real World Applications</h2>
-                    <p class="featured-article-excerpt">This webinar walks Nonstop developers, architects, and operations staff through the fundamentals of Generative AI in clear easy-to-understand language.</p>
-                    <span class="news-status">Webinar Passed</span>
-                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                    <h2>TIC Talk: April Edition</h2>
+                    <p class="featured-article-excerpt">In our latest edition of TIC Talk, we are pleased to highlight our upcoming webinar, "A Better Way to Develop and Navigate HPE NonStop," scheduled for the end of this month. The session will include live demonstrations of TIC Navigator.</p>
+                    <p class="featured-article-excerpt">We also invite you to join our presentation at the New York Technical User Group (NYTUG) conference in May, where we will share valuable insights on TIC Navigator and much more.</p>
+                    <a href="https://ticsoftware.com/tic-talk-april-2026" class="read-more" target="_blank" style="display: inline-block; margin-top: 1rem;">Read More →</a>
                 </div>
-                <div class="featured-article-image"></div>
+                <div class="featured-article-image" style="background-image: url('./TIC_Talk_Files/Images/TIC_Talk_News_Banner.jpg'); background-size: cover; background-position: center top;"></div>
             </div>
         </section>
 
         <!-- News Grid -->
         <section>
             <div class="news-grid">
-                <!-- Card 1 -->
+                <!-- Card 1 - Previous Featured Article -->
                 <div class="news-card featured-card">
+                    <div class="featured-article-date">February 2026 (Great Neck, NY)</div>
+                    <h3>GenAI Tutorial for Nonstop Teams: From LLM and RAG to Real World Applications</h3>
+                    <p>This webinar walks Nonstop developers, architects, and operations staff through the fundamentals of Generative AI in clear easy-to-understand language.</p>
+                    <span class="news-status">Webinar Passed</span>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="news-card featured-card-2">
                     <div class="featured-article-date">January 2026 (Great Neck, NY)</div>
                     <h3>The Importance of "Human In the Loop" for Successful AI adoption</h3>
                     <p>We are excited to introduce our AI-powered documentation tool, TIC Navigator, at this year's TBC. AI can absolutely help customers move faster. But in our experience, real success comes from people working together.</p>
                     <a href="https://ticsoftware.ai/blogs/human-in-the-loop" class="read-more" target="_blank">Read Article</a>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="news-card featured-card-2">
+                <!-- Card 3 -->
+                <div class="news-card featured-card-3">
                     <div class="featured-article-date">December 2025 (Great Neck, NY)</div>
                     <h3>GenAI and Knowledgebase: The Way to Build Your Next Nonstop Team</h3>
                     <p>Many HPE Nonstop sites share the same concern. The people who built and ran these systems for years are getting close to retirement. They know the history, the shortcuts, and all the "landmines."</p>
                     <a href="https://ticsoftware.ai/blogs/blog-genai-knowledgebase" class="read-more" target="_blank">Read More</a>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="news-card featured-card-3">
+                <!-- Card 4 -->
+                <div class="news-card featured-card-4">
                     <div class="featured-article-date">November 2025 (Great Neck, NY)</div>
                     <h3>Virtual TUG: TIC Navigator - AI-Powered Knowledge Builder</h3>
                     <p>Discover how our cutting-edge AI technology is reshaping the landscape of HPE NonStop systems.</p>
@@ -1231,8 +1244,8 @@
                     <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="news-card featured-card-4">
+                <!-- Card 5 -->
+                <div class="news-card featured-card-5">
                     <div class="featured-article-date">November 2025 (Great Neck, NY)</div>
                     <h3>New to Nonstop Rotary Session 1: TIC Software</h3>
                     <p>We're thrilled to announce our very first Rotary Session with Phil Ly, CEO and President of TIC Software, as the kickoff speaker. When: November 4th, 2025 | Time: 10:00 AM CST</p>
@@ -1348,14 +1361,6 @@
                     <a href="./ulinga.html" class="read-more" target="_blank">Learn More</a>
                 </div>
 
-                <!-- Card 18 -->
-                <div class="news-card featured-card-18">
-                    <div class="featured-article-date">October 2024 (Great Neck, NY)</div>
-                    <h3>TIC Software Presents: Solving NonStop Enterprise Integration Challenges with Kafka</h3>
-                    <p>The NonStop Kafka Producer, Consumer, and the Kafka connector ecosystem offer significant advantages. Join TIC Software's webinar to explore how Kafka facilitates seamless integration between NonStop and the Enterprise by using uLinga.</p>
-                    <span class="news-status">Webinar Passed</span>
-                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
-                </div>
             </div>
 
             <!-- Pagination -->
