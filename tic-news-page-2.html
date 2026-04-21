@@ -147,16 +147,21 @@
         .hero-left {
             background-color: #001a4d;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             color: var(--white);
+            padding: 2rem;
+            gap: 0.5rem;
         }
 
         .hero-left h1 {
             font-size: 2.5rem;
             text-align: center;
-            padding: 2rem;
             font-weight: bold;
+            color: var(--white);
+            line-height: 1.3;
+            margin: 0;
         }
 
         .hero-right {
@@ -1060,6 +1065,7 @@
     <section class="hero">
         <div class="hero-left">
             <h1>TIC News</h1>
+            <p style="color: white; font-size: 0.95rem; line-height: 1.6; margin-top: 0.5rem;">TIC News is focused on covering current and future events at TIC Software. Here you can find information on upcoming presentations, new team members, and partnerships.</p>
         </div>
         <div class="hero-right"></div>
     </section>
