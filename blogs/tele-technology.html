@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimize Application Downtime with LogWatch Monitoring - TIC Software Blog</title>
-    <meta name="description" content="Learn how LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises and downtime.">
-    <meta property="og:title" content="Minimize Application Downtime with LogWatch Monitoring - TIC Software Blog">
-    <meta property="og:description" content="Learn how LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises and downtime.">
+    <title>'Tele' Technology with TIC Software - TIC Software Blog</title>
+    <meta name="description" content="Learn about TIC's Tele family technologies designed for Nonstop application modernization through messaging and data delivery.">
+    <meta property="og:title" content="'Tele' Technology with TIC Software - TIC Software Blog">
+    <meta property="og:description" content="Learn about TIC's Tele family technologies designed for Nonstop application modernization through messaging and data delivery.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.ticsoftware.com/blogs\blog-minimize-downtime-logwatch.html">
+    <meta property="og:url" content="https://www.ticsoftware.com/blogs\tele-technology.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Minimize Application Downtime with LogWatch Monitoring - TIC Software Blog">
-    <meta name="twitter:description" content="Learn how LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises and downtime.">
+    <meta name="twitter:title" content="'Tele' Technology with TIC Software - TIC Software Blog">
+    <meta name="twitter:description" content="Learn about TIC's Tele family technologies designed for Nonstop application modernization through messaging and data delivery.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
@@ -136,35 +136,6 @@
             display: block;
         }
 
-        /* Hero Section */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            height: 254px;
-            background-color: var(--white);
-            max-width: 100%;
-            margin: 0;
-        }
-
-        .hero-left {
-            background-color: #001a4d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-        }
-
-        .hero-left h1 {
-            font-size: 2.1rem;
-            text-align: center;
-            padding: 2rem;
-            font-weight: bold;
-        }
-
-        .hero-right {
-            background: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
-        }
-
         /* Main Content */
         main {
             max-width: 1000px;
@@ -176,6 +147,14 @@
             margin-bottom: 2rem;
             padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
+        }
+
+        .blog-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .blog-meta {
@@ -227,7 +206,7 @@
             font-size: 1.6rem;
             color: var(--primary-blue);
             font-weight: bold;
-            margin: 2rem 0 1rem 0;
+            margin: 0.5rem 0 1rem 0;
         }
 
         .blog-content h3 {
@@ -249,14 +228,6 @@
 
         .blog-content li {
             margin-bottom: 0.75rem;
-        }
-
-        .blog-content img {
-            max-width: 70%;
-            height: auto;
-            display: block;
-            margin: 2rem auto;
-            border-radius: 8px;
         }
 
         .product-emphasis {
@@ -333,7 +304,7 @@
             float: left;
             margin-right: 0.75rem;
             margin-bottom: 1rem;
-            max-width: 72px;
+            max-width: 144px;
             border-radius: 8px;
         }
 
@@ -343,18 +314,46 @@
             text-align: justify;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--dark-text);
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            margin-top: 3rem;
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
         }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
             nav {
                 gap: 1rem; flex-wrap: nowrap;
                 font-size: 0.85rem;
@@ -367,15 +366,6 @@
             .blog-meta {
                 flex-direction: column;
                 gap: 0.5rem;
-            }
-
-            .hero-section {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .hero-left h1 {
-                font-size: 1.8rem;
             }
 
             .related-blogs-grid {
@@ -488,8 +478,7 @@
         }
 
         .related-blog-button:hover {
-
-            content: " →";
+            background-color: var(--light-blue);
         }
 
         /* Footer Styles */
@@ -854,33 +843,6 @@
             display: block;
         }
     </style>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Minimize Application Downtime with LogWatch",
-        "description": "Proactive monitoring strategies for NonStop applications",
-        "image": "https://www.ticsoftware.com/images/TIC_Logo.png",
-        "datePublished": "2024-11-20",
-        "author": {
-            "@type": "Organization",
-            "name": "TIC Software"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "TIC Software",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.ticsoftware.com/images/TIC_Logo.png"
-            }
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.ticsoftware.com/blogs/blog-minimize-downtime-logwatch.html"
-        },
-        "articleBody": "Read our comprehensive guide on this topic"
-    }
-    </script>
 </head>
 <body>
     <header>
@@ -937,7 +899,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>Minimize Application Downtime with LogWatch Monitoring</h1>
+            <h1>Messaging Product Suite – 'Tele' Technology with TIC Software</h1>
         </div>
         <div class="hero-right"></div>
     </section>
@@ -948,84 +910,58 @@
             <div class="blog-meta">
                 <div class="blog-meta-item">
                     <span>📅</span>
-                    <span>Oct 17, 2023</span>
+                    <span>December 29, 2022</span>
                 </div>
                 <div class="blog-meta-item">
-                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
-                    <span>Phil Ly</span>
+                    <span>✍️</span>
+                    <span>TIC Software</span>
                 </div>
             </div>
             <div class="blog-tags">
-                <a href="../blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
-                <a href="../blog.html?tag=Monitoring" class="blog-tag">Monitoring</a>
-                <a href="../blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                <a href="../blog.html?tag=Messaging" class="blog-tag">Messaging</a>
+                <a href="../blog.html?tag=Modernization" class="blog-tag">Modernization</a>
             </div>
         </div>
 
         <div class="blog-content">
-            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/log_monitoring.png" alt="Log Monitoring" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <h2>Automating & Report Delivery via Email, Web, Fax and File Transfer</h2>
 
-            <p style="text-align: center;"><strong>LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises.</strong></p>
+            <img src="../images/Blogs & Articles/TIC_tools.jpg" alt="TIC Tools" style="width: 30%; height: auto; display: block; margin: 2rem auto;">
 
-            <p>In many Nonstop installations, there are robust tools and procedures to monitor events in EMS logs. However, the monitoring of running application health is often overlooked. Applications may log error statuses to a file, but these logs are not regularly reviewed.</p>
+            <p><strong>Tele</strong> is a prefix that combines the meaning of the phases <em>"reaching over a distance,"</em> <em>"carried out between two remote points,"</em> and <em>"performed or operated through electronic transmissions."</em> The 'Tele' family group technologies of TIC Software – has been designed for application modernization.</p>
 
-            <p><strong>Question:</strong> When do you look at your application log?</p>
+            <p>These <a href="../messaging.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Messaging products</a> are designed to seamlessly integrate Nonstop systems with other platforms via format conversion and data delivery – enabling automated processing and delivery of reports and information and keeping the applications organizations running smoothly.</p>
 
-            <p><strong>Common answer:</strong> After a problem has been reported.</p>
+            <h3>TeleMail</h3>
 
-            <p>Unfortunately, this often translates to a significant delay after the problem has occurred.</p>
+            <p><a href="./PDF/Telemail_Datasheet.pdf" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TeleMail</a> gives Nonstop users to deliver information via the Internet to virtually anywhere. Reports and documents archived on the server may be delivered as either an email attachment or in the message itself. Detailed log files and distribution lists may also be distributed for status and statistical reporting.</p>
 
-            <h2>How does LogWatch work?</h2>
+            <p>TeleMail can automatically translate information into a variety of formats including PDF, HTML and ZIP files; and requires no external hardware or software as it runs on the server. A Secure option is also available to support SSL and TLS SMTP Protocol.</p>
 
-            <p>LogWatch allows you to define the files and anomaly conditions you want to monitor in its configuration. Once configured, LogWatch actively monitors and alerts you when it detects an anomaly condition. Alerts can be sent via email, routed to EMS, written to disk, or directed to an external enterprise monitoring system.</p>
+<h3>TeleFTP</h3>
 
-            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch.png" alt="LogWatch Architecture" style="max-width: 42%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p>Nonstop spooler reports and files can be automatically transmitted via FTP protocol using TeleFTP freeing up IT time from having to manually configure and accomplish this task. TeleFTP provides for data to be converted into a variety of formats (TXT, PDF, ZIP) for delivery and flexible API is available for customizing for any environment.</p>
 
-            <h2>Detecting Application Issues</h2>
-
-            <p>LogWatch can be configured to scan your application log for error patterns, using simple word patterns such as "warning," "error," or "failure." Additionally, LogWatch's REGULAR EXPRESSION feature enables you to define complex rules to monitor and report specific combinations of patterns.</p>
-
-            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch_Regular_Expressions.png" alt="LogWatch Regular Expressions" style="max-width: 35%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <h2>Third Party Product Logs</h2>
-
-            <p>LogWatch is highly effective in monitoring third-party product logs to detect error conditions. It has been proven to work seamlessly with various third-party products, including:</p>
-
-            <ul>
-                <li>TeleMail (TIC)</li>
-                <li>LightWave Server and LightWave Client (NuWave)</li>
-                <li>Shadowbase (Gravic)</li>
-                <li>SecurDPS and CSL (Comforte)</li>
-            </ul>
-
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 2rem 0;">
-                <div style="text-align: center;">
-                    <img src="../images/TIC_2026.png" alt="TIC Software" style="max-width: 120px; height: auto; border-radius: 8px;">
-                </div>
-                <div style="text-align: center;">
-                    <img src="../images/Logos/NuWave_logo.png" alt="NuWave" style="max-width: 120px; height: auto; border-radius: 8px;">
-                </div>
-                <div style="text-align: center;">
-                    <img src="../images/Logos/Gravic_logo.jpeg" alt="Gravic" style="max-width: 120px; height: auto; border-radius: 8px;">
-                </div>
-                <div style="text-align: center;">
-                    <img src="../images/Logos/comforte_logo.jpg" alt="Comforte" style="max-width: 120px; height: auto; border-radius: 8px;">
-                </div>
+            <div class="product-emphasis">
+                <p><strong>Rock-solid legacy systems require application modernization to integrate and leverage the latest technology.</strong> TIC's 'Tele' line of software applications helps ensure that organization's using these servers for their 'mission-critical' day-to-day business operations can rest easy. Because TIC doesn't just offer software products and consulting services – we also offer solutions for your peace of mind.</p>
             </div>
 
-            <p>If you use any of these products as well as other third-party products, check out how LogWatch can help you monitor their errors.</p>
+            <h2>Key Technologies</h2>
 
-            <h2>Detecting Pathway Server Failures</h2>
+            <p>The Tele family encompasses several interconnected products:</p>
 
-            <p>Most Pathway servers are defined with their HOMETERM set as VHS. However, if a server abends, the abend message and trace stack appear on VHS, where nobody may notice for a while. LogWatch can be configured to monitor VHS for server abend messages and automatically send an email notification to SUPPORT or designated recipients about the error instantly.</p>
+            <ul>
+                <li><strong>TeleMail:</strong> Email integration and report delivery via SMTP</li>
+                <li><strong>TeleFTP:</strong> FTP-based file transmission with format conversion</li>
+            </ul>
 
-            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch_VHS_Messages.png" alt="LogWatch VHS Messages" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p>All of these products share the common goal of modernizing Nonstop systems by enabling seamless integration with contemporary platforms and technologies, eliminating manual processes, and ensuring reliable, secure delivery of critical business information.</p>
 
-            <h2>Minimize Downtime – Be Proactive!</h2>
+            <h2>Conclusion</h2>
 
-            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/Minimize_Downtime.jpg" alt="Minimize Downtime" style="max-width: 35%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p>The 'Tele' family of products from TIC Software represents a comprehensive approach to Nonstop modernization. By automating report and data delivery across multiple channels – email, web, fax, and FTP – organizations can reduce operational overhead, minimize human error, and ensure that critical information reaches the right people at the right time.</p>
 
-            <p>Studies estimate downtime costs at around $9,000 per minute, with larger organizations facing hundreds of thousands per hour. Every minute matters when your application is down. Utilize LogWatch to instantly detect application errors, enabling you to minimize downtime and save significant amounts of money.</p>
+            <p>Whether you're looking to modernize your messaging infrastructure, automate report distribution, or integrate your Nonstop systems with cloud-based solutions, TIC's Tele technologies provide proven, reliable solutions.</p>
         </div>
 
         <a href="../blog.html" class="back-button">← Back to Blog</a>
@@ -1042,8 +978,8 @@
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
         <div class="company-section">
-            <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
-            <p class="company-text">Phil Ly is the president of <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
+            <img src="../images/TIC_2026.png" alt="TIC Software Logo" class="company-image">
+            <p class="company-text"><a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a New York-based company specializing in software and services that integrate Nonstop with the latest technologies, including Web Services, .NET and Java. Prior to founding TIC in 1983, Phil worked for Tandem Computer in technical support and software development.</p>
             <div style="clear: both;"></div>
         </div>
 
@@ -1053,39 +989,39 @@
                 <!-- Related Blog 1 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="LogWatch Web Interface">
+                        <img src="../images/Blogs & Articles/2025 The Year to Transform Your HPE Nonstop Platform for Tomorrows Challenges/IT_Modernization.png" alt="2025 Transform Nonstop">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Mar 18, 2024</div>
-                        <h3 class="related-blog-title">Building a Web Interface to a Centralized View of Application Logs with LogWatch</h3>
-                        <p class="related-blog-excerpt">Learn how to build a web interface for centralized application log viewing with LogWatch.</p>
-                        <a href="./blog-logwatch-web-interface.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Dec 16, 2024</div>
+                        <h3 class="related-blog-title">2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges</h3>
+                        <p class="related-blog-excerpt">Explore strategies to transform your HPE Nonstop platform for tomorrow's challenges.</p>
+                        <a href="./2025-transform-nonstop.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 2 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Logos/kafka grey logo.png" alt="Kafka uLinga">
+                        <img src="../images/Logos/kafka grey logo.png" alt="Kafka Nonstop">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Mar 25, 2024</div>
-                        <h3 class="related-blog-title">Nonstop Integration with LogWatch and uLinga for Better Visibility</h3>
-                        <p class="related-blog-excerpt">Integrate Nonstop systems with LogWatch and uLinga for improved operational visibility.</p>
-                        <a href="./blog-nonstop-integration-logwatch-ulinga.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Nov 5, 2023</div>
+                        <h3 class="related-blog-title">Kafka and HPE Nonstop Integration</h3>
+                        <p class="related-blog-excerpt">Explore how Kafka integrates seamlessly with Nonstop systems.</p>
+                        <a href="./blog-kafka-nonstop.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/How to Aggregate Nonstop Logs to Kafka/Log Aggregation.jpg" alt="Nonstop Logs to Kafka">
+                        <img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="LogWatch Logs">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Nov 19, 2023</div>
-                        <h3 class="related-blog-title">How to Aggregate Nonstop Logs to Kafka in One Simple Step</h3>
-                        <p class="related-blog-excerpt">Learn how to aggregate Nonstop logs to Kafka using uLinga for Kafka with three simple methods.</p>
-                        <a href="./blog-aggregate-nonstop-logs-kafka.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Dec 2, 2023</div>
+                        <h3 class="related-blog-title">Application Logging and Monitoring</h3>
+                        <p class="related-blog-excerpt">Implement comprehensive logging and monitoring strategies for Nonstop applications.</p>
+                        <a href="./blog-application-logging.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
             </div>

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - TIC Software</title>
-    <meta name="description" content="TIC Software Blog - Insights on Nonstop modernization, messaging, gateway solutions, and application development.">
-    <meta property="og:title" content="Blog - TIC Software">
-    <meta property="og:description" content="TIC Software Blog - Insights on Nonstop modernization, messaging, gateway solutions, and application development.">
+    <title>2025: The Year to Transform Your HPE Nonstop Platform - TIC Software Blog</title>
+    <meta name="description" content="Explore strategies to transform your HPE Nonstop platform for tomorrow's challenges. Address misconceptions and unlock your platform's full potential.">
+    <meta property="og:title" content="2025: The Year to Transform Your HPE Nonstop Platform - TIC Software Blog">
+    <meta property="og:description" content="Explore strategies to transform your HPE Nonstop platform for tomorrow's challenges. Address misconceptions and unlock your platform's full potential.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.ticsoftware.com/blogs\blog-page-2.html">
+    <meta property="og:url" content="https://www.ticsoftware.com/blogs\2025-transform-nonstop.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Blog - TIC Software">
-    <meta name="twitter:description" content="TIC Software Blog - Insights on Nonstop modernization, messaging, gateway solutions, and application development.">
+    <meta name="twitter:title" content="2025: The Year to Transform Your HPE Nonstop Platform - TIC Software Blog">
+    <meta name="twitter:description" content="Explore strategies to transform your HPE Nonstop platform for tomorrow's challenges. Address misconceptions and unlock your platform's full potential.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
@@ -136,149 +136,138 @@
             display: block;
         }
 
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
         /* Main Content */
         main {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 3rem;
+        .blog-header {
+            margin-bottom: 2rem;
             padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
         }
 
-        .page-header h1 {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .page-header p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 1rem auto 0;
-        }
-
-        .year-section {
-            margin-bottom: 3rem;
-        }
-
-        .year-title {
-            font-size: 1.8rem;
-            color: var(--primary-blue);
-            font-weight: bold;
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--primary-blue);
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        .blog-meta {
+            display: flex;
             gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .blog-card {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .blog-card:hover {
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-            transform: translateY(-4px);
-        }
-
-        .blog-card-image {
-            width: 100%;
-            height: 200px;
-            background-color: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            overflow: hidden;
-        }
-
-        .blog-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .blog-card:first-of-type .blog-card-image img {
-            object-fit: contain;
-        }
-
-        .blog-card-content {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .blog-card-date {
-            font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-card-title {
-            font-size: 1.2rem;
-            color: var(--dark-text);
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .blog-card-excerpt {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-            flex: 1;
+            flex-wrap: wrap;
         }
 
-        .blog-card-tags {
+        .blog-meta-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .blog-tags {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
 
         .blog-tag {
             display: inline-block;
             padding: 0.35rem 0.75rem;
-            background-color: #f0f0f0;
+            background-color: var(--light-gray);
             color: var(--primary-blue);
             font-size: 0.75rem;
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
-            text-decoration: none;
             cursor: pointer;
             transition: all 0.3s;
-        }
-
-        .blog-tag:link, .blog-tag:visited {
-            color: var(--primary-blue);
+            text-decoration: none;
         }
 
         .blog-tag:hover {
             background-color: #e0e0e0;
+            color: var(--primary-blue);
         }
 
-        .blog-card-button {
+        .blog-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .product-emphasis {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .back-button {
             display: inline-block;
             padding: 0.6rem 1rem;
             background-color: var(--primary-blue);
@@ -288,11 +277,70 @@
             font-weight: 600;
             font-size: 0.85rem;
             transition: all 0.3s;
-            text-align: center;
+            margin-top: 2rem;
         }
 
-        .blog-card-button:hover {
+        .back-button:hover {
             background-color: var(--light-blue);
+        }
+
+        .feedback-section {
+            background-color: var(--white);
+            padding: 0 1rem 1rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.3rem;
+            margin-left: -0.5rem;
+            margin-bottom: 0;
+        }
+
+        .feedback-section h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-image {
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 75px;
+            border-radius: 8px;
+        }
+
+        .feedback-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
+            overflow: hidden;
+        }
+
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .company-section {
+            margin-top: 2rem;
+        }
+
+        .company-image {
+            float: left;
+            margin-right: 0.75rem;
+            margin-bottom: 1rem;
+            max-width: 72px;
+            border-radius: 8px;
+        }
+
+        .company-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: justify;
         }
 
         /* Footer */
@@ -302,30 +350,41 @@
             padding: 2rem;
             text-align: center;
             font-size: 0.9rem;
+            margin-top: 3rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-
             nav {
                 gap: 1rem; flex-wrap: nowrap;
                 font-size: 0.85rem;
             }
 
-            .page-header h1 {
-                font-size: 2rem;
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
             }
         }
-
+    
         /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
             color: #e8e8e8;
             padding: 3rem 1.5rem 0;
-            margin-top: 4.5rem;
+            margin-top: 2.7rem;
             border-top: 1px solid rgba(74, 111, 165, 0.3);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -349,6 +408,8 @@
             display: flex;
             flex-direction: column;
         }
+
+
 
         /* Footer Title */
         .footer-title {
@@ -622,66 +683,124 @@
             .footer-title::after {
                 width: 100%;
             }
-
-            .hero-section {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .hero-left h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-left p {
-                max-width: 100%;
-            }
-
-            .hero-right {
-                height: 200px;
-            }
         }
 
-        /* Hero Section */
-        .hero-section {
+        /* Related Blogs Section */
+        .related-blogs {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-gray);
+        }
+
+        .related-blogs h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .related-blogs-grid {
             display: grid;
-            grid-template-columns: 40% 60%;
-            height: 254px;
-            background-color: var(--white);
-            max-width: 100%;
-            margin: 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
-        .hero-left {
-            background-color: #001a4d;
+        .related-blog-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+        }
+
+        .related-blog-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .related-blog-image {
+            width: 100%;
+            height: 160px;
+            background-color: var(--light-gray);
+            display: flex;
             align-items: center;
-            color: var(--white);
-            padding: 2rem;
-            gap: 0.5rem;
+            justify-content: center;
+            overflow: hidden;
         }
 
-        .hero-left h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            font-weight: bold;
-            color: var(--white);
-            line-height: 1.3;
-            margin: 0;
+        .related-blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .hero-left p {
-            color: var(--white);
+        .related-blog-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-blog-title {
             font-size: 1rem;
-            max-width: 300px;
-            margin: 0;
+            color: var(--dark-text);
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .related-blog-excerpt {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
             line-height: 1.5;
+            flex: 1;
+        }
+
+        .related-blog-button {
+            display: inline-block;
+            padding: 0.5rem 0.9rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
             text-align: center;
         }
 
-        .hero-right {
-            background: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        .related-blog-button:hover {
+            background-color: var(--light-blue);
+        }
+
+            content: " →";
+        }
+
+        @media (max-width: 768px) {
+            .related-blogs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .related-blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-blog-title {
+                font-size: 0.95rem;
+            }
         }
 
         .nav-search {
@@ -740,6 +859,33 @@
             display: block;
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "2025 NonStop Transformation Guide",
+        "description": "Essential strategies for modernizing NonStop systems in 2025",
+        "image": "https://www.ticsoftware.com/images/TIC_Logo.png",
+        "datePublished": "2025-01-10",
+        "author": {
+            "@type": "Organization",
+            "name": "TIC Software"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "TIC Software",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ticsoftware.com/images/TIC_Logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.ticsoftware.com/blogs/2025-transform-nonstop.html"
+        },
+        "articleBody": "Read our comprehensive guide on this topic"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -780,7 +926,7 @@
                     <div class="dropdown-menu">
                         <a href="../success-stories.html">Success Stories</a>
                         <a href="../tic-news.html">TIC News</a>
-                        <a href="../blog.html">TIC Blog</a>
+                        <a href="../blog.html">Blog</a>
                     </div>
                 </div>
                 <a href="../ticteam.html#get-in-touch">Contact Us</a>
@@ -796,119 +942,164 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>TIC Software Blog</h1>
-            <p>Insights on Nonstop modernization, messaging, gateway solutions, and application development.</p>
+            <h1>2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges</h1>
         </div>
         <div class="hero-right"></div>
     </section>
 
+    <!-- Main Content -->
     <main>
-        <div class="blog-grid">
-            <!-- Blog Card 1 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="../images/Blogs & Articles/Kafka and HPE Nonstop – A Perfect Combo!/a perfect combo.png" alt="Kafka and HPE Nonstop A Perfect Combo"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Mar 16, 2022</div>
-                    <h3 class="blog-card-title">Kafka and HPE Nonstop – A Perfect Combo!</h3>
-                    <p class="blog-card-excerpt">Discover how Kafka and HPE Nonstop work together to create a powerful, reliable, and scalable solution for modern enterprise integration.</p>
-                    <div class="blog-card-tags">
-                        <span class="blog-tag">Kafka</span>
-                        <span class="blog-tag">Nonstop</span>
-                        <span class="blog-tag">Integration</span>
-                    </div>
-                    <a href="./blog-kafka-hpe-nonstop-perfect-combo.html" class="blog-card-button">📝 Read Blog</a>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Dec 16, 2024</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
+                    <span>Phil Ly</span>
                 </div>
             </div>
-
-            <!-- Blog Card 2 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/XML Logo.jpg" alt="XML Thunder"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Mar 26, 2021</div>
-                    <h3 class="blog-card-title">A 10 Minute Guide on "XML parser versus Thunder Suite"</h3>
-                    <p class="blog-card-excerpt">Compare XML parsers and Thunder Suite. Learn the key differences and discover which solution is best for your COBOL, C, or TAL programs on Nonstop systems.</p>
-                    <div class="blog-card-tags">
-                        <a href="../blog.html?tag=Thunder Suite" class="blog-tag">Thunder Suite</a>
-                        <a href="../blog.html?tag=Modernization" class="blog-tag">Modernization</a>
-                    </div>
-                    <a href="./blog-xml-parser-thunder-suite.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
+            <div class="blog-tags">
+                <a href="../blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                <a href="../blog.html?tag=Strategy" class="blog-tag">Strategy</a>
+                <a href="../blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
             </div>
+        </div>
 
-            <!-- Blog Card 3 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="../images/Blogs & Articles/Nonstop Operation Intelligence_Using TOP/TOP_Tips.png" alt="Nonstop Operation Intelligence Using TOP"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Jan 24, 2021</div>
-                    <h3 class="blog-card-title">Nonstop Operation Intelligence– Using TOP</h3>
-                    <p class="blog-card-excerpt">Discover how TOP GUI tool simplifies Nonstop operations management. Learn how to efficiently manage Spoolers, EMS Collectors, and Netbatch jobs with step-by-step visual guidance.</p>
-                    <div class="blog-card-tags">
-                        <span class="blog-tag">TOP</span>
-                        <span class="blog-tag">Operations</span>
+        <div class="blog-content">
+            <p>While your Nonstop platform continues to deliver unmatched reliability and performance that your business depends on, you may be wrestling with questions about its place in your digital transformation strategy. Should you maintain your current systems, invest in modernization, or consider alternatives?</p>
+
+            <p>The reality is that the HPE Nonstop platform remains a robust and valuable asset, offering unparalleled benefits including the best total cost of ownership (TCO) in the industry. However, we understand the challenges you face. Your team may be dealing with an aging support staff, concerns about developer recruitment, and pressure from leadership to justify continued investment in the platform. These are real challenges that demand practical solutions.</p>
+
+            <p>Let's address the key misconceptions that often cloud decision-making around Nonstop systems and explore proven strategies to unlock your platform's full potential for the future.</p>
+
+            <h2>Common Misconceptions</h2>
+            <ul>
+                <li><strong>Platform is outdated due to green screen interfaces:</strong> This perception is far from reality. The Nonstop platform fully supports modern tools to enable GUI and browser UI.</li>
+                <li><strong>COBOL limits development capabilities:</strong> While COBOL is often associated with Nonstop, it's not a limitation for modern development practices.</li>
+                <li><strong>Difficulty in attracting new talent:</strong> There's a belief that Nonstop is too complex for new professionals to learn.</li>
+                <li><strong>Lack of understanding of established programs:</strong> Some argue that the complexity of long-standing systems necessitates moving away from the platform entirely.</li>
+            </ul>
+
+            <h2>Solutions and Realities</h2>
+
+            <h3>Modern Capabilities</h3>
+            <p>The Nonstop platform is far more versatile than many realize, including support for:</p>
+            <ul>
+                <li>Web applications</li>
+                <li>RESTful APIs</li>
+                <li>Kafka integration</li>
+                <li>Java and other modern languages</li>
+                <li>GitHub for dev/ops integration</li>
+                <li>Other modern tools</li>
+            </ul>
+            <p>Its fault-tolerant and scalable architecture remains highly valuable in today's digital landscape. Integrating Nonstop with modern tools provides benefits of both worlds.</p>
+
+            <h3>Focus on Business Logic, Not Just Language</h3>
+            <p>The critical aspect of any system is understanding the business logic, not just the programming language. COBOL isn't the issue; lack of documentation is. By investing in comprehensive documentation of existing programs, any developer, regardless of their background, can understand and work with the business logic.</p>
+
+            <h3>Education and Training</h3>
+            <p>There's a pressing need for better education at all levels:</p>
+            <ul>
+                <li>C-suite executives need to understand the platform's value proposition.</li>
+                <li>IT management teams should be well-versed in the business benefits of existing applications, and what needs to be modernized.</li>
+                <li>Developers require training on Nonstop's unique capabilities to support existing codebase as well as how to leverage modern tools.</li>
+            </ul>
+
+            <h3>Attention is What's Needed</h3>
+            <p>The key to managing established Nonstop codebase is not abandonment but attention. Organizations need to focus on:</p>
+            <ul>
+                <li>Generating comprehensive documentation for existing code.</li>
+                <li>Conducting thorough application codebase analysis.</li>
+                <li>Investing in a Knowledge Base.</li>
+                <li>Leveraging modern tools offered by HPE and third-party partners.</li>
+            </ul>
+
+            <h2>Call to Action</h2>
+            <p>To future-proof your HPE Nonstop environment:</p>
+            <ul>
+                <li><strong>Invest in Documentation:</strong> Utilize modern tools to create comprehensive documentation for established systems, ensuring knowledge preservation and easier onboarding.</li>
+                <li><strong>Embrace Modernization:</strong> Leverage the platform's support for modern technologies to keep your systems current and efficient.</li>
+                <li><strong>Prioritize Training:</strong> Implement robust training programs to build and maintain expertise in Nonstop technologies.</li>
+                <li><strong>Leverage Expert Support:</strong> Partner with experienced organizations like <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> to access cutting-edge tools and professional services tailored for Nonstop environments.</li>
+            </ul>
+
+            <p>By addressing these misconceptions and focusing on these solutions, organizations can ensure their HPE Nonstop systems remain valuable, efficient, and future-ready assets in their IT infrastructure.</p>
+
+            <p><a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> stands uniquely positioned to support these initiatives, with our many years of proven track record of bridging Nonstop and modern technologies. Our professional services span training, design, development and modernization strategies. Our comprehensive solutions will help you address each call to action, ensuring your Nonstop environment remains robust, innovative, and future-ready.</p>
+        </div>
+
+        <a href="../blog.html" class="back-button">← Back to Blog</a>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 2rem 0 0 0;">
+
+        <div class="feedback-section">
+            <h3>Feedback Please</h3>
+            <a href="../ticteam.html#get-in-touch"><img src="../images/Blogs & Articles/more_info.jpg" alt="Feedback" class="feedback-image"></a>
+            <p class="feedback-text">Do you find this tutorial blog helpful? Let us know what you think, and how we can make it even better. Don't forget, you can <a href="../ticteam.html#get-in-touch">subscribe to our blogs</a> to get automatic email notification when a new blog is available.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
+
+        <div class="company-section">
+            <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <p class="company-text">Phil Ly is the president of <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+        <!-- Related Blogs Section -->
+        <div class="related-blogs">
+            <h2>Related Blogs</h2>
+            <div class="related-blogs-grid">
+                <!-- Related Blog 1 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Logos/kafka grey logo.png" alt="WebCon's New Features: How uLinga for Kafka Continues to Excel">
                     </div>
-                    <a href="./blog-nonstop-operation-intelligence-top.html" class="blog-card-button">📝 Read Blog</a>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">March 25, 2025</div>
+                        <h3 class="related-blog-title">WebCon's New Features: How uLinga for Kafka Continues to Excel</h3>
+                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
+                        <a href="./webcon-ulinga-kafka.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Blog Card 4 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="../images/Blogs & Articles/Data Analysis and Distribution with Cypress/Cypress Dashboard.jpg" alt="Cypress Dashboard"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Aug 29, 2020</div>
-                    <h3 class="blog-card-title">Data Analysis and Distribution with Cypress</h3>
-                    <p class="blog-card-excerpt">Learn how Cypress enables easy legacy data analysis and distribution. Discover how this integrated document assembly system streamlines data management and accessibility for your organization.</p>
-                    <div class="blog-card-tags">
-                        <a href="../blog.html?tag=JSON Thunder" class="blog-tag">JSON Thunder</a>
-                        <a href="../blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+                <!-- Related Blog 2 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="Building a Web Interface to a Centralized View of Application Logs with LogWatch">
                     </div>
-                    <a href="./blog-cypress-data-analysis.html" class="blog-card-button">📝 Read Blog</a>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Mar 18, 2024</div>
+                        <h3 class="related-blog-title">Building a Web Interface to a Centralized View of Application Logs with LogWatch</h3>
+                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
+                        <a href="./logwatch-web-interface.html" class="related-blog-button">📝 Read Blog</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Blog Card 5 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="../images/Blogs & Articles/How quickly can you bring up critical reports on your DR system/Disaster_Recovery.png" alt="Disaster Recovery"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Mar 4, 2020</div>
-                    <h3 class="blog-card-title">How quickly can you bring up critical reports on your DR system?</h3>
-                    <p class="blog-card-excerpt">Learn how to quickly replicate spooler jobs and critical reports to your Disaster Recovery system, ensuring business continuity with TIC's TeleFTP product.</p>
-                    <div class="blog-card-tags">
-                        <a href="../blog.html?tag=TelePath" class="blog-tag">TelePath</a>
-                        <a href="../blog.html?tag=Messaging" class="blog-tag">Messaging</a>
-                        <a href="../blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+                <!-- Related Blog 3 -->
+                <div class="related-blog-card">
+                    <div class="related-blog-image">
+                        <img src="../images/Blogs & Articles/Using TOP with Nonstop TCPIP/TOP_TCP_IP.png" alt="Using TOP with Nonstop TCP/IP">
                     </div>
-                    <a href="./blog-disaster-recovery.html" class="blog-card-button">📝 Read Blog</a>
-                </div>
-            </div>
-
-            <!-- Blog Card 6 -->
-            <div class="blog-card">
-                <div class="blog-card-image"><img src="../images/Blogs & Articles/What is REST Web Service/Web Services.png" alt="Web Services"></div>
-                <div class="blog-card-content">
-                    <div class="blog-card-date">Jan 24, 2018</div>
-                    <h3 class="blog-card-title">What is REST Web Service?</h3>
-                    <p class="blog-card-excerpt">Explore the fundamentals of REST Web Services, understand the differences between REST and SOAP, and learn how REST APIs enable seamless integration with modern web applications.</p>
-                    <div class="blog-card-tags">
-                        <a href="../blog.html?tag=REST API" class="blog-tag">REST API</a>
-                        <a href="../blog.html?tag=Gateway" class="blog-tag">Gateway</a>
-                        <a href="../blog.html?tag=Integration" class="blog-tag">Integration</a>
+                    <div class="related-blog-content">
+                        <div class="related-blog-date">Jan 23, 2023</div>
+                        <h3 class="related-blog-title">Using TOP with Nonstop TCP/IP</h3>
+                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
+                        <a href="./using-top-tcp-ip.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
-                    <a href="./blog-rest-web-service.html" class="blog-card-button">📝 Read Blog</a>
                 </div>
             </div>
         </div>
 
-        <!-- Pagination -->
-        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; padding: 2rem 0;">
-            <a href="../blog.html" style="padding: 0.6rem 1rem; background-color: var(--light-gray); color: var(--dark-text); text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s;">← Page 1</a>
-            <span style="padding: 0.6rem 1rem; background-color: var(--primary-blue); color: white; border-radius: 4px; font-weight: 600;">Page 2</span>
-        </div>
     </main>
 
     <!-- Footer -->
-
     <script src="../search-data.js"></script>
     <script src="../search.js"></script>
+    <script src="../blog-utils.js"></script>
 
     <!-- FOOTER COMPONENT -->
 <footer class="site-footer">

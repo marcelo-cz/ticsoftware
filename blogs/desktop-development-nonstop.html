@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON-Enable Nonstop COBOL and C programs with JSON Thunder - TIC Software Blog</title>
-    <meta name="description" content="Learn how JSON Thunder enables seamless JSON support in Nonstop COBOL and C programs, making data exchange with modern applications simple and efficient.">
-    <meta property="og:title" content="JSON-Enable Nonstop COBOL and C programs with JSON Thunder - TIC Software Blog">
-    <meta property="og:description" content="Learn how JSON Thunder enables seamless JSON support in Nonstop COBOL and C programs, making data exchange with modern applications simple and efficient.">
+    <title>Desktop Development for Nonstop Introduction - TIC Software Blog</title>
+    <meta name="description" content="Discover how to develop desktop applications for Nonstop systems. Learn about modern approaches to Nonstop application development and GUI integration.">
+    <meta property="og:title" content="Desktop Development for Nonstop Introduction - TIC Software Blog">
+    <meta property="og:description" content="Discover how to develop desktop applications for Nonstop systems. Learn about modern approaches to Nonstop application development and GUI integration.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.ticsoftware.com/blogs\blog-json-thunder-nonstop.html">
+    <meta property="og:url" content="https://www.ticsoftware.com/blogs\desktop-development-nonstop.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="JSON-Enable Nonstop COBOL and C programs with JSON Thunder - TIC Software Blog">
-    <meta name="twitter:description" content="Learn how JSON Thunder enables seamless JSON support in Nonstop COBOL and C programs, making data exchange with modern applications simple and efficient.">
+    <meta name="twitter:title" content="Desktop Development for Nonstop Introduction - TIC Software Blog">
+    <meta name="twitter:description" content="Discover how to develop desktop applications for Nonstop systems. Learn about modern approaches to Nonstop application development and GUI integration.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
@@ -136,63 +136,46 @@
             display: block;
         }
 
-        /* Hero Section */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            height: 254px;
-            background-color: var(--white);
-        }
-
-        .hero-left {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            background-color: #001a4d;
-            flex-direction: column;
-        }
-
-        .hero-left h1 {
-            font-size: 2.5rem;
-            color: var(--white);
-            text-align: center;
-            font-weight: bold;
-            line-height: 1.4;
-        }
-
-        .hero-right {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
         /* Main Content */
         main {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
 
         .blog-header {
             margin-bottom: 2rem;
+            padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
-            padding-bottom: 1.5rem;
+        }
+
+        .blog-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .blog-meta {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
             flex-wrap: wrap;
         }
 
         .blog-meta-item {
             display: flex;
-            align-items: center;
             gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
+            align-items: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
         .blog-tag {
@@ -204,16 +187,6 @@
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .blog-tag:hover {
-            background-color: #e0e0e0;
-            color: var(--primary-blue);
         }
 
         .blog-content {
@@ -225,7 +198,7 @@
             font-size: 1.6rem;
             color: var(--primary-blue);
             font-weight: bold;
-            margin: 2rem 0 1rem 0;
+            margin: 0.5rem 0 1rem 0;
         }
 
         .blog-content h3 {
@@ -249,24 +222,12 @@
             margin-bottom: 0.75rem;
         }
 
-        .blog-content img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 2rem auto;
-            border-radius: 8px;
-        }
-
-        .code-block {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
+        .product-emphasis {
+            background-color: var(--light-gray);
             padding: 1.5rem;
-            border-radius: 4px;
+            border-left: 4px solid var(--primary-blue);
             margin: 1.5rem 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
+            border-radius: 4px;
         }
 
         .back-button {
@@ -335,10 +296,8 @@
             float: left;
             margin-right: 0.75rem;
             margin-bottom: 1rem;
-            max-width: 72px !important;
+            max-width: 144px;
             border-radius: 8px;
-            display: inline !important;
-            margin: 0 0.75rem 1rem 0 !important;
         }
 
         .company-text {
@@ -347,22 +306,55 @@
             text-align: justify;
         }
 
-        .feedback-text a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
         }
 
-        .feedback-text a:hover {
-            text-decoration: underline;
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: var(--white);
         }
 
-        .subtitle-light {
-            color: var(--light-blue);
+        .hero-right {
+            background: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            text-align: left;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 1.8rem;
+            }
             nav {
                 gap: 1rem; flex-wrap: nowrap;
                 font-size: 0.85rem;
@@ -376,127 +368,6 @@
                 flex-direction: column;
                 gap: 0.5rem;
             }
-
-            .hero-section {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .hero-left h1 {
-                font-size: 1.8rem;
-            }
-
-            .related-blogs-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .related-blogs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .related-blog-title {
-                font-size: 0.95rem;
-            }
-        }
-
-        .related-blogs {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--border-gray);
-        }
-
-        .related-blogs h2 {
-            font-size: 1.8rem;
-            color: var(--primary-blue);
-            font-weight: bold;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .related-blogs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .related-blog-card {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .related-blog-card:hover {
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-            transform: translateY(-4px);
-        }
-
-        .related-blog-image {
-            width: 100%;
-            height: 160px;
-            background-color: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .related-blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .related-blog-content {
-            padding: 1.25rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .related-blog-date {
-            font-size: 0.8rem;
-            color: #999;
-            margin-bottom: 0.5rem;
-        }
-
-        .related-blog-title {
-            font-size: 1rem;
-            color: var(--dark-text);
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .related-blog-excerpt {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-            flex: 1;
-        }
-
-        .related-blog-button {
-            display: inline-block;
-            padding: 0.5rem 0.9rem;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .related-blog-button:hover {
-            background-color: var(--light-blue);
         }
 
         /* Footer Styles */
@@ -504,7 +375,7 @@
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
             color: #e8e8e8;
             padding: 3rem 1.5rem 0;
-            margin-top: 2.7rem;
+            margin-top: 4.5rem;
             border-top: 1px solid rgba(74, 111, 165, 0.3);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -528,8 +399,6 @@
             display: flex;
             flex-direction: column;
         }
-
-
 
         /* Footer Title */
         .footer-title {
@@ -717,6 +586,15 @@
             transform: translateY(-2px);
         }
 
+        /* Blog content images */
+        .blog-content img {
+            max-width: 50%;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+            border-radius: 4px;
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .footer-content {
@@ -901,7 +779,7 @@
                     <div class="dropdown-menu">
                         <a href="../success-stories.html">Success Stories</a>
                         <a href="../tic-news.html">TIC News</a>
-                        <a href="../blog.html" class="active">Blog</a>
+                        <a href="../blog.html">Blog</a>
                     </div>
                 </div>
                 <a href="../ticteam.html#get-in-touch">Contact Us</a>
@@ -917,9 +795,9 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>JSON-Enable Nonstop COBOL and C programs with JSON Thunder</h1>
+            <h1>Desktop Development for Nonstop Introduction</h1>
         </div>
-        <div class="hero-right" style="background-image: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+        <div class="hero-right"></div>
     </section>
 
     <!-- Main Content -->
@@ -928,56 +806,79 @@
             <div class="blog-meta">
                 <div class="blog-meta-item">
                     <span>📅</span>
-                    <span>Feb 1, 2023</span>
+                    <span>December 5, 2022</span>
                 </div>
                 <div class="blog-meta-item">
-                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
-                    <span>Phil Ly</span>
+                    <img src="../images/TIC Team/Donald_profile.png" alt="Donald Wickham" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <span>Donald Wickham</span>
                 </div>
             </div>
-            <div>
-                <a href="../blog.html?tag=JSON Thunder" class="blog-tag">JSON Thunder</a>
-                <a href="../blog.html?tag=COBOL" class="blog-tag">COBOL</a>
-                <a href="../blog.html?tag=Modernization" class="blog-tag">Modernization</a>
+            <div class="blog-tags">
+                <span class="blog-tag">Desktop Development</span>
+                <span class="blog-tag">Nonstop</span>
+                <span class="blog-tag">GUI</span>
             </div>
         </div>
 
         <div class="blog-content">
-            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON Thunder_Logo.png" alt="JSON Thunder Logo" style="float: left; margin-right: 1.5rem; margin-bottom: 1rem; max-width: 120px; border-radius: 8px; margin-top: 0;">
-            <p>Quite often, Nonstop applications need to exchange data with other platforms internally in the enterprise, or with external applications in the cloud. The data format of choice for data exchange today is <a href="json-thunder.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">JSON</a>.</p>
+            <h2>Desktop Development for Nonstop Systems</h2>
 
-            <h2>What is JSON?</h2>
+            <img src="../images/Blogs & Articles/Desktop Development for Nonstop Introduction/Tandem.jpg" alt="Nonstop Desktop Development">
 
-            <p><img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON_Bracket.png" alt="JSON Bracket" style="float: right; margin-left: 1.5rem; margin-bottom: 1rem; max-width: 120px; border-radius: 8px; margin-top: 0;">JSON (JavaScript Object Notation) is a lightweight data-interchange format that has become an essential tool for interoperability between different applications and platforms. In today's digital landscape, where data is constantly flowing between various systems and devices, the ability to easily exchange and understand data is vital to the success of any application. JSON provides a simple and consistent way to do just that.</p>
+            <p>Nonstop systems have long been the backbone of mission-critical enterprise applications, providing unparalleled reliability and availability. However, the user interface experience on these systems has traditionally lagged behind modern desktop and web applications. This blog explores how organizations can modernize their Nonstop applications with desktop development approaches.</p>
 
-            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="Features of JSON" style="max-width: 30%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <h3>The Challenge of Legacy Interfaces</h3>
 
-            <h2>Advantages of JSON</h2>
+            <p>Traditional Nonstop applications often rely on green screen interfaces that were designed in an era when this was the standard for enterprise systems. While these interfaces are functional and familiar to long-time users, they don't meet the expectations of modern developers and business users who expect intuitive, graphical interfaces.</p>
 
-            <p>One of the main advantages of JSON is that it is language-independent, meaning it can be used with any programming language that supports it. This makes it a versatile choice for building cross-platform applications, as developers can easily share data between different systems and platforms. While XML continues to be in use by some applications, almost all new modern applications adopt JSON as the data format of choice.</p>
+            <p>The gap between legacy interfaces and modern user experience expectations has created a significant challenge for organizations maintaining Nonstop systems:</p>
 
-            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON Language.png" alt="JSON Language" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <ul>
+                <li>Difficulty attracting and retaining new technical talent</li>
+                <li>Higher training costs for new staff</li>
+                <li>Reduced productivity compared to modern applications</li>
+                <li>Integration challenges with modern IT environments</li>
+            </ul>
 
-            <p>Another advantage of JSON is its human-readable format, making it easy for developers to work with and understand the data. This is particularly useful in cases where different systems need to communicate with each other and the data needs to be parsed and interpreted.</p>
+            <h3>Desktop Development Solutions</h3>
 
-            <p>JSON is also widely used in modern web service development, including <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">RESTful API</a> services. Developers can easily access and use data from these services by simply serializing and deserializing the JSON data using built-in features in their IDE such as Visual Studio. This enables developers to quickly and easily build new applications and services that integrate with these existing platforms.</p>
+            <p>Modern desktop development approaches offer a bridge between the stability of Nonstop systems and the user experience expectations of today's workforce. By layering desktop applications on top of Nonstop backend systems, organizations can achieve a modern user interface while preserving the reliability of their Nonstop infrastructure.</p>
 
-            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON_Thunder_chart.png" alt="JSON Thunder Chart" style="max-width: 50%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p>Desktop development frameworks such as Windows Forms, WPF, and modern web-based solutions enable developers to create rich, responsive interfaces that communicate with Nonstop systems through standard protocols and APIs. This approach provides several advantages:</p>
 
-            <h2>JSON Thunder for Nonstop</h2>
+            <ul>
+                <li>Familiar development paradigms for modern developers</li>
+                <li>Improved user experience without modifying core Nonstop logic</li>
+                <li>Gradual migration path from legacy systems</li>
+                <li>Integration with modern enterprise tools and platforms</li>
+            </ul>
 
-            <p>If you want to incorporate JSON support in your COBOL or C programs, JSON Thunder can make the job really easy. Thunder generates all of the source code required for COBOL programs to interface with JSON. Using the toolset's Visual Designer, develop JSON Handlers to convert (i.e. parse) JSON messages to program fields or create JSON messages from program fields. These JSON Handlers – called Readers and Writers – are created in just three easy steps.</p>
+            <h3>GUI Replacement Strategies</h3>
 
-            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON_Handlers.png" alt="JSON Handlers" style="max-width: 60%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p>TIC Software offers comprehensive solutions for modernizing Nonstop user interfaces through GUI replacement. Our approach focuses on creating desktop applications that maintain the integrity and reliability of Nonstop systems while providing contemporary user experiences.</p>
 
-            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Developer_Workflow_Chart.png" alt="Developer Workflow Chart" style="max-width: 60%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="../images/Blogs & Articles/Desktop Development for Nonstop Introduction/Tandem.jpg" alt="GUI Modernization Architecture">
 
+            <p>The process involves analyzing existing Nonstop applications, understanding their business logic and data flows, and developing desktop applications that replicate and enhance their functionality. This ensures a smooth transition for end users while giving developers a platform they can work with effectively.</p>
+
+            <h3>Technology Stack Considerations</h3>
+
+            <p>When approaching desktop development for Nonstop, several technology options are available:</p>
+
+            <ul>
+                <li><strong>.NET Framework:</strong> Provides a comprehensive platform for building Windows desktop applications with powerful tools and libraries</li>
+                <li><strong>Java Swing:</strong> Offers cross-platform desktop development capabilities with the flexibility of the Java ecosystem</li>
+                <li><strong>Web-Based Solutions:</strong> Using technologies like React, Angular, or Vue.js to create responsive web interfaces that work across devices</li>
+                <li><strong>Web Services Integration:</strong> Connecting desktop applications to Nonstop systems through REST APIs or SOAP web services</li>
+            </ul>
+
+            <div class="product-emphasis">
+                <p><strong>Key Takeaway:</strong> The modernization of Nonstop applications doesn't require abandoning the systems that have served your organization reliably for decades. Instead, it involves thoughtfully layering modern development approaches on top of proven Nonstop infrastructure to create a user experience that meets contemporary expectations.</p>
+            </div>
 
             <h2>Conclusion</h2>
 
-            <p>In conclusion, JSON is an essential tool for interoperability between different applications and platforms. JSON Thunder enables seamless data exchange and easy integration between Nonstop applications and other different systems and platforms.</p>
-
-            <p>For more information on JSON Thunder, visit our <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC website</a> or contact us via <a href="mailto:salessupport@ticsoftware.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">salessupport@ticsoftware.com</a></p>
+            <p>Desktop development for Nonstop systems represents a pragmatic approach to application modernization. By combining the reliability and performance of Nonstop backend systems with the user experience of modern desktop applications, organizations can achieve both short-term productivity gains and long-term strategic advantages. Whether you choose to develop with .NET, Java, or web technologies, the key is to maintain focus on the business requirements while leveraging the strengths of both your Nonstop systems and modern development platforms.</p>
         </div>
 
         <a href="../blog.html" class="back-button">← Back to Blog</a>
@@ -994,53 +895,9 @@
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
         <div class="company-section">
-            <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
-            <p class="company-text">Phil Ly is the president of <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
+            <img src="../images/TIC Team/Donald_profile.png" alt="Donald Wickham" class="company-image" style="max-width: 72px;">
+            <p class="company-text">Donald Wickham has over 30 years of experience with Nonstop including 20 years for Tandem, Compaq and HP. He has been with <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> for 20 years in the role of Chief Architect.</p>
             <div style="clear: both;"></div>
-        </div>
-
-        <div class="related-blogs">
-            <h2>Related Blogs</h2>
-            <div class="related-blogs-grid">
-                <!-- Related Blog 1 -->
-                <div class="related-blog-card">
-                    <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave JSON Payload">
-                    </div>
-                    <div class="related-blog-content">
-                        <div class="related-blog-date">Sep 11, 2023</div>
-                        <h3 class="related-blog-title">LightWave Client Supports More Than JSON Payload</h3>
-                        <p class="related-blog-excerpt">Explore LightWave Client's advanced payload handling capabilities.</p>
-                        <a href="./blog-lightwave-client-json-payload.html" class="related-blog-button">📝 Read Blog</a>
-                    </div>
-                </div>
-
-                <!-- Related Blog 2 -->
-                <div class="related-blog-card">
-                    <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger LightWave REST APIs">
-                    </div>
-                    <div class="related-blog-content">
-                        <div class="related-blog-date">Apr 8, 2024</div>
-                        <h3 class="related-blog-title">Create REST APIs with the Swagger and LightWave Combination</h3>
-                        <p class="related-blog-excerpt">Learn how to create powerful REST APIs using Swagger and LightWave together.</p>
-                        <a href="./blog-swagger-lightwave-rest-apis.html" class="related-blog-button">📝 Read Blog</a>
-                    </div>
-                </div>
-
-                <!-- Related Blog 3 -->
-                <div class="related-blog-card">
-                    <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON Features">
-                    </div>
-                    <div class="related-blog-content">
-                        <div class="related-blog-date">Sep 25, 2023</div>
-                        <h3 class="related-blog-title">JSON Features for Nonstop</h3>
-                        <p class="related-blog-excerpt">Explore JSON integration and features for Nonstop systems.</p>
-                        <a href="./blog-json-features-nonstop.html" class="related-blog-button">📝 Read Blog</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
 

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building a Web Interface to a Centralized View of Application Logs with LogWatch - TIC Software Blog</title>
-    <meta name="description" content="Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team.">
-    <meta property="og:title" content="Building a Web Interface to a Centralized View of Application Logs with LogWatch - TIC Software Blog">
-    <meta property="og:description" content="Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team.">
+    <title>JSON-Enable Nonstop COBOL and C programs with JSON Thunder - TIC Software Blog</title>
+    <meta name="description" content="Learn how JSON Thunder enables seamless JSON support in Nonstop COBOL and C programs, making data exchange with modern applications simple and efficient.">
+    <meta property="og:title" content="JSON-Enable Nonstop COBOL and C programs with JSON Thunder - TIC Software Blog">
+    <meta property="og:description" content="Learn how JSON Thunder enables seamless JSON support in Nonstop COBOL and C programs, making data exchange with modern applications simple and efficient.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.ticsoftware.com/blogs\blog-logwatch-web-interface.html">
+    <meta property="og:url" content="https://www.ticsoftware.com/blogs\json-thunder-nonstop.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Building a Web Interface to a Centralized View of Application Logs with LogWatch - TIC Software Blog">
-    <meta name="twitter:description" content="Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team.">
+    <meta name="twitter:title" content="JSON-Enable Nonstop COBOL and C programs with JSON Thunder - TIC Software Blog">
+    <meta name="twitter:description" content="Learn how JSON Thunder enables seamless JSON support in Nonstop COBOL and C programs, making data exchange with modern applications simple and efficient.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
@@ -142,27 +142,29 @@
             grid-template-columns: 40% 60%;
             height: 254px;
             background-color: var(--white);
-            max-width: 100%;
-            margin: 0;
         }
 
         .hero-left {
-            background-color: #001a4d;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            padding: 2rem;
+            background-color: #001a4d;
+            flex-direction: column;
         }
 
         .hero-left h1 {
-            font-size: 2.1rem;
+            font-size: 2.5rem;
+            color: var(--white);
             text-align: center;
-            padding: 2rem;
             font-weight: bold;
+            line-height: 1.4;
         }
 
         .hero-right {
-            background: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         /* Main Content */
@@ -174,29 +176,23 @@
 
         .blog-header {
             margin-bottom: 2rem;
-            padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 1.5rem;
         }
 
         .blog-meta {
             display: flex;
-            gap: 2rem;
-            font-size: 0.95rem;
-            color: #666;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
         }
 
         .blog-meta-item {
             display: flex;
-            gap: 0.5rem;
             align-items: center;
-        }
-
-        .blog-tags {
-            display: flex;
             gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
         }
 
         .blog-tag {
@@ -208,6 +204,8 @@
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
@@ -259,12 +257,16 @@
             border-radius: 8px;
         }
 
-        .product-emphasis {
-            background-color: var(--light-gray);
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
             padding: 1.5rem;
-            border-left: 4px solid var(--primary-blue);
-            margin: 1.5rem 0;
             border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
         }
 
         .back-button {
@@ -333,8 +335,10 @@
             float: left;
             margin-right: 0.75rem;
             margin-bottom: 1rem;
-            max-width: 72px;
+            max-width: 72px !important;
             border-radius: 8px;
+            display: inline !important;
+            margin: 0 0.75rem 1rem 0 !important;
         }
 
         .company-text {
@@ -343,14 +347,18 @@
             text-align: justify;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--dark-text);
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            margin-top: 3rem;
+        .feedback-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .feedback-text a:hover {
+            text-decoration: underline;
+        }
+
+        .subtitle-light {
+            color: var(--light-blue);
         }
 
         /* Responsive */
@@ -377,8 +385,120 @@
             .hero-left h1 {
                 font-size: 1.8rem;
             }
+
+            .related-blogs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
         }
-    
+
+        @media (max-width: 480px) {
+            .related-blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-blog-title {
+                font-size: 0.95rem;
+            }
+        }
+
+        .related-blogs {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-gray);
+        }
+
+        .related-blogs h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .related-blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .related-blog-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .related-blog-image {
+            width: 100%;
+            height: 160px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .related-blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-blog-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .related-blog-date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-blog-title {
+            font-size: 1rem;
+            color: var(--dark-text);
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .related-blog-excerpt {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .related-blog-button {
+            display: inline-block;
+            padding: 0.5rem 0.9rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .related-blog-button:hover {
+            background-color: var(--light-blue);
+        }
+
         /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
@@ -685,121 +805,6 @@
             }
         }
 
-        /* Related Blogs Section */
-        .related-blogs {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--border-gray);
-        }
-
-        .related-blogs h2 {
-            font-size: 1.8rem;
-            color: var(--primary-blue);
-            font-weight: bold;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .related-blogs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .related-blog-card {
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .related-blog-card:hover {
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-            transform: translateY(-4px);
-        }
-
-        .related-blog-image {
-            width: 100%;
-            height: 160px;
-            background-color: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .related-blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .related-blog-content {
-            padding: 1.25rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .related-blog-date {
-            font-size: 0.8rem;
-            color: #999;
-            margin-bottom: 0.5rem;
-        }
-
-        .related-blog-title {
-            font-size: 1rem;
-            color: var(--dark-text);
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .related-blog-excerpt {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-            flex: 1;
-        }
-
-        .related-blog-button {
-            display: inline-block;
-            padding: 0.5rem 0.9rem;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .related-blog-button:hover {
-            background-color: var(--light-blue);
-        }
-
-        @media (max-width: 768px) {
-            .related-blogs-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .related-blogs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .related-blog-title {
-                font-size: 0.95rem;
-            }
-        }
-
         .nav-search {
             display: flex;
             align-items: center;
@@ -856,33 +861,6 @@
             display: block;
         }
     </style>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Building a Web Interface to NonStop Logs",
-        "description": "Learn how to create a centralized view of application logs with LogWatch",
-        "image": "https://www.ticsoftware.com/images/TIC_Logo.png",
-        "datePublished": "2024-12-15",
-        "author": {
-            "@type": "Organization",
-            "name": "TIC Software"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "TIC Software",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.ticsoftware.com/images/TIC_Logo.png"
-            }
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.ticsoftware.com/blogs/blog-logwatch-web-interface.html"
-        },
-        "articleBody": "Read our comprehensive guide on this topic"
-    }
-    </script>
 </head>
 <body>
     <header>
@@ -923,7 +901,7 @@
                     <div class="dropdown-menu">
                         <a href="../success-stories.html">Success Stories</a>
                         <a href="../tic-news.html">TIC News</a>
-                        <a href="../blog.html">Blog</a>
+                        <a href="../blog.html" class="active">Blog</a>
                     </div>
                 </div>
                 <a href="../ticteam.html#get-in-touch">Contact Us</a>
@@ -939,9 +917,9 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>Building a Web Interface to a Centralized View of Application Logs with LogWatch</h1>
+            <h1>JSON-Enable Nonstop COBOL and C programs with JSON Thunder</h1>
         </div>
-        <div class="hero-right"></div>
+        <div class="hero-right" style="background-image: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
     </section>
 
     <!-- Main Content -->
@@ -950,61 +928,56 @@
             <div class="blog-meta">
                 <div class="blog-meta-item">
                     <span>📅</span>
-                    <span>Mar 18, 2024</span>
+                    <span>Feb 1, 2023</span>
                 </div>
                 <div class="blog-meta-item">
-                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
                     <span>Phil Ly</span>
                 </div>
             </div>
-            <div class="blog-tags">
-                <a href="../blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
-                <a href="../blog.html?tag=Monitoring" class="blog-tag">Monitoring</a>
-                <a href="../blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
+            <div>
+                <a href="../blog.html?tag=JSON Thunder" class="blog-tag">JSON Thunder</a>
+                <a href="../blog.html?tag=COBOL" class="blog-tag">COBOL</a>
+                <a href="../blog.html?tag=Modernization" class="blog-tag">Modernization</a>
             </div>
         </div>
+
         <div class="blog-content">
-            <p>Managing and analyzing log data proved inefficient due to the sheer volume and dispersion of log files across various services and applications. Locating specific entries often necessitated time-consuming manual searches through individual log files.</p>
+            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON Thunder_Logo.png" alt="JSON Thunder Logo" style="float: left; margin-right: 1.5rem; margin-bottom: 1rem; max-width: 120px; border-radius: 8px; margin-top: 0;">
+            <p>Quite often, Nonstop applications need to exchange data with other platforms internally in the enterprise, or with external applications in the cloud. The data format of choice for data exchange today is <a href="json-thunder.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">JSON</a>.</p>
 
-            <p>TIC LogWatch is a Nonstop application log monitoring product that detects anomalies and raises alerts to enable proactive handling of errors. LogWatch is relevant in many different use cases, including monitoring EMS logs, 3rd party products like TIC's TeleMail, NuWave product logs, comforte's Escarps logs, and many others. One of our LogWatch users shares how he has built a useful Web interface to view his application logs easily, including EMS and TIC TeleMail.</p>
+            <h2>What is JSON?</h2>
 
-            <h2>Overview</h2>
-            <p>The idea for this application was to create an easy way for our development team to find log files quickly and easily all in a single place. The application allows the user to pick a log file from the list and it would simply display as much data from the log as could be read in just 10 seconds. The most recent events are always on top. As you scroll down, you can click to see more data. You can even specify a starting date/time in the text box at the top. This will allow you to quickly jump to the logs several days in the past. Built-in filtering allows the user to see only lines that contain keywords.</p>
+            <p><img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON_Bracket.png" alt="JSON Bracket" style="float: right; margin-left: 1.5rem; margin-bottom: 1rem; max-width: 120px; border-radius: 8px; margin-top: 0;">JSON (JavaScript Object Notation) is a lightweight data-interchange format that has become an essential tool for interoperability between different applications and platforms. In today's digital landscape, where data is constantly flowing between various systems and devices, the ability to easily exchange and understand data is vital to the success of any application. JSON provides a simple and consistent way to do just that.</p>
 
-            <h2>Steps</h2>
+            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="Features of JSON" style="max-width: 30%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <h3>LogWatch and Log Data</h3>
-            <ul>
-                <li>I use LogWatch to pull information from EMS and Telemail logs then write them to a single multi-purpose log file.</li>
-                <li>The logfile key is an application ID plus the date/time to the millisecond.</li>
-                <li>Then the LOG data can be a long string of text or any number of delimited fields to be displayed.</li>
-                <li>The delimiters allow data to be presented in a web grid with headings.</li>
-            </ul>
+            <h2>Advantages of JSON</h2>
 
-            <h3>Custom COBOL Programs</h3>
-            <ul>
-                <li>This log application has a small config file that identifies the log ID, Title, Headings, and log retention period so that the logs will be constantly trimmed according to retention needed.</li>
-                <li>An additional Log service was built to allow all other applications to write to this log file in a simple way using as few lines of code as possible.</li>
-                <li>Another service was built to feed data to a web application that displays these logs using a straightforward interface.</li>
-            </ul>
+            <p>One of the main advantages of JSON is that it is language-independent, meaning it can be used with any programming language that supports it. This makes it a versatile choice for building cross-platform applications, as developers can easily share data between different systems and platforms. While XML continues to be in use by some applications, almost all new modern applications adopt JSON as the data format of choice.</p>
 
-            <h2>Result</h2>
-            <p>A browser-based GUI that allows easy access to application logs, organized in a standard easy-to-understand format. For example, developers can point and click to view EMS logs for the past 90 days or to view TeleMail errors for the past 60 days.</p>
+            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON Language.png" alt="JSON Language" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="System and Application Logs Interface" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p>Another advantage of JSON is its human-readable format, making it easy for developers to work with and understand the data. This is particularly useful in cases where different systems need to communicate with each other and the data needs to be parsed and interpreted.</p>
 
-            <h2>Benefits</h2>
-            <p>The centralized log viewer significantly enhanced our log management workflow:</p>
-            <ul>
-                <li><strong>Improved Efficiency:</strong> By consolidating logs, we eliminated the need to search through numerous individual files, streamlining the process of locating relevant information.</li>
-                <li><strong>Enhanced Search Capabilities:</strong> LogWatch's filtering mechanisms enabled focused searches based on specific keywords or date ranges, facilitating targeted analysis of log data.</li>
-                <li><strong>Optimized Log Presentation:</strong> The customized web interface provided a clear and structured view of log entries, improving the comprehension and analysis of log data.</li>
-            </ul>
+            <p>JSON is also widely used in modern web service development, including <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">RESTful API</a> services. Developers can easily access and use data from these services by simply serializing and deserializing the JSON data using built-in features in their IDE such as Visual Studio. This enables developers to quickly and easily build new applications and services that integrate with these existing platforms.</p>
+
+            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON_Thunder_chart.png" alt="JSON Thunder Chart" style="max-width: 50%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>JSON Thunder for Nonstop</h2>
+
+            <p>If you want to incorporate JSON support in your COBOL or C programs, JSON Thunder can make the job really easy. Thunder generates all of the source code required for COBOL programs to interface with JSON. Using the toolset's Visual Designer, develop JSON Handlers to convert (i.e. parse) JSON messages to program fields or create JSON messages from program fields. These JSON Handlers – called Readers and Writers – are created in just three easy steps.</p>
+
+            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/JSON_Handlers.png" alt="JSON Handlers" style="max-width: 60%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Developer_Workflow_Chart.png" alt="Developer Workflow Chart" style="max-width: 60%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
 
             <h2>Conclusion</h2>
-            <p>LogWatch serves as a valuable tool for centralizing and managing logs. Its features significantly improve the efficiency and effectiveness of log analysis, making it a valuable asset for any organization grappling with managing diverse log data. Contact Us today at 📧 <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a> for more information.</p>
 
-            <p>Do you find this tutorial blog helpful? Let us know what you think, and how we can improve it. Don't forget, that you can subscribe to our blogs to get automatic email notifications when a new blog is available.</p>
+            <p>In conclusion, JSON is an essential tool for interoperability between different applications and platforms. JSON Thunder enables seamless data exchange and easy integration between Nonstop applications and other different systems and platforms.</p>
+
+            <p>For more information on JSON Thunder, visit our <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC website</a> or contact us via <a href="mailto:salessupport@ticsoftware.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">salessupport@ticsoftware.com</a></p>
         </div>
 
         <a href="../blog.html" class="back-button">← Back to Blog</a>
@@ -1026,46 +999,45 @@
             <div style="clear: both;"></div>
         </div>
 
-        <!-- Related Blogs Section -->
         <div class="related-blogs">
             <h2>Related Blogs</h2>
             <div class="related-blogs-grid">
                 <!-- Related Blog 1 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/log_monitoring.png" alt="Minimize Application Downtime with LogWatch Monitoring">
+                        <img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave JSON Payload">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Oct 17, 2023</div>
-                        <h3 class="related-blog-title">Minimize Application Downtime with LogWatch Monitoring</h3>
-                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-minimize-downtime-logwatch.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Sep 11, 2023</div>
+                        <h3 class="related-blog-title">LightWave Client Supports More Than JSON Payload</h3>
+                        <p class="related-blog-excerpt">Explore LightWave Client's advanced payload handling capabilities.</p>
+                        <a href="./lightwave-client-json-payload.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 2 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/Nonstop Integration – LogWatch and uLinga/Apache_Kafka Chart.png" alt="Nonstop Integration – LogWatch and uLinga">
+                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger LightWave REST APIs">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Jul 26, 2022</div>
-                        <h3 class="related-blog-title">Nonstop Integration – LogWatch and uLinga</h3>
-                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-nonstop-integration-logwatch-ulinga.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Apr 8, 2024</div>
+                        <h3 class="related-blog-title">Create REST APIs with the Swagger and LightWave Combination</h3>
+                        <p class="related-blog-excerpt">Learn how to create powerful REST APIs using Swagger and LightWave together.</p>
+                        <a href="./swagger-lightwave-rest-apis.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/How to Aggregate Nonstop Logs to Kafka/Log Aggregation.jpg" alt="How to Aggregate Nonstop Logs to Kafka in One Simple Step">
+                        <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON Features">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Nov 19, 2023</div>
-                        <h3 class="related-blog-title">How to Aggregate Nonstop Logs to Kafka in One Simple Step</h3>
-                        <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-aggregate-nonstop-logs-kafka.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Sep 25, 2023</div>
+                        <h3 class="related-blog-title">JSON Features for Nonstop</h3>
+                        <p class="related-blog-excerpt">Explore JSON integration and features for Nonstop systems.</p>
+                        <a href="./blog-json-features-nonstop.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
             </div>

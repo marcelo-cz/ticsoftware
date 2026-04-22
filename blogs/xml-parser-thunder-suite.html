@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analysis and Distribution with Cypress - TIC Software Blog</title>
-    <meta name="description" content="Learn how Cypress enables easy legacy data analysis and distribution. Discover how this integrated document assembly system streamlines data management and accessibility for your organization.">
-    <meta property="og:title" content="Data Analysis and Distribution with Cypress - TIC Software Blog">
-    <meta property="og:description" content="Learn how Cypress enables easy legacy data analysis and distribution. Discover how this integrated document assembly system streamlines data management and accessibility for your organization.">
+    <title>A 10 Minute Guide on XML parser versus Thunder Suite - TIC Software Blog</title>
+    <meta name="description" content="Compare XML parsers and Thunder Suite. Learn the key differences and discover which solution is best for your COBOL, C, or TAL programs on Nonstop systems.">
+    <meta property="og:title" content="A 10 Minute Guide on XML parser versus Thunder Suite - TIC Software Blog">
+    <meta property="og:description" content="Compare XML parsers and Thunder Suite. Learn the key differences and discover which solution is best for your COBOL, C, or TAL programs on Nonstop systems.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.ticsoftware.com/blogs\blog-cypress-data-analysis.html">
+    <meta property="og:url" content="https://www.ticsoftware.com/blogs\xml-parser-thunder-suite.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Data Analysis and Distribution with Cypress - TIC Software Blog">
-    <meta name="twitter:description" content="Learn how Cypress enables easy legacy data analysis and distribution. Discover how this integrated document assembly system streamlines data management and accessibility for your organization.">
+    <meta name="twitter:title" content="A 10 Minute Guide on XML parser versus Thunder Suite - TIC Software Blog">
+    <meta name="twitter:description" content="Compare XML parsers and Thunder Suite. Learn the key differences and discover which solution is best for your COBOL, C, or TAL programs on Nonstop systems.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
@@ -212,6 +212,16 @@
             text-decoration: underline;
         }
 
+        .blog-content a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .blog-content a:hover {
+            text-decoration: underline;
+        }
+
         .company-section {
             margin-top: 2rem;
         }
@@ -224,6 +234,7 @@
         }
 
         .company-text {
+            font-size: 0.85rem;
             text-align: justify;
             line-height: 1.8;
         }
@@ -260,7 +271,7 @@
 
         /* Main Content */
         main {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem 2rem;
         }
@@ -287,35 +298,6 @@
             height: 32px;
             border-radius: 50%;
             object-fit: cover;
-        }
-
-        .blog-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .blog-tag {
-            display: inline-block;
-            padding: 0.35rem 0.75rem;
-            background-color: var(--light-gray);
-            color: var(--primary-blue);
-            font-size: 0.85rem;
-            border-radius: 4px;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .blog-tag:link, .blog-tag:visited {
-            color: var(--primary-blue);
-        }
-
-        .blog-tag:hover {
-            background-color: #e0e0e0;
-            color: var(--primary-blue);
         }
 
         /* Responsive */
@@ -530,11 +512,41 @@
             border-radius: 4px;
         }
 
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.85rem;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .blog-tag:link, .blog-tag:visited {
+            color: var(--primary-blue);
+        }
+
+        .blog-tag:hover {
+            background-color: #e0e0e0;
+        }
+
         .back-button {
             display: inline-block;
-            background-color: var(--primary-blue);
+            background-color: var(--light-blue);
             color: var(--white);
-            padding: 0.6rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 4px;
             text-decoration: none;
             margin: 2rem 0 1rem 0;
@@ -542,7 +554,7 @@
         }
 
         .back-button:hover {
-            background-color: var(--light-blue);
+            background-color: var(--primary-blue);
         }
 
         /* Related Blogs Section */
@@ -773,7 +785,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>Data Analysis and Distribution with Cypress</h1>
+            <h1>A 10 Minute Guide on "XML parser versus Thunder Suite"</h1>
         </div>
         <div class="hero-right"></div>
     </section>
@@ -783,7 +795,7 @@
         <div class="blog-meta">
             <div class="blog-meta-item">
                 <span>📅</span>
-                <span>August 29, 2020</span>
+                <span>March 26, 2021</span>
             </div>
             <div class="blog-meta-item">
                 <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
@@ -792,34 +804,49 @@
         </div>
 
         <div class="blog-tags">
-            <a href="../blog.html?tag=JSON Thunder" class="blog-tag">JSON Thunder</a>
+            <a href="../blog.html?tag=Thunder Suite" class="blog-tag">Thunder Suite</a>
             <a href="../blog.html?tag=Modernization" class="blog-tag">Modernization</a>
         </div>
 
         <div class="blog-content">
-            <h2>For Easy Legacy Data Analysis & Distribution – the answer is Cypress</h2>
+            <h2>Understanding XML Parser versus Thunder Suite</h2>
 
-            <p>Compiling and leveraging legacy data to help your business can be a challenge at times. The disparate document and data types stored, that need to be accessed and integrated into cohesive and comprehensible information, can make this task seem daunting. But fear not, help is on the way in the name of Cypress.</p>
+            <img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/XML Logo.jpg" alt="XML Logo">
 
-            <p>Cypress is an integrated document assembly and distribution system for greatly enhanced data storage, management, accessibility and analysis. Designed for rapid deployment and requiring little or no user training, Cypress provides a solution for universal document capture and storage regardless of the document format or author application.</p>
+            <p><strong>What is the difference between using <a href="../modernize.html#xmlthunder">Thunder Suite</a> and an XML parser?</strong> Thunder Suite and XML parsers can both provide the ability to parse an input XML document, but they differ a lot in functions and features, especially when it comes to COBOL application development.</p>
 
-            <img src="../images/Blogs & Articles/Data Analysis and Distribution with Cypress/Cypress Dashboard.jpg" alt="Cypress Dashboard">
+            <h2>XML Parsers</h2>
 
-            <h2>Document Capture and Repository Technology</h2>
+            <ul>
+                <li>Parsers require developers to have some XML knowledge</li>
+                <li>Parsers usually support API such as DOM and SAX</li>
+                <li>Common programming languages for interfacing to parsers are object oriented languages like Java or C++ or C#</li>
+                <li>Parsers are used for handling input XML documents only</li>
+            </ul>
 
-            <p>Cypress imaging and repository technology securely captures, indexes and stores information from a variety of inputs such as fax and scanned documents, online delivery, and all systems and applications. Once captured, documents may be searched, retrieved, assembled and delivered – providing information to streamline business processes and increase employee efficiency and effectiveness.</p>
+            <img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/Fix_it.jpg" alt="Fix It">
 
-            <img src="../images/Blogs & Articles/Data Analysis and Distribution with Cypress/Cypress Repository.jpg" alt="Cypress Repository">
+            <p style="text-align: center; font-weight: bold; margin-top: 0.5rem;">Sample DOM API Calls</p>
 
-            <h2>Data Mining and Analysis</h2>
+            <p>XML parsers still require custom programming logic to navigate a given XML document and extract data values for processing. A parser simply makes an XML document available in memory, and its API — such as <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">Document Object Model (DOM)</a> or <a href="https://en.wikipedia.org/wiki/Simple_API_for_XML" target="_blank">Simple API for XML (SAX)</a> — can be used by custom application programming logic to obtain the XML data values. The parser simply raises programming events that need to be handled by programming logic. <strong>The larger and more complex the XML document is, the more complex the application logic will be.</strong> Logic branching for XML Choice, Namespaces, and optional vs. required XML nodes are just some of the challenges a developer will face. Complex decision trees and nested repeating structures (i.e. XML branches) also have to be accommodated.</p>
 
-            <p>The data mining and analysis module functions in both client-server and legacy environments – providing fully automated report mining, generation and distribution. An organization's unique business rules may be entered into the system to further specify specific reporting parameters such as destination groups or individuals, report frequency, and which data is distributed and by what method.</p>
+            <img src="../images/Blogs & Articles/A 10 Minute Guide on XML parser versus Thunder Suite/XML_Parsing.png" alt="XML Parsing">
 
-            <p>Data output, delivery and forms management all may be automated through Cypress as well. Document delivery to all output devices within an organization may be centrally managed through a single-user interface if so desired; including job and print queues, and employee processes and requests related to document delivery. Cypress makes documents and reports accessible immediately via secure Web browser access, while maintained original document integrity by not converting documents to traditional Web formats. Cypress also conforms to an organization's predetermined document and reporting formats, applying pre-defined criteria during assembly.</p>
+            <p style="text-align: center; font-weight: bold; margin-top: -0.5rem;">Calling an Thunder Suite Reader</p>
 
-            <h2>Enterprise Content Intelligence</h2>
+            <h2><a href="../json-thunder.html" style="color: var(--primary-blue); text-decoration: none;">Thunder Suite</a></h2>
 
-            <p>Cypress brings an enterprise's content together to enhance business processes and intelligence through faster information dissemination and analysis. Regardless of the data's origin, Cypress can process and deliver the information – to help an organization better leverage and respond to their market's needs.</p>
+            <ul>
+                <li>Thunder Suite is a visual GUI designer that developers can use to generate XML Handler code without requiring XML knowledge</li>
+                <li>The ability to generate COBOL or C code for both reading and creating XML documents (XML Parsers are used only for reading XML documents)</li>
+                <li>XML parsing logic with advanced validation capabilities beyond what most parsers are capable of, such as required field checking and data enumeration validation</li>
+            </ul>
+
+            <p>Unlike XML parsers, Thunder Suite <strong>generates the subroutine code needed to handle the XML processing</strong> for you. It also <strong>generates the needed data structures</strong> to be loaded or read from. There is <strong>no API</strong> interfacing, except to CALL the subroutine, from either <strong>COBOL or C programs.</strong> It hides all the complex XML processing from the calling program.</p>
+
+            <h2>So which should you use?</h2>
+
+            <p>If you are writing <strong>Java or C++</strong> code and are comfortable with XML, then XML parser would be an option to explore, since it is quite accessible in those environments. On the other hand, if you require XML handling in your <strong>COBOL, C or TAL programs on the Nonstop, then Thunder Suite will make your job a lot easier.</strong></p>
         </div>
 
         <a href="../blog.html" class="back-button">← Back to Blog</a>
@@ -837,7 +864,7 @@
 
         <div class="company-section">
             <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image" style="max-width: 72px;">
-            <p class="company-text">Phil Ly is the president and founder of <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a New York-based company specializing in software and services that integrate Nonstop with the latest technologies, including Web Services, .NET and Java. Prior to founding TIC in 1983, Phil worked for Tandem Computer in technical support and software development.</p>
+            <p class="company-text">Phil Ly is the president of <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
         </div>
 
@@ -848,13 +875,13 @@
                 <!-- Related Blog 1 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger LightWave Client lets you create REST APIs in minutes">
+                        <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON-Enable Nonstop COBOL and C programs with JSON Thunder">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Jan 4, 2023</div>
-                        <h3 class="related-blog-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h3>
+                        <div class="related-blog-date">Feb 1, 2023</div>
+                        <h3 class="related-blog-title">JSON-Enable Nonstop COBOL and C programs with JSON Thunder</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-swagger-lightwave-rest-apis.html" class="related-blog-button">📝 Read Blog</a>
+                        <a href="./json-thunder-nonstop.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
@@ -867,20 +894,20 @@
                         <div class="related-blog-date">Mar 29, 2023</div>
                         <h3 class="related-blog-title">LightWave Client supports more than JSON payload</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-lightwave-client-json-payload.html" class="related-blog-button">📝 Read Blog</a>
+                        <a href="./lightwave-client-json-payload.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON-Enable Nonstop COBOL and C programs with JSON Thunder">
+                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger LightWave Client lets you create REST APIs in minutes">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Feb 1, 2023</div>
-                        <h3 class="related-blog-title">JSON-Enable Nonstop COBOL and C programs with JSON Thunder</h3>
+                        <div class="related-blog-date">Jan 4, 2023</div>
+                        <h3 class="related-blog-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-json-thunder-nonstop.html" class="related-blog-button">📝 Read Blog</a>
+                        <a href="./swagger-lightwave-rest-apis.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
             </div>

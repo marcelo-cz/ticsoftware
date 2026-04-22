@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swagger or no Swagger - LightWave Client lets you create REST APIs in minutes - TIC Software Blog</title>
-    <meta name="description" content="Learn how LightWave Client makes it easy to create REST APIs on Nonstop systems, whether you have Swagger files or not.">
-    <meta property="og:title" content="Swagger or no Swagger - LightWave Client lets you create REST APIs in minutes - TIC Software Blog">
-    <meta property="og:description" content="Learn how LightWave Client makes it easy to create REST APIs on Nonstop systems, whether you have Swagger files or not.">
+    <title>Minimize Application Downtime with LogWatch Monitoring - TIC Software Blog</title>
+    <meta name="description" content="Learn how LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises and downtime.">
+    <meta property="og:title" content="Minimize Application Downtime with LogWatch Monitoring - TIC Software Blog">
+    <meta property="og:description" content="Learn how LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises and downtime.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.ticsoftware.com/blogs\blog-swagger-lightwave-rest-apis.html">
+    <meta property="og:url" content="https://www.ticsoftware.com/blogs\minimize-downtime-logwatch.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Swagger or no Swagger - LightWave Client lets you create REST APIs in minutes - TIC Software Blog">
-    <meta name="twitter:description" content="Learn how LightWave Client makes it easy to create REST APIs on Nonstop systems, whether you have Swagger files or not.">
+    <meta name="twitter:title" content="Minimize Application Downtime with LogWatch Monitoring - TIC Software Blog">
+    <meta name="twitter:description" content="Learn how LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises and downtime.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
@@ -142,29 +142,27 @@
             grid-template-columns: 40% 60%;
             height: 254px;
             background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
         }
 
         .hero-left {
+            background-color: #001a4d;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            background-color: #001a4d;
-            flex-direction: column;
+            color: var(--white);
         }
 
         .hero-left h1 {
-            font-size: 2.5rem;
-            color: var(--white);
+            font-size: 2.1rem;
             text-align: center;
+            padding: 2rem;
             font-weight: bold;
-            line-height: 1.4;
         }
 
         .hero-right {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
         }
 
         /* Main Content */
@@ -176,23 +174,29 @@
 
         .blog-header {
             margin-bottom: 2rem;
+            padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-gray);
-            padding-bottom: 1.5rem;
         }
 
         .blog-meta {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
             flex-wrap: wrap;
         }
 
         .blog-meta-item {
             display: flex;
-            align-items: center;
             gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
+            align-items: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
         .blog-tag {
@@ -204,8 +208,6 @@
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
@@ -250,23 +252,19 @@
         }
 
         .blog-content img {
-            max-width: 100%;
+            max-width: 70%;
             height: auto;
             display: block;
             margin: 2rem auto;
             border-radius: 8px;
         }
 
-        .code-block {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
+        .product-emphasis {
+            background-color: var(--light-gray);
             padding: 1.5rem;
-            border-radius: 4px;
+            border-left: 4px solid var(--primary-blue);
             margin: 1.5rem 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
+            border-radius: 4px;
         }
 
         .back-button {
@@ -335,26 +333,14 @@
             float: left;
             margin-right: 0.75rem;
             margin-bottom: 1rem;
-            max-width: 72px !important;
+            max-width: 72px;
             border-radius: 8px;
-            display: inline !important;
-            margin: 0 0.75rem 1rem 0 !important;
         }
 
         .company-text {
             font-size: 0.85rem;
             line-height: 1.8;
             text-align: justify;
-        }
-
-        .feedback-text a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .feedback-text a:hover {
-            text-decoration: underline;
         }
 
         /* Footer */
@@ -502,7 +488,8 @@
         }
 
         .related-blog-button:hover {
-            background-color: var(--light-blue);
+
+            content: " →";
         }
 
         /* Footer Styles */
@@ -867,6 +854,33 @@
             display: block;
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Minimize Application Downtime with LogWatch",
+        "description": "Proactive monitoring strategies for NonStop applications",
+        "image": "https://www.ticsoftware.com/images/TIC_Logo.png",
+        "datePublished": "2024-11-20",
+        "author": {
+            "@type": "Organization",
+            "name": "TIC Software"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "TIC Software",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ticsoftware.com/images/TIC_Logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.ticsoftware.com/blogs/minimize-downtime-logwatch.html"
+        },
+        "articleBody": "Read our comprehensive guide on this topic"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -907,7 +921,7 @@
                     <div class="dropdown-menu">
                         <a href="../success-stories.html">Success Stories</a>
                         <a href="../tic-news.html">TIC News</a>
-                        <a href="../blog.html" class="active">Blog</a>
+                        <a href="../blog.html">Blog</a>
                     </div>
                 </div>
                 <a href="../ticteam.html#get-in-touch">Contact Us</a>
@@ -923,9 +937,9 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h1>
+            <h1>Minimize Application Downtime with LogWatch Monitoring</h1>
         </div>
-        <div class="hero-right" style="background-image: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg');"></div>
+        <div class="hero-right"></div>
     </section>
 
     <!-- Main Content -->
@@ -934,81 +948,84 @@
             <div class="blog-meta">
                 <div class="blog-meta-item">
                     <span>📅</span>
-                    <span>Jan 4, 2023</span>
+                    <span>Oct 17, 2023</span>
                 </div>
                 <div class="blog-meta-item">
                     <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.5rem;">
                     <span>Phil Ly</span>
                 </div>
             </div>
-            <div>
-                <a href="../blog.html?tag=LightWave Client" class="blog-tag">LightWave Client</a>
-                <a href="../blog.html?tag=REST API" class="blog-tag">REST API</a>
-                <a href="../blog.html?tag=Swagger" class="blog-tag">Swagger</a>
+            <div class="blog-tags">
+                <a href="../blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
+                <a href="../blog.html?tag=Monitoring" class="blog-tag">Monitoring</a>
+                <a href="../blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
             </div>
         </div>
 
         <div class="blog-content">
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="API Chart" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/log_monitoring.png" alt="Log Monitoring" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>RESTful API opens up Nonstop by enabling its applications to interoperate with services within the enterprise, in the cloud or anywhere on the Internet. <strong>LightWave Client™ from our partner NuWave Technologies is the most popular REST client product to run on Nonstop.</strong> It enables you to create Nonstop applications to consume remote RESTful Web Services in minutes.</p>
+            <p style="text-align: center;"><strong>LogWatch enables proactive detection of application errors, allowing for timely resolution and preventing potential crises.</strong></p>
 
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/LWC_CHART.png" alt="LightWave Client Chart" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p>In many Nonstop installations, there are robust tools and procedures to monitor events in EMS logs. However, the monitoring of running application health is often overlooked. Applications may log error statuses to a file, but these logs are not regularly reviewed.</p>
 
-            <p>There are many factors that attribute to its success, including a browser-based GUI dashboard, its high performance, extensive diagnostic logging, etc. In addition, one outstanding feature is the ease of configuring and managing API definitions.</p>
+            <p><strong>Question:</strong> When do you look at your application log?</p>
 
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Swagger_banner.png" alt="Swagger Banner" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <p><strong>Common answer:</strong> After a problem has been reported.</p>
 
-            <h2>Swagger</h2>
+            <p>Unfortunately, this often translates to a significant delay after the problem has occurred.</p>
 
-            <p>Swagger allows the RESTful Web Service developer to describe the structure of their APIs so that the REST Client knows how to call them. The ability of APIs to describe their own structure is the root of all benefits in Swagger. This file is essentially a resource listing of your API which adheres to OpenAPI Specification. The specification asks you to include information like:</p>
+            <h2>How does LogWatch work?</h2>
+
+            <p>LogWatch allows you to define the files and anomaly conditions you want to monitor in its configuration. Once configured, LogWatch actively monitors and alerts you when it detects an anomaly condition. Alerts can be sent via email, routed to EMS, written to disk, or directed to an external enterprise monitoring system.</p>
+
+            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch.png" alt="LogWatch Architecture" style="max-width: 42%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>Detecting Application Issues</h2>
+
+            <p>LogWatch can be configured to scan your application log for error patterns, using simple word patterns such as "warning," "error," or "failure." Additionally, LogWatch's REGULAR EXPRESSION feature enables you to define complex rules to monitor and report specific combinations of patterns.</p>
+
+            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch_Regular_Expressions.png" alt="LogWatch Regular Expressions" style="max-width: 35%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+
+            <h2>Third Party Product Logs</h2>
+
+            <p>LogWatch is highly effective in monitoring third-party product logs to detect error conditions. It has been proven to work seamlessly with various third-party products, including:</p>
 
             <ul>
-                <li>What are all the operations that your API supports?</li>
-                <li>What are your API's parameters and what does it return?</li>
-                <li>Does your API need some authorization? Etc.</li>
+                <li>TeleMail (TIC)</li>
+                <li>LightWave Server and LightWave Client (NuWave)</li>
+                <li>Shadowbase (Gravic)</li>
+                <li>SecurDPS and CSL (Comforte)</li>
             </ul>
 
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Swagger_file.png" alt="Swagger File" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 2rem 0;">
+                <div style="text-align: center;">
+                    <img src="../images/TIC_2026.png" alt="TIC Software" style="max-width: 120px; height: auto; border-radius: 8px;">
+                </div>
+                <div style="text-align: center;">
+                    <img src="../images/Logos/NuWave_logo.png" alt="NuWave" style="max-width: 120px; height: auto; border-radius: 8px;">
+                </div>
+                <div style="text-align: center;">
+                    <img src="../images/Logos/Gravic_logo.jpeg" alt="Gravic" style="max-width: 120px; height: auto; border-radius: 8px;">
+                </div>
+                <div style="text-align: center;">
+                    <img src="../images/Logos/comforte_logo.jpg" alt="Comforte" style="max-width: 120px; height: auto; border-radius: 8px;">
+                </div>
+            </div>
 
-            <p>A Swagger file for a RESTful service greatly facilitates the job of the REST Client program developer because it enables the creation of the methods and operations more easily. <strong>LightWave Client™ supports the use of Swagger in defining the APIs to consume the RESTful web service.</strong></p>
+            <p>If you use any of these products as well as other third-party products, check out how LogWatch can help you monitor their errors.</p>
 
-            <h2>Swagger Support in LightWave Client – Point and Click</h2>
+            <h2>Detecting Pathway Server Failures</h2>
 
-            <p>With LightWave Client™, you can create an API to consume the remote RESTful service instantly by importing its Swagger file. This can be done via a point-and-click operation.</p>
+            <p>Most Pathway servers are defined with their HOMETERM set as VHS. However, if a server abends, the abend message and trace stack appear on VHS, where nobody may notice for a while. LogWatch can be configured to monitor VHS for server abend messages and automatically send an email notification to SUPPORT or designated recipients about the error instantly.</p>
 
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/swagger_support_LWC.png" alt="Swagger Support LightWave Client" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/LogWatch_VHS_Messages.png" alt="LogWatch VHS Messages" style="max-width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Import_API_from_swagger_openAPI.png" alt="Import API from Swagger OpenAPI" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
+            <h2>Minimize Downtime – Be Proactive!</h2>
 
-            <p>Once the Swagger has been imported, LightWave Client™ will generate a schema with all the methods and operations as defined in the Swagger file. And the API is done!</p>
+            <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/Minimize_Downtime.jpg" alt="Minimize Downtime" style="max-width: 35%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <p>LightWave Client™ also provides a feature that allows you to customize some of the schema attributes, like field size, array size, etc. to fit your application environment.</p>
-
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Schema Editor.jpg" alt="Schema Editor" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <h2>What if there is no Swagger?</h2>
-
-            <p>The reality is that not every RESTful web service provider supplies a Swagger. <strong>This presents a potential problem to some other REST Client products on Nonstop which require that you must have a Swagger file for it to work. If you don't have it, then you are stuck.</strong> You will need to "make up" (create) one manually. It can be a tedious process that is prone to incompleteness and errors.</p>
-
-            <h2>LightWave Client – Schema By Example</h2>
-
-            <p>This is not an issue for LightWave Client™. No need to fumble around trying to create a Swagger manually. With LightWave Client™, all you need is a sample Request and Response. Then you can take advantage of the product's <strong>"Schema By Example"</strong> feature. As the name implies, LightWave Client™ will use the sample that you provide as an example to build a schema to be used for creating the request and response necessary to access the remote API.</p>
-
-            <p>When you use the LightWave Client™ GUI Dashboard to create the API definition, one of the options is "Add By Example."</p>
-
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/LWC GUI Dashboard.png" alt="LightWave Client GUI Dashboard" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>Paste in a sample Request or Response, and LightWave Client™ will process it accordingly.</p>
-
-            <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/Schema Type by Example.png" alt="Schema Type by Example" style="max-width: 40%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
-
-            <p>Once the request and the response definitions are imported via the Example, you can optionally edit the schema to fit your application needs.</p>
-
-            <p><strong>That's it: your API definition is now complete by using LightWave Client's™ Schema By Example feature.</strong></p>
-
-            <p>For more information about LightWave Client™, visit <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> or NuWave Technologies website.</p>
-
+            <p>Studies estimate downtime costs at around $9,000 per minute, with larger organizations facing hundreds of thousands per hour. Every minute matters when your application is down. Utilize LogWatch to instantly detect application errors, enabling you to minimize downtime and save significant amounts of money.</p>
         </div>
 
         <a href="../blog.html" class="back-button">← Back to Blog</a>
@@ -1026,7 +1043,7 @@
 
         <div class="company-section">
             <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
-            <p class="company-text"><strong>Phil Ly</strong> is the president of <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
+            <p class="company-text">Phil Ly is the president of <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
         </div>
 
@@ -1036,39 +1053,39 @@
                 <!-- Related Blog 1 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave JSON Payload">
+                        <img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="LogWatch Web Interface">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Sep 11, 2023</div>
-                        <h3 class="related-blog-title">LightWave Client Supports More Than JSON Payload</h3>
-                        <p class="related-blog-excerpt">Explore LightWave Client's advanced payload handling capabilities.</p>
-                        <a href="./blog-lightwave-client-json-payload.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Mar 18, 2024</div>
+                        <h3 class="related-blog-title">Building a Web Interface to a Centralized View of Application Logs with LogWatch</h3>
+                        <p class="related-blog-excerpt">Learn how to build a web interface for centralized application log viewing with LogWatch.</p>
+                        <a href="./logwatch-web-interface.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 2 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON Thunder Nonstop">
+                        <img src="../images/Logos/kafka grey logo.png" alt="Kafka uLinga">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Oct 2, 2023</div>
-                        <h3 class="related-blog-title">JSON Thunder & Nonstop: A Perfect Match in the World of APIs and Microservices</h3>
-                        <p class="related-blog-excerpt">Discover how JSON Thunder and Nonstop create a perfect match for modern APIs and microservices.</p>
-                        <a href="./blog-json-thunder-nonstop.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Mar 25, 2024</div>
+                        <h3 class="related-blog-title">Nonstop Integration with LogWatch and uLinga for Better Visibility</h3>
+                        <p class="related-blog-excerpt">Integrate Nonstop systems with LogWatch and uLinga for improved operational visibility.</p>
+                        <a href="./nonstop-integration-logwatch-ulinga.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="REST APIs">
+                        <img src="../images/Blogs & Articles/How to Aggregate Nonstop Logs to Kafka/Log Aggregation.jpg" alt="Nonstop Logs to Kafka">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Sep 25, 2023</div>
-                        <h3 class="related-blog-title">REST APIs with LightWave Client</h3>
-                        <p class="related-blog-excerpt">Master REST API creation and management with LightWave Client.</p>
-                        <a href="./blog-rest-apis-lightwave.html" class="related-blog-button">📝 Read Blog</a>
+                        <div class="related-blog-date">Nov 19, 2023</div>
+                        <h3 class="related-blog-title">How to Aggregate Nonstop Logs to Kafka in One Simple Step</h3>
+                        <p class="related-blog-excerpt">Learn how to aggregate Nonstop logs to Kafka using uLinga for Kafka with three simple methods.</p>
+                        <a href="./aggregate-nonstop-logs-kafka.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
             </div>

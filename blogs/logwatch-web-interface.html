@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to access Windows programs from Nonstop Applications - TIC Software Blog</title>
-    <meta name="description" content="Learn how TelePath enables Nonstop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from Nonstop systems.">
-    <meta property="og:title" content="How to access Windows programs from Nonstop Applications - TIC Software Blog">
-    <meta property="og:description" content="Learn how TelePath enables Nonstop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from Nonstop systems.">
+    <title>Building a Web Interface to a Centralized View of Application Logs with LogWatch - TIC Software Blog</title>
+    <meta name="description" content="Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team.">
+    <meta property="og:title" content="Building a Web Interface to a Centralized View of Application Logs with LogWatch - TIC Software Blog">
+    <meta property="og:description" content="Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.ticsoftware.com/blogs\blog-telepath-windows-programs.html">
+    <meta property="og:url" content="https://www.ticsoftware.com/blogs\logwatch-web-interface.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How to access Windows programs from Nonstop Applications - TIC Software Blog">
-    <meta name="twitter:description" content="Learn how TelePath enables Nonstop applications to access Windows programs and functionality. Discover how to leverage Windows tools like PDF conversion and encryption from Nonstop systems.">
+    <meta name="twitter:title" content="Building a Web Interface to a Centralized View of Application Logs with LogWatch - TIC Software Blog">
+    <meta name="twitter:description" content="Learn how to build a web interface for centralized application log viewing with LogWatch. Streamline log management and analysis for your team.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
@@ -109,9 +109,8 @@
             display: none;
             position: absolute;
             background-color: var(--white);
-            min-width: 200px;
+            min-width: 160px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            padding: 0.75rem 0;
             z-index: 1;
             border-radius: 4px;
             border: 1px solid var(--border-gray);
@@ -119,17 +118,13 @@
             left: 0;
         }
 
-        .nav-dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
         .dropdown-menu a {
-            color: var(--dark-text);
+            display: block;
             padding: 0.75rem 1rem;
             text-decoration: none;
-            display: block;
-            transition: background-color 0.3s;
-            font-size: 0.9rem;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
         }
 
         .dropdown-menu a:hover {
@@ -137,68 +132,92 @@
             color: var(--primary-blue);
         }
 
-        .search-icon {
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .nav-search {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-search-input {
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border-gray);
-            border-radius: 6px;
-            font-size: 1rem;
-            width: 250px;
-            transition: border-color 0.3s;
-        }
-
-        .nav-search-input:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.1);
-        }
-
-        .nav-search-btn {
-            padding: 0.6rem 1rem;
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: background-color 0.3s;
-        }
-
-        .nav-search-btn:hover {
-            background-color: var(--light-blue);
-        }
-
-        .search-results {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: white;
-            border: 1px solid var(--border-gray);
-            border-radius: 6px;
-            margin-top: 0.5rem;
-            max-height: 400px;
-            overflow-y: auto;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            display: none;
-            z-index: 1000;
-        }
-
-        .search-results.active {
+        .nav-dropdown:hover .dropdown-menu {
             display: block;
         }
 
-        /* Blog Content */
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: 254px;
+            background-color: var(--white);
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .hero-left {
+            background-color: #001a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .hero-left h1 {
+            font-size: 2.1rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-right {
+            background: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg') center/cover no-repeat;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .blog-tag:hover {
+            background-color: #e0e0e0;
+            color: var(--primary-blue);
+        }
+
         .blog-content {
             font-size: 0.95rem;
             line-height: 1.8;
@@ -208,7 +227,7 @@
             font-size: 1.6rem;
             color: var(--primary-blue);
             font-weight: bold;
-            margin: 0.5rem 0 1rem 0;
+            margin: 2rem 0 1rem 0;
         }
 
         .blog-content h3 {
@@ -230,6 +249,39 @@
 
         .blog-content li {
             margin-bottom: 0.75rem;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
+        .product-emphasis {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--light-blue);
         }
 
         .feedback-section {
@@ -279,116 +331,55 @@
 
         .company-image {
             float: left;
-            margin-right: 1rem;
+            margin-right: 0.75rem;
             margin-bottom: 1rem;
+            max-width: 72px;
             border-radius: 8px;
         }
 
         .company-text {
-            text-align: justify;
+            font-size: 0.85rem;
             line-height: 1.8;
+            text-align: justify;
         }
 
-        .back-button {
-            display: inline-block;
-            background-color: var(--light-blue);
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
             color: var(--white);
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            margin: 2rem 0 1rem 0;
-            transition: all 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: var(--primary-blue);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            height: 254px;
-            background-color: var(--white);
-            max-width: 100%;
-            overflow: hidden;
-        }
-
-        .hero-left {
-            background-color: #001a4d;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            color: var(--white);
-        }
-
-        .hero-left h1 {
-            font-size: 2.5rem;
-            text-align: left;
             padding: 2rem;
-            font-weight: bold;
-            color: var(--white);
-        }
-
-        .hero-right {
-            background-image: url('../images/Blogs & Articles/TIC_blogs_main_banner.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100%;
-        }
-
-        /* Main Content */
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 2rem;
-        }
-
-        .blog-meta {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.95rem;
-            color: #666;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-gray);
-        }
-
-        .blog-meta-item {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .blog-meta img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            nav {
+                gap: 1rem; flex-wrap: nowrap;
+                font-size: 0.85rem;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
             .hero-section {
                 grid-template-columns: 1fr;
                 height: auto;
             }
 
             .hero-left h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-right {
-                height: 200px;
-            }
-
-            main {
-                padding: 1rem;
+                font-size: 1.8rem;
             }
         }
-
-        /* Footer */
+    
+        /* Footer Styles */
         .site-footer {
             background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
             color: #e8e8e8;
@@ -403,6 +394,7 @@
             margin: 0 auto;
         }
 
+        /* Footer Content Grid */
         .footer-content {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -411,11 +403,15 @@
             border-bottom: 1px solid rgba(74, 111, 165, 0.2);
         }
 
+        /* Footer Section */
         .footer-section {
             display: flex;
             flex-direction: column;
         }
 
+
+
+        /* Footer Title */
         .footer-title {
             font-size: 0.825rem;
             font-weight: 600;
@@ -438,6 +434,7 @@
             background: linear-gradient(90deg, #4a6fa5, rgba(74, 111, 165, 0));
         }
 
+        /* Footer Links */
         .footer-links {
             list-style: none;
             padding: 0;
@@ -476,6 +473,7 @@
             width: 100%;
         }
 
+        /* Contact Section */
         .footer-contact {
             grid-column: 5;
             display: grid !important;
@@ -532,35 +530,36 @@
             text-decoration: underline;
         }
 
+        /* Footer Bottom */
         .footer-bottom {
+            padding: 1.5rem 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
         .footer-copyright {
-            margin: 0;
+            font-size: 0.68rem;
+            color: #7a8292;
         }
 
         .footer-copyright p {
             margin: 0;
-            color: white;
         }
 
         .footer-legal {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             align-items: center;
+            font-size: 0.68rem;
         }
 
         .footer-legal a {
-            color: white;
+            color: #7a8292;
             text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .footer-legal a:hover {
@@ -568,16 +567,122 @@
         }
 
         .divider {
-            color: white;
+            color: rgba(74, 111, 165, 0.4);
         }
 
-        /* Blog content images */
-        .blog-content img {
-            max-width: 50%;
-            height: auto;
-            margin: 1.5rem auto;
-            display: block;
-            border-radius: 4px;
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .footer-social .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(74, 111, 165, 0.15);
+            border: 1px solid rgba(74, 111, 165, 0.3);
+            border-radius: 6px;
+            color: #4a6fa5;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-social .social-link:hover {
+            background: rgba(74, 111, 165, 0.25);
+            border-color: rgba(74, 111, 165, 0.5);
+            color: #5a7fb5;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.875rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                padding: 2.25rem 1.125rem 0;
+                margin-top: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                padding: 0 1.5rem 1.5rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-title {
+                font-size: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 0.68rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-legal {
+                justify-content: center;
+                order: 2;
+            }
+
+            .footer-copyright {
+                order: 1;
+            }
+
+            .footer-social {
+                order: 3;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.125rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-section {
+                border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+                padding-bottom: 1.125rem;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+
+            .footer-contact {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-contact .contact-item:first-of-type {
+                grid-column: 1 !important;
+            }
+
+            .footer-title::after {
+                width: 100%;
+            }
         }
 
         /* Related Blogs Section */
@@ -694,10 +799,92 @@
                 font-size: 0.95rem;
             }
         }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-search-input {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 250px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.1);
+        }
+
+        .nav-search-btn {
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-search-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            display: block;
+        }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Building a Web Interface to NonStop Logs",
+        "description": "Learn how to create a centralized view of application logs with LogWatch",
+        "image": "https://www.ticsoftware.com/images/TIC_Logo.png",
+        "datePublished": "2024-12-15",
+        "author": {
+            "@type": "Organization",
+            "name": "TIC Software"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "TIC Software",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ticsoftware.com/images/TIC_Logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.ticsoftware.com/blogs/logwatch-web-interface.html"
+        },
+        "articleBody": "Read our comprehensive guide on this topic"
+    }
+    </script>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-content">
             <a href="../index.html" class="logo">
@@ -752,45 +939,72 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
-            <h1>How to access Windows programs from Nonstop Applications</h1>
+            <h1>Building a Web Interface to a Centralized View of Application Logs with LogWatch</h1>
         </div>
         <div class="hero-right"></div>
     </section>
 
     <!-- Main Content -->
     <main>
-        <div class="blog-meta">
-            <div class="blog-meta-item">
-                <span>📅</span>
-                <span>February 1, 2021</span>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <span>📅</span>
+                    <span>Mar 18, 2024</span>
+                </div>
+                <div class="blog-meta-item">
+                    <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <span>Phil Ly</span>
+                </div>
             </div>
-            <div class="blog-meta-item">
-                <img src="../images/TIC Team/Donald_profile.png" alt="Donald Wickham" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
-                <span>Donald Wickham</span>
+            <div class="blog-tags">
+                <a href="../blog.html?tag=LogWatch" class="blog-tag">LogWatch</a>
+                <a href="../blog.html?tag=Monitoring" class="blog-tag">Monitoring</a>
+                <a href="../blog.html?tag=Nonstop" class="blog-tag">Nonstop</a>
             </div>
         </div>
-
         <div class="blog-content">
-            <h2>Accessing Windows Functionality from Nonstop Systems</h2>
+            <p>Managing and analyzing log data proved inefficient due to the sheer volume and dispersion of log files across various services and applications. Locating specific entries often necessitated time-consuming manual searches through individual log files.</p>
 
-            <p>Several years ago we began exploring how we might make functionality that was readily available on Windows™ platforms available to Nonstop applications. We looked at porting some of them to the Nonstop. We have been able to do that to a very small number of tools, like an HTTP server and email client. Most of the other tools were either proprietary or need features that were not possible on Nonstop.</p>
+            <p>TIC LogWatch is a Nonstop application log monitoring product that detects anomalies and raises alerts to enable proactive handling of errors. LogWatch is relevant in many different use cases, including monitoring EMS logs, 3rd party products like TIC's TeleMail, NuWave product logs, comforte's Escarps logs, and many others. One of our LogWatch users shares how he has built a useful Web interface to view his application logs easily, including EMS and TIC TeleMail.</p>
 
-            <p>We began by looking at how most applications might want to use these functions and which were the most needed. We identified PGP encryption and PDF conversion as the top two. These two functions are available on the Windows platforms and are also very, very inexpensive (like free!). In most cases existing and new Nonstop applications wanted to use these functions as if they were standard Nonstop serverclasses.</p>
+            <h2>Overview</h2>
+            <p>The idea for this application was to create an easy way for our development team to find log files quickly and easily all in a single place. The application allows the user to pick a log file from the list and it would simply display as much data from the log as could be read in just 10 seconds. The most recent events are always on top. As you scroll down, you can click to see more data. You can even specify a starting date/time in the text box at the top. This will allow you to quickly jump to the logs several days in the past. Built-in filtering allows the user to see only lines that contain keywords.</p>
 
-            <img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath Server Class.png" alt="TelePath Architecture">
+            <h2>Steps</h2>
 
-            <p>This was the history of how TelePath came to be. We wanted to have a Nonstop program, running as a serverclass, that would allow applications to simply do a Serverclass_Send or WRITEREAD sending instructions on what is to be done and, optionally include files to be processed. The reply could also point to files that returned.</p>
+            <h3>LogWatch and Log Data</h3>
+            <ul>
+                <li>I use LogWatch to pull information from EMS and Telemail logs then write them to a single multi-purpose log file.</li>
+                <li>The logfile key is an application ID plus the date/time to the millisecond.</li>
+                <li>Then the LOG data can be a long string of text or any number of delimited fields to be displayed.</li>
+                <li>The delimiters allow data to be presented in a web grid with headings.</li>
+            </ul>
 
-            <h2>TelePath Architecture</h2>
+            <h3>Custom COBOL Programs</h3>
+            <ul>
+                <li>This log application has a small config file that identifies the log ID, Title, Headings, and log retention period so that the logs will be constantly trimmed according to retention needed.</li>
+                <li>An additional Log service was built to allow all other applications to write to this log file in a simple way using as few lines of code as possible.</li>
+                <li>Another service was built to feed data to a web application that displays these logs using a straightforward interface.</li>
+            </ul>
 
-            <p>Utilizing experience we had with Server Object Gateway (SOG), we built two primary components. The first was a serverclass, TREMSVR, that would receive the requests and send them, via TCP/IP to a Windows server. The second, TeleRemotePC, was a Windows application that would process the request and perform whatever operation was wanted. We also wanted to provide at least some of the Tandem/Nonstop fundamentals. Not only can there be multiple instances of TREMSVR, but each TREMSVR process can communicate with multiple TeleRemotePC programs.</p>
+            <h2>Result</h2>
+            <p>A browser-based GUI that allows easy access to application logs, organized in a standard easy-to-understand format. For example, developers can point and click to view EMS logs for the past 90 days or to view TeleMail errors for the past 60 days.</p>
 
-            <img src="../images/Blogs & Articles/How to Access Windows programs from Nonstop Applications/TelePath_TREMSVR.png" alt="TREMSVR and TeleRemotePC Components" style="max-width: 70%;">
+            <img src="../images/Blogs & Articles/Building a Web Interface to a centralized view of Application Logs with LogWatch/system and application logs 2nd image.png" alt="System and Application Logs Interface" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;">
 
-            <h2>TelePath in Production</h2>
+            <h2>Benefits</h2>
+            <p>The centralized log viewer significantly enhanced our log management workflow:</p>
+            <ul>
+                <li><strong>Improved Efficiency:</strong> By consolidating logs, we eliminated the need to search through numerous individual files, streamlining the process of locating relevant information.</li>
+                <li><strong>Enhanced Search Capabilities:</strong> LogWatch's filtering mechanisms enabled focused searches based on specific keywords or date ranges, facilitating targeted analysis of log data.</li>
+                <li><strong>Optimized Log Presentation:</strong> The customized web interface provided a clear and structured view of log entries, improving the comprehension and analysis of log data.</li>
+            </ul>
 
-            <p>TelePath has been robustly providing a wide variety of Windows functionality for many years with a growing number of customers. Look for an upcoming Whitepaper which will provide more technical details of TelePath or request More Info about this product.</p>
+            <h2>Conclusion</h2>
+            <p>LogWatch serves as a valuable tool for centralizing and managing logs. Its features significantly improve the efficiency and effectiveness of log analysis, making it a valuable asset for any organization grappling with managing diverse log data. Contact Us today at 📧 <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a> for more information.</p>
 
+            <p>Do you find this tutorial blog helpful? Let us know what you think, and how we can improve it. Don't forget, that you can subscribe to our blogs to get automatic email notifications when a new blog is available.</p>
         </div>
 
         <a href="../blog.html" class="back-button">← Back to Blog</a>
@@ -807,8 +1021,8 @@
         <hr style="border: none; border-top: 1px solid var(--border-gray); margin: 0.5rem 0 0.75rem 0;">
 
         <div class="company-section">
-            <img src="../images/TIC Team/Donald_profile.png" alt="Donald Wickham" class="company-image" style="max-width: 72px;">
-            <p class="company-text">Donald Wickham has over 30 years of experience with Nonstop including 20 years for Tandem, Compaq and HP. He has been with <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a> for over 20 years in the role of Chief Architect.</p>
+            <img src="../images/TIC Team/Phil_Ly_main.png" alt="Phil Ly" class="company-image">
+            <p class="company-text">Phil Ly is the president of <a href="../index.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">TIC Software</a>, a leading provider of software and services for the Nonstop community focused on Nonstop application modernization. Under Phil's guidance, TIC Software has a proven track record of helping clients seamlessly integrate Nonstop with next-generation technologies. A recognized technical leader, Phil is passionate about empowering organizations to unlock the full potential and longevity of their Nonstop platform through innovative solutions.</p>
             <div style="clear: both;"></div>
         </div>
 
@@ -819,39 +1033,39 @@
                 <!-- Related Blog 1 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/LightWave Client supports more than JSON payload/LWC_CHART.png" alt="LightWave Client supports more than JSON payload">
+                        <img src="../images/Blogs & Articles/Minimize Application Downtime with LogWatch Monitoring/log_monitoring.png" alt="Minimize Application Downtime with LogWatch Monitoring">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Mar 29, 2023</div>
-                        <h3 class="related-blog-title">LightWave Client supports more than JSON payload</h3>
+                        <div class="related-blog-date">Oct 17, 2023</div>
+                        <h3 class="related-blog-title">Minimize Application Downtime with LogWatch Monitoring</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-lightwave-client-json-payload.html" class="related-blog-button">📝 Read Blog</a>
+                        <a href="./minimize-downtime-logwatch.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 2 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/Swagger or no Swagger LightWave Client lets you create REST APIs in minutes/API_Chart.png" alt="Swagger or no Swagger LightWave Client lets you create REST APIs in minutes">
+                        <img src="../images/Blogs & Articles/Nonstop Integration – LogWatch and uLinga/Apache_Kafka Chart.png" alt="Nonstop Integration – LogWatch and uLinga">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Jan 4, 2023</div>
-                        <h3 class="related-blog-title">Swagger or no Swagger LightWave Client lets you create REST APIs in minutes</h3>
+                        <div class="related-blog-date">Jul 26, 2022</div>
+                        <h3 class="related-blog-title">Nonstop Integration – LogWatch and uLinga</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-swagger-lightwave-rest-apis.html" class="related-blog-button">📝 Read Blog</a>
+                        <a href="./nonstop-integration-logwatch-ulinga.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
 
                 <!-- Related Blog 3 -->
                 <div class="related-blog-card">
                     <div class="related-blog-image">
-                        <img src="../images/Blogs & Articles/JSON-Enable Nonstop COBOL and C programs with JSON Thunder/Features of JSON.png" alt="JSON-Enable Nonstop COBOL and C programs with JSON Thunder">
+                        <img src="../images/Blogs & Articles/How to Aggregate Nonstop Logs to Kafka/Log Aggregation.jpg" alt="How to Aggregate Nonstop Logs to Kafka in One Simple Step">
                     </div>
                     <div class="related-blog-content">
-                        <div class="related-blog-date">Feb 1, 2023</div>
-                        <h3 class="related-blog-title">JSON-Enable Nonstop COBOL and C programs with JSON Thunder</h3>
+                        <div class="related-blog-date">Nov 19, 2023</div>
+                        <h3 class="related-blog-title">How to Aggregate Nonstop Logs to Kafka in One Simple Step</h3>
                         <p class="related-blog-excerpt">Explore this related article to learn more about similar topics and solutions.</p>
-                        <a href="./blog-json-thunder-nonstop.html" class="related-blog-button">📝 Read Blog</a>
+                        <a href="./aggregate-nonstop-logs-kafka.html" class="related-blog-button">📝 Read Blog</a>
                     </div>
                 </div>
             </div>
