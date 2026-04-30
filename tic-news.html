@@ -197,14 +197,14 @@
         /* Featured Article Section */
         .featured-article {
             display: grid;
-            grid-template-columns: 35% 65%;
+            grid-template-columns: 45% 55%;
             gap: 2rem;
             margin-bottom: 1.5rem;
             padding: 2rem;
             background-color: var(--light-gray);
             border-radius: 8px;
             border: 1px solid var(--border-gray);
-            align-items: center;
+            align-items: flex-start;
         }
 
         .featured-article-content h2 {
@@ -506,6 +506,28 @@
         }
 
         .featured-card-8 a {
+            color: var(--white);
+        }
+
+        .featured-card-tic-talk {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('./TIC_Talk_Files/Images/TIC_Talk_News_Banner.jpg') left/cover no-repeat;
+            color: var(--white);
+            padding: 3rem 2rem;
+        }
+
+        .featured-card-tic-talk h3 {
+            color: var(--white);
+        }
+
+        .featured-card-tic-talk p {
+            color: var(--white);
+        }
+
+        .featured-card-tic-talk .featured-article-date {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .featured-card-tic-talk a {
             color: var(--white);
         }
 
@@ -1214,18 +1236,38 @@
         <section>
             <div class="featured-article">
                 <div class="featured-article-content">
-                    <h2>TIC Talk: April Edition</h2>
-                    <p class="featured-article-excerpt">In our latest edition of TIC Talk, we are pleased to highlight our upcoming webinar, "A Better Way to Develop and Navigate HPE NonStop," scheduled for the end of this month. The session will include live demonstrations of TIC Navigator.</p>
-                    <p class="featured-article-excerpt">We also invite you to join our presentation at the New York Technical User Group (NYTUG) conference in May, where we will share valuable insights on TIC Navigator and much more.</p>
-                    <a href="https://ticsoftware.com/tic-talk-april-2026" class="read-more" target="_blank">Read More →</a>
+                    <h2>NYTUG 2026</h2>
+                    <p class="featured-article-excerpt">TIC Software will be presenting about TIC Navigator at the New York Technical User Group conference. Join us to learn and discover how TIC Navigator can help modernize your systems.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; padding-top: 1.5rem; color: var(--dark-text);">
+                        <div>
+                            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;"><strong>📌 When:</strong><br>Thu, May 14, 2026</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;"><strong>⏰ Time:</strong><br>3:00pm&nbsp;ET</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;"><strong>📍 Where:</strong><br>HPE Office<br>200 Connell Dr<br>Berkeley Heights, NJ 07922</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="featured-article-image" style="background-image: url('./TIC_Talk_Files/Images/TIC_Talk_News_Banner.jpg'); background-size: cover; background-position: center top;"></div>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+                    <div class="featured-article-image" style="background-image: url('./images/Conference%20Galleries/NYTUG%20Album/NYTUG%20%2719/nytug_3rd_logo_900x545_1_38.png'); background-size: 60%; background-position: center top;"></div>
+                    <a href="https://connect-community.org/event-calendar/nytug-2/" class="read-more" target="_blank" style="margin-top: -200px;">📝 Register</a>
+                </div>
             </div>
         </section>
 
         <!-- News Grid -->
         <section>
             <div class="news-grid">
+                <!-- Card 1.5 - TIC Talk April Edition -->
+                <div class="news-card featured-card-tic-talk">
+                    <div class="featured-article-date">April 2026</div>
+                    <h3>TIC Talk: April Edition</h3>
+                    <p>In our latest edition of TIC Talk, we are pleased to announced our upcoming webinar, "<strong>A Better Way to Develop and Navigate HPE NonStop.</strong>" We also provide info about the upcoming user group meeting, NYTUG 2026, where our very own, Phil Ly will be presenting. For that and much more, click the link below.</p>
+                    <a href="https://ticsoftware.com/tic-talk-april-2026" class="read-more" target="_blank">Read More →</a>
+                </div>
+
                 <!-- Card 1 - Previous Featured Article -->
                 <div class="news-card featured-card">
                     <div class="featured-article-date">February 2026 (Great Neck, NY)</div>
