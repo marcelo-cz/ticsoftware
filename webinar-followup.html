@@ -31,8 +31,41 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--dark-text);
             line-height: 1.6;
-            background-color: var(--white);
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
+            background-attachment: fixed;
+            position: relative;
             margin: 0;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.02) 2px,
+                    rgba(0, 0, 0, 0.02) 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.02) 2px,
+                    rgba(0, 0, 0, 0.02) 4px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        main, header, footer {
+            position: relative;
+            z-index: 1;
         }
 
         /* Header */
@@ -479,42 +512,14 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <img src="./images/Logos/Leading_TIC_AI.png" alt="TIC Software Logo">
+            <img src="./images/Logos/Leading_TIC_AI_Modernization.png" alt="TIC Software Logo">
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
         <div class="container">
-            <!-- Thank You Section -->
-            <div class="thank-you-section">
-                <h1>Webinar: A Better Way to Develop and Navigate HPE Nonstop using Ai from TIC Navigator!</h1>
-                <p class="thank-you-message">Thank you for attending our webinar! We're grateful for your participation and interest. We hope you left with a better&nbsp;understanding of how TIC Navigator can help your business reach its full potential.</p>
-            </div>
-
-            <!-- Content Section -->
-            <div class="content-grid">
-                <img src="./images/compass with slogan no background.jpg" alt="TIC Navigator Compass" class="webinar-image">
-                <div class="topics-section">
-                    <h2>Topics We Discussed</h2>
-                    <div class="topics-grid">
-                        <ul class="navigator-features">
-                            <li>✓ Navigate complex Nonstop architectures with speed and confidence.</li>
-                            <li>✓ Catch risks before they become production incidents.</li>
-                        </ul>
-                        <ul class="navigator-features">
-                            <li>✓ Get new team members productive in weeks, not months.</li>
-                            <li>✓ Maintain development continuity as experienced staff retire or transition.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <!-- TAL Language Support Section -->
             <div class="tal-section">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <a href="https://ticsoftware.ai/code-navigator" class="cta-button">Explore TIC Navigator</a>
-                </div>
                 <h2 style="text-align: center;">TIC Navigator Newest Features</h2>
 
                 <div class="two-column-section">
