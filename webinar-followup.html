@@ -35,15 +35,11 @@
             margin: 0;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
             background-color: var(--white);
             border-bottom: 1px solid var(--border-gray);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1.5rem 0;
         }
 
         .header-content {
@@ -51,42 +47,14 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
-        .logo {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
+        .header-content img {
             height: 100px;
-            margin-right: auto;
-            min-width: 350px;
-            margin-left: -5rem;
-        }
-
-        .logo img {
-            height: 100%;
             width: auto;
             object-fit: contain;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            color: var(--primary-blue);
         }
 
         /* Main Content */
@@ -103,7 +71,7 @@
 
         .thank-you-section h1 {
             font-size: 2.5rem;
-            color: var(--primary-blue);
+            color: #800000;
             margin-bottom: 1.5rem;
             font-weight: 700;
         }
@@ -121,7 +89,7 @@
             color: var(--dark-text);
             margin-bottom: 2rem;
             line-height: 1.8;
-            max-width: 1000px;
+            max-width: none;
             text-align: left;
             font-weight: 600;
         }
@@ -170,15 +138,12 @@
 
         .cta-section {
             text-align: center;
-            margin: 3rem 0;
-            padding: 2rem;
-            background-color: var(--light-gray);
-            border-radius: 8px;
+            margin: 3rem 0 0.5rem 0;
         }
 
         .cta-section h2 {
             font-size: 1.5rem;
-            color: var(--primary-blue);
+            color: #800000;
             margin-bottom: 1rem;
         }
 
@@ -294,9 +259,197 @@
             color: var(--primary-blue);
         }
 
+        /* Image Modal */
+        .image-container {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .expandable-image {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .expandable-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #ccc;
+        }
+
+        /* TAL Language Support Section */
+        .tal-section {
+            margin-bottom: 3rem;
+        }
+
+        .tal-section h2 {
+            font-size: 2.5rem;
+            color: #800000;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .system-overview {
+            background-color: transparent;
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .system-overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .system-overview-card {
+            background: linear-gradient(135deg, #e8eef7 0%, #d4dde8 100%);
+            padding: 0.875rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .system-overview-card h4 {
+            font-size: 0.95rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        .system-overview-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .system-overview-card li {
+            padding: 0.15rem 0;
+            color: var(--dark-text);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .features-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .two-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .two-column-section > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-column-section > div:first-child {
+            border-right: 2px solid #e0e0e0;
+            padding-right: 3rem;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .work-card {
+            background-color: var(--light-gray);
+            padding: 0.875rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-blue);
+            text-align: center;
+        }
+
+        .work-card h3 {
+            font-size: 0.95rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .work-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .work-card li {
+            color: var(--dark-text);
+            padding: 0.15rem 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
         @media (max-width: 768px) {
-            .topics-grid {
+            .two-column-section {
                 grid-template-columns: 1fr;
+            }
+
+            .how-it-works {
+                grid-template-columns: 1fr;
+            }
+
+            .system-overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tal-section h2 {
+                font-size: 1.5rem;
             }
 
             .content-grid {
@@ -326,17 +479,7 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <a href="index.html" class="logo">
-                <img src="./images/TIC_2026.png" alt="TIC Software">
-            </a>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="gateway.html">Gateway</a>
-                <a href="operations.html">Operations</a>
-                <a href="storage.html">Storage</a>
-                <a href="modernize.html">Modernize</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+            <img src="./images/Logos/Leading_TIC_AI.png" alt="TIC Software Logo">
         </div>
     </header>
 
@@ -346,7 +489,7 @@
             <!-- Thank You Section -->
             <div class="thank-you-section">
                 <h1>Webinar: A Better Way to Develop and Navigate HPE Nonstop using Ai from TIC Navigator!</h1>
-                <p class="thank-you-message">Thank you for attending our webinar! We're grateful for your participation and interest. We hope you left with a better understanding of how TIC Navigator can help your business reach its full potential.</p>
+                <p class="thank-you-message">Thank you for attending our webinar! We're grateful for your participation and interest. We hope you left with a better&nbsp;understanding of how TIC Navigator can help your business reach its full potential.</p>
             </div>
 
             <!-- Content Section -->
@@ -367,10 +510,150 @@
                 </div>
             </div>
 
+            <!-- TAL Language Support Section -->
+            <div class="tal-section">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <a href="https://ticsoftware.ai/code-navigator" class="cta-button">Explore TIC Navigator</a>
+                </div>
+                <h2 style="text-align: center;">TIC Navigator Newest Features</h2>
+
+                <div class="two-column-section">
+                    <!-- Left Column: VS Code Integration -->
+                    <div>
+                        <h3 style="font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 2rem; margin-top: 0;">VS Code Integration - Nonstop TAL and COBOL</h3>
+                        <div class="image-container">
+                            <img src="./images/vs code integration.png" alt="VS Code Integration" class="expandable-image" id="vscodeImage">
+                        </div>
+
+                        <div class="system-overview" style="margin-bottom: 2rem;">
+                            <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--primary-blue);">System Overview</h3>
+                            <p style="margin-bottom: 1.5rem; color: var(--dark-text);">Three tightly integrated layers form the backbone of the TAL development environment.</p>
+                            <div class="system-overview-grid">
+                                <div class="system-overview-card">
+                                    <h4>VS Code</h4>
+                                    <ul>
+                                        <li>✓ TAL Extension</li>
+                                        <li>✓ Syntax & IntelliSense</li>
+                                        <li>✓ Real-time Linting</li>
+                                        <li>✓ Claude Code Chat</li>
+                                    </ul>
+                                </div>
+                                <div class="system-overview-card">
+                                    <h4>MCP Server</h4>
+                                    <ul>
+                                        <li>✓ Tool Execution</li>
+                                        <li>✓ Compilation</li>
+                                        <li>✓ Guardian APIs</li>
+                                        <li>✓ Database</li>
+                                    </ul>
+                                </div>
+                                <div class="system-overview-card">
+                                    <h4>NonStop</h4>
+                                    <ul>
+                                        <li>✓ File System</li>
+                                        <li>✓ TAL Compiler</li>
+                                        <li>✓ Guardian Runtime</li>
+                                        <li>✓ Execution</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: 1.1rem; color: var(--primary-blue); margin-bottom: 1.5rem;">How It Works</h3>
+                            <div class="how-it-works">
+                                <div class="work-card">
+                                    <h3>Code Editing</h3>
+                                    <ul>
+                                        <li>Real-time syntax highlighting</li>
+                                        <li>Code completion</li>
+                                        <li>Inline error detection</li>
+                                        <li>Navigate definitions</li>
+                                    </ul>
+                                </div>
+                                <div class="work-card">
+                                    <h3>Compilation</h3>
+                                    <ul>
+                                        <li>Upload TAL file to NonStop</li>
+                                        <li>Execute remote compiler</li>
+                                        <li>Capture results</li>
+                                        <li>Map errors to editor</li>
+                                    </ul>
+                                </div>
+                                <div class="work-card">
+                                    <h3>Chat Help</h3>
+                                    <ul>
+                                        <li>Ask questions in plain language</li>
+                                        <li>Query Guardian APIs</li>
+                                        <li>Generate code snippets</li>
+                                        <li>Explain errors</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Navigator Atlas -->
+                    <div>
+                        <h3 style="font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 2rem; margin-top: 0;">Navigator Atlas</h3>
+                        <div style="text-align: center;">
+                            <img src="./images/atlas.png" alt="Navigator Atlas" class="expandable-image" id="atlasImage" style="max-width: 96%; cursor: pointer; margin-bottom: 2rem;">
+                        </div>
+
+                        <div style="background-color: #f5f5f5; padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="font-size: 1.1rem; color: var(--primary-blue); margin-top: 0; margin-bottom: 1rem;">Single-Program Report: Overview</h4>
+                            <p style="font-size: 0.95rem; color: var(--dark-text); margin-bottom: 1rem; line-height: 1.6;">Every program analyzed by Atlas gets a dedicated Report Page — a single-screen summary that answers the most common questions without any digging.</p>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                <div>
+                                    <strong style="color: var(--primary-blue);">Language & Lines</strong>
+                                    <p style="font-size: 0.85rem; color: var(--dark-text); margin: 0.5rem 0 0 0;">Auto-detected language with manual override badge. Exact line count including copybook expansion.</p>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--primary-blue);">Paragraphs & Complexity</strong>
+                                    <p style="font-size: 0.85rem; color: var(--dark-text); margin: 0.5rem 0 0 0;">Total paragraph count and cyclomatic complexity score — your first signal of maintenance risk.</p>
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 1rem;">
+                                <strong style="color: var(--primary-blue);">Issue Count</strong>
+                                <p style="font-size: 0.85rem; color: var(--dark-text); margin: 0.5rem 0 0 0;">Dead code, unreachable paragraphs, and structural anomalies surfaced automatically.</p>
+                            </div>
+
+                            <div>
+                                <strong style="color: var(--primary-blue);">Report Tabs</strong>
+                                <ul style="font-size: 0.85rem; color: var(--dark-text); margin: 0.5rem 0 0 1.5rem; padding: 0; list-style: none;">
+                                    <li>• Overview — metadata & issue summary</li>
+                                    <li>• Source — navigable source viewer</li>
+                                    <li>• Calls — paragraph call tree</li>
+                                    <li>• Data — file & field access</li>
+                                    <li>• Diagrams — visual graphs</li>
+                                    <li>• Variables — data item index</li>
+                                    <li>• Simulator — trace execution paths</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal" id="imageModal">
+                    <div class="modal-content">
+                        <span class="modal-close" id="closeModal">&times;</span>
+                        <img src="./images/vs code integration.png" alt="VS Code Integration">
+                    </div>
+                </div>
+
+                <div class="modal" id="atlasModal">
+                    <div class="modal-content">
+                        <span class="modal-close" id="closeAtlasModal">&times;</span>
+                        <img src="./images/atlas.png" alt="Navigator Atlas">
+                    </div>
+                </div>
+            </div>
+
             <!-- CTA Section -->
             <div class="cta-section">
-                <h2>Ready to See How TIC Navigator Can Help?</h2>
-                <p>Schedule a personalized demo with our team to explore how TIC Navigator can transform your NonStop development workflow.</p>
+                <h2>Ready to See How TIC Navigator Newest Features Can Help?</h2>
                 <a href="contact.html" class="cta-button">Schedule a Personalized Demo</a>
             </div>
         </div>
@@ -379,36 +662,22 @@
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>PRODUCTS</h4>
-                    <a href="gateway.html">Gateway</a>
-                    <a href="operations.html">Operations</a>
-                    <a href="storage.html">Storage</a>
-                    <a href="modernize.html">Modernize</a>
-                </div>
-                <div class="footer-section">
-                    <h4>COMPANY</h4>
-                    <a href="index.html">Home</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-section">
-                    <h4>RESOURCES</h4>
-                    <a href="top-faq.html">FAQ</a>
-                    <a href="#">Documentation</a>
-                    <a href="#">Support</a>
-                </div>
-                <div class="footer-section">
-                    <h4>LEGAL</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-                <div class="footer-section">
-                    <h4>FOLLOW US</h4>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">GitHub</a>
+            <div style="padding: 1rem 1.5rem; border-bottom: 1px solid rgba(74, 111, 165, 0.2);">
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <h4 style="color: #e8e8e8; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Address</h4>
+                            <p style="color: #a0a0a0; font-size: 0.85rem; margin: 0; line-height: 1.6;">TIC Software, 185 Great Neck RD<br>4th Floor, Suite 453, Great Neck, NY 11021</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #e8e8e8; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Sales & Support</h4>
+                            <p style="color: #a0a0a0; font-size: 0.85rem; margin: 0;">sales-support@ticsoftware.com</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #e8e8e8; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Technical Support</h4>
+                            <p style="color: #a0a0a0; font-size: 0.85rem; margin: 0; line-height: 1.6;">(516) 466-7990<br>support@ticsoftware.com</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -416,5 +685,43 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const vscodeImage = document.getElementById('vscodeImage');
+        const imageModal = document.getElementById('imageModal');
+        const closeModal = document.getElementById('closeModal');
+
+        const atlasImage = document.getElementById('atlasImage');
+        const atlasModal = document.getElementById('atlasModal');
+        const closeAtlasModal = document.getElementById('closeAtlasModal');
+
+        vscodeImage.addEventListener('click', function() {
+            imageModal.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', function() {
+            imageModal.classList.remove('active');
+        });
+
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.classList.remove('active');
+            }
+        });
+
+        atlasImage.addEventListener('click', function() {
+            atlasModal.classList.add('active');
+        });
+
+        closeAtlasModal.addEventListener('click', function() {
+            atlasModal.classList.remove('active');
+        });
+
+        atlasModal.addEventListener('click', function(e) {
+            if (e.target === atlasModal) {
+                atlasModal.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
