@@ -128,14 +128,15 @@
         }
 
         .webinar-image {
-            max-width: 70%;
+            max-width: 24.5%;
             height: auto;
             border-radius: 8px;
-            margin: 0 auto;
+            margin: 0;
         }
 
         .topics-section {
-            margin-bottom: 3rem;
+            margin-bottom: 0.5rem;
+            margin-top: 2rem;
         }
 
         .topics-section h2 {
@@ -520,46 +521,80 @@
         <div class="container">
             <!-- Thank You Section -->
             <div class="thank-you-section">
-                <h1>Webinar: A Better Way to Develop and Navigate HPE Nonstop using Ai from TIC Navigator!</h1>
-                <p class="thank-you-message">Thank you for attending our webinar! We're grateful for your participation and interest. We hope you left with a better&nbsp;understanding of how TIC Navigator can help your business reach its full potential.</p>
+                <h1>Webinar: A Better Way to Develop and Navigate HPE Nonstop using Ai from TIC Navigator</h1>
+                <p class="thank-you-message">Thank you for attending our webinar. We're grateful for your participation and interest. We hope you left with a better&nbsp;understanding of how TIC Navigator can help your business reach its full potential.</p>
+                <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0.5rem; align-items: flex-start; margin-top: 2rem;">
+                    <div>
+                        <h2 style="font-size: 1.6rem; color: var(--dark-text); margin-bottom: 0; text-align: left; margin-top: -1rem;">Navigator</h2>
+                        <p style="font-size: 0.5rem; color: var(--dark-text); margin-top: -0.3rem; margin-bottom: 0.2rem; font-weight: bold; text-align: left;">Analyze. Understand. Modernize.</p>
+                        <img src="./images/compass_white_bg-removebg.png" alt="TIC Navigator Compass" class="webinar-image" style="max-width: 70%; margin: 0; margin-left: -4.5rem;">
+                    </div>
+                    <p style="font-size: 1rem; color: var(--dark-text); line-height: 1.7; margin: 0; text-align: left;">TIC Navigator is an AI-powered documentation and code analysis tool designed for HPE NonStop environments. It analyzes COBOL, TAL, C/C++, and TACL code to extract business rules and system behavior, presenting them in plain language and diagrams. It creates a searchable knowledge base that helps teams understand legacy code without rewriting it, supporting modernization efforts. Essentially, it centralizes and indexes application code to make it accessible for both technical and business teams, enabling high-level review and AI-based queries.</p>
+                </div>
             </div>
 
             <!-- Content Section -->
             <div class="features-wrapper">
                 <div>
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        <h2 style="font-size: 1.6rem; color: var(--dark-text); margin-bottom: 0;">Navigator</h2>
-                        <p style="font-size: 0.5rem; color: var(--dark-text); margin-top: -0.3rem; margin-bottom: 0; font-weight: bold;">Analyze. Understand. Modernize.</p>
-                        <img src="./images/compass_white_bg-removebg.png" alt="TIC Navigator Compass" class="webinar-image">
+                <div class="topics-section">
+                    <h2>Topics We Discussed</h2>
+                    <div class="topics-grid">
+                        <ul class="navigator-features">
+                            <li>✓ Navigate complex Nonstop architectures with speed and confidence.</li>
+                            <li>✓ Catch risks before they become production incidents.</li>
+                        </ul>
+                        <ul class="navigator-features">
+                            <li>✓ Get new team members productive in weeks, not months.</li>
+                            <li>✓ Maintain development continuity as experienced staff retire or transition.</li>
+                        </ul>
                     </div>
-                    <div class="topics-section">
-                        <h2>Topics We Discussed</h2>
-                        <div class="topics-grid">
-                            <ul class="navigator-features">
-                                <li>✓ Navigate complex Nonstop architectures with speed and confidence.</li>
-                                <li>✓ Catch risks before they become production incidents.</li>
-                            </ul>
-                            <ul class="navigator-features">
-                                <li>✓ Get new team members productive in weeks, not months.</li>
-                                <li>✓ Maintain development continuity as experienced staff retire or transition.</li>
-                            </ul>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 3rem;">
+                        <div style="text-align: center; padding: 2rem; background: #f5f7fa; border-radius: 8px; border-left: 4px solid #0088cc;">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                            <h3 style="font-size: 1.2rem; color: #003d99; margin-bottom: 0.5rem;">Rapid Ramp-Up</h3>
+                            <p style="color: #2c3e50; font-size: 0.95rem; line-height: 1.6; margin: 0;">Developers understand complex programs in hours, not weeks.</p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: #f5f7fa; border-radius: 8px; border-left: 4px solid #0088cc;">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+                            <h3 style="font-size: 1.2rem; color: #003d99; margin-bottom: 0.5rem;">Clear Documentation</h3>
+                            <p style="color: #2c3e50; font-size: 0.95rem; line-height: 1.6; margin: 0;">Access up-to-date program logic and architecture without guesswork.</p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: #f5f7fa; border-radius: 8px; border-left: 4px solid #0088cc;">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">✅</div>
+                            <h3 style="font-size: 1.2rem; color: #003d99; margin-bottom: 0.5rem;">Fewer Errors</h3>
+                            <p style="color: #2c3e50; font-size: 0.95rem; line-height: 1.6; margin: 0;">Reduce costly mistakes and rework while increasing team efficiency.</p>
                         </div>
                     </div>
-                </div>
-                <div style="padding: 1rem; display: flex; align-items: center;">
-                    <p style="font-size: 1rem; color: var(--dark-text); line-height: 1.7; margin: 0;">TIC Navigator is an AI-powered documentation and code analysis tool designed for HPE NonStop environments. It analyzes COBOL, TAL, C/C++, and TACL code to extract business rules and system behavior, presenting them in plain language and diagrams. It creates a searchable knowledge base that helps teams understand legacy code without rewriting it, supporting modernization efforts.</p>
                 </div>
             </div>
 
             <!-- TAL Language Support Section -->
             <div class="tal-section">
-                <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="text-align: center; margin-top: 0.5rem; font-size: 2.5rem; color: #800000; font-weight: 700;">TIC Navigator Boosts Remote Developer Productivity</h2>
+
+                <div style="text-align: center; margin-bottom: 2rem; margin-top: 2rem;">
                     <a href="https://ticsoftware.ai/code-navigator" class="cta-button">🔍 Explore Navigator</a>
                     <a href="./PDF/TIC_Navigator-Datasheet.pdf" class="cta-button" style="margin-left: 1rem;">📄 Datasheet</a>
+                    <a href="https://ticsoftware.ai/demo-request" class="cta-button" style="margin-left: 1rem;">Schedule a Personalized Demo</a>
                 </div>
-                <h2 style="text-align: center;">TIC Navigator Newest Features</h2>
 
-                <div class="two-column-section">
+                <h2 style="text-align: center; margin-top: 3rem; font-size: 2.5rem; color: #800000; font-weight: 700;">TIC Navigator — Deep Intelligence by Default</h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; margin-bottom: 2rem; margin-top: 2rem;">
+                    <div>
+                        <img src="./images/Navigator_nine_dimensions.png" alt="TIC Navigator Nine Dimensions" style="width: 105%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="font-size: 1rem; color: var(--dark-text);">Every Navigator analysis run covers these nine dimensions of your NonStop programs — each powered by AI and delivered as a structured, searchable tab in the Knowledgebase.</p>
+                    </div>
+                    <div>
+                        <img src="./images/Navigator_Architecture.png" alt="TIC Navigator Architecture" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="font-size: 1rem; color: var(--dark-text);">TIC Navigator analyzes and structures the code into prompts, which are then sent to cloud or local LLMs to generate outputs like a knowledge base, chat interface, visuals, and documentation.</p>
+                    </div>
+                    <img src="./images/Navigator_Doc_Analysis.png" alt="TIC Navigator Documentation and Analysis" style="width: 100%; border-radius: 8px; grid-column: 1 / -1; max-width: 400px; margin: 2rem auto 0;">
+                </div>
+            </div>
+
+            <!-- Old TAL Section Removed - replaced with new content above -->
+            <div style="display: none;"><div class="two-column-section">
                     <!-- Left Column: VS Code Integration -->
                     <div>
                         <h3 style="font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 0.5rem; margin-top: 0;">VS Code Integration - Nonstop TAL and COBOL</h3>
@@ -694,11 +729,16 @@
                     </div>
                 </div>
             </div>
+            </div><!-- end hidden div -->
 
             <!-- CTA Section -->
             <div class="cta-section">
-                <h2>Ready to See How TIC Navigator Newest Features Can Help?</h2>
-                <a href="https://ticsoftware.ai/demo-request" class="cta-button">Schedule a Personalized Demo</a>
+                <h2>Ready to See How TIC Navigator can help?</h2>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="https://ticsoftware.ai/code-navigator" class="cta-button">🔍 Explore Navigator</a>
+                    <a href="./PDF/TIC_Navigator-Datasheet.pdf" class="cta-button" style="margin-left: 1rem;">📄 Datasheet</a>
+                    <a href="https://ticsoftware.ai/demo-request" class="cta-button" style="margin-left: 1rem;">Schedule a Personalized Demo</a>
+                </div>
             </div>
         </div>
     </main>
