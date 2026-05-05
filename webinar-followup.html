@@ -470,6 +470,10 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
             .two-column-section {
                 grid-template-columns: 1fr;
             }
@@ -506,6 +510,40 @@
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
+
+            /* Mobile fixes for compass grid */
+            .thank-you-section > div[style*="grid-template-columns: 200px"] {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            /* Mobile fixes for 3-card grid */
+            .topics-section > div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            /* Mobile fixes for CTA buttons */
+            .cta-section {
+                padding: 0 1rem;
+            }
+
+            .cta-section > div[style*="text-align: center"] {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .cta-button {
+                display: block !important;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .cta-button:last-child {
+                margin-bottom: 0 !important;
+            }
         }
     </style>
 </head>
@@ -522,7 +560,6 @@
             <!-- Thank You Section -->
             <div class="thank-you-section">
                 <h1>Webinar: A Better Way to Develop and Navigate HPE Nonstop using Ai from TIC Navigator</h1>
-                <p class="thank-you-message">Thank you for attending our webinar. We're grateful for your participation and interest. We hope you left with a better&nbsp;understanding of how TIC Navigator can help your business reach its full potential.</p>
                 <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0.5rem; align-items: flex-start; margin-top: 2rem;">
                     <div>
                         <h2 style="font-size: 1.6rem; color: var(--dark-text); margin-bottom: 0; text-align: left; margin-top: -1rem;">Navigator</h2>
@@ -531,7 +568,7 @@
                     </div>
                     <p style="font-size: 1rem; color: var(--dark-text); line-height: 1.7; margin: 0; margin-top: 1.5rem; text-align: left;">TIC Navigator is an AI-powered documentation and code analysis tool designed for HPE NonStop environments. It analyzes COBOL, TAL, C/C++, and TACL code to extract business rules and system behavior, presenting them in plain language and diagrams. It creates a searchable knowledge base that helps teams understand legacy code without rewriting it, supporting modernization efforts. Essentially, it centralizes and indexes application code to make it accessible for both technical and business teams, enabling high-level review and AI-based queries.</p>
                 </div>
-                <div class="topics-section" style="margin-top: 3rem;">
+                <div class="topics-section" style="margin-top: 0rem;">
                     <h2>Topics We Discussed</h2>
                     <div class="topics-grid">
                         <ul class="navigator-features" style="text-align: left;">
@@ -544,7 +581,7 @@
                         </ul>
                     </div>
                 </div>
-                <h2 style="font-size: 2.5rem; color: #800000; margin-top: 2rem; margin-bottom: 2rem; font-weight: 700; text-align: center;">TIC Navigator Boosts Remote Developer Productivity</h2>
+                <h2 style="font-size: 2.5rem; color: #800000; margin-top: 0rem; margin-bottom: -1rem; font-weight: 700; text-align: center;">TIC Navigator Boosts Remote Developer Productivity</h2>
                 <div class="topics-section">
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 0;">
                         <div style="text-align: center; padding: 2rem; background: #f5f7fa; border-radius: 8px; border-left: 4px solid #0088cc;">
