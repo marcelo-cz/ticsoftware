@@ -625,11 +625,11 @@
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; margin-bottom: 2rem; margin-top: 2rem;">
                     <div>
-                        <img src="./images/Navigator_nine_dimensions.png" alt="TIC Navigator Nine Dimensions" style="width: 105%; border-radius: 8px; margin-bottom: 1rem;">
+                        <img id="navNineDimensionsImage" src="./images/Navigator_nine_dimensions.png" alt="TIC Navigator Nine Dimensions" style="width: 105%; border-radius: 8px; margin-bottom: 1rem; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;" onclick="document.getElementById('navNineDimensionsModal').classList.add('active');" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
                         <p style="font-size: 1rem; color: var(--dark-text);">Every Navigator analysis run covers these nine dimensions of your NonStop programs — each powered by AI and delivered as a structured, searchable tab in the Knowledgebase.</p>
                     </div>
                     <div>
-                        <img src="./images/Navigator_Architecture.png" alt="TIC Navigator Architecture" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <img id="navArchitectureImage" src="./images/Navigator_Architecture.png" alt="TIC Navigator Architecture" style="width: 100%; border-radius: 8px; margin-bottom: 1rem; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;" onclick="document.getElementById('navArchitectureModal').classList.add('active');" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
                         <p style="font-size: 1rem; color: var(--dark-text);">TIC Navigator analyzes and structures the code into prompts, which are then sent to cloud or local LLMs to generate outputs like a knowledge base, chat interface, visuals, and documentation.</p>
                     </div>
                 </div>
@@ -773,12 +773,27 @@
             </div>
             </div><!-- end hidden div -->
 
+            <!-- Expandable Image Modals -->
+            <div class="modal" id="navNineDimensionsModal">
+                <div class="modal-content">
+                    <span class="modal-close" id="closeNavNineDimensionsModal">&times;</span>
+                    <img src="./images/Navigator_nine_dimensions.png" alt="TIC Navigator Nine Dimensions" style="width: 100%; height: auto;">
+                </div>
+            </div>
+
+            <div class="modal" id="navArchitectureModal">
+                <div class="modal-content">
+                    <span class="modal-close" id="closeNavArchitectureModal">&times;</span>
+                    <img src="./images/Navigator_Architecture.png" alt="TIC Navigator Architecture" style="width: 100%; height: auto;">
+                </div>
+            </div>
+
             <!-- CTA Section -->
             <div class="cta-section">
                 <h2>Ready to See How TIC Navigator can help?</h2>
                 <div style="text-align: center; margin-top: 2rem;">
                     <a href="https://ticsoftware.ai/code-navigator" class="cta-button">🔍 Explore Navigator</a>
-                    <a href="./PDF/TIC_Navigator-Datasheet.pdf" class="cta-button" style="margin-left: 1rem;">📄 Navigator Datasheet</a>
+                    <a href="./PDF/TICSoftware_Navigator_Datasheet V.17.pdf" class="cta-button" style="margin-left: 1rem;">📄 Navigator Datasheet</a>
                     <a href="https://ticsoftware.ai/demo-request" class="cta-button" style="margin-left: 1rem;">📅 Schedule a Personalized Demo</a>
                 </div>
             </div>
@@ -846,6 +861,42 @@
         atlasModal.addEventListener('click', function(e) {
             if (e.target === atlasModal) {
                 atlasModal.classList.remove('active');
+            }
+        });
+
+        const navNineDimensionsImage = document.getElementById('navNineDimensionsImage');
+        const navNineDimensionsModal = document.getElementById('navNineDimensionsModal');
+        const closeNavNineDimensionsModal = document.getElementById('closeNavNineDimensionsModal');
+
+        const navArchitectureImage = document.getElementById('navArchitectureImage');
+        const navArchitectureModal = document.getElementById('navArchitectureModal');
+        const closeNavArchitectureModal = document.getElementById('closeNavArchitectureModal');
+
+        navNineDimensionsImage.addEventListener('click', function() {
+            navNineDimensionsModal.classList.add('active');
+        });
+
+        closeNavNineDimensionsModal.addEventListener('click', function() {
+            navNineDimensionsModal.classList.remove('active');
+        });
+
+        navNineDimensionsModal.addEventListener('click', function(e) {
+            if (e.target === navNineDimensionsModal) {
+                navNineDimensionsModal.classList.remove('active');
+            }
+        });
+
+        navArchitectureImage.addEventListener('click', function() {
+            navArchitectureModal.classList.add('active');
+        });
+
+        closeNavArchitectureModal.addEventListener('click', function() {
+            navArchitectureModal.classList.remove('active');
+        });
+
+        navArchitectureModal.addEventListener('click', function(e) {
+            if (e.target === navArchitectureModal) {
+                navArchitectureModal.classList.remove('active');
             }
         });
     </script>
