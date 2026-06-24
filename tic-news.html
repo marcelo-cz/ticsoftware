@@ -200,7 +200,7 @@
             grid-template-columns: 45% 55%;
             gap: 2rem;
             margin-bottom: 1.5rem;
-            padding: 2rem;
+            padding: 1.25rem;
             background-color: var(--light-gray);
             border-radius: 8px;
             border: 1px solid var(--border-gray);
@@ -229,7 +229,7 @@
 
         .featured-article-image {
             width: 100%;
-            height: 364px;
+            height: 290px;
             background: url('./images/Gen_AI_Article.png') center/contain no-repeat;
             border-radius: 8px;
         }
@@ -626,6 +626,33 @@
         }
 
         .featured-card-14 a {
+            color: var(--white);
+        }
+
+        .featured-card-nytug26 {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('./images/Conference%20Galleries/NYTUG%20Album/NYTUG%20%2719/nytug.jpg') center/cover no-repeat;
+            color: var(--white);
+            padding: 3rem 2rem;
+        }
+
+        .featured-card-nytug26 h3 {
+            color: var(--white);
+        }
+
+        .featured-card-nytug26 p {
+            color: var(--white);
+        }
+
+        .featured-card-nytug26 .featured-article-date {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .featured-card-nytug26 .news-status {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .featured-card-nytug26 a {
             color: var(--white);
         }
 
@@ -1236,24 +1263,13 @@
         <section>
             <div class="featured-article">
                 <div class="featured-article-content">
-                    <h2>NYTUG 2026</h2>
-                    <p class="featured-article-excerpt">TIC Software will be presenting about TIC Navigator at the New York Technical User Group conference. Join us to learn and discover how TIC Navigator can help modernize your systems.</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; padding-top: 1.5rem; color: var(--dark-text);">
-                        <div>
-                            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;"><strong>📌 When:</strong><br>Thu, May 14, 2026</p>
-                        </div>
-                        <div>
-                            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;"><strong>⏰ Time:</strong><br>11:45am&nbsp;ET</p>
-                        </div>
-                        <div>
-                            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;"><strong>📍 Where:</strong><br>HPE Office<br>200 Connell Dr<br>Berkeley Heights, NJ 07922</p>
-                        </div>
-                    </div>
+                    <h2>uLinga Webinar: A Technical Tutorial on MCP and Nonstop Modernization with AI</h2>
+                    <p class="featured-article-excerpt">This 60-minute technical session is a hands-on introduction to MCP for Nonstop professionals. We start from first principles using mental models every Nonstop engineer already has, then move from theory to practice with live examples.</p>
+                    <p style="margin-top: 1rem; margin-bottom: 0; color: var(--dark-text);">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
-                    <div class="featured-article-image" style="background-image: url('./images/Conference%20Galleries/NYTUG%20Album/NYTUG%20%2719/nytug_3rd_logo_900x545_1_38.png'); background-size: 60%; background-position: center top;"></div>
-                    <span class="news-status" style="margin-top: -200px;">Event has Ended</span>
-                    <p style="text-align: center; margin-top: 1rem; color: var(--dark-text);">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                    <div class="featured-article-image" style="background-image: url('./images/webinar_ai.png'); background-size: 75%; background-position: center top;"></div>
+                    <span class="news-status" style="margin-top: 1rem;">Webinar Passed</span>
                 </div>
             </div>
         </section>
@@ -1261,6 +1277,15 @@
         <!-- News Grid -->
         <section>
             <div class="news-grid">
+                <!-- Card 0 - NYTUG 2026 (moved from featured) -->
+                <div class="news-card featured-card-nytug26">
+                    <div class="featured-article-date">May 2026 (Berkeley Heights, NJ)</div>
+                    <h3>NYTUG 2026</h3>
+                    <p>TIC Software will be presenting about TIC Navigator at the New York Technical User Group conference. Join us to learn and discover how TIC Navigator can help modernize your systems.</p>
+                    <span class="news-status">Event has Ended</span>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
+
                 <!-- Card 1.5 - TIC Talk April Edition -->
                 <div class="news-card featured-card-tic-talk">
                     <div class="featured-article-date">April 2026</div>
