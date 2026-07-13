@@ -1080,6 +1080,75 @@
                 gap: 1rem;
             }
         }
+        /* Event cards (ported from ticsoftware.ai What's New) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+        .case-study-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(65, 84, 255, 0.15);
+        }
+        .case-study-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .case-study-tag {
+            display: inline-block;
+            background: #E4E7FF;
+            color: #003d99;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .case-study-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #1D1E2B;
+            min-height: 3.2rem;
+        }
+        .case-study-excerpt {
+            color: #1D1E2B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .case-study-content .cta-button {
+            display: inline-block;
+            background: #003d99;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: auto;
+        }
+        .case-study-content .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 61, 153, 0.3);
+        }
+        @media (max-width: 768px) {
+            .case-study-grid { grid-template-columns: 1fr; }
+        }
     </style>
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -1260,18 +1329,37 @@
 
             <div class="about-box" style="grid-column: 1 / -1; margin-top: -2rem;">
                 <h2>Upcoming Events</h2>
-                <div class="nytug-content">
-                    <div class="nytug-logo" style="flex: 1;">
-                        <img src="./images/Conference Galleries/The Bootcamp Album/Bootcamp_2026/bootcamp_2026.jpg" alt="Nonstop TBC 2026 Logo">
+                                <div class="case-study-grid">
+                    <div class="case-study-card">
+                        <img width="612" height="284" loading="lazy" src="./images/webinario.jpg" alt="Webinar: Revele la arquitectura oculta de sus aplicaciones Nonstop" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div class="case-study-content">
+                            <span class="case-study-tag" style="margin-right: 0.5rem;">Webinar</span>
+                            <span class="case-study-tag" style="background: #B21F23; color: #ffffff;">Spanish</span>
+                            <h3>Webinar: Revele la arquitectura oculta de sus aplicaciones Nonstop</h3>
+                            <p class="case-study-excerpt" style="margin-bottom: 1.5rem;">Reserve su lugar hoy mismo y descubra c&oacute;mo Atlas puede ayudar a su equipo a comprender sus aplicaciones m&aacute;s r&aacute;pido, reducir riesgos y acelerar la modernizaci&oacute;n.</p>
+                            <a href="https://events.teams.microsoft.com/event/b47005ea-0e69-4a17-9703-e72ec189a6c5@dff207fc-6329-44a1-a88c-c2575c1d7b09" target="_blank" rel="noopener" class="cta-button" style="display: block; text-decoration: none; text-align: center; background: #003d99 !important;">Registrarse</a>
+                        </div>
                     </div>
-                    <div class="nytug-details" style="margin-left: 2rem;">
-                        <h3>Nonstop TBC 2026</h3>
-                        <p><strong>TBC 2026 will take place at:</strong><br>The Rosen Plaza Hotel & Conference Center<br>9700 International Drive<br>Orlando, Florida 32819</p>
-                        <p><strong>September 14–18, 2026</strong></p>
+                    <div class="case-study-card">
+                        <img width="543" height="269" loading="lazy" src="./images/Chile-TUG.png" alt="Chile TUG 2026" style="height: 200px; object-fit: contain; width: 100%; background-color: #ffffff;">
+                        <div class="case-study-content">
+                            <span class="case-study-tag">Upcoming Event</span>
+                            <h3>Chile TUG 2026</h3>
+                            <p class="case-study-excerpt" style="margin-bottom: 1.5rem;">TIC Software will be at ChileTUG this August 13, 2026 introducing TIC Navigator &amp; Atlas.</p>
+                            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 6.5rem;">
+                                <a href="https://ticsoftware.ai/code-navigator.html" target="_blank" rel="noopener" class="cta-button" style="display: block; text-decoration: none; text-align: center; background: #003d99 !important;">Navigator</a>
+                                <a href="https://ticsoftware.ai/atlas.es.html" target="_blank" rel="noopener" class="cta-button" style="display: block; text-decoration: none; text-align: center; background: #003d99 !important;">Atlas en Espa&ntilde;ol</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="nytug-details" style="margin-left: -1rem;">
-                        <p>Join us at HPE Nonstop Technology & Business Conference 2026- the annual signature event bridging mission-critical technology with the future of global innovation.</p>
-                        <a href="https://nonstoptbc.com/register-for-tbc26/" target="_blank" class="btn" style="margin-top: 1rem; display: block; width: 100%; text-align: center; box-sizing: border-box;">Registration</a>
+                    <div class="case-study-card">
+                        <img width="337" height="57" loading="lazy" src="./images/TBC_2026.jpg" alt="Nonstop TBC 2026" style="height: 200px; object-fit: contain; width: 100%; background-color: #000000;">
+                        <div class="case-study-content">
+                            <span class="case-study-tag">Upcoming Event</span>
+                            <h3>Nonstop TBC 2026</h3>
+                            <p class="case-study-excerpt" style="margin-bottom: 3rem;">The Nonstop Technical and Business Conference returns September 14&ndash;18, 2026, at the Rosen Plaza Hotel and Conference Center in Orlando, Florida.</p>
+                            <a href="https://nonstoptbc.com/register-for-tbc26/" target="_blank" rel="noopener" class="cta-button" style="display: block; text-decoration: none; text-align: center; background: #003d99 !important;">Registration</a>
+                        </div>
                     </div>
                 </div>
             </div>
