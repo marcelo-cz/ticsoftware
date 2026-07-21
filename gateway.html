@@ -350,6 +350,44 @@
             border-color: var(--primary-blue);
         }
 
+        .subtabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .subtab {
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            padding: 0.55rem 1.25rem;
+            font-family: inherit;
+            font-size: 1.35rem;
+            font-weight: bold;
+            color: var(--dark-text);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .subtab:hover {
+            color: var(--primary-blue);
+        }
+
+        .subtab.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+
+        .subtab-panel {
+            display: none;
+        }
+
+        .subtab-panel.active {
+            display: block;
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark-text);
@@ -821,14 +859,26 @@
 
         <!-- uLinga Section -->
         <div class="product-section" id="ulinga">
-            <h2>uLinga</h2>
-            <p>It is a NonStop application that can publish NonStop events and data to Kafka clusters to be picked up by any consuming subscribers on any platforms.</p>
-            <a href="./ulinga.html" class="product-link">→ Learn More</a>
+            <div class="subtabs" role="tablist">
+                <button class="subtab active" type="button" data-tab="ulinga-panel" role="tab">uLinga</button>
+                <button class="subtab" type="button" data-tab="ulinga-ee-panel" role="tab">uLinga/EE</button>
+            </div>
 
-            <div class="blog-section">
-                <h3 style="color: black;">Blog: Kafka and HPE NonStop – A Perfect Combo!</h3>
-                <p>Discover how uLinga enables NonStop systems to connect with modern event streaming platforms like Kafka.</p>
-                <a href="./blogs/kafka-hpe-nonstop-perfect-combo.html" class="read-more">📝 Read Blog</a>
+            <div class="subtab-panel active" id="ulinga-panel" role="tabpanel">
+                <p>It is a NonStop application that can publish NonStop events and data to Kafka clusters to be picked up by any consuming subscribers on any platforms.</p>
+                <a href="./ulinga.html" class="product-link">→ Learn More</a>
+
+                <div class="blog-section">
+                    <h3 style="color: black;">Blog: Kafka and HPE NonStop – A Perfect Combo!</h3>
+                    <p>Discover how uLinga enables NonStop systems to connect with modern event streaming platforms like Kafka.</p>
+                    <a href="./blogs/kafka-hpe-nonstop-perfect-combo.html" class="read-more">📝 Read Blog</a>
+                </div>
+            </div>
+
+            <div class="subtab-panel" id="ulinga-ee-panel" role="tabpanel">
+                <p><strong>Modernize SNA Connectivity. Keep Your Applications Exactly As They Are.</strong></p>
+                <p>Replace legacy SNA networking with standards-based Enterprise Extender over IP—without changing your Nonstop or Mainframe applications.</p>
+                <a href="./ulinga-ee.html" class="product-link">→ Learn More</a>
             </div>
         </div>
 
@@ -965,6 +1015,22 @@
         </div>
     </div>
 </footer>
+
+    <script>
+        // uLinga / uLinga/EE sub-tabs
+        document.querySelectorAll('.subtabs').forEach(function (bar) {
+            var section = bar.closest('.product-section');
+            bar.querySelectorAll('.subtab').forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    bar.querySelectorAll('.subtab').forEach(function (t) { t.classList.remove('active'); });
+                    section.querySelectorAll('.subtab-panel').forEach(function (p) { p.classList.remove('active'); });
+                    tab.classList.add('active');
+                    var panel = section.querySelector('#' + tab.dataset.tab);
+                    if (panel) panel.classList.add('active');
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
