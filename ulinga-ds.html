@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uLinga for Kafka &amp; uLinga for EE - Datasheet | TIC Software</title>
+    <meta name="description" content="uLinga for Kafka: lightweight, high-performance Kafka streaming for HPE Nonstop. uLinga for Enterprise Extender: SNA over IP, natively on Nonstop.">
+    <link rel="canonical" href="https://ticsoftware.com/ulinga-ds.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #3f6699;
+            --primary-d: #2c4d74;
+            --navy: #22405e;
+            --ink: #1d2430;
+            --white: #ffffff;
+            --gray: #F2F6FB;
+            --border: #DDE5EF;
+            --accent: #E8973A;
+            --kafka: #4a6fa5;
+        }
+
+        body {
+            font-family: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--ink);
+            line-height: 1.5;
+            background: #6b7280;
+            padding: 2rem 1rem;
+        }
+
+        /* ---- Sheet ---- */
+        .sheet {
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto 2rem;
+            background: var(--white);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .sheet-body { flex: 1; padding: 0.18in 0.5in 0.1in; }
+
+        /* ---- Header ---- */
+        .ds-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-d) 100%);
+            color: var(--white);
+            padding: 0.26in 0.5in 0.24in;
+            position: relative;
+        }
+        .ds-header .kicker {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+        .ds-header h1 {
+            font-size: 1.95rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-top: 0.1rem;
+        }
+        .ds-header h1 .u { color: #cfe0f5; }
+        .ds-header .tagline {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-top: 0.35rem;
+            max-width: 70%;
+        }
+        .ds-header .ds-logo {
+            position: absolute;
+            right: 0.32in;
+            top: 0.24in;
+            height: 84px;
+            width: auto;
+        }
+
+        /* ---- Section heading ---- */
+        .ds-section { margin-bottom: 0.36rem; }
+        h2.ds-h2 {
+            font-size: 1.14rem;
+            font-weight: 800;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-bottom: 0.3rem;
+        }
+        h2.ds-h2::before {
+            content: '';
+            width: 5px;
+            height: 1.25rem;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+        .ds-lead { font-size: 0.88rem; opacity: 0.9; margin-bottom: 0.36rem; line-height: 1.45; }
+        .ds-lead strong { color: var(--navy); }
+
+        /* ---- Access / feature cards ---- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 0.36rem;
+        }
+        .card-grid.two { grid-template-columns: 1fr 1fr; }
+        .card {
+            background: var(--gray);
+            border-top: 3px solid var(--primary);
+            border-radius: 7px;
+            padding: 0.5rem 0.62rem;
+        }
+        .card .ico {
+            width: 26px; height: 26px; object-fit: contain; margin-bottom: 0.22rem;
+        }
+        .card h3 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.15rem; }
+        .card p { font-size: 0.78rem; line-height: 1.36; opacity: 0.85; }
+
+        /* ---- Feature icon strip ---- */
+        .feat-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 0.36rem;
+        }
+        .feat {
+            display: flex;
+            gap: 0.45rem;
+            align-items: flex-start;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 0.45rem 0.55rem;
+        }
+        .feat img { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; }
+        .feat b { display: block; font-size: 0.8rem; color: var(--navy); }
+        .feat span { font-size: 0.72rem; opacity: 0.8; line-height: 1.3; }
+
+        /* ---- Chips (use cases) ---- */
+        .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+        .chip {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.83rem;
+            background: var(--gray);
+            border-left: 3px solid var(--accent);
+            border-radius: 5px;
+            padding: 0.4rem 0.55rem;
+        }
+        .chip b { color: var(--navy); }
+
+        /* ---- Pills row (data formats / interfaces) ---- */
+        .pills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.15rem; }
+        .pill {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--primary-d);
+            background: #E7EEF8;
+            border: 1px solid #cfdcee;
+            border-radius: 999px;
+            padding: 0.15rem 0.6rem;
+        }
+
+        /* ---- Highlight ---- */
+        .highlight {
+            padding: 0.5rem 0.75rem;
+            background: rgba(63,102,153,0.08);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            font-size: 0.83rem;
+            line-height: 1.45;
+        }
+        .highlight strong { color: var(--navy); }
+        .check { color: var(--accent); font-weight: 800; margin-right: 0.3rem; }
+
+        /* ---- Footer ---- */
+        .ds-footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.85);
+            padding: 0.22in 0.5in;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
+        .ds-footer strong { display: block; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.15rem; font-size: 0.7rem; }
+        .ds-footer .meta { text-align: right; opacity: 0.75; }
+        .ds-footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
+
+        /* ---- Print ---- */
+        @media print {
+            body { background: none; padding: 0; }
+            .sheet { width: auto; height: 11in; min-height: 0; margin: 0; box-shadow: none; overflow: hidden; break-after: page; page-break-after: always; }
+            .sheet:last-child { break-after: auto; page-break-after: auto; }
+            @page { size: Letter; margin: 0; }
+        }
+        @media screen and (max-width: 900px) {
+            .sheet { width: 100%; min-height: 0; }
+            .card-grid, .card-grid.two, .feat-strip, .chips { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===================== SIDE 1: uLinga for Kafka ===================== -->
+    <div class="sheet">
+        <div class="ds-header">
+            <div class="kicker">HPE Nonstop Integration Gateway</div>
+            <h1><span class="u">uLinga</span> for Kafka</h1>
+            <div class="tagline">Lightweight, high-performance Kafka streaming for HPE Nonstop data and applications.</div>
+            <img class="ds-logo" src="./images/TIC_2026_white.png" alt="TIC Software">
+        </div>
+
+        <div class="sheet-body">
+            <!-- Intro -->
+            <div class="ds-section">
+                <h2 class="ds-h2">A different approach</h2>
+                <p class="ds-lead">uLinga for Kafka runs as a <strong>natively compiled Guardian process pair</strong> and speaks the Kafka protocols <strong>directly over TCP/IP</strong> — with no Java libraries and no intermediate database. It communicates straight with the Kafka cluster for the best possible performance, avoiding the extra platform, single point of failure and latency that other Nonstop&nbsp;Kafka solutions introduce.</p>
+                <div class="pills">
+                    <span class="pill">Kafka Producer</span>
+                    <span class="pill">Kafka Consumer</span>
+                    <span class="pill">No application changes</span>
+                    <span class="pill">Online configuration</span>
+                </div>
+            </div>
+
+            <!-- Access points -->
+            <div class="ds-section">
+                <h2 class="ds-h2">Stream data to &amp; from Kafka</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <img class="ico" src="./images/Products/Gateway/uLinga/connections_icon_blue.png" alt="">
+                        <h3>Pathsend &amp; Guardian IPC</h3>
+                        <p>Applications send and receive data directly over IPC or Pathsend with minimal code changes — lowest possible latency.</p>
+                    </div>
+                    <div class="card">
+                        <img class="ico" src="./images/Products/Gateway/uLinga/Standard_APIs_icon_blue.png" alt="">
+                        <h3>TMF audit &amp; Enscribe files</h3>
+                        <p>Monitor TMF audit trails and stream changes; FILEREADER/WRITER for entry-sequenced files; Intercept Library for relative &amp; key-sequenced.</p>
+                    </div>
+                    <div class="card">
+                        <img class="ico" src="./images/Products/Gateway/uLinga/Online_Management_icon_blue.png" alt="">
+                        <h3>HTTP / REST</h3>
+                        <p>Route web requests to Kafka through uLinga's built-in HTTP interface — no extra middleware required.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transformation + platform strengths -->
+            <div class="ds-section">
+                <h2 class="ds-h2">Transform &amp; manage with ease</h2>
+                <p class="ds-lead">Configurable <strong>data transformation</strong> converts records to and from any combination of formats, so data lands in Kafka ready for consumers across the enterprise:</p>
+                <div class="pills" style="margin-bottom:0.5rem;">
+                    <span class="pill">Binary / DDL</span>
+                    <span class="pill">ISO 8583</span>
+                    <span class="pill">JSON</span>
+                    <span class="pill">AVRO</span>
+                </div>
+                <div class="feat-strip">
+                    <div class="feat">
+                        <img src="./images/Products/Gateway/uLinga/Unparalleled_Reliability_icon_blue.png" alt="">
+                        <div><b>Guardian reliability</b><span>Native process pair, proven performance</span></div>
+                    </div>
+                    <div class="feat">
+                        <img src="./images/Products/Gateway/uLinga/Online_configuration_icon_blue.png" alt="">
+                        <div><b>Online config</b><span>No app changes, no extra servers</span></div>
+                    </div>
+                    <div class="feat">
+                        <img src="./images/Products/Gateway/uLinga/Online_Management_icon_blue.png" alt="">
+                        <div><b>WebCon control</b><span>Browser admin, TLS 1.3 secured</span></div>
+                    </div>
+                    <div class="feat">
+                        <img src="./images/Products/Gateway/uLinga/Tracing_icon_blue.png" alt="">
+                        <div><b>Built-in tracing</b><span>Standard Nonstop logging</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Use cases -->
+            <div class="ds-section">
+                <h2 class="ds-h2">Sample Nonstop use cases</h2>
+                <div class="chips">
+                    <div class="chip">📊 <span>Stream <b>logs &amp; system events</b> to Splunk and other tools</span></div>
+                    <div class="chip">🗄️ <span>Replicate <b>data changes</b> to SQL Server or Oracle</span></div>
+                    <div class="chip">🔀 <span>Async <b>messaging</b> to Windows / Linux apps</span></div>
+                    <div class="chip">☁️ <span>Keep Nonstop data <b>in sync with cloud</b> services</span></div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <span class="check">✓</span> <strong>Native Guardian performance &amp; reliability</strong> · <span class="check">✓</span> <strong>no extra software or servers</strong> · <span class="check">✓</span> <strong>no application changes</strong> — the simplest, lowest-risk way to bring Nonstop into your Kafka streams.
+            </div>
+        </div>
+
+        <footer class="ds-footer">
+            <div>
+                <strong>TIC Software</strong>
+                185 Great Neck Road, 4th floor, Suite 453 · Great Neck, NY 11021 · sales-support@ticsoftware.com
+            </div>
+            <div class="meta">
+                <a href="https://ticsoftware.com">ticsoftware.com</a><br>
+                uLinga developed &amp; owned by Infrasoft Pty Ltd
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===================== SIDE 2: uLinga for EE ===================== -->
+    <div class="sheet">
+        <div class="ds-header">
+            <div class="kicker">HPE Nonstop Integration Gateway</div>
+            <h1><span class="u">uLinga</span> for Enterprise Extender</h1>
+            <div class="tagline">SNA between hosts and servers, natively over IP — while still retaining your SNA APIs.</div>
+            <img class="ds-logo" src="./images/TIC_2026_white.png" alt="TIC Software">
+        </div>
+
+        <div class="sheet-body">
+            <!-- Intro -->
+            <div class="ds-section">
+                <h2 class="ds-h2">Retire SNA, keep your applications</h2>
+                <p class="ds-lead">Proprietary SNA infrastructure restricts flexibility and adds cost and complexity. uLinga for EE lets HPE Nonstop and IBM mainframe users <strong>migrate from SNA to TCP/IP</strong> quickly and reliably — eliminating SNA from critical parts of the network, even the last-wire "tails" — <strong>with no changes to application code</strong>. Applications keep running as SNA applications while you gain end-to-end IP visibility.</p>
+                <div class="pills">
+                    <span class="pill">Enterprise Extender (HPR/IP)</span>
+                    <span class="pill">UDP/IP</span>
+                    <span class="pill">Fault-tolerant links</span>
+                    <span class="pill">No application changes</span>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="ds-section">
+                <h2 class="ds-h2">What uLinga for EE delivers</h2>
+                <div class="card-grid two">
+                    <div class="card">
+                        <img class="ico" src="./images/Products/Gateway/uLinga/connections_icon_blue.png" alt="">
+                        <h3>EE / APPN node</h3>
+                        <p>Participate in the SNA APPN world as an EE node — retaining access to CICS, IMS and TSO, reducing VTAM definitions, with UDP/IP fault tolerance across redundant links.</p>
+                    </div>
+                    <div class="card">
+                        <img class="ico" src="./images/Products/Gateway/uLinga/Standard_APIs_icon_blue.png" alt="">
+                        <h3>Native Nonstop interfaces</h3>
+                        <p>Support for HLS, SNAX/APC, SNALU, CRT, Raw Socket and IPC — so existing Nonstop SNA applications keep working unchanged.</p>
+                    </div>
+                    <div class="card">
+                        <img class="ico" src="./images/Products/Gateway/uLinga/Online_configuration_icon_blue.png" alt="">
+                        <h3>Online configuration &amp; tracing</h3>
+                        <p>The same online configuration used across the uLinga suite, plus industry-standard Wireshark tracing with compression to reduce storage.</p>
+                    </div>
+                    <div class="card">
+                        <img class="ico" src="./images/Products/Gateway/uLinga/Online_Management_icon_blue.png" alt="">
+                        <h3>WebCon management</h3>
+                        <p>Manage and control the process from any web browser through an intuitive graphical interface, secured with built-in TLS 1.2.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits -->
+            <div class="ds-section">
+                <h2 class="ds-h2">Benefits</h2>
+                <div class="chips">
+                    <div class="chip">💰 <span><b>Reduce costs</b> — retire costly SNA infrastructure</span></div>
+                    <div class="chip">🛡️ <span><b>Minimize risk</b> — no application code changes</span></div>
+                    <div class="chip">🔧 <span><b>Boost flexibility</b> — modern, standard UDP/IP</span></div>
+                    <div class="chip">🔒 <span><b>Strengthen security</b> — leverage IPSec &amp; platform tools</span></div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <span class="check">✓</span> A <strong>modern, vendor-supported alternative</strong> to legacy HPR/IP products — a proven, less-expensive path from SNA to IP, already live in production, from a team well-versed in SNA on HPE&nbsp;Nonstop.
+            </div>
+
+            <div class="ds-section" style="margin-top:0.5rem;">
+                <h2 class="ds-h2">System requirements</h2>
+                <div class="pills">
+                    <span class="pill">HPE Nonstop H06.24+</span>
+                    <span class="pill">J06.13+</span>
+                    <span class="pill">L17.02+</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="ds-footer">
+            <div>
+                <strong>TIC Software</strong>
+                185 Great Neck Road, 4th floor, Suite 453 · Great Neck, NY 11021 · sales-support@ticsoftware.com
+            </div>
+            <div class="meta">
+                <a href="https://ticsoftware.com">ticsoftware.com</a><br>
+                uLinga developed &amp; owned by Infrasoft Pty Ltd
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
