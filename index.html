@@ -222,20 +222,37 @@
             padding: 0 2rem;
         }
 
-        .hero-content h1 {
-            font-size: clamp(1.9rem, 4vw, 2.9rem);
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 0.75rem;
-            max-width: 720px;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        /* Page intro above the content cards */
+        .page-intro {
+            text-align: center;
+            border-bottom: none;
+            padding: 2.5rem 0 0.5rem;
         }
 
-        .hero-tagline {
-            font-size: clamp(1rem, 1.6vw, 1.2rem);
-            font-weight: 500;
-            max-width: 640px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        .page-intro h1 {
+            font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--primary-blue);
+            margin-bottom: 0.6rem;
+        }
+
+        /* second line of the h1: descriptive, so the phrase still carries
+           heading weight without adding an h2 above the card grid */
+        .page-intro-sub {
+            display: block;
+            font-size: clamp(1.05rem, 1.9vw, 1.4rem);
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--dark-text);
+            margin-top: 0.35rem;
+        }
+
+        .page-intro-tagline {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            color: var(--dark-text);
+            max-width: 720px;
+            margin: 0 auto;
         }
 
         /* Main Content */
@@ -1313,13 +1330,18 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>HPE Nonstop Modernization &amp; Integration</h1>
-            <p class="hero-tagline">Connect, modernize, and extend your HPE Nonstop applications &mdash; without replacing them.</p>
+            <!-- Content can be added here -->
         </div>
     </section>
 
     <!-- Main Content -->
     <main>
+        <!-- Page Intro -->
+        <section class="page-intro">
+            <h1>TIC Software<span class="page-intro-sub">HPE Nonstop Modernization &amp; Integration</span></h1>
+            <p class="page-intro-tagline">Connect, modernize, and extend your HPE Nonstop applications &mdash; without replacing them.</p>
+        </section>
+
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="about-box">
