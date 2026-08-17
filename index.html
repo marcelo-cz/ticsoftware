@@ -251,7 +251,9 @@
         .page-intro-tagline {
             font-size: clamp(1rem, 1.5vw, 1.15rem);
             color: var(--dark-text);
-            max-width: 720px;
+            /* 720px broke the line before "them."; this holds the sentence on one
+               line at desktop while still wrapping normally on narrow screens */
+            max-width: 860px;
             margin: 0 auto;
         }
 
