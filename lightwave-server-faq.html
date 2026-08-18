@@ -665,7 +665,7 @@
                 "name": "What is LightWave Server?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "LightWave Server is a high-performance REST API server for NonStop systems."
+                    "text": "LightWave Server is a high-performance REST API server for Nonstop systems."
                 }
             },            {
                 "@type": "Question",
@@ -752,7 +752,7 @@
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>LightWave Server is client-server middleware that provides the bridge between client components which may be running on any platform, and server components running on HP NonStop Servers.</p>
+                    <p>LightWave Server is client-server middleware that provides the bridge between client components which may be running on any platform, and server components running on HP Nonstop Servers.</p>
                 </div>
             </div>
 
@@ -778,7 +778,7 @@
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Client applications communicate with the LightWave Server process, which runs on HP NonStop Server under Guardian, using a TCP/IP socket connection and the HTTP protocol. Although this may sound complicated, it's the same mechanism used by web browsers to connect to web servers, and the same mechanism used by thousands of web and mobile based applications to connect to their associated back-end servers. This mechanism is simple, well understood by developers, and is used billions of times per day to connect web and mobile clients to services like Google, Facebook, and Twitter. The goal of LightWave Server is to make it as simple to connect a client to a NonStop Server application as it is to connect a client to any of these other well known services.</p>
+                    <p>Client applications communicate with the LightWave Server process, which runs on HP Nonstop Server under Guardian, using a TCP/IP socket connection and the HTTP protocol. Although this may sound complicated, it's the same mechanism used by web browsers to connect to web servers, and the same mechanism used by thousands of web and mobile based applications to connect to their associated back-end servers. This mechanism is simple, well understood by developers, and is used billions of times per day to connect web and mobile clients to services like Google, Facebook, and Twitter. The goal of LightWave Server is to make it as simple to connect a client to a Nonstop Server application as it is to connect a client to any of these other well known services.</p>
                     <div style="text-align: center; margin-top: 1.5rem;">
                         <img src="./images/FAQ Pages/LWS_FAQ_3_Image.png" alt="LightWave Server Architecture" style="max-width: 100%; height: auto; border-radius: 8px;">
                     </div>
@@ -792,11 +792,11 @@
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>LightWave Server can be used to develop any number of applications using a NonStop Server back end, for example:</p>
+                    <p>LightWave Server can be used to develop any number of applications using a Nonstop Server back end, for example:</p>
                     <ul>
                         <li>Modernize SCOBOL "green screen" applications by developing new browser based user interfaces that use LightWave Server to communicate with the existing Pathway servers.</li>
-                        <li>Develop a mobile application for sales reps that provides order entry and status information using LightWave Server to communicate with an existing NonStop Server order processing systems.</li>
-                        <li>Provide business partners with access to existing or new NonStop Server applications through a simple RESTful API.</li>
+                        <li>Develop a mobile application for sales reps that provides order entry and status information using LightWave Server to communicate with an existing Nonstop Server order processing systems.</li>
+                        <li>Provide business partners with access to existing or new Nonstop Server applications through a simple RESTful API.</li>
                         <li>Replace file upload or download applications that currently use FTP protocol with equivalent functionality using the HTTP protocol.</li>
                     </ul>
                 </div>
@@ -810,9 +810,9 @@
                 </div>
                 <div class="faq-answer">
                     <p><strong>User-defined APIs</strong></p>
-                    <p>User-defined APIs are a powerful feature of LightWave Server that allow you to design your own RESTful interface to your NonStop Server applications. With a user-defined API, you dictate the form of the URI and the query parameters and HTTP headers your API will use. You can map those elements to fields in the interprocess message which is sent to your application server. Likewise, you can define how replies from the server are mapped to the response that your API client receives. User-defined APIs allow you to hide the details of your server interface from users of your API.</p>
+                    <p>User-defined APIs are a powerful feature of LightWave Server that allow you to design your own RESTful interface to your Nonstop Server applications. With a user-defined API, you dictate the form of the URI and the query parameters and HTTP headers your API will use. You can map those elements to fields in the interprocess message which is sent to your application server. Likewise, you can define how replies from the server are mapped to the response that your API client receives. User-defined APIs allow you to hide the details of your server interface from users of your API.</p>
                     <p><strong>Native APIs</strong></p>
-                    <p>LightWave Server also support a set of predefined native APIs that provide raw access to underlying NonStop Kernel resource. These APIs are used in conjunction with User-defined APIs. The following native APIs are provided:</p>
+                    <p>LightWave Server also support a set of predefined native APIs that provide raw access to underlying Nonstop Kernel resource. These APIs are used in conjunction with User-defined APIs. The following native APIs are provided:</p>
                     <ul>
                         <li>Dialog API - Manage Pathway serverclass dialogs</li>
                         <li>Transaction API - Begin, end, and abort TMF transactions. These transactions may also be used with other APIs to enlist those operations in a transaction.</li>
@@ -827,7 +827,7 @@
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>LightWave Server provides a number of built in security features to ensure that your applications and NonStop Server remain secure.</p>
+                    <p>LightWave Server provides a number of built in security features to ensure that your applications and Nonstop Server remain secure.</p>
                     <p><strong>Transport Security</strong></p>
                     <p>LightWave Server uses OpenSSL to provide transport security using the latest version of TLS. Client applications can take advantage of this feature by simply invoking API requests using the HTTPS protocol.</p>
                     <p><strong>User Authentication</strong></p>
@@ -835,7 +835,7 @@
                     <p><strong>Rules Based Access Control</strong></p>
                     <p>Access to API services is controlled using the configuration and application of Access Control Policies. Policies can be configured to restrict API service access to specific users, groups, or client source IP addresses.</p>
                     <p><strong>Network Isolation</strong></p>
-                    <p>Although not a specific feature of LightWave Server, because LightWave Server uses the HTTP protocol, it's possible to use any number of web-application network isolation techniques to isolate your NonStop Server network from client application networks. For example, if your NonStop Server is providing back end services for a mobile Internet application, you can isolate your NonStop Server network from the Internet using a secure HTTP proxy.</p>
+                    <p>Although not a specific feature of LightWave Server, because LightWave Server uses the HTTP protocol, it's possible to use any number of web-application network isolation techniques to isolate your Nonstop Server network from client application networks. For example, if your Nonstop Server is providing back end services for a mobile Internet application, you can isolate your Nonstop Server network from the Internet using a secure HTTP proxy.</p>
                 </div>
             </div>
 
