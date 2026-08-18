@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Partners - Nonstop Technology Alliances | TIC Software</title>
-    <meta name="description" content="Meet our technology partners - we team up with industry leaders to provide innovative NonStop modernization solutions.">
+    <meta name="description" content="Meet our technology partners - we team up with industry leaders to provide innovative Nonstop modernization solutions.">
     <link rel="canonical" href="https://www.ticsoftware.com/our-partners.html">
     <meta property="og:title" content="Our Partners - Nonstop Technology Alliances | TIC Software">
-    <meta property="og:description" content="Meet our technology partners - we team up with industry leaders to provide innovative NonStop modernization solutions.">
+    <meta property="og:description" content="Meet our technology partners - we team up with industry leaders to provide innovative Nonstop modernization solutions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.ticsoftware.com/our-partners.html">
     <meta property="og:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Our Partners - Nonstop Technology Alliances | TIC Software">
-    <meta name="twitter:description" content="Meet our technology partners - we team up with industry leaders to provide innovative NonStop modernization solutions.">
+    <meta name="twitter:description" content="Meet our technology partners - we team up with industry leaders to provide innovative Nonstop modernization solutions.">
     <meta name="twitter:image" content="https://www.ticsoftware.com/images/Logos/TIC_logo3-removebg-preview (1).png">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <style>
@@ -279,6 +279,124 @@
             max-width: 90%;
             max-height: 90%;
             object-fit: contain;
+        }
+
+        /* Two-column layout: statement left, scrolling logos right */
+        .partners-split {
+            display: grid;
+            grid-template-columns: minmax(260px, 360px) 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 2rem 0 3rem;
+        }
+
+        .partners-split .partners-title {
+            text-align: left;
+            margin: 0;
+            font-size: 2.5rem;
+            line-height: 1.25;
+        }
+
+        .partners-split .logo-marquee { margin-bottom: 0; min-width: 0; }
+
+        @media (max-width: 900px) {
+            .partners-split { grid-template-columns: 1fr; gap: 1.75rem; }
+            .partners-split .partners-title { text-align: center; font-size: 1.7rem; }
+        }
+
+        /* ===== Partner logo balloons =====
+           Three columns drifting upward. Two independent animations stacked:
+           the track carries the steady rise, each tile adds its own slow sway
+           and tilt. Keeping them on separate elements lets both transforms run
+           without fighting over the same property. */
+        .logo-marquee {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            height: 470px;
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+
+        .lm-row {
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+                    mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+        }
+
+        /* Spacing is margin-bottom, NOT grid/flex gap. The loop animates the
+           track to translateY(-50%), which only lands on the repeat point if the
+           track is two identical halves; `gap` excludes the trailing gap from the
+           track height, so the loop would jump every cycle. */
+        .lm-track {
+            display: flex;
+            flex-direction: column;
+            animation: lmRise 46s linear infinite;
+        }
+
+        /* uneven speeds so the columns never line up into a visible row, plus a
+           negative delay so they start at different points instead of in step */
+        .lm-row:nth-child(1) .lm-track { animation-duration: 28s; }
+        .lm-row:nth-child(2) .lm-track { animation-duration: 24s; animation-delay: -8s; }
+        .lm-row:nth-child(3) .lm-track { animation-duration: 33s; animation-delay: -15s; }
+
+        @keyframes lmRise {
+            from { transform: translateY(0); }
+            to   { transform: translateY(-50%); }
+        }
+
+        /* landscape tiles: partner logos run from 6.5:1 (NuWave) to square (HPE),
+           so a wide box gives the wide marks room without shrinking them */
+        .logo-tile {
+            flex: 0 0 auto;
+            width: 100%;
+            height: 140px;
+            /* generous gap so only two or three balloons share a column on screen;
+               it also keeps one set taller than the 470px viewport, which the
+               seamless loop needs */
+            margin-bottom: 3rem;
+            background-color: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: balloonSway 6s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        /* Stagger the sway so balloons drift independently rather than swinging in
+           unison. The 3n cycle matches the 3-logo set, so each tile and its
+           duplicate in the second half share a phase - without that the sway
+           would visibly jump at the loop point. */
+        .lm-track .logo-tile:nth-child(3n+1) { animation-duration: 5.4s; animation-delay: -0.7s; }
+        .lm-track .logo-tile:nth-child(3n+2) { animation-duration: 7.1s; animation-delay: -2.9s; }
+        .lm-track .logo-tile:nth-child(3n)   { animation-duration: 6.3s; animation-delay: -4.4s; }
+
+        @keyframes balloonSway {
+            0%, 100% { transform: translateX(-7px) rotate(-1.6deg); }
+            50%      { transform: translateX(7px) rotate(1.6deg); }
+        }
+
+        .logo-tile img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .lm-track, .logo-tile { animation: none; }
+        }
+
+        @media (max-width: 900px) {
+            .logo-marquee { height: 400px; }
+            .logo-tile { height: 115px; }
+        }
+
+        @media (max-width: 768px) {
+            .logo-marquee { grid-template-columns: repeat(2, 1fr); }
         }
 
         /* Footer */
@@ -684,41 +802,42 @@
 
     <!-- Main Content -->
     <main>
-        <section>
-            <h2 class="partners-title">We team up with these partners to provide innovative solutions to modernize our clients NonStop applications.</h2>
+        <section class="partners-split">
+            <h2 class="partners-title">We team up with these partners to provide innovative solutions to modernize our clients Nonstop applications.</h2>
 
-            <div class="partners-grid">
-                <!-- Row 1 -->
-                <div class="partner-logo">
-                    <img src="./images/Logos/NuWave_logo.png" alt="NuWave Logo">
+            <!-- Nine partners, three per column, no repeats on screen. Each column
+                 repeats its own set of three so the -50% rise loops seamlessly; the
+                 duplicate half is aria-hidden so each logo is announced once. -->
+            <div class="logo-marquee" role="group" aria-label="TIC Software partners">
+                <div class="lm-row">
+                    <div class="lm-track">
+                        <div class="logo-tile"><img src="./images/Logos/NuWave_logo.png" alt="NuWave Logo"></div>
+                        <div class="logo-tile"><img src="./images/Logos/infrasoft_logo.jpg" alt="Infrasoft Logo"></div>
+                        <div class="logo-tile"><img src="./images/Logos/Canam_Software_logo.png" alt="Canam Software Logo"></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/NuWave_logo.png" alt=""></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/infrasoft_logo.jpg" alt=""></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/Canam_Software_logo.png" alt=""></div>
+                    </div>
                 </div>
-                <div class="partner-logo">
-                    <img src="./images/Logos/infrasoft_logo.jpg" alt="Infrasoft Logo">
+                <div class="lm-row">
+                    <div class="lm-track">
+                        <div class="logo-tile"><img src="./images/Logos/comforte_logo.jpg" alt="Comforte Logo"></div>
+                        <div class="logo-tile"><img src="./images/Logos/Gravic_logo.jpeg" alt="Gravic Logo"></div>
+                        <div class="logo-tile"><img src="./images/Logos/TANDsoft_logo.jpg" alt="TANDsoft Logo"></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/comforte_logo.jpg" alt=""></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/Gravic_logo.jpeg" alt=""></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/TANDsoft_logo.jpg" alt=""></div>
+                    </div>
                 </div>
-                <div class="partner-logo">
-                    <img src="./images/Logos/Canam_Software_logo.png" alt="Canam Software Logo">
-                </div>
-
-                <!-- Row 2 -->
-                <div class="partner-logo">
-                    <img src="./images/Logos/comforte_logo.jpg" alt="Comforte Logo">
-                </div>
-                <div class="partner-logo">
-                    <img src="./images/Logos/Gravic_logo.jpeg" alt="Gravic Logo">
-                </div>
-                <div class="partner-logo">
-                    <img src="./images/Logos/TANDsoft_logo.jpg" alt="TANDsoft Logo">
-                </div>
-
-                <!-- Row 3 -->
-                <div class="partner-logo">
-                    <img src="./images/Logos/NTI_logo.jpg" alt="NTI Logo">
-                </div>
-                <div class="partner-logo">
-                    <img src="./images/Logos/HPE_Silver_logo.jpg" alt="HPE Silver Logo">
-                </div>
-                <div class="partner-logo">
-                    <img src="./images/Logos/HPE_Silver_logo_2.png" alt="HPE Silver Logo 2">
+                <div class="lm-row">
+                    <div class="lm-track">
+                        <div class="logo-tile"><img src="./images/Logos/NTI_logo.jpg" alt="NTI Logo"></div>
+                        <div class="logo-tile"><img src="./images/Logos/HPE_Silver_logo.jpg" alt="HPE Silver Logo"></div>
+                        <div class="logo-tile"><img src="./images/Logos/HPE_Silver_logo_2.png" alt="HPE Silver Logo 2"></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/NTI_logo.jpg" alt=""></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/HPE_Silver_logo.jpg" alt=""></div>
+                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/HPE_Silver_logo_2.png" alt=""></div>
+                    </div>
                 </div>
             </div>
         </section>
