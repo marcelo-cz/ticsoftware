@@ -304,57 +304,23 @@
             .partners-split .partners-title { text-align: center; font-size: 1.7rem; }
         }
 
-        /* ===== Partner logo balloons =====
-           Three columns drifting upward. Two independent animations stacked:
-           the track carries the steady rise, each tile adds its own slow sway
-           and tilt. Keeping them on separate elements lets both transforms run
-           without fighting over the same property. */
-        .logo-marquee {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            height: 470px;
+        /* ===== Partner logo drift field =====
+           Each logo keeps an assigned home position and drifts in a small closed
+           loop around it. Free-roaming paths would let logos collide and crowd;
+           anchoring them keeps the motion organic but the field always legible.
+           Drift excursions are ~16px max, well inside the gaps between homes. */
+        .logo-field {
+            position: relative;
+            height: 540px;
+            min-width: 0;
             margin-bottom: 3rem;
             overflow: hidden;
         }
 
-        .lm-row {
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
-                    mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
-        }
-
-        /* Spacing is margin-bottom, NOT grid/flex gap. The loop animates the
-           track to translateY(-50%), which only lands on the repeat point if the
-           track is two identical halves; `gap` excludes the trailing gap from the
-           track height, so the loop would jump every cycle. */
-        .lm-track {
-            display: flex;
-            flex-direction: column;
-            animation: lmRise 46s linear infinite;
-        }
-
-        /* uneven speeds so the columns never line up into a visible row, plus a
-           negative delay so they start at different points instead of in step */
-        .lm-row:nth-child(1) .lm-track { animation-duration: 28s; }
-        .lm-row:nth-child(2) .lm-track { animation-duration: 24s; animation-delay: -8s; }
-        .lm-row:nth-child(3) .lm-track { animation-duration: 33s; animation-delay: -15s; }
-
-        @keyframes lmRise {
-            from { transform: translateY(0); }
-            to   { transform: translateY(-50%); }
-        }
-
-        /* landscape tiles: partner logos run from 6.5:1 (NuWave) to square (HPE),
-           so a wide box gives the wide marks room without shrinking them */
-        .logo-tile {
-            flex: 0 0 auto;
-            width: 100%;
-            height: 140px;
-            /* generous gap so only two or three balloons share a column on screen;
-               it also keeps one set taller than the 470px viewport, which the
-               seamless loop needs */
-            margin-bottom: 3rem;
+        .logo-orb {
+            position: absolute;
+            width: 24%;
+            height: 17%;
             background-color: var(--white);
             border: 1px solid var(--border-gray);
             border-radius: 8px;
@@ -362,41 +328,74 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
-            animation: balloonSway 6s ease-in-out infinite;
+            padding: 0.75rem;
+            animation: drift1 20s ease-in-out infinite;
             will-change: transform;
         }
 
-        /* Stagger the sway so balloons drift independently rather than swinging in
-           unison. The 3n cycle matches the 3-logo set, so each tile and its
-           duplicate in the second half share a phase - without that the sway
-           would visibly jump at the loop point. */
-        .lm-track .logo-tile:nth-child(3n+1) { animation-duration: 5.4s; animation-delay: -0.7s; }
-        .lm-track .logo-tile:nth-child(3n+2) { animation-duration: 7.1s; animation-delay: -2.9s; }
-        .lm-track .logo-tile:nth-child(3n)   { animation-duration: 6.3s; animation-delay: -4.4s; }
-
-        @keyframes balloonSway {
-            0%, 100% { transform: translateX(-7px) rotate(-1.6deg); }
-            50%      { transform: translateX(7px) rotate(1.6deg); }
-        }
-
-        .logo-tile img {
-            max-width: 85%;
-            max-height: 85%;
+        .logo-orb img {
+            max-width: 88%;
+            max-height: 88%;
             object-fit: contain;
         }
 
+        .logo-orb:nth-child(4n+1) { animation-name: drift1; animation-duration: 19s; animation-delay: -2s; }
+        .logo-orb:nth-child(4n+2) { animation-name: drift2; animation-duration: 24s; animation-delay: -9s; }
+        .logo-orb:nth-child(4n+3) { animation-name: drift3; animation-duration: 21s; animation-delay: -14s; }
+        .logo-orb:nth-child(4n)   { animation-name: drift4; animation-duration: 27s; animation-delay: -5s; }
+
+        @keyframes drift1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25%      { transform: translate(9px, -11px) rotate(1deg); }
+            50%      { transform: translate(-5px, -16px) rotate(-0.8deg); }
+            75%      { transform: translate(-11px, -6px) rotate(0.5deg); }
+        }
+
+        @keyframes drift2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            30%      { transform: translate(-10px, -8px) rotate(-1.1deg); }
+            60%      { transform: translate(7px, -15px) rotate(0.9deg); }
+            85%      { transform: translate(11px, -4px) rotate(-0.4deg); }
+        }
+
+        @keyframes drift3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            20%      { transform: translate(-8px, -13px) rotate(0.8deg); }
+            55%      { transform: translate(10px, -6px) rotate(-1.2deg); }
+            80%      { transform: translate(4px, -15px) rotate(0.6deg); }
+        }
+
+        @keyframes drift4 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            35%      { transform: translate(12px, -9px) rotate(-0.7deg); }
+            65%      { transform: translate(-6px, -14px) rotate(1.1deg); }
+            90%      { transform: translate(-12px, -3px) rotate(-0.5deg); }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            .lm-track, .logo-tile { animation: none; }
+            .logo-orb { animation: none; }
         }
 
+        /* absolute positioning does not survive a narrow column, so fall back to
+           a plain wrapped grid below the split breakpoint */
         @media (max-width: 900px) {
-            .logo-marquee { height: 400px; }
-            .logo-tile { height: 115px; }
+            .logo-field {
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                justify-content: center;
+            }
+            .logo-orb {
+                position: static;
+                width: calc(33.333% - 0.5rem);
+                height: 90px;
+                animation: none;
+            }
         }
 
-        @media (max-width: 768px) {
-            .logo-marquee { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 560px) {
+            .logo-orb { width: calc(50% - 0.375rem); }
         }
 
         /* Footer */
@@ -805,40 +804,18 @@
         <section class="partners-split">
             <h2 class="partners-title">We team up with these partners to provide innovative solutions to modernize our clients Nonstop applications.</h2>
 
-            <!-- Nine partners, three per column, no repeats on screen. Each column
-                 repeats its own set of three so the -50% rise loops seamlessly; the
-                 duplicate half is aria-hidden so each logo is announced once. -->
-            <div class="logo-marquee" role="group" aria-label="TIC Software partners">
-                <div class="lm-row">
-                    <div class="lm-track">
-                        <div class="logo-tile"><img src="./images/Logos/NuWave_logo.png" alt="NuWave Logo"></div>
-                        <div class="logo-tile"><img src="./images/Logos/infrasoft_logo.jpg" alt="Infrasoft Logo"></div>
-                        <div class="logo-tile"><img src="./images/Logos/Canam_Software_logo.png" alt="Canam Software Logo"></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/NuWave_logo.png" alt=""></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/infrasoft_logo.jpg" alt=""></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/Canam_Software_logo.png" alt=""></div>
-                    </div>
-                </div>
-                <div class="lm-row">
-                    <div class="lm-track">
-                        <div class="logo-tile"><img src="./images/Logos/comforte_logo.jpg" alt="Comforte Logo"></div>
-                        <div class="logo-tile"><img src="./images/Logos/Gravic_logo.jpeg" alt="Gravic Logo"></div>
-                        <div class="logo-tile"><img src="./images/Logos/TANDsoft_logo.jpg" alt="TANDsoft Logo"></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/comforte_logo.jpg" alt=""></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/Gravic_logo.jpeg" alt=""></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/TANDsoft_logo.jpg" alt=""></div>
-                    </div>
-                </div>
-                <div class="lm-row">
-                    <div class="lm-track">
-                        <div class="logo-tile"><img src="./images/Logos/NTI_logo.jpg" alt="NTI Logo"></div>
-                        <div class="logo-tile"><img src="./images/Logos/HPE_Silver_logo.jpg" alt="HPE Silver Logo"></div>
-                        <div class="logo-tile"><img src="./images/Logos/HPE_Silver_logo_2.png" alt="HPE Silver Logo 2"></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/NTI_logo.jpg" alt=""></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/HPE_Silver_logo.jpg" alt=""></div>
-                        <div class="logo-tile" aria-hidden="true"><img src="./images/Logos/HPE_Silver_logo_2.png" alt=""></div>
-                    </div>
-                </div>
+            <!-- Each logo holds an assigned home position and drifts in a small
+                 closed loop around it, so the field stays legible and collision-free. -->
+            <div class="logo-field" role="group" aria-label="TIC Software partners">
+                <div class="logo-orb" style="left: 3%; top: 3%;"><img src="./images/Logos/NuWave_logo.png" alt="NuWave Logo"></div>
+                <div class="logo-orb" style="left: 37%; top: 6%;"><img src="./images/Logos/infrasoft_logo.jpg" alt="Infrasoft Logo"></div>
+                <div class="logo-orb" style="left: 71%; top: 2%;"><img src="./images/Logos/Canam_Software_logo.png" alt="Canam Software Logo"></div>
+                <div class="logo-orb" style="left: 10%; top: 36%;"><img src="./images/Logos/comforte_logo.jpg" alt="Comforte Logo"></div>
+                <div class="logo-orb" style="left: 44%; top: 33%;"><img src="./images/Logos/Gravic_logo.jpeg" alt="Gravic Logo"></div>
+                <div class="logo-orb" style="left: 73%; top: 38%;"><img src="./images/Logos/TANDsoft_logo.jpg" alt="TANDsoft Logo"></div>
+                <div class="logo-orb" style="left: 3%; top: 68%;"><img src="./images/Logos/NTI_logo.jpg" alt="NTI Logo"></div>
+                <div class="logo-orb" style="left: 38%; top: 71%;"><img src="./images/Logos/HPE_Silver_logo.jpg" alt="HPE Silver Logo"></div>
+                <div class="logo-orb" style="left: 70%; top: 66%;"><img src="./images/Logos/HPE_Silver_logo_2.png" alt="HPE Silver Logo 2"></div>
             </div>
         </section>
     </main>

@@ -276,22 +276,51 @@
         }
         .clients-copy { min-width: 0; }
 
-        /* ===== Client logo drift field =====
-           Each logo keeps an assigned home position and drifts in a small closed
-           loop around it. Free-roaming paths would let logos collide and crowd;
-           anchoring them keeps the motion organic but the field always legible.
-           Drift excursions are ~16px max, well inside the gaps between homes. */
+        /* ===== Client logo balloons =====
+           Three columns drifting upward. Two independent animations stacked:
+           the track carries the steady rise, each tile adds its own slow sway
+           and tilt. Keeping them on separate elements lets both transforms run
+           without fighting over the same property. */
         .client-field {
-            position: relative;
-            height: 540px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            height: 470px;
             min-width: 0;
             overflow: hidden;
         }
 
+        .cf-col {
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+                    mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+        }
+
+        /* Spacing is margin-bottom, NOT gap. The loop animates the track to
+           translateY(-50%), which only lands on the repeat point if the track is
+           two identical halves; `gap` excludes the trailing gap from the track
+           height, so the loop would jump every cycle. */
+        .cf-track {
+            display: flex;
+            flex-direction: column;
+            animation: cfRise 34s linear infinite;
+        }
+
+        /* uneven speeds and offset starts so the columns never line up */
+        .cf-col:nth-child(1) .cf-track { animation-duration: 34s; }
+        .cf-col:nth-child(2) .cf-track { animation-duration: 29s; animation-delay: -11s; }
+        .cf-col:nth-child(3) .cf-track { animation-duration: 40s; animation-delay: -19s; }
+
+        @keyframes cfRise {
+            from { transform: translateY(0); }
+            to   { transform: translateY(-50%); }
+        }
+
         .client-orb {
-            position: absolute;
-            width: 22%;
-            height: 17%;
+            flex: 0 0 auto;
+            width: 100%;
+            height: 130px;
+            margin-bottom: 2.5rem;
             background-color: var(--white);
             border: 1px solid var(--border-gray);
             border-radius: 8px;
@@ -299,8 +328,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0.75rem;
-            animation: drift1 20s ease-in-out infinite;
+            padding: 0.85rem;
+            animation: clientSway 6s ease-in-out infinite;
             will-change: transform;
         }
 
@@ -310,66 +339,37 @@
             object-fit: contain;
         }
 
-        /* four paths on staggered timings, so no two logos trace the same
-           motion at the same moment */
-        .client-orb:nth-child(4n+1) { animation-name: drift1; animation-duration: 19s; animation-delay: -2s; }
-        .client-orb:nth-child(4n+2) { animation-name: drift2; animation-duration: 24s; animation-delay: -9s; }
-        .client-orb:nth-child(4n+3) { animation-name: drift3; animation-duration: 21s; animation-delay: -14s; }
-        .client-orb:nth-child(4n)   { animation-name: drift4; animation-duration: 27s; animation-delay: -5s; }
+        /* The sway stagger cycle must match each column's set size, so a tile and
+           its duplicate in the second half share a phase - otherwise the sway
+           jumps at the loop point. Columns 1-2 hold 5 logos, column 3 holds 4. */
+        .cf-col:nth-child(-n+2) .client-orb:nth-child(5n+1) { animation-duration: 5.4s; animation-delay: -0.7s; }
+        .cf-col:nth-child(-n+2) .client-orb:nth-child(5n+2) { animation-duration: 7.1s; animation-delay: -2.9s; }
+        .cf-col:nth-child(-n+2) .client-orb:nth-child(5n+3) { animation-duration: 6.3s; animation-delay: -4.4s; }
+        .cf-col:nth-child(-n+2) .client-orb:nth-child(5n+4) { animation-duration: 8.0s; animation-delay: -1.8s; }
+        .cf-col:nth-child(-n+2) .client-orb:nth-child(5n)   { animation-duration: 6.8s; animation-delay: -3.5s; }
 
-        @keyframes drift1 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25%      { transform: translate(9px, -11px) rotate(1deg); }
-            50%      { transform: translate(-5px, -16px) rotate(-0.8deg); }
-            75%      { transform: translate(-11px, -6px) rotate(0.5deg); }
-        }
+        .cf-col:nth-child(3) .client-orb:nth-child(4n+1) { animation-duration: 5.4s; animation-delay: -0.7s; }
+        .cf-col:nth-child(3) .client-orb:nth-child(4n+2) { animation-duration: 7.1s; animation-delay: -2.9s; }
+        .cf-col:nth-child(3) .client-orb:nth-child(4n+3) { animation-duration: 6.3s; animation-delay: -4.4s; }
+        .cf-col:nth-child(3) .client-orb:nth-child(4n)   { animation-duration: 8.0s; animation-delay: -1.8s; }
 
-        @keyframes drift2 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            30%      { transform: translate(-10px, -8px) rotate(-1.1deg); }
-            60%      { transform: translate(7px, -15px) rotate(0.9deg); }
-            85%      { transform: translate(11px, -4px) rotate(-0.4deg); }
-        }
-
-        @keyframes drift3 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            20%      { transform: translate(-8px, -13px) rotate(0.8deg); }
-            55%      { transform: translate(10px, -6px) rotate(-1.2deg); }
-            80%      { transform: translate(4px, -15px) rotate(0.6deg); }
-        }
-
-        @keyframes drift4 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            35%      { transform: translate(12px, -9px) rotate(-0.7deg); }
-            65%      { transform: translate(-6px, -14px) rotate(1.1deg); }
-            90%      { transform: translate(-12px, -3px) rotate(-0.5deg); }
+        @keyframes clientSway {
+            0%, 100% { transform: translateX(-7px) rotate(-1.6deg); }
+            50%      { transform: translateX(7px) rotate(1.6deg); }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .client-orb { animation: none; }
+            .cf-track, .client-orb { animation: none; }
         }
 
-        /* absolute positioning does not survive a narrow column, so fall back to
-           a plain wrapped grid below the split breakpoint */
         @media (max-width: 900px) {
             .clients-split { grid-template-columns: 1fr; gap: 2rem; }
-            .client-field {
-                height: auto;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.75rem;
-                justify-content: center;
-            }
-            .client-orb {
-                position: static;
-                width: calc(33.333% - 0.5rem);
-                height: 90px;
-                animation: none;
-            }
+            .client-field { height: 400px; }
+            .client-orb { height: 105px; }
         }
 
         @media (max-width: 560px) {
-            .client-orb { width: calc(50% - 0.375rem); }
+            .client-field { grid-template-columns: repeat(2, 1fr); }
         }
 
         .clients-grid {
@@ -815,23 +815,50 @@
                 <p class="clients-description">TIC Software was created to address the challenges of keeping Tandem/HP Nonstop legacy systems current with ever-evolving "legacy application modernization" technology &ndash; providing consulting expertise and software modernization solutions - designed to keep mission-critical applications up-and-running. Today, we continue to meet these modernization challenges &ndash; as well as offer migration solutions to organizations looking to explore other technological options.</p>
             </div>
 
-            <!-- Each logo holds an assigned home position and drifts in a small
-                 closed loop around it, so the field stays legible and collision-free. -->
+            <!-- 14 clients across three columns (5/5/4), no repeats. Each column
+                 repeats its own set so the -50% rise loops seamlessly; the duplicate
+                 half is aria-hidden so each logo is announced once. -->
             <div class="client-field" role="group" aria-label="Some of our clients">
-                <div class="client-orb" style="left: 3%; top: 3%;"><img src="./images/Logos/Bank_of_America_logo.png" alt="Bank of America Logo"></div>
-                <div class="client-orb" style="left: 27%; top: 3%;"><img src="./images/Logos/CIBC_logo.png" alt="CIBC Logo"></div>
-                <div class="client-orb" style="left: 51%; top: 3%;"><img src="./images/Logos/Telus_Logo.jpg" alt="Telus Logo"></div>
-                <div class="client-orb" style="left: 75%; top: 3%;"><img src="./images/Logos/Quest_Diagnostics_logo.jpg" alt="Quest Diagnostics Logo"></div>
-                <div class="client-orb" style="left: 14%; top: 26%;"><img src="./images/Logos/JP_Morgan_logo.png" alt="JP Morgan Logo"></div>
-                <div class="client-orb" style="left: 38%; top: 26%;"><img src="./images/Logos/Gallagher_logo.jpg" alt="Gallagher Logo"></div>
-                <div class="client-orb" style="left: 62%; top: 26%;"><img src="./images/Logos/US_Foods_logo.jpg" alt="US Foods Logo"></div>
-                <div class="client-orb" style="left: 2%; top: 49%;"><img src="./images/Logos/State_Street logo.png" alt="State Street Logo"></div>
-                <div class="client-orb" style="left: 26%; top: 49%;"><img src="./images/Logos/Western_Union_logo.png" alt="Western Union Logo"></div>
-                <div class="client-orb" style="left: 50%; top: 49%;"><img src="./images/Logos/Pape_logo.jpg" alt="Pape Logo"></div>
-                <div class="client-orb" style="left: 74%; top: 49%;"><img src="./images/Logos/Cass_Information_logo.png" alt="Cass Information Logo"></div>
-                <div class="client-orb" style="left: 13%; top: 72%;"><img src="./images/Logos/Sumitomo_logo.png" alt="Sumitomo Logo"></div>
-                <div class="client-orb" style="left: 37%; top: 72%;"><img src="./images/Logos/Raymond_James_logo.jpg" alt="Raymond James Logo"></div>
-                <div class="client-orb" style="left: 61%; top: 72%;"><img src="./images/Logos/Vancouver_Coastal_Health_logo.png" alt="Vancouver Coastal Health Logo"></div>
+                <div class="cf-col">
+                    <div class="cf-track">
+                        <div class="client-orb"><img src="./images/Logos/Bank_of_America_logo.png" alt="Bank of America Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/CIBC_logo.png" alt="CIBC Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/Telus_Logo.jpg" alt="Telus Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/Quest_Diagnostics_logo.jpg" alt="Quest Diagnostics Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/Sumitomo_logo.png" alt="Sumitomo Logo"></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Bank_of_America_logo.png" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/CIBC_logo.png" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Telus_Logo.jpg" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Quest_Diagnostics_logo.jpg" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Sumitomo_logo.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="cf-col">
+                    <div class="cf-track">
+                        <div class="client-orb"><img src="./images/Logos/JP_Morgan_logo.png" alt="JP Morgan Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/Gallagher_logo.jpg" alt="Gallagher Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/US_Foods_logo.jpg" alt="US Foods Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/State_Street logo.png" alt="State Street Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/Raymond_James_logo.jpg" alt="Raymond James Logo"></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/JP_Morgan_logo.png" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Gallagher_logo.jpg" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/US_Foods_logo.jpg" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/State_Street logo.png" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Raymond_James_logo.jpg" alt=""></div>
+                    </div>
+                </div>
+                <div class="cf-col">
+                    <div class="cf-track">
+                        <div class="client-orb"><img src="./images/Logos/Western_Union_logo.png" alt="Western Union Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/Pape_logo.jpg" alt="Pape Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/Cass_Information_logo.png" alt="Cass Information Logo"></div>
+                        <div class="client-orb"><img src="./images/Logos/Vancouver_Coastal_Health_logo.png" alt="Vancouver Coastal Health Logo"></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Western_Union_logo.png" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Pape_logo.jpg" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Cass_Information_logo.png" alt=""></div>
+                        <div class="client-orb" aria-hidden="true"><img src="./images/Logos/Vancouver_Coastal_Health_logo.png" alt=""></div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
