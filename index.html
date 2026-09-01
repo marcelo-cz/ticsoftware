@@ -1214,12 +1214,16 @@
            the where/when beneath it. */
         .about-box .case-study-tag { align-self: flex-start; margin-bottom: 0.9rem; }
 
-        .tbc-title {
-            font-size: 1.25rem;
+        /* Scoped to .about-box so it outranks `.about-box p`, which is more
+           specific than a bare .tbc-title and was flattening this to 0.95rem.
+           1.3rem matches the Lightning Session heading below it. */
+        .about-box .tbc-title {
+            font-size: 1.3rem;
             font-weight: 700;
             line-height: 1.3;
             color: var(--dark-text);
             margin-bottom: 0.35rem;
+            text-align: left;
         }
 
         /* HPE brand green */
@@ -1229,35 +1233,95 @@
            and this string is 69 characters, which needs ~450px at .85rem -
            1rem came to ~530px and wrapped. nowrap keeps it honest; below
            1100px the column narrows enough that wrapping is the better
-           outcome, so it is released there. */
-        .tbc-detail {
+           outcome, so it is released there.
+
+           Scoped to .about-box because `.about-box p` is more specific than a
+           bare class on a <p>: unscoped, this was rendering at 0.95rem with a
+           1rem margin, so the width budget above never held and the media
+           query below was a no-op. .about-box is a flex column, so that 1rem
+           did not collapse against the next child either - it stacked. */
+        .about-box .tbc-detail {
             font-size: 0.85rem;
             line-height: 1.5;
             color: var(--dark-text);
-            margin-bottom: 0.5rem;
+            text-align: left;
+            margin-bottom: 0.9rem;
             white-space: nowrap;
         }
 
         @media (max-width: 1100px) {
-            .tbc-detail { white-space: normal; font-size: 0.92rem; }
+            .about-box .tbc-detail { white-space: normal; font-size: 0.92rem; }
         }
 
-        .tbc-detail .tbc-sep { color: var(--border-gray); margin: 0 0.15rem; }
+        .tbc-detail .tbc-sep,
+        .tbc-session-slot .tbc-sep { color: var(--border-gray); margin: 0 0.15rem; }
 
-        /* The session slot, sitting directly under the session heading it
-           belongs to. Weighted because it is the one piece a reader has to act
-           on, and small enough that it reads as the heading's timestamp rather
-           than competing with it. */
-        .tbc-time {
+        /* ===== Session entries in the What's New box =====
+           Every rule below is scoped to .about-box on purpose: `.about-box p`
+           is more specific than a bare class on a <p> and would otherwise pull
+           these back to 0.95rem and re-justify them. */
+        .about-box .tbc-session-slot {
             font-size: 0.85rem;
             line-height: 1.5;
             font-weight: 600;
             color: var(--primary-blue);
-            margin-bottom: 1rem;
+            text-align: left;
+            margin-bottom: 0.3rem;
+        }
+
+        .about-box .tbc-session-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.35;
+            color: var(--dark-text);
+            text-align: left;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-box .tbc-session-lede {
+            text-align: left;
+            margin-bottom: 0.4rem;
         }
 
         @media (max-width: 1100px) {
-            .tbc-time { font-size: 0.92rem; }
+            .about-box .tbc-session-slot { font-size: 0.92rem; }
+        }
+
+        /* Native disclosure, so this page still needs no JavaScript. The
+           default marker is dropped for a caret that flips when open, and the
+           label swaps between the two spans in the summary. */
+        .tbc-more { margin-bottom: 1.5rem; }
+
+        .tbc-more > summary {
+            list-style: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .tbc-more > summary::-webkit-details-marker { display: none; }
+        .tbc-more > summary:hover { text-decoration: underline; }
+
+        .tbc-more > summary::after {
+            content: "\25BE";
+            font-size: 0.7rem;
+            line-height: 1;
+            transition: transform .2s ease;
+        }
+
+        .tbc-more[open] > summary::after { transform: rotate(180deg); }
+
+        .tbc-more .tbc-more-close { display: none; }
+        .tbc-more[open] .tbc-more-open { display: none; }
+        .tbc-more[open] .tbc-more-close { display: inline; }
+
+        .about-box .tbc-more p {
+            margin: 0.6rem 0 0;
+            text-align: left;
         }
 
         /* The button closes the box, spanning its full width.
@@ -1474,11 +1538,25 @@
                 <p class="tbc-title"><span class="hpe-green">Nonstop</span> Technology &amp; Business Conference 2026</p>
                 <p class="tbc-detail">Orlando, Florida &middot; September 15&ndash;17, 2026 <span class="tbc-sep">|</span> HPE Education Day Sept. 14</p>
 
-                <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0 0.3rem;">TIC Lightning Session - Transform How You Work with Nonstop: AI and Beyond</h3>
-                <p class="tbc-time">Thurs 9/17 at 12:15 PM &ndash; 12:25 PM</p>
-                <p style="text-align: left; margin-bottom: 1rem; font-weight: 600;">TIC Navigator + Atlas &mdash; Analyze. Understand. Modernize.</p>
-                <p style="text-align: left; margin-bottom: 1rem;">AI can help you understand complex legacy code&mdash;but AI alone isn't enough. See how TIC Navigator combines AI, TIC's decades of Nonstop expertise, and captured SME knowledge to create a living, searchable application knowledge base, while TIC Atlas provides deterministic analysis of programs, files, fields, and dependencies to understand change impact before you modify the code.</p>
-                <p style="text-align: left; margin-bottom: 1.5rem;"><strong>The result:</strong> save time and money, lower change risk, reduce dependence on scarce SMEs, accelerate onboarding and modernization, and preserve critical application knowledge before it walks out the door.</p>
+                <!-- Two sessions, each one slot line + title + lede, with the
+                     rest behind a native <details> so the box does not outgrow
+                     the TICSoftware.Ai column beside it. The Lightning Session
+                     heading that used to sit above these is Session 2 now. -->
+                <p class="tbc-session-slot">Session 1 <span class="tbc-sep">|</span> Tue, Sept 15th <span class="tbc-sep">|</span> 3:45 PM &ndash; 4:30 PM</p>
+                <p class="tbc-session-title">From Assistant to Agents: An AI Tutorial for Nonstop Users</p>
+                <p class="tbc-session-lede">AI is creating real opportunities for Nonstop users, but it also comes with hype, risk, and confusion.</p>
+                <details class="tbc-more">
+                    <summary><span class="tbc-more-open">Read more</span><span class="tbc-more-close">Show less</span></summary>
+                    <p>This tutorial explains the practical concepts behind LLMs, prompts, RAG, assistants, and AI agents through Nonstop-focused examples such as legacy code understanding, documentation, testing, and modernization. Attendees will learn what works today, what still requires caution, and how to evaluate AI solutions for mission-critical environments.</p>
+                </details>
+
+                <p class="tbc-session-slot">Session 2 <span class="tbc-sep">|</span> Thu, Sept 17th <span class="tbc-sep">|</span> 12:15 PM &ndash; 12:25 PM</p>
+                <p class="tbc-session-title">TIC Lightning Session - Transform How You Work with Nonstop: AI and Beyond</p>
+                <p class="tbc-session-lede"><strong>TIC Navigator + Atlas &mdash; Analyze. Understand. Modernize.</strong> AI can help you understand complex legacy code&mdash;but AI alone isn't enough.</p>
+                <details class="tbc-more">
+                    <summary><span class="tbc-more-open">Read more</span><span class="tbc-more-close">Show less</span></summary>
+                    <p>See how TIC Navigator combines AI, TIC's decades of Nonstop expertise, and captured SME knowledge to create a living, searchable application knowledge base, while TIC Atlas provides deterministic analysis of programs, files, fields, and dependencies to understand change impact before you modify the code.</p>
+                </details>
 
                 <!-- Agenda closes the box, below the event line and the session copy -->
                 <a href="https://nonstoptbc.com/agenda/" target="_blank" rel="noopener" class="cta-button" style="text-decoration: none; background: #003d99 !important;">Agenda</a>
