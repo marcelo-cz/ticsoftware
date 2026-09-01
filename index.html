@@ -1234,7 +1234,7 @@
             font-size: 0.85rem;
             line-height: 1.5;
             color: var(--dark-text);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.15rem;
             white-space: nowrap;
         }
 
@@ -1243,6 +1243,21 @@
         }
 
         .tbc-detail .tbc-sep { color: var(--border-gray); margin: 0 0.15rem; }
+
+        /* The session slot. Same size as the line above it so the two read as
+           one block of event detail, but weighted, because this is the one
+           piece a reader has to act on. */
+        .tbc-time {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 1100px) {
+            .tbc-time { font-size: 0.92rem; }
+        }
 
         /* The button closes the box, spanning its full width.
            colour has to be restated here: the white text came from
@@ -1457,6 +1472,7 @@
                 <span class="case-study-tag">Upcoming Event</span>
                 <p class="tbc-title"><span class="hpe-green">Nonstop</span> Technology &amp; Business Conference 2026</p>
                 <p class="tbc-detail">Orlando, Florida &middot; September 15&ndash;17, 2026 <span class="tbc-sep">|</span> HPE Education Day Sept. 14</p>
+                <p class="tbc-time">Thurs 9/17 at 12:15 PM &ndash; 12:25 PM</p>
 
                 <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0 0.85rem;">TIC Lightning Session - Transform How You Work with Nonstop: AI and Beyond</h3>
                 <p style="text-align: left; margin-bottom: 1rem; font-weight: 600;">TIC Navigator + Atlas &mdash; Analyze. Understand. Modernize.</p>
