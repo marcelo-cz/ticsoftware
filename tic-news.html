@@ -349,6 +349,24 @@
             margin-bottom: 0;
         }
 
+        /* Two links sitting side by side in a row.
+           .news-card a.read-more + a.read-more above pins a second link to the
+           card's bottom-right corner - right for the cards that use two bare
+           adjacent links, wrong here, where they belong together in a row. */
+        .news-card .card-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .news-card .card-links a.read-more + a.read-more {
+            position: static;
+            bottom: auto;
+            right: auto;
+        }
+
         .featured-card {
             background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('./images/Global-Business-World-Map-Handshake-Communications.jpg') center/cover no-repeat;
             color: var(--white);
@@ -372,6 +390,22 @@
             color: var(--white);
             padding: 3rem 2rem;
         }
+
+        /* Chile-TUG.png is a 543x269 logo rather than a photo, so it is
+           contained and centred on a dark ground instead of using center/cover
+           like the photographic cards - cover would crop and stretch it. */
+        .featured-card-chiletug {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
+                url('./images/Chile-TUG.png') center/contain no-repeat,
+                #12233f;
+        }
+
+        .featured-card-chiletug h3,
+        .featured-card-chiletug p { color: var(--white); }
+        .featured-card-chiletug .featured-article-date { color: rgba(255, 255, 255, 0.8); }
+        .featured-card-chiletug .news-status { background-color: rgba(0, 0, 0, 0.4); color: var(--white); }
+        .featured-card-chiletug a:not(.read-more) { color: var(--white); }
 
         .featured-card-2 h3 {
             color: var(--white);
@@ -1323,13 +1357,13 @@
         <section>
             <div class="news-grid">
                 <!-- Chile TUG 2026 (moved down from the featured slot) -->
-                <div class="news-card">
+                <div class="news-card featured-card-chiletug">
                     <div class="featured-article-date">Event &middot; August 2026</div>
                     <h3>Chile TUG 2026</h3>
                     <p>TIC Software was at ChileTUG on August 13, 2026, introducing TIC Navigator &amp; Atlas.</p>
                     <p style="font-style: italic;">TIC Software estuvo en ChileTUG el 13 de agosto de 2026 presentando TIC Navigator y Atlas.</p>
                     <span class="news-status">Event has Ended</span>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                    <div class="card-links">
                         <a href="https://ticsoftware.ai/code-navigator.es.html" target="_blank" rel="noopener" class="read-more">Navigator en Espa&ntilde;ol</a>
                         <a href="https://ticsoftware.ai/atlas.es.html" target="_blank" rel="noopener" class="read-more">Atlas en Espa&ntilde;ol</a>
                     </div>
