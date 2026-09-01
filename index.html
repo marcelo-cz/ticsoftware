@@ -1209,6 +1209,59 @@
             background-color: #000000;
         }
 
+        /* ===== TBC 2026 line in the What's New box =====
+           No logo and no card: the eyebrow leads, then the conference name and
+           the where/when beneath it. */
+        .about-box .case-study-tag { align-self: flex-start; margin-bottom: 0.9rem; }
+
+        .tbc-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--dark-text);
+            margin-bottom: 0.35rem;
+        }
+
+        /* HPE brand green */
+        .hpe-green { color: #01A982; }
+
+        /* Sized to hold one line. The box gives about 504px of content width
+           and this string is 69 characters, which needs ~450px at .85rem -
+           1rem came to ~530px and wrapped. nowrap keeps it honest; below
+           1100px the column narrows enough that wrapping is the better
+           outcome, so it is released there. */
+        .tbc-detail {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 1100px) {
+            .tbc-detail { white-space: normal; font-size: 0.92rem; }
+        }
+
+        .tbc-detail .tbc-sep { color: var(--border-gray); margin: 0 0.15rem; }
+
+        /* The button closes the box, spanning its full width.
+           colour has to be restated here: the white text came from
+           .case-study-content .cta-button, which only applied while the button
+           sat inside the event card - moved out, it inherited the box's dark
+           text on a dark blue background and disappeared. */
+        .about-box .cta-button {
+            display: block;
+            width: 100%;
+            align-self: stretch;
+            box-sizing: border-box;
+            padding: 0.95rem 1.5rem;
+            font-size: 1.05rem;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .about-box .cta-button:hover { color: #ffffff; }
+
         .event-horizontal .case-study-content { padding: 1.75rem 2rem 1.75rem 0; }
         /* .case-study-content is a flex column, so inline-block children stretch */
         .event-horizontal .case-study-tag { align-self: flex-start; }
@@ -1395,28 +1448,23 @@
                 <a href="https://ticsoftware.ai/" class="btn" target="_blank">TICSoftware.Ai</a>
             </div>
 
+            <!-- What's New now carries the TBC 2026 event that used to sit in
+                 its own Upcoming Events box below, plus the Lightning Session
+                 running at it. The uLinga/EE item that was here has moved to
+                 tic-news.html as the featured article. -->
             <div class="about-box">
                 <h2>What's New</h2>
-                <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0; text-align: center;">uLinga/EE - Modernize SNA Connectivity over IP</h3>
-                <img src="./images/Products/Gateway/uLinga/uLinga-for-EE-box-1.png" alt="uLinga for Enterprise Extender (EE)" style="display: block; max-width: 78%; height: auto; margin: 0 auto 1.5rem;">
-                <p style="text-align: left; margin-bottom: 1.5rem;">uLinga for Enterprise Extender (EE) provides a standards-based (HPR/IP) solution that transports SNA traffic over modern IP networks &mdash; allowing organizations to retire legacy networking technologies while keeping existing applications fully operational. No application changes. No network redesign.</p>
+                <span class="case-study-tag">Upcoming Event</span>
+                <p class="tbc-title"><span class="hpe-green">Nonstop</span> Technology &amp; Business Conference 2026</p>
+                <p class="tbc-detail">Orlando, Florida &middot; September 15&ndash;17, 2026 <span class="tbc-sep">|</span> HPE Education Day Sept. 14</p>
 
-                <a href="ulinga-ee.html" class="btn" style="display: inline-block; margin-top: 1rem;">Learn More</a>
+                <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0 0.85rem;">TIC Lightning Session - Transform How You Work with Nonstop: AI and Beyond</h3>
+                <p style="text-align: left; margin-bottom: 1rem; font-weight: 600;">TIC Navigator + Atlas &mdash; Analyze. Understand. Modernize.</p>
+                <p style="text-align: left; margin-bottom: 1rem;">AI can help you understand complex legacy code&mdash;but AI alone isn't enough. See how TIC Navigator combines AI, TIC's decades of Nonstop expertise, and captured SME knowledge to create a living, searchable application knowledge base, while TIC Atlas provides deterministic analysis of programs, files, fields, and dependencies to understand change impact before you modify the code.</p>
+                <p style="text-align: left; margin-bottom: 1.5rem;"><strong>The result:</strong> save time and money, lower change risk, reduce dependence on scarce SMEs, accelerate onboarding and modernization, and preserve critical application knowledge before it walks out the door.</p>
 
-            </div>
-
-            <div class="about-box" style="grid-column: 1 / -1; margin-top: -2rem;">
-                <h2>Upcoming Events</h2>
-                <div class="event-horizontal">
-                    <img width="337" height="57" loading="lazy" src="./images/TBC_2026.jpg" alt="Nonstop TBC 2026">
-                    <div class="case-study-content">
-                        <span class="case-study-tag">Upcoming Event</span>
-                        <h3>Nonstop TBC 2026</h3>
-                        <p class="case-study-excerpt">The Nonstop Technical and Business Conference returns September 14&ndash;18, 2026, at the Rosen Plaza Hotel and Conference Center in Orlando, Florida.</p>
-                        <a href="https://nonstoptbc.com/register-for-tbc26/" target="_blank" rel="noopener" class="cta-button" style="text-decoration: none; background: #003d99 !important;">Registration</a>
-                        <p class="case-study-excerpt" style="font-size: 0.85rem; font-style: italic; margin: 0.6rem 0 0;">*Early bird pricing ends August 24th</p>
-                    </div>
-                </div>
+                <!-- Agenda closes the box, below the event line and the session copy -->
+                <a href="https://nonstoptbc.com/agenda/" target="_blank" rel="noopener" class="cta-button" style="text-decoration: none; background: #003d99 !important;">Agenda</a>
             </div>
 
         </section>
