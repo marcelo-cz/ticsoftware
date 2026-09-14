@@ -1,0 +1,75 @@
+/* Responsive rules for the standard site header (logo, nav, search).
+
+   Every page carries its own inline copy of the desktop header CSS. That
+   header only fits at 1440px and up: .logo reserves 350px and is pulled 5rem
+   left, and the nav and search sit on one row that never wraps, so anything
+   narrower scrolled sideways. This file is linked from each page's <head>;
+   every selector is prefixed with "header" so it outranks the inline copies
+   wherever the link sits. The gallery pages use a different header that
+   already fits, and do not link this file. */
+
+/* The 5rem pull pushes the logo off the left edge below ~1300px. */
+@media (max-width: 1300px) {
+    header .logo {
+        margin-left: 0;
+        min-width: 0;
+    }
+}
+
+/* Logo, nav and search no longer fit on one row: logo on its own row, the
+   nav and search centred on the row below. */
+@media (max-width: 1200px) {
+    header .header-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.75rem;
+    }
+
+    header .logo {
+        height: 80px;
+        margin-right: 0;
+    }
+
+    header nav {
+        flex-basis: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem 1.5rem;
+    }
+}
+
+/* Phones: the nav wraps onto as many rows as it needs and search takes a full
+   row. The header stops being sticky here - stacked, it would cover a third
+   of the screen. */
+@media (max-width: 768px) {
+    header {
+        position: static;
+        padding: 0.75rem 0;
+    }
+
+    header .header-content {
+        padding: 0 1rem;
+    }
+
+    header .logo {
+        height: 64px;
+    }
+
+    header nav {
+        gap: 0.5rem 1.1rem;
+    }
+
+    header nav a {
+        font-size: 0.9rem;
+    }
+
+    header .nav-search {
+        flex-basis: 100%;
+    }
+
+    header .nav-search-input {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+    }
+}
