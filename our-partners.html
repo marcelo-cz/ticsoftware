@@ -311,16 +311,19 @@
            Drift excursions are ~16px max, well inside the gaps between homes. */
         .logo-field {
             position: relative;
-            height: 540px;
+            height: 600px;
             min-width: 0;
             margin-bottom: 3rem;
             overflow: hidden;
+            --logo-scale: 1.1;
         }
 
+        /* 29% wide leaves ~4.5% between columns; drift adds at most ~12px on
+           each side, so neighbours never touch. */
         .logo-orb {
             position: absolute;
-            width: 24%;
-            height: 17%;
+            width: 29%;
+            height: 24%;
             background-color: var(--white);
             border: 1px solid var(--border-gray);
             border-radius: 8px;
@@ -333,10 +336,21 @@
             will-change: transform;
         }
 
+        /* Wordmarks are sized by area, not by box: --w (set per logo in the
+           markup) is the width that gives every mark the same visible area, and
+           --logo-scale sets that area for the layout. Capped at the card, so a
+           long mark shrinks instead of overflowing. */
         .logo-orb img {
-            max-width: 88%;
-            max-height: 88%;
+            width: min(calc(var(--w, 140px) * var(--logo-scale, 1)), 100%);
+            height: auto;
+            max-height: 100%;
             object-fit: contain;
+        }
+
+        /* The HPE badges are tall shields: fill the card's height instead. */
+        .logo-orb--badge img {
+            width: auto;
+            height: 100%;
         }
 
         .logo-orb:nth-child(4n+1) { animation-name: drift1; animation-duration: 19s; animation-delay: -2s; }
@@ -372,8 +386,12 @@
             90%      { transform: translate(-12px, -3px) rotate(-0.5deg); }
         }
 
+        /* ".logo-field .logo-orb", not ".logo-orb": the :nth-child drift rules
+           above set animation-name at higher specificity, and a bare
+           ".logo-orb { animation: none }" loses to them, so the logos kept
+           drifting. Same fix in the narrow-screen fallback below. */
         @media (prefers-reduced-motion: reduce) {
-            .logo-orb { animation: none; }
+            .logo-field .logo-orb { animation: none; }
         }
 
         /* absolute positioning does not survive a narrow column, so fall back to
@@ -385,13 +403,15 @@
                 flex-wrap: wrap;
                 gap: 0.75rem;
                 justify-content: center;
+                --logo-scale: 0.95;
+                overflow: visible;
             }
             .logo-orb {
                 position: static;
                 width: calc(33.333% - 0.5rem);
-                height: 90px;
-                animation: none;
+                height: 120px;
             }
+            .logo-field .logo-orb { animation: none; }
         }
 
         @media (max-width: 560px) {
@@ -805,17 +825,20 @@
             <h2 class="partners-title">We team up with these partners to provide innovative solutions to modernize our clients Nonstop applications.</h2>
 
             <!-- Each logo holds an assigned home position and drifts in a small
-                 closed loop around it, so the field stays legible and collision-free. -->
+                 closed loop around it, so the field stays legible and collision-free.
+                 Rows of 3-2-3, with the two HPE badges in the middle row.
+                 --w is each wordmark's width at equal visible area (see .logo-orb img),
+                 so a long thin mark like comforte is not dwarfed by a compact one
+                 like infrasoft. -->
             <div class="logo-field" role="group" aria-label="TIC Software partners">
-                <div class="logo-orb" style="left: 3%; top: 3%;"><img src="./images/Logos/NuWave_logo.png" alt="NuWave Logo"></div>
-                <div class="logo-orb" style="left: 37%; top: 6%;"><img src="./images/Logos/infrasoft_logo.jpg" alt="Infrasoft Logo"></div>
-                <div class="logo-orb" style="left: 71%; top: 2%;"><img src="./images/Logos/Canam_Software_logo.png" alt="Canam Software Logo"></div>
-                <div class="logo-orb" style="left: 10%; top: 36%;"><img src="./images/Logos/comforte_logo.jpg" alt="Comforte Logo"></div>
-                <div class="logo-orb" style="left: 44%; top: 33%;"><img src="./images/Logos/Gravic_logo.jpeg" alt="Gravic Logo"></div>
-                <div class="logo-orb" style="left: 73%; top: 38%;"><img src="./images/Logos/TANDsoft_logo.jpg" alt="TANDsoft Logo"></div>
-                <div class="logo-orb" style="left: 3%; top: 68%;"><img src="./images/Logos/NTI_logo.jpg" alt="NTI Logo"></div>
-                <div class="logo-orb" style="left: 38%; top: 71%;"><img src="./images/Logos/HPE_Silver_logo.jpg" alt="HPE Silver Logo"></div>
-                <div class="logo-orb" style="left: 70%; top: 66%;"><img src="./images/Logos/HPE_Silver_logo_2.png" alt="HPE Silver Logo 2"></div>
+                <div class="logo-orb" style="left: 2%; top: 2%;"><img src="./images/Logos/infrasoft_logo.jpg" alt="Infrasoft Logo" style="--w: 118px"></div>
+                <div class="logo-orb" style="left: 35.5%; top: 2%;"><img src="./images/Logos/comforte_logo.jpg" alt="Comforte Logo" style="--w: 191px"></div>
+                <div class="logo-orb" style="left: 69%; top: 2%;"><img src="./images/Logos/Canam_Software_logo.png" alt="Canam Software Logo" style="--w: 122px"></div>
+                <div class="logo-orb logo-orb--badge" style="left: 18.5%; top: 38%;"><img src="./images/Logos/HPE_Silver_logo.jpg" alt="HPE Silver Logo"></div>
+                <div class="logo-orb logo-orb--badge" style="left: 52.5%; top: 38%;"><img src="./images/Logos/HPE_Silver_logo_2.png" alt="HPE Silver Logo 2"></div>
+                <div class="logo-orb" style="left: 2%; top: 74%;"><img src="./images/Logos/NTI_logo.jpg" alt="NTI Logo" style="--w: 147px"></div>
+                <div class="logo-orb" style="left: 35.5%; top: 74%;"><img src="./images/Logos/TANDsoft_logo.jpg" alt="TANDsoft Logo" style="--w: 128px"></div>
+                <div class="logo-orb" style="left: 69%; top: 74%;"><img src="./images/Logos/Gravic_logo.jpeg" alt="Gravic Logo" style="--w: 145px"></div>
             </div>
         </section>
     </main>
