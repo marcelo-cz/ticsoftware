@@ -97,18 +97,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ticsoftware.com/lightwave-client-faq.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ticsoftware.com/lightwave-server-faq.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.ticsoftware.com/logwatch.html</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -161,18 +149,6 @@
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.ticsoftware.com/prizm.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ticsoftware.com/s3utils.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.ticsoftware.com/success-stories.html</loc>
@@ -313,12 +289,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.ticsoftware.com/blogs/lightwave-client-json-payload.html</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.ticsoftware.com/blogs/logwatch-web-interface.html</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -356,12 +326,6 @@
   </url>
   <url>
     <loc>https://www.ticsoftware.com/blogs/rest-web-service.html</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.ticsoftware.com/blogs/swagger-lightwave-rest-apis.html</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

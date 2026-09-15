@@ -1,0 +1,24 @@
+# Netlify redirects.
+#
+# Retired products (September 2026): LightWave (Client/Server/REST Suite),
+# Prizm Gateway and S3Utils. Their pages and datasheets were removed; old
+# links, bookmarks and search results land on the closest live page instead
+# of the 404 page. The extension-less forms cover Netlify's pretty URLs.
+
+/lightwave-client-faq.html                  /gateway.html   301
+/lightwave-client-faq                       /gateway.html   301
+/lightwave-server-faq.html                  /gateway.html   301
+/lightwave-server-faq                       /gateway.html   301
+/prizm.html                                 /gateway.html   301
+/prizm                                      /gateway.html   301
+/s3utils.html                               /gateway.html   301
+/s3utils                                    /gateway.html   301
+/PDF/LightWave_Client_Datasheet.pdf         /gateway.html   301
+/PDF/LightWave_Server_Datasheet.pdf         /gateway.html   301
+/PDF/Prizm_Datasheet.pdf                    /gateway.html   301
+/PDF/S3Utils_Datasheet.pdf                  /gateway.html   301
+
+/blogs/lightwave-client-json-payload.html   /blog.html      301
+/blogs/lightwave-client-json-payload        /blog.html      301
+/blogs/swagger-lightwave-rest-apis.html     /blog.html      301
+/blogs/swagger-lightwave-rest-apis          /blog.html      301

@@ -32,7 +32,7 @@ window.SEARCH_DATA = [
     title: "Gateway Products",
     url: "gateway.html",
     description: "TIC's Gateway Products enable Nonstop legacy applications to interoperate with other platforms and technologies. REST APIs, cloud integration, Kafka, Splunk.",
-    keywords: "gateway, REST, API, LightWave, Prizm, S3Utils, uLinga, IP Forwarder, SOG, TelePath, cloud, integration",
+    keywords: "gateway, REST, API, uLinga, IP Forwarder, SOG, TelePath, cloud, integration",
     type: "product"
   },
   {
@@ -80,8 +80,8 @@ window.SEARCH_DATA = [
   {
     title: "US Foods Success Story",
     url: "us-foods-success-story.html",
-    description: "US Food Service implemented TIC solutions to optimize delivery operations and increase productivity using Thunder Suite and LightWave.",
-    keywords: "US Foods, success, Thunder Suite, LightWave, delivery, XML, automation",
+    description: "US Food Service implemented TIC solutions to optimize delivery operations and increase productivity using Thunder Suite.",
+    keywords: "US Foods, success, Thunder Suite, delivery, XML, automation",
     type: "success-story"
   },
   {
@@ -146,34 +146,6 @@ window.SEARCH_DATA = [
     description: "2025: The Year to Transform Your HPE Nonstop Platform. Address misconceptions about modernization and digital transformation strategies.",
     keywords: "modernization, transformation, Nonstop platform, future-proof, strategy, education, documentation",
     type: "article"
-  },
-  {
-    title: "LightWave Client FAQ",
-    url: "lightwave-client-faq.html",
-    description: "Frequently asked questions about LightWave Client - secure REST API integration for Nonstop applications.",
-    keywords: "LightWave Client, FAQ, REST API, Nonstop, Gateway, security, TLS, authentication",
-    type: "faq"
-  },
-  {
-    title: "LightWave Server FAQ",
-    url: "lightwave-server-faq.html",
-    description: "Frequently asked questions about LightWave Server - client-server middleware for Nonstop systems.",
-    keywords: "LightWave Server, FAQ, Nonstop, Gateway, middleware, APIs, security, TLS, authentication",
-    type: "faq"
-  },
-  {
-    title: "Prizm Gateway",
-    url: "prizm.html",
-    description: "Prizm Gateway - The Nonstop-based gateway for all APIs. Enable, maintain, monitor, and secure all API connections throughout the entire enterprise.",
-    keywords: "Prizm, Gateway, API, Nonstop, load balancing, DoS protection, authentication, management",
-    type: "product"
-  },
-  {
-    title: "S3Utils",
-    url: "s3utils.html",
-    description: "S3Utils - Data transfer for HPE Nonstop and AWS Storage. Easily transfer data between your Native Nonstop Applications and your Enterprise cloud AWS S3.",
-    keywords: "S3Utils, AWS, S3, data transfer, Nonstop, cloud storage, integration",
-    type: "product"
   },
   {
     title: "uLinga",
@@ -264,13 +236,6 @@ window.SEARCH_DATA = [
     url: "blog-minimize-downtime-logwatch.html",
     description: "Learn how LogWatch monitoring helps minimize application downtime by detecting errors and application health issues in Nonstop environments.",
     keywords: "LogWatch, downtime prevention, monitoring, error detection, application health, Nonstop",
-    type: "blog"
-  },
-  {
-    title: "LightWave Client Supports Multiple Payload Formats",
-    url: "blog-lightwave-client-json-payload.html",
-    description: "Explore how LightWave Client supports multiple payload formats beyond JSON including XML, YAML, and custom formats for flexible API integration.",
-    keywords: "LightWave Client, JSON, XML, YAML, payload formats, REST API, Nonstop integration",
     type: "blog"
   },
   {
