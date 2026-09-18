@@ -318,20 +318,34 @@
 
         /* Each product stands on its own: box shot, copy, then the button that
            goes with it - rather than both buttons sharing a row at the bottom. */
-        .about-box .product-item { display: flex; flex-direction: column; }
-        .about-box .product-item + .product-item { margin-top: 1.75rem; }
-
-        .about-box .product-item img {
-            display: block;
-            width: 100%;
-            max-width: 260px;
-            height: auto;
-            margin: 0 auto 0.75rem;
+        /* Box shot on the left, copy and its button on the right. The image
+           spans both rows so the text sits beside it rather than under it;
+           the box goes full width below 768px, so this holds on phones too. */
+        .about-box .product-item {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            column-gap: 1.25rem;
+            align-items: start;
         }
 
-        .about-box .product-item .btn {
-            align-self: flex-start;
-            margin-top: 0.25rem;
+        .about-box .product-item + .product-item { margin-top: 1.5rem; }
+
+        .about-box .product-item img {
+            grid-row: 1 / span 2;
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+        }
+
+        .about-box .product-item p { margin-bottom: 0.75rem; }
+        .about-box .product-item .btn { justify-self: start; }
+
+        /* Below this the text column is under ~200px and the copy breaks into
+           two- and three-word lines, so the box shot goes back above the text. */
+        @media (max-width: 560px) {
+            .about-box .product-item { grid-template-columns: 1fr; row-gap: 0.75rem; }
+            .about-box .product-item img { grid-row: auto; max-width: 200px; margin: 0 auto; }
         }
 
         .about-box .italic-text {
