@@ -336,11 +336,17 @@
 
         .about-box .product-item + .product-item { margin-top: 1.5rem; }
 
+        /* The two crops differ slightly in proportion (620x471 against
+           664x477), which left one shot 6px taller than the other and the
+           blocks looking unmatched. Pinning both to one height lines the pair
+           up; at 93px they come out 122px and 129px wide, so both still sit
+           inside the 130px column. */
         .about-box .product-item img {
             grid-row: 1 / span 2;
             display: block;
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 93px;
+            max-width: 100%;
             margin: 0;
         }
 
@@ -353,7 +359,7 @@
            two- and three-word lines, so the box shot goes back above the text. */
         @media (max-width: 560px) {
             .about-box .product-item { grid-template-columns: 1fr; row-gap: 0.75rem; }
-            .about-box .product-item img { grid-row: auto; max-width: 200px; margin: 0 auto; }
+            .about-box .product-item img { grid-row: auto; width: 100%; height: auto; max-width: 200px; margin: 0 auto; }
         }
 
         .about-box .italic-text {
