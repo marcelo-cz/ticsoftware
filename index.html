@@ -310,6 +310,21 @@
             margin-top: auto;
         }
 
+        /* two product buttons share the slot a single .btn used to fill */
+        /* .about-box p grows to fill the box, which suits a single block of
+           copy but pushed these two product paragraphs apart. The button
+           row below still pins itself to the bottom. */
+        .about-box.two-products p { flex-grow: 0; }
+
+        .about-box .btn-row {
+            margin-top: auto;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .about-box .btn-row .btn { flex: 1 1 auto; }
+
         .about-box .italic-text {
             font-style: italic;
             margin: 1.5rem 0;
@@ -1214,21 +1229,7 @@
            the where/when beneath it. */
         .about-box .case-study-tag { align-self: flex-start; margin-bottom: 0.9rem; }
 
-        /* Scoped to .about-box so it outranks `.about-box p`, which is more
-           specific than a bare .tbc-title and was flattening this to 0.95rem.
-           1.3rem matches the Lightning Session heading below it. */
-        .about-box .tbc-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--dark-text);
-            margin-bottom: 0.35rem;
-            text-align: left;
-        }
-
         /* HPE brand green */
-        .hpe-green { color: #01A982; }
-
         /* Sized to hold one line. The box gives about 504px of content width
            and this string is 69 characters, which needs ~450px at .85rem -
            1rem came to ~530px and wrapped. nowrap keeps it honest; below
@@ -1240,108 +1241,24 @@
            1rem margin, so the width budget above never held and the media
            query below was a no-op. .about-box is a flex column, so that 1rem
            did not collapse against the next child either - it stacked. */
-        .about-box .tbc-detail {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: var(--dark-text);
-            text-align: left;
-            margin-bottom: 0.9rem;
-            white-space: nowrap;
-        }
-
         @media (max-width: 1100px) {
-            .about-box .tbc-detail { white-space: normal; font-size: 0.92rem; }
         }
-
-        .tbc-detail .tbc-sep,
-        .tbc-session-slot .tbc-sep { color: var(--border-gray); margin: 0 0.15rem; }
 
         /* ===== Session entries in the What's New box =====
            Every rule below is scoped to .about-box on purpose: `.about-box p`
            is more specific than a bare class on a <p> and would otherwise pull
            these back to 0.95rem and re-justify them. */
-        .about-box .tbc-session-slot {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            font-weight: 600;
-            color: var(--primary-blue);
-            text-align: left;
-            margin-bottom: 0.3rem;
-        }
-
-        .about-box .tbc-session-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            line-height: 1.35;
-            color: var(--dark-text);
-            text-align: left;
-            margin-bottom: 0.5rem;
-        }
-
-        .about-box .tbc-session-lede {
-            text-align: left;
-            margin-bottom: 0.4rem;
-        }
-
         @media (max-width: 1100px) {
-            .about-box .tbc-session-slot { font-size: 0.92rem; }
         }
 
         /* Native disclosure, so this page still needs no JavaScript. The
            default marker is dropped for a caret that flips when open, and the
            label swaps between the two spans in the summary. */
-        .tbc-more { margin-bottom: 1.5rem; }
-
-        .tbc-more > summary {
-            list-style: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-        }
-
-        .tbc-more > summary::-webkit-details-marker { display: none; }
-        .tbc-more > summary:hover { text-decoration: underline; }
-
-        .tbc-more > summary::after {
-            content: "\25BE";
-            font-size: 0.7rem;
-            line-height: 1;
-            transition: transform .2s ease;
-        }
-
-        .tbc-more[open] > summary::after { transform: rotate(180deg); }
-
-        .tbc-more .tbc-more-close { display: none; }
-        .tbc-more[open] .tbc-more-open { display: none; }
-        .tbc-more[open] .tbc-more-close { display: inline; }
-
-        .about-box .tbc-more p {
-            margin: 0.6rem 0 0;
-            text-align: left;
-        }
-
         /* The button closes the box, spanning its full width.
            colour has to be restated here: the white text came from
            .case-study-content .cta-button, which only applied while the button
            sat inside the event card - moved out, it inherited the box's dark
            text on a dark blue background and disappeared. */
-        .about-box .cta-button {
-            display: block;
-            width: 100%;
-            align-self: stretch;
-            box-sizing: border-box;
-            padding: 0.95rem 1.5rem;
-            font-size: 1.05rem;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .about-box .cta-button:hover { color: #ffffff; }
-
         .event-horizontal .case-study-content { padding: 1.75rem 2rem 1.75rem 0; }
         /* .case-study-content is a flex column, so inline-block children stretch */
         .event-horizontal .case-study-tag { align-self: flex-start; }
@@ -1529,39 +1446,15 @@
                 <a href="https://ticsoftware.ai/" class="btn" target="_blank">TICSoftware.Ai</a>
             </div>
 
-            <!-- What's New now carries the TBC 2026 event that used to sit in
-                 its own Upcoming Events box below, plus the Lightning Session
-                 running at it. The uLinga/EE item that was here has moved to
-                 tic-news.html as the featured article. -->
-            <div class="about-box">
+            <div class="about-box two-products">
                 <h2>What's New</h2>
-                <span class="case-study-tag">Upcoming Event</span>
-                <p class="tbc-title"><span class="hpe-green">Nonstop</span> Technology &amp; Business Conference 2026</p>
-                <p class="tbc-detail">Orlando, Florida &middot; September 15&ndash;17, 2026 <span class="tbc-sep">|</span> HPE Education Day Sept. 14</p>
-
-                <!-- Two sessions, each one slot line + title + lede, with the
-                     rest behind a native <details> so the box does not outgrow
-                     the TICSoftware.Ai column beside it. The Lightning Session
-                     heading that used to sit above these is the second session
-                     now. Each slot line reads day | time | room. -->
-                <p class="tbc-session-slot">Tue, Sept 15th <span class="tbc-sep">|</span> 3:45 PM &ndash; 4:30 PM <span class="tbc-sep">|</span> Salon 13/14</p>
-                <p class="tbc-session-title">From Assistant to Agents: An AI Tutorial for Nonstop Users</p>
-                <p class="tbc-session-lede">AI is creating real opportunities for Nonstop users, but it also comes with hype, risk, and confusion.</p>
-                <details class="tbc-more">
-                    <summary><span class="tbc-more-open">Read more</span><span class="tbc-more-close">Show less</span></summary>
-                    <p>This tutorial explains the practical concepts behind LLMs, prompts, RAG, assistants, and AI agents through Nonstop-focused examples such as legacy code understanding, documentation, testing, and modernization. Attendees will learn what works today, what still requires caution, and how to evaluate AI solutions for mission-critical environments.</p>
-                </details>
-
-                <p class="tbc-session-slot">Thu, Sept 17th <span class="tbc-sep">|</span> 12:15 PM &ndash; 12:25 PM <span class="tbc-sep">|</span> Grand Ballroom A/B</p>
-                <p class="tbc-session-title">TIC Lightning Session - Transform How You Work with Nonstop: AI and Beyond</p>
-                <p class="tbc-session-lede"><strong>TIC Navigator + Atlas &mdash; Analyze. Understand. Modernize.</strong> AI can help you understand complex legacy code&mdash;but AI alone isn't enough.</p>
-                <details class="tbc-more">
-                    <summary><span class="tbc-more-open">Read more</span><span class="tbc-more-close">Show less</span></summary>
-                    <p>See how TIC Navigator combines AI, TIC's decades of Nonstop expertise, and captured SME knowledge to create a living, searchable application knowledge base, while TIC Atlas provides deterministic analysis of programs, files, fields, and dependencies to understand change impact before you modify the code.</p>
-                </details>
-
-                <!-- Agenda closes the box, below the event line and the session copy -->
-                <a href="https://nonstoptbc.com/agenda/" target="_blank" rel="noopener" class="cta-button" style="text-decoration: none; background: #003d99 !important;">Agenda</a>
+                <span class="case-study-tag">Products</span>
+                <p><strong>uLinga/EE</strong> replaces legacy SNA networking with standards-based Enterprise Extender over IP. SNA traffic runs across your existing IP network, so you can retire specialised networking kit without changing your Nonstop or Mainframe applications.</p>
+                <p><strong>uLinga for Kafka</strong> connects Nonstop applications and data sources to Apache Kafka. It runs as a natively compiled Guardian process pair and speaks the Kafka protocol directly, with access through Guardian IPC, Pathsend, HTTP/REST and Enscribe file monitoring.</p>
+                <div class="btn-row">
+                    <a href="ulinga-ee.html" class="btn">uLinga/EE</a>
+                    <a href="ulinga.html" class="btn">uLinga for Kafka</a>
+                </div>
             </div>
 
         </section>

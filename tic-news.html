@@ -196,6 +196,10 @@
         }
 
         /* Featured Article Section */
+        /* Full width when the item has no image - the media queries below
+           already drop this grid to one column on narrower screens. */
+        .featured-article.no-image { grid-template-columns: 1fr; }
+
         .featured-article {
             display: grid;
             grid-template-columns: 45% 55%;
@@ -1340,16 +1344,22 @@
 
         <!-- Featured Article -->
         <section>
-            <div class="featured-article">
+            <div class="featured-article no-image">
                 <div class="featured-article-content">
-                    <span class="case-study-tag">Product</span>
-                    <h2>uLinga/EE - Modernize SNA Connectivity over IP</h2>
-                    <p class="featured-article-excerpt">uLinga for Enterprise Extender (EE) provides a standards-based (HPR/IP) solution that transports SNA traffic over modern IP networks &mdash; allowing organizations to retire legacy networking technologies while keeping existing applications fully operational. No application changes. No network redesign.</p>
-                    <a href="ulinga-ee.html" class="read-more">Learn More &rarr;</a>
-                    <p style="font-size: 0.9rem; margin: 1.25rem 0 0;">If you would like more info, please <a href="ticteam.html#get-in-touch" style="text-decoration: none; font-weight: 600;">contact us</a>.</p>
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <div class="featured-article-image" style="background-image: url('./images/Products/Gateway/uLinga/uLinga-for-EE-box-1.png'); background-size: contain; background-position: center;"></div>
+                    <span class="news-status">Event Passed</span>
+                    <div class="featured-article-date">Event &middot; September 2026</div>
+                    <h2>Nonstop Technology &amp; Business Conference 2026</h2>
+                    <p class="featured-article-excerpt">Orlando, Florida &middot; September 15&ndash;17, 2026, with HPE Education Day on September 14. TIC Software ran two sessions.</p>
+
+                    <p style="font-weight: 700; margin-bottom: 0.25rem;">From Assistant to Agents: An AI Tutorial for Nonstop Users</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Tue, Sept 15th &middot; 3:45 PM &ndash; 4:30 PM &middot; Salon 13/14</p>
+                    <p class="featured-article-excerpt">The practical concepts behind LLMs, prompts, RAG, assistants and AI agents, through Nonstop examples such as legacy code understanding, documentation, testing and modernization &mdash; what works today, what still needs caution, and how to judge AI solutions for mission-critical environments.</p>
+
+                    <p style="font-weight: 700; margin-bottom: 0.25rem;">TIC Lightning Session &mdash; Transform How You Work with Nonstop: AI and Beyond</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Thu, Sept 17th &middot; 12:15 PM &ndash; 12:25 PM &middot; Grand Ballroom A/B</p>
+                    <p class="featured-article-excerpt">TIC Navigator combines AI, decades of Nonstop expertise and captured SME knowledge into a living, searchable knowledge base, while TIC Atlas analyses programs, files, fields and dependencies so you can see the impact of a change before you make it.</p>
+
+                    <p style="font-size: 0.9rem; margin: 1.25rem 0 0;">For more info, please <a href="ticteam.html#get-in-touch" style="text-decoration: none; font-weight: 600;">contact us</a>.</p>
                 </div>
             </div>
         </section>
