@@ -316,6 +316,12 @@
            row below still pins itself to the bottom. */
         .about-box.two-products p { flex-grow: 0; }
 
+        /* The section stretches both boxes to the taller one, and this box's
+           copy is shorter - which left ~139px of slack trailing after the last
+           button at 1280px. Spreading the two products down the box puts that
+           space between them instead, and keeps the boxes equal height. */
+        .about-box.two-products { justify-content: space-between; }
+
         /* Each product stands on its own: box shot, copy, then the button that
            goes with it - rather than both buttons sharing a row at the bottom. */
         /* Box shot on the left, copy and its button on the right. The image
