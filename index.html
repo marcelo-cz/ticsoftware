@@ -345,7 +345,9 @@
         }
 
         .about-box .product-item p { margin-bottom: 0.75rem; }
-        .about-box .product-item .btn { justify-self: start; }
+        /* Each button spans its copy column, so it lines up with the paragraph
+           above it on both edges rather than hugging its own label. */
+        .about-box .product-item .btn { justify-self: stretch; }
 
         /* Below this the text column is under ~200px and the copy breaks into
            two- and three-word lines, so the box shot goes back above the text. */
