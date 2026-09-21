@@ -248,67 +248,12 @@
             gap: 0.8rem;
         }
 
-        /* Conference bands: the page is sorted by series, then by year inside
-           each. The card styling below is shared with the old two-card layout;
-           only these section pieces are new. */
-        .series { margin-bottom: 3.5rem; }
 
-        .series-head {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 0.5rem 1.5rem;
-            border-bottom: 2px solid var(--primary-blue);
-            padding-bottom: 0.6rem;
-            margin-bottom: 1.75rem;
-        }
-
-        .series-head h2 {
-            font-size: 1.6rem;
-            color: var(--primary-blue);
-            margin: 0;
-        }
-
-        .series-meta { color: #5a6473; font-size: 0.9rem; }
-
-        .series-nav {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.6rem 1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .series-nav-label {
-            font-weight: 700;
-            color: var(--dark-text);
-            font-size: 0.9rem;
-        }
-
-        .series-nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-
-        .series-nav-links a {
-            text-decoration: none;
-            color: var(--dark-text);
-            border: 1px solid var(--border-gray);
-            border-radius: 999px;
-            padding: 0.3rem 0.85rem;
-            font-size: 0.9rem;
+        /* The year range and photo count under each conference name. */
+        .gallery-card-meta {
+            color: #5a6473;
+            font-size: 0.875rem;
             font-weight: 600;
-        }
-
-        .series-nav-links a:hover,
-        .series-nav-links a:focus-visible {
-            border-color: var(--primary-blue);
-            color: var(--primary-blue);
-        }
-
-        /* The series name is the h2 now, so card titles step down to h3. */
-        .gallery-card-body h3 {
-            font-size: 1.25rem;
-            color: var(--primary-blue);
-            margin: 0;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -593,9 +538,13 @@
     </section>
 
     <div class="album-bar" id="album-bar">
-        <a class="album-back" href="galleries.html">← All photo galleries</a>
+        <a class="album-back" id="album-back" href="galleries.html">← All photo galleries</a>
         <span class="album-count" id="album-count"></span>
     </div>
+
+    <main id="series-main" hidden>
+        <div class="galleries-grid" id="series-grid"></div>
+    </main>
 
     <div class="album-grid" id="album-grid"></div>
 
@@ -724,8 +673,12 @@
             return FULL + encodePath(album.dir + '/' + photo);
         }
 
+        function allSeries() {
+            return (window.GALLERY_DATA || {}).series || [];
+        }
+
         function findAlbum(key) {
-            var series = (window.GALLERY_DATA || {}).series || [];
+            var series = allSeries();
             for (var i = 0; i < series.length; i++) {
                 var albums = series[i].albums;
                 for (var j = 0; j < albums.length; j++) {
@@ -736,6 +689,17 @@
             }
             return null;
         }
+
+        function findSeries(key) {
+            var series = allSeries();
+            for (var i = 0; i < series.length; i++) {
+                if (series[i].key === key) return series[i];
+            }
+            return null;
+        }
+
+        function photoLabel(n) { return n + (n === 1 ? ' photo' : ' photos'); }
+        function galleryLabel(n) { return n + (n === 1 ? ' gallery' : ' galleries'); }
 
         var current = 0;
         var photos = [];
@@ -769,28 +733,91 @@
                 (current + 1) + ' of ' + photos.length;
         }
 
-        (function render() {
-            var key = new URLSearchParams(location.search).get('album');
-            var found = key ? findAlbum(key) : null;
+        function notFound(message) {
+            document.getElementById('album-title').textContent = 'Gallery not found';
+            document.getElementById('album-sub').textContent = message;
+            document.getElementById('album-missing').hidden = false;
+            document.getElementById('album-bar').hidden = true;
+        }
 
-            if (!found) {
-                document.getElementById('album-title').textContent = 'Gallery not found';
-                document.getElementById('album-sub').textContent =
-                    'That gallery does not exist or has been renamed.';
-                document.getElementById('album-missing').hidden = false;
-                document.getElementById('album-bar').hidden = true;
-                return;
-            }
+        // Series view: the years this conference has galleries for. Reuses the
+        // index's card styling so the two pages look of a piece.
+        function renderSeries(series) {
+            var albums = series.albums;
+            var total = albums.reduce(function (n, a) { return n + a.photos.length; }, 0);
+            var years = albums.map(function (a) { return a.year; })
+                              .filter(Boolean).sort();
+            var span = years.length
+                ? (years[0] === years[years.length - 1]
+                    ? String(years[0])
+                    : years[0] + '\u2013' + years[years.length - 1])
+                : '';
 
+            document.title = series.short + ' Photo Galleries | TIC Software';
+            document.getElementById('album-title').textContent = series.short;
+            document.getElementById('album-sub').textContent =
+                (series.full !== series.short ? series.full + ' \u00b7 ' : '')
+                + galleryLabel(albums.length) + ' \u00b7 ' + photoLabel(total);
+            document.getElementById('album-count').textContent =
+                span || galleryLabel(albums.length);
+
+            var grid = document.getElementById('series-grid');
+            albums.forEach(function (a) {
+                var card = document.createElement('a');
+                card.className = 'gallery-card';
+                card.href = 'gallery.html?album=' + encodeURIComponent(a.key);
+
+                var figure = document.createElement('div');
+                figure.className = 'gallery-card-image';
+                var img = document.createElement('img');
+                img.src = thumbFor(a, a.cover);
+                img.alt = a.title;
+                img.loading = 'lazy';
+                var badge = document.createElement('span');
+                badge.className = 'gallery-card-badge';
+                badge.textContent = a.year || '';
+                figure.appendChild(img);
+                figure.appendChild(badge);
+
+                var body = document.createElement('div');
+                body.className = 'gallery-card-body';
+                var h2 = document.createElement('h2');
+                h2.textContent = a.title;
+                var p = document.createElement('p');
+                p.textContent = photoLabel(a.photos.length);
+                var link = document.createElement('span');
+                link.className = 'gallery-card-link';
+                link.textContent = 'View Gallery \u2192';
+                body.appendChild(h2);
+                body.appendChild(p);
+                body.appendChild(link);
+
+                card.appendChild(figure);
+                card.appendChild(body);
+                grid.appendChild(card);
+            });
+
+            document.getElementById('series-main').hidden = false;
+        }
+
+        function renderAlbum(found) {
             album = found.album;
             photos = album.photos;
+            var series = found.series;
+            var counted = photoLabel(photos.length);
 
             document.title = album.title + ' Photo Gallery | TIC Software';
             document.getElementById('album-title').textContent = album.title;
-            var counted = photos.length + (photos.length === 1 ? ' photo' : ' photos');
             document.getElementById('album-sub').textContent =
-                found.series.full + ' \u00b7 ' + counted;
+                series.full + ' \u00b7 ' + counted;
             document.getElementById('album-count').textContent = counted;
+
+            // back to this conference's year list, unless it only has the one
+            if (series.albums.length > 1) {
+                var back = document.getElementById('album-back');
+                back.href = 'gallery.html?series=' + encodeURIComponent(series.key);
+                back.textContent = '\u2190 All ' + series.short + ' galleries';
+            }
 
             var grid = document.getElementById('album-grid');
             photos.forEach(function (photo, i) {
@@ -810,12 +837,12 @@
             });
 
             // other years in the same series
-            var siblings = found.series.albums;
+            var siblings = series.albums;
             if (siblings.length > 1) {
                 var wrap = document.getElementById('album-siblings');
                 var list = document.getElementById('album-siblings-list');
                 document.getElementById('album-siblings-title').textContent =
-                    'More from ' + found.series.short;
+                    'More from ' + series.short;
                 siblings.forEach(function (a) {
                     var link = document.createElement('a');
                     link.href = 'gallery.html?album=' + encodeURIComponent(a.key);
@@ -825,6 +852,35 @@
                 });
                 wrap.hidden = false;
             }
+        }
+
+        // ?series=<key> lists a conference's years; ?album=<key> shows one
+        // gallery's photos. A series holding a single album redirects straight
+        // to it, so the index can link either way without a dead middle step.
+        (function route() {
+            var params = new URLSearchParams(location.search);
+            var seriesKey = params.get('series');
+            var albumKey = params.get('album');
+
+            if (seriesKey) {
+                var series = findSeries(seriesKey);
+                if (!series) {
+                    notFound('That conference does not exist or has been renamed.');
+                } else if (series.albums.length === 1) {
+                    location.replace('gallery.html?album='
+                        + encodeURIComponent(series.albums[0].key));
+                } else {
+                    renderSeries(series);
+                }
+                return;
+            }
+
+            var found = albumKey ? findAlbum(albumKey) : null;
+            if (!found) {
+                notFound('That gallery does not exist or has been renamed.');
+                return;
+            }
+            renderAlbum(found);
         })();
 
         document.getElementById('lightbox').addEventListener('click', function (e) {
