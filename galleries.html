@@ -249,6 +249,77 @@
             gap: 0.8rem;
         }
 
+        /* Conference bands: the page is sorted by series, then by year inside
+           each. The card styling below is shared with the old two-card layout;
+           only these section pieces are new. */
+        .series { margin-bottom: 3.5rem; }
+
+        .series-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.5rem 1.5rem;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .series-head h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            margin: 0;
+        }
+
+        .series-meta { color: #5a6473; font-size: 0.9rem; }
+
+        .series-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .series-nav-label {
+            font-weight: 700;
+            color: var(--dark-text);
+            font-size: 0.9rem;
+        }
+
+        .series-nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+        .series-nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            border: 1px solid var(--border-gray);
+            border-radius: 999px;
+            padding: 0.3rem 0.85rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .series-nav-links a:hover,
+        .series-nav-links a:focus-visible {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        /* The series name is the h2 now, so card titles step down to h3. */
+        .gallery-card-body h3 {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            margin: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .gallery-card,
+            .gallery-card-image img,
+            .gallery-card-link { transition: none; }
+            .gallery-card:hover { transform: none; }
+            .gallery-card:hover .gallery-card-image img { transform: none; }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -330,37 +401,382 @@
 
     <div class="hero">
         <h1>Photo Galleries</h1>
-        <p>Highlights and moments from the conferences and events where TIC Software connects with the HPE Nonstop community.</p>
+        <p>27 galleries from 7 conference series, 505 photos in all &mdash; moments from the events where TIC Software connects with the HPE Nonstop community.</p>
     </div>
 
     <main>
-        <div class="galleries-grid">
+        <nav class="series-nav" aria-label="Jump to a conference">
+            <span class="series-nav-label">Jump to</span>
+            <div class="series-nav-links">
+                <a href="#boot-camp">Boot Camp</a>
+                <a href="#ctug">CTUG</a>
+                <a href="#nytug">NYTUG</a>
+                <a href="#suntug">SunTUG</a>
+                <a href="#pape">Papé</a>
+                <a href="#n2tug">N2TUG</a>
+                <a href="#atug">ATUG</a>
+            </div>
+        </nav>
 
-            <a class="gallery-card" href="ctug-2026-gallery.html">
-                <div class="gallery-card-image">
-                    <img src="./images/Conference Galleries/CTUG Album/CTUG 2026/IMG_5204.jpeg" alt="CTUG 2026 conference">
-                    <span class="gallery-card-badge">2026</span>
-                </div>
-                <div class="gallery-card-body">
-                    <h2>CTUG 2026</h2>
-                    <p>Highlights and photos from the CTUG conference.</p>
-                    <span class="gallery-card-link">View Gallery &rarr;</span>
-                </div>
-            </a>
+        <section class="series" id="boot-camp">
+            <div class="series-head">
+                <h2>Boot Camp</h2>
+                <span class="series-meta">HPE Nonstop Technical Boot Camp &middot; 8 galleries &middot; 202 photos</span>
+            </div>
+            <div class="galleries-grid">
+                <a class="gallery-card" href="gallery.html?album=boot-camp-2026">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/The%20Bootcamp%20Album/Bootcamp_2026/bootcamp_2026.jpg" alt="Boot Camp 2026" loading="lazy">
+                        <span class="gallery-card-badge">2026</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Boot Camp 2026</h3>
+                        <p>1 photo</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=boot-camp-2025">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/The%20Bootcamp%20Album/Bootcamp_2025/TBC25_header.jpg" alt="Boot Camp 2025" loading="lazy">
+                        <span class="gallery-card-badge">2025</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Boot Camp 2025</h3>
+                        <p>1 photo</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=boot-camp-2024">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/The%20Bootcamp%20Album/Bootcamp_2024/IMG_2272.jpg" alt="Boot Camp 2024" loading="lazy">
+                        <span class="gallery-card-badge">2024</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Boot Camp 2024</h3>
+                        <p>52 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=boot-camp-2023">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/The%20Bootcamp%20Album/Bootcamp_2023/IMG_1118.jpg" alt="Boot Camp 2023" loading="lazy">
+                        <span class="gallery-card-badge">2023</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Boot Camp 2023</h3>
+                        <p>66 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=boot-camp-2022">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/The%20Bootcamp%20Album/Bootcamp_2022/IMG_6844_original.jpg" alt="Boot Camp 2022" loading="lazy">
+                        <span class="gallery-card-badge">2022</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Boot Camp 2022</h3>
+                        <p>25 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=boot-camp-2020">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/The%20Bootcamp%20Album/Bootcamp_2020/BootCamp%202020%20Free%20Event%20Logo.jpg" alt="Boot Camp 2020" loading="lazy">
+                        <span class="gallery-card-badge">2020</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Boot Camp 2020</h3>
+                        <p>3 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=boot-camp-2019">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/The%20Bootcamp%20Album/Bootcamp_2019/20191105_090339.jpg" alt="Boot Camp 2019" loading="lazy">
+                        <span class="gallery-card-badge">2019</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Boot Camp 2019</h3>
+                        <p>34 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=boot-camp-2018">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/The%20Bootcamp%20Album/Bootcamp_2018/IMG_3176.jpg" alt="Boot Camp 2018" loading="lazy">
+                        <span class="gallery-card-badge">2018</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Boot Camp 2018</h3>
+                        <p>20 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-            <a class="gallery-card" href="nytug-2026-gallery.html">
-                <div class="gallery-card-image">
-                    <img src="./images/Conference Galleries/NYTUG Album/NYTUG 2026/IMG_1888.jpeg" alt="NYTUG 2026 conference">
-                    <span class="gallery-card-badge">2026</span>
-                </div>
-                <div class="gallery-card-body">
-                    <h2>NYTUG 2026</h2>
-                    <p>Highlights and photos from the New York Technical User Group.</p>
-                    <span class="gallery-card-link">View Gallery &rarr;</span>
-                </div>
-            </a>
+        <section class="series" id="ctug">
+            <div class="series-head">
+                <h2>CTUG</h2>
+                <span class="series-meta">Canadian Tandem Users Group &middot; 6 galleries &middot; 85 photos</span>
+            </div>
+            <div class="galleries-grid">
+                <a class="gallery-card" href="gallery.html?album=ctug-2026">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/CTUG%20Album/CTUG%202026/IMG_5210_sm.jpg" alt="CTUG 2026" loading="lazy">
+                        <span class="gallery-card-badge">2026</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>CTUG 2026</h3>
+                        <p>11 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=ctug-2025">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/CTUG%20Album/CTUG%202025/IMG_3501.jpg" alt="CTUG 2025" loading="lazy">
+                        <span class="gallery-card-badge">2025</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>CTUG 2025</h3>
+                        <p>7 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=ctug-2023">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/CTUG%20Album/CTUG%202023/IMG_0762.jpg" alt="CTUG 2023" loading="lazy">
+                        <span class="gallery-card-badge">2023</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>CTUG 2023</h3>
+                        <p>33 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=ctug-2022">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/CTUG%20Album/CTUG%202022/IMG_4082.jpg" alt="CTUG 2022" loading="lazy">
+                        <span class="gallery-card-badge">2022</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>CTUG 2022</h3>
+                        <p>15 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=ctug-2019">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/CTUG%20Album/CTUG%202019/IMG_4128.jpg" alt="CTUG 2019" loading="lazy">
+                        <span class="gallery-card-badge">2019</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>CTUG 2019</h3>
+                        <p>16 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=ctug-2018">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/CTUG%20Album/CTUG%202018/IMG_2951.jpg" alt="CTUG 2018" loading="lazy">
+                        <span class="gallery-card-badge">2018</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>CTUG 2018</h3>
+                        <p>3 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        </div>
+        <section class="series" id="nytug">
+            <div class="series-head">
+                <h2>NYTUG</h2>
+                <span class="series-meta">New York Technical User Group &middot; 5 galleries &middot; 72 photos</span>
+            </div>
+            <div class="galleries-grid">
+                <a class="gallery-card" href="gallery.html?album=nytug-2026">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/NYTUG%20Album/NYTUG%202026/IMG_5149.jpg" alt="NYTUG 2026" loading="lazy">
+                        <span class="gallery-card-badge">2026</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>NYTUG 2026</h3>
+                        <p>7 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=nytug-2025">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/NYTUG%20Album/NYTUG%202025/IMG_3492.jpg" alt="NYTUG 2025" loading="lazy">
+                        <span class="gallery-card-badge">2025</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>NYTUG 2025</h3>
+                        <p>12 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=nytug-2024">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/NYTUG%20Album/NYTUG%202024/IMG_1955.jpg" alt="NYTUG 2024" loading="lazy">
+                        <span class="gallery-card-badge">2024</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>NYTUG 2024</h3>
+                        <p>18 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=nytug-2023">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/NYTUG%20Album/NYTUG%202023/IMG-0619.jpg" alt="NYTUG 2023" loading="lazy">
+                        <span class="gallery-card-badge">2023</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>NYTUG 2023</h3>
+                        <p>16 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=nytug-2019">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/NYTUG%20Album/NYTUG%202019/IMG_3593.jpg" alt="NYTUG 2019" loading="lazy">
+                        <span class="gallery-card-badge">2019</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>NYTUG 2019</h3>
+                        <p>19 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="series" id="suntug">
+            <div class="series-head">
+                <h2>SunTUG</h2>
+                <span class="series-meta">4 galleries &middot; 71 photos</span>
+            </div>
+            <div class="galleries-grid">
+                <a class="gallery-card" href="gallery.html?album=suntug-2023">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/SunTUG%20Galleries/SunTUG%202023/IMG_0428_original.jpg" alt="SunTUG 2023" loading="lazy">
+                        <span class="gallery-card-badge">2023</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>SunTUG 2023</h3>
+                        <p>39 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=suntug-2022">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/SunTUG%20Galleries/SunTUG%202022/IMG_6106.jpg" alt="SunTUG 2022" loading="lazy">
+                        <span class="gallery-card-badge">2022</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>SunTUG 2022</h3>
+                        <p>1 photo</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=suntug-2020">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/SunTUG%20Galleries/SunTUG%202020/IMG_3416.jpg" alt="SunTUG 2020" loading="lazy">
+                        <span class="gallery-card-badge">2020</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>SunTUG 2020</h3>
+                        <p>10 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=suntug-dust-2019">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/SunTUG%20Galleries/SunTUG_DUST%202019/IMG_3331.jpg" alt="SunTUG DUST 2019" loading="lazy">
+                        <span class="gallery-card-badge">2019</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>SunTUG DUST 2019</h3>
+                        <p>21 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="series" id="pape">
+            <div class="series-head">
+                <h2>Papé</h2>
+                <span class="series-meta">2 galleries &middot; 42 photos</span>
+            </div>
+            <div class="galleries-grid">
+                <a class="gallery-card" href="gallery.html?album=pape-2023">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/Pape%20Album/Pape%202023/IMG_0977.jpg" alt="Papé 2023" loading="lazy">
+                        <span class="gallery-card-badge">2023</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Papé 2023</h3>
+                        <p>21 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+                <a class="gallery-card" href="gallery.html?album=pape-2019">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/Pape%20Album/Pape%202019/IMG_3896.jpg" alt="Papé 2019" loading="lazy">
+                        <span class="gallery-card-badge">2019</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>Papé 2019</h3>
+                        <p>21 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="series" id="n2tug">
+            <div class="series-head">
+                <h2>N2TUG</h2>
+                <span class="series-meta">1 gallery &middot; 20 photos</span>
+            </div>
+            <div class="galleries-grid">
+                <a class="gallery-card" href="gallery.html?album=n2tug-2019">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/N2TUG%202019/IMG_3833.jpg" alt="N2TUG 2019" loading="lazy">
+                        <span class="gallery-card-badge">2019</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>N2TUG 2019</h3>
+                        <p>20 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="series" id="atug">
+            <div class="series-head">
+                <h2>ATUG</h2>
+                <span class="series-meta">1 gallery &middot; 13 photos</span>
+            </div>
+            <div class="galleries-grid">
+                <a class="gallery-card" href="gallery.html?album=atug-2019">
+                    <div class="gallery-card-image">
+                        <img src="./images/gallery-thumbs/ATUG%202019/IMG_4103.jpg" alt="ATUG 2019" loading="lazy">
+                        <span class="gallery-card-badge">2019</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h3>ATUG 2019</h3>
+                        <p>13 photos</p>
+                        <span class="gallery-card-link">View Gallery &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
 
     <!-- FOOTER COMPONENT -->

@@ -22,3 +22,12 @@
 /blogs/lightwave-client-json-payload        /blog.html      301
 /blogs/swagger-lightwave-rest-apis.html     /blog.html      301
 /blogs/swagger-lightwave-rest-apis          /blog.html      301
+
+# The per-gallery pages were replaced by one viewer driven by an album
+# manifest (gallery.html?album=<key>). These two were the only ones ever
+# built by hand; their URLs keep working.
+
+/ctug-2026-gallery.html                     /gallery.html?album=ctug-2026    301
+/ctug-2026-gallery                          /gallery.html?album=ctug-2026    301
+/nytug-2026-gallery.html                    /gallery.html?album=nytug-2026   301
+/nytug-2026-gallery                         /gallery.html?album=nytug-2026   301
