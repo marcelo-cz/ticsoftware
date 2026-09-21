@@ -5,9 +5,8 @@
    left, and the nav and search sit on one row that never wraps, so anything
    narrower scrolled sideways. This file is linked from each page's <head>;
    every selector is prefixed with "header" so it outranks the inline copies
-   wherever the link sits. galleries.html now carries the standard logo and
-   links this file too; the two event gallery pages still use the smaller
-   header that already fits, and do not. */
+   wherever the link sits. The gallery pages carry the standard logo too and
+   link this file as well. */
 
 /* The 5rem pull pushes the logo off the left edge below ~1300px. */
 @media (max-width: 1300px) {
