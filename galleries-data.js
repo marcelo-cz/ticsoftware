@@ -26,11 +26,6 @@ window.GALLERY_DATA = {
           "photos": [
             "AgenticFuture_of_Nonstop_Franz_01.JPG",
             "AgenticFuture_of_Nonstop_Franz_02.JPG",
-            "AgenticFuture_of_Nonstop_Franz_03.JPG",
-            "AgenticFuture_of_Nonstop_Franz_04.JPG",
-            "AgenticFuture_of_Nonstop_Franz_05.JPG",
-            "AgenticFuture_of_Nonstop_Franz_06.png",
-            "AgenticFuture_of_Nonstop_Franz_07.png",
             "TBC2026_BofA.jpg",
             "TBC2026_Conference_01.jpg",
             "TBC2026_Conference_02.jpeg",
@@ -47,8 +42,12 @@ window.GALLERY_DATA = {
             "TBC2026_TIC_Lightning_02.JPG",
             "TBC2026_TIC_Lightning_03.JPG",
             "TBC2026_TIC_Lightning_04.JPG",
-            "TBC2026_TIC_booth_01.JPG",
             "TBC2026_TIC_booth_02.jpg",
+            "AgenticFuture_of_Nonstop_Franz_03.JPG",
+            "AgenticFuture_of_Nonstop_Franz_04.JPG",
+            "AgenticFuture_of_Nonstop_Franz_05.JPG",
+            "AgenticFuture_of_Nonstop_Franz_06.png",
+            "AgenticFuture_of_Nonstop_Franz_07.png",
             "TBC2027.jpeg"
           ]
         },
