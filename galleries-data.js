@@ -49,8 +49,7 @@ window.GALLERY_DATA = {
             "TBC2026_TIC_Lightning_04.JPG",
             "TBC2026_TIC_booth_01.JPG",
             "TBC2026_TIC_booth_02.jpg",
-            "TBC2027.jpeg",
-            "bootcamp_2026.jpg"
+            "TBC2027.jpeg"
           ]
         },
         {
