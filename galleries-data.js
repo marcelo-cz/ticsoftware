@@ -42,7 +42,7 @@ window.GALLERY_DATA = {
           "title": "Nonstop TBC 2024",
           "year": 2024,
           "dir": "The Bootcamp Album/Bootcamp_2024",
-          "cover": "IMG_2272.jpg",
+          "cover": "Celebrating-50-years.png",
           "photos": [
             "Celebrating-50-years.png",
             "IMG_2254.jpg",
