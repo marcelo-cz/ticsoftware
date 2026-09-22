@@ -13,13 +13,13 @@
 window.GALLERY_DATA = {
   "series": [
     {
-      "key": "boot-camp",
-      "short": "Boot Camp",
-      "full": "HPE Nonstop Technical Boot Camp",
+      "key": "nonstop-tbc",
+      "short": "Nonstop TBC",
+      "full": "Nonstop Technology & Business Conference",
       "albums": [
         {
-          "key": "boot-camp-2026",
-          "title": "Boot Camp 2026",
+          "key": "nonstop-tbc-2026",
+          "title": "Nonstop TBC 2026",
           "year": 2026,
           "dir": "The Bootcamp Album/Bootcamp_2026",
           "cover": "bootcamp_2026.jpg",
@@ -28,8 +28,8 @@ window.GALLERY_DATA = {
           ]
         },
         {
-          "key": "boot-camp-2025",
-          "title": "Boot Camp 2025",
+          "key": "nonstop-tbc-2025",
+          "title": "Nonstop TBC 2025",
           "year": 2025,
           "dir": "The Bootcamp Album/Bootcamp_2025",
           "cover": "TBC25_header.png",
@@ -38,8 +38,8 @@ window.GALLERY_DATA = {
           ]
         },
         {
-          "key": "boot-camp-2024",
-          "title": "Boot Camp 2024",
+          "key": "nonstop-tbc-2024",
+          "title": "Nonstop TBC 2024",
           "year": 2024,
           "dir": "The Bootcamp Album/Bootcamp_2024",
           "cover": "IMG_2272.jpg",
@@ -99,8 +99,8 @@ window.GALLERY_DATA = {
           ]
         },
         {
-          "key": "boot-camp-2023",
-          "title": "Boot Camp 2023",
+          "key": "nonstop-tbc-2023",
+          "title": "Nonstop TBC 2023",
           "year": 2023,
           "dir": "The Bootcamp Album/Bootcamp_2023",
           "cover": "IMG_1118.jpg",
@@ -174,8 +174,8 @@ window.GALLERY_DATA = {
           ]
         },
         {
-          "key": "boot-camp-2022",
-          "title": "Boot Camp 2022",
+          "key": "nonstop-tbc-2022",
+          "title": "Nonstop TBC 2022",
           "year": 2022,
           "dir": "The Bootcamp Album/Bootcamp_2022",
           "cover": "IMG_6844_original.jpg",
@@ -208,8 +208,8 @@ window.GALLERY_DATA = {
           ]
         },
         {
-          "key": "boot-camp-2020",
-          "title": "Boot Camp 2020",
+          "key": "nonstop-tbc-2020",
+          "title": "Nonstop TBC 2020",
           "year": 2020,
           "dir": "The Bootcamp Album/Bootcamp_2020",
           "cover": "BootCamp 2020 Free Event Logo.png",
@@ -220,8 +220,8 @@ window.GALLERY_DATA = {
           ]
         },
         {
-          "key": "boot-camp-2019",
-          "title": "Boot Camp 2019",
+          "key": "nonstop-tbc-2019",
+          "title": "Nonstop TBC 2019",
           "year": 2019,
           "dir": "The Bootcamp Album/Bootcamp_2019",
           "cover": "20191105_090339.jpg",
@@ -263,8 +263,8 @@ window.GALLERY_DATA = {
           ]
         },
         {
-          "key": "boot-camp-2018",
-          "title": "Boot Camp 2018",
+          "key": "nonstop-tbc-2018",
+          "title": "Nonstop TBC 2018",
           "year": 2018,
           "dir": "The Bootcamp Album/Bootcamp_2018",
           "cover": "IMG_3176.jpg",
