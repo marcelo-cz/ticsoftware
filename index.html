@@ -310,57 +310,39 @@
             margin-top: auto;
         }
 
-        /* two product buttons share the slot a single .btn used to fill */
-        /* .about-box p grows to fill the box, which suits a single block of
-           copy but pushed these two product paragraphs apart. The button
-           row below still pins itself to the bottom. */
-        .about-box.two-products p { flex-grow: 0; }
+        /* ===== Webinar in the What's New box =====
+           Title, banner, copy, then the when/time lines centred above the
+           button. `.about-box p` grows to fill the box, which would push the
+           copy apart; here the button alone takes up the slack. */
+        .about-box.whats-new-webinar p { flex-grow: 0; }
 
-        /* The section stretches both boxes to the taller one, and this box's
-           copy is shorter - which left ~139px of slack trailing after the last
-           button at 1280px. Spreading the two products down the box puts that
-           space between them instead, and keeps the boxes equal height. */
-        .about-box.two-products { justify-content: space-between; }
-
-        /* Each product stands on its own: box shot, copy, then the button that
-           goes with it - rather than both buttons sharing a row at the bottom. */
-        /* Box shot on the left, copy and its button on the right. The image
-           spans both rows so the text sits beside it rather than under it;
-           the box goes full width below 768px, so this holds on phones too. */
-        .about-box .product-item {
-            display: grid;
-            grid-template-columns: 130px 1fr;
-            column-gap: 1.25rem;
-            align-items: start;
+        .whats-new-webinar h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 0 0 1rem;
+            text-align: center;
         }
 
-        .about-box .product-item + .product-item { margin-top: 1.5rem; }
-
-        /* The two crops differ slightly in proportion (620x471 against
-           664x477), which left one shot 6px taller than the other and the
-           blocks looking unmatched. Pinning both to one height lines the pair
-           up; at 93px they come out 122px and 129px wide, so both still sit
-           inside the 130px column. */
-        .about-box .product-item img {
-            grid-row: 1 / span 2;
+        .whats-new-webinar img {
             display: block;
-            width: auto;
-            height: 93px;
-            max-width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 0 0 1.25rem;
+        }
+
+        .about-box .webinar-when {
+            text-align: center;
+            margin: 0.25rem 0 0.25rem;
+        }
+
+        .about-box .webinar-when p {
+            text-align: center;
             margin: 0;
+            line-height: 1.6;
         }
 
-        .about-box .product-item p { margin-bottom: 0.75rem; }
-        /* Each button spans its copy column, so it lines up with the paragraph
-           above it on both edges rather than hugging its own label. */
-        .about-box .product-item .btn { justify-self: stretch; }
-
-        /* Below this the text column is under ~200px and the copy breaks into
-           two- and three-word lines, so the box shot goes back above the text. */
-        @media (max-width: 560px) {
-            .about-box .product-item { grid-template-columns: 1fr; row-gap: 0.75rem; }
-            .about-box .product-item img { grid-row: auto; width: 100%; height: auto; max-width: 200px; margin: 0 auto; }
-        }
+        .whats-new-webinar > .btn { margin-top: 1.25rem; align-self: center; }
 
         .about-box .italic-text {
             font-style: italic;
@@ -1483,19 +1465,17 @@
                 <a href="https://ticsoftware.ai/" class="btn" target="_blank">TICSoftware.Ai</a>
             </div>
 
-            <div class="about-box two-products">
+            <div class="about-box whats-new-webinar">
                 <h2>What's New</h2>
-                <span class="case-study-tag">Products</span>
-                <div class="product-item">
-                    <img width="620" height="471" loading="lazy" src="./images/Products/Gateway/uLinga/uLinga-for-EE-box-1.png" alt="uLinga for EE product box">
-                    <p><strong>uLinga/EE</strong> replaces legacy SNA networking with standards-based Enterprise Extender over IP. SNA traffic runs across your existing IP network, so you can retire specialised networking kit without changing your Nonstop or Mainframe applications.</p>
-                    <a href="ulinga-ee.html" class="btn">uLinga/EE</a>
+                <h3>AI for Nonstop: Our TBC Sessions, In One Webinar</h3>
+                <img width="612" height="284" loading="lazy" src="./images/webinario.jpg" alt="Webinar">
+                <p>Our two sessions at TBC were very well received. For everyone who couldn't make it (or wants a replay), we've combined both into one webinar.</p>
+                <p>Walk away knowing what AI can really do for your Nonstop systems today, and how to use it safely alongside your team's own knowledge to make changes faster and with less risk.</p>
+                <div class="webinar-when">
+                    <p><strong>When:</strong> Wednesday, October 7th, 2026</p>
+                    <p><strong>Time:</strong> 2:00pm ET</p>
                 </div>
-                <div class="product-item">
-                    <img width="664" height="477" loading="lazy" src="./images/Products/Gateway/uLinga/ulinga_for_kafka_box.png" alt="uLinga for Kafka product box">
-                    <p><strong>uLinga for Kafka</strong> connects Nonstop applications and data sources to Apache Kafka. It runs as a natively compiled Guardian process pair and speaks the Kafka protocol directly, with access through Guardian IPC, Pathsend, HTTP/REST and Enscribe file monitoring.</p>
-                    <a href="ulinga.html" class="btn">uLinga for Kafka</a>
-                </div>
+                <a href="https://us02web.zoom.us/meeting/register/foGTtyGvS8mU3YZIh0GRhA#/registration" class="btn" target="_blank" rel="noopener">Register Now</a>
             </div>
 
         </section>

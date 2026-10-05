@@ -405,6 +405,51 @@
                 #12233f;
         }
 
+        /* uLinga products in the featured slot: box shot on the left, copy and
+           its button on the right; stacked on phones. */
+        .featured-article .product-item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            column-gap: 1.5rem;
+            align-items: start;
+        }
+        .featured-article .product-item + .product-item { margin-top: 1.75rem; }
+        .featured-article .product-item img {
+            grid-row: 1 / span 2;
+            display: block;
+            width: auto;
+            height: 100px;
+            max-width: 100%;
+        }
+        .featured-article .product-item .featured-article-excerpt { margin-bottom: 0; }
+        /* Both buttons share one width, sized to the longer label, so the pair
+           lines up rather than each hugging its own text. */
+        .featured-article .product-item a.read-more {
+            justify-self: start;
+            width: 11rem;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        @media (max-width: 560px) {
+            .featured-article .product-item { grid-template-columns: 1fr; row-gap: 0.75rem; }
+            .featured-article .product-item img { grid-row: auto; max-width: 200px; height: auto; margin: 0 auto; }
+        }
+
+        /* bootcamp_2026.jpg is a 369x189 logo on black. Behind the session
+           list it was lost under the text, so it sits as a banner across the
+           top of the card instead, with the copy starting below it. */
+        .featured-card-tbc26 {
+            background:
+                url('./images/Conference Galleries/The Bootcamp Album/Bootcamp_2026/bootcamp_2026.jpg') center top / 100% auto no-repeat,
+                #000000;
+            padding-top: 36%;
+        }
+        .featured-card-tbc26 h3,
+        .featured-card-tbc26 p { color: var(--white); }
+        .featured-card-tbc26 .featured-article-date { color: rgba(255, 255, 255, 0.8); }
+        .featured-card-tbc26 .news-status { background-color: rgba(255, 255, 255, 0.15); color: var(--white); align-self: flex-start; }
+        .featured-card-tbc26 a:not(.read-more) { color: var(--white); }
+
         .featured-card-chiletug h3,
         .featured-card-chiletug p { color: var(--white); }
         .featured-card-chiletug .featured-article-date { color: rgba(255, 255, 255, 0.8); }
@@ -757,28 +802,6 @@
         }
 
         .featured-card-16 a {
-            color: var(--white);
-        }
-
-        .featured-card-17 {
-            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('./images/Products/Gateway/uLinga/ulinga_for_kafka.png') center/cover no-repeat;
-            color: var(--white);
-            padding: 3rem 2rem;
-        }
-
-        .featured-card-17 h3 {
-            color: var(--white);
-        }
-
-        .featured-card-17 p {
-            color: var(--white);
-        }
-
-        .featured-card-17 .featured-article-date {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .featured-card-17 a {
             color: var(--white);
         }
 
@@ -1346,20 +1369,18 @@
         <section>
             <div class="featured-article no-image">
                 <div class="featured-article-content">
-                    <span class="news-status">Event Passed</span>
-                    <div class="featured-article-date">Event &middot; September 2026</div>
-                    <h2>Nonstop Technology &amp; Business Conference 2026</h2>
-                    <p class="featured-article-excerpt">Orlando, Florida &middot; September 15&ndash;17, 2026, with HPE Education Day on September 14. TIC Software ran two sessions.</p>
-
-                    <p style="font-weight: 700; margin-bottom: 0.25rem;">From Assistant to Agents: An AI Tutorial for Nonstop Users</p>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Tue, Sept 15th &middot; 3:45 PM &ndash; 4:30 PM &middot; Salon 13/14</p>
-                    <p class="featured-article-excerpt">The practical concepts behind LLMs, prompts, RAG, assistants and AI agents, through Nonstop examples such as legacy code understanding, documentation, testing and modernization &mdash; what works today, what still needs caution, and how to judge AI solutions for mission-critical environments.</p>
-
-                    <p style="font-weight: 700; margin-bottom: 0.25rem;">TIC Lightning Session &mdash; Transform How You Work with Nonstop: AI and Beyond</p>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Thu, Sept 17th &middot; 12:15 PM &ndash; 12:25 PM &middot; Grand Ballroom A/B</p>
-                    <p class="featured-article-excerpt">TIC Navigator combines AI, decades of Nonstop expertise and captured SME knowledge into a living, searchable knowledge base, while TIC Atlas analyses programs, files, fields and dependencies so you can see the impact of a change before you make it.</p>
-
-                    <p style="font-size: 0.9rem; margin: 1.25rem 0 0;">For more info, please <a href="ticteam.html#get-in-touch" style="text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                    <div class="featured-article-date">Products &middot; October 2026 (Great Neck, NY)</div>
+                    <h2>uLinga/EE and uLinga for Kafka</h2>
+                    <div class="product-item">
+                        <img width="620" height="471" loading="lazy" src="./images/Products/Gateway/uLinga/uLinga-for-EE-box-1.png" alt="uLinga for EE product box">
+                        <p class="featured-article-excerpt"><strong>uLinga/EE</strong> replaces legacy SNA networking with standards-based Enterprise Extender over IP. SNA traffic runs across your existing IP network, so you can retire specialised networking kit without changing your Nonstop or Mainframe applications.</p>
+                        <a href="ulinga-ee.html" class="read-more">uLinga/EE</a>
+                    </div>
+                    <div class="product-item">
+                        <img width="664" height="477" loading="lazy" src="./images/Products/Gateway/uLinga/ulinga_for_kafka_box.png" alt="uLinga for Kafka product box">
+                        <p class="featured-article-excerpt"><strong>uLinga for Kafka</strong> connects Nonstop applications and data sources to Apache Kafka. It runs as a natively compiled Guardian process pair and speaks the Kafka protocol directly, with access through Guardian IPC, Pathsend, HTTP/REST and Enscribe file monitoring.</p>
+                        <a href="ulinga.html" class="read-more">uLinga for Kafka</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1367,9 +1388,18 @@
         <!-- News Grid -->
         <section>
             <div class="news-grid">
+                <!-- Nonstop TBC 2026 (moved down from the featured slot) -->
+                <div class="news-card featured-card-tbc26">
+                    <div class="featured-article-date">Event &middot; September 2026 (Orlando, FL)</div>
+                    <h3>Nonstop Technology &amp; Business Conference 2026</h3>
+                    <p>To everyone who attended TBC, especially those who took part in our presentations and came by our booth, thank you.</p>
+                    <p>We look forward to seeing you next year in sunny San Diego.</p>
+                    <span class="news-status">Event has Ended</span>
+                    <p style="font-size: 0.9rem; margin: 1rem 0 0;">For more info, please <a href="ticteam.html#get-in-touch" style="text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                </div>
                 <!-- Chile TUG 2026 (moved down from the featured slot) -->
                 <div class="news-card featured-card-chiletug">
-                    <div class="featured-article-date">Event &middot; August 2026</div>
+                    <div class="featured-article-date">Event &middot; August 2026 (Santiago, Chile)</div>
                     <h3>Chile TUG 2026</h3>
                     <p>TIC Software was at ChileTUG on August 13, 2026, introducing TIC Navigator &amp; Atlas.</p>
                     <p style="font-style: italic;">TIC Software estuvo en ChileTUG el 13 de agosto de 2026 presentando TIC Navigator y Atlas.</p>
@@ -1382,7 +1412,7 @@
                 </div>
                 <!-- Card 1 - TIC Talk June Edition (moved down from the featured slot) -->
                 <div class="news-card featured-card-tic-talk">
-                    <div class="featured-article-date">TIC Talk &middot; June 2026</div>
+                    <div class="featured-article-date">TIC Talk &middot; June 2026 (Great Neck, NY)</div>
                     <h3>TIC Talk: June Edition</h3>
                     <p>Summer is here and so is TIC Talk. We take a look at our upcoming webinar and we introduce 3 different AI Solution. Plus Meet Tim Dunne, the newest member of TIC Software.</p>
                     <a href="https://n7uz8.r.sp1-brevo.net/mk/mr/sh/6rqJ8GoudeITQ9YcaN595Wb3PSD/ARPLOmxhkGyP" class="read-more" target="_blank">Read More →</a>
@@ -1417,7 +1447,7 @@
 
                 <!-- Card 1.5 - TIC Talk April Edition -->
                 <div class="news-card featured-card-tic-talk">
-                    <div class="featured-article-date">April 2026</div>
+                    <div class="featured-article-date">April 2026 (Great Neck, NY)</div>
                     <h3>TIC Talk: April Edition</h3>
                     <p>In our latest edition of TIC Talk, we are pleased to announced our upcoming webinar, "<strong>A Better Way to Develop and Navigate HPE Nonstop.</strong>" We also provide info about the upcoming user group meeting, NYTUG 2026, where our very own, Phil Ly will be presenting. For that and much more, click the link below.</p>
                     <a href="https://www.ticsoftware.com/tic-talk-april-2026.html" class="read-more" target="_blank">Read More →</a>
@@ -1483,7 +1513,7 @@
                 </div>
 
                 <!-- Card 7 -->
-                <div class="news-card">
+                <div class="news-card featured-card-tic-talk">
                     <div class="featured-article-date">October 2025 (Great Neck, NY)</div>
                     <h3>TIC Talk October 2025</h3>
                     <p>In this edition of TIC Talk, we go over everything that took place at TBC 2025. Is your organization facing a knowledge crisis? Learn more about our upcoming webinar.</p>
@@ -1500,7 +1530,7 @@
                 </div>
 
                 <!-- Card 9 -->
-                <div class="news-card">
+                <div class="news-card featured-card-tic-talk">
                     <div class="featured-article-date">August 2025 (Great Neck, NY)</div>
                     <h3>TIC Talk August 2025</h3>
                     <p>August is here and our upcoming webinar "Future-Proof Your Nonstop with TIC Navigator" is right around the corner. We also have more info about TBC 2025. Get all the necessary info!</p>
@@ -1516,7 +1546,7 @@
                 </div>
 
                 <!-- Card 11 -->
-                <div class="news-card">
+                <div class="news-card featured-card-tic-talk">
                     <div class="featured-article-date">July 2025 (Great Neck, NY)</div>
                     <h3>TIC Talk July 2025</h3>
                     <p>In our latest edition of TIC Talk, you can learn more about TICSoftware.Ai. Discover how our cutting-edge AI technology is reshaping the landscape of HPE Nonstop systems.</p>
@@ -1551,7 +1581,7 @@
                 </div>
 
                 <!-- Card 15 -->
-                <div class="news-card">
+                <div class="news-card featured-card-tic-talk">
                     <div class="featured-article-date">March 2025 (Great Neck, NY)</div>
                     <h3>TIC Talk March 2025</h3>
                     <p>On this issue of TIC Talk: Article on 2025 Transformation, New Blog on WebCon's Features, Success Story on US Foods and upcoming events like NYTUG and CTUG.</p>
@@ -1564,14 +1594,6 @@
                     <h3>2025: The Year to Transform Your HPE Nonstop Platform for Tomorrow's Challenges</h3>
                     <p>While your Nonstop platform continues to deliver unmatched reliability, you may be wrestling with questions about modernization. Should you maintain, invest in modernization, or consider alternatives?</p>
                     <a href="2025-year-to-transform.html" class="read-more">Read Article</a>
-                </div>
-
-                <!-- Card 17 -->
-                <div class="news-card featured-card-17">
-                    <div class="featured-article-date">November 2024 (Great Neck, NY)</div>
-                    <h3>uLinga for Kafka</h3>
-                    <p>uLinga for Kafka is a Nonstop based solution and requires no additional software or hardware components. Apache Kafka is an open-source distributed events streaming platform used by many corporations for data integration, streaming analytics, log analysis and other mission critical applications in a high performance and fault-tolerant environment.</p>
-                    <a href="./ulinga.html" class="read-more" target="_blank">Learn More</a>
                 </div>
 
             </div>
