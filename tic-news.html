@@ -200,9 +200,11 @@
            already drop this grid to one column on narrower screens. */
         .featured-article.no-image { grid-template-columns: 1fr; }
 
+        /* fr rather than 45% / 55%: percentages plus the 2rem gap came to more
+           than the box, pushing the end of each line past its right edge. */
         .featured-article {
             display: grid;
-            grid-template-columns: 45% 55%;
+            grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
             gap: 2rem;
             margin-bottom: 1.5rem;
             padding: 1.25rem;
@@ -405,34 +407,13 @@
                 #12233f;
         }
 
-        /* uLinga products in the featured slot: box shot on the left, copy and
-           its button on the right; stacked on phones. */
-        .featured-article .product-item {
-            display: grid;
-            grid-template-columns: 140px 1fr;
-            column-gap: 1.5rem;
-            align-items: start;
-        }
-        .featured-article .product-item + .product-item { margin-top: 1.75rem; }
-        .featured-article .product-item img {
-            grid-row: 1 / span 2;
+        /* AI for Nonstop webinar in the featured slot: banner on the left,
+           copy on the right; the grid drops to one column on narrow screens. */
+        .featured-webinar-image {
             display: block;
-            width: auto;
-            height: 100px;
-            max-width: 100%;
-        }
-        .featured-article .product-item .featured-article-excerpt { margin-bottom: 0; }
-        /* Both buttons share one width, sized to the longer label, so the pair
-           lines up rather than each hugging its own text. */
-        .featured-article .product-item a.read-more {
-            justify-self: start;
-            width: 11rem;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        @media (max-width: 560px) {
-            .featured-article .product-item { grid-template-columns: 1fr; row-gap: 0.75rem; }
-            .featured-article .product-item img { grid-row: auto; max-width: 200px; height: auto; margin: 0 auto; }
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         /* bootcamp_2026.jpg is a 369x189 logo on black. Behind the session
@@ -1367,20 +1348,17 @@
 
         <!-- Featured Article -->
         <section>
-            <div class="featured-article no-image">
+            <div class="featured-article">
+                <div>
+                    <img class="featured-webinar-image" width="612" height="284" loading="lazy" src="./images/webinario.jpg" alt="Webinar">
+                    <p style="font-size: 0.9rem; margin: 1rem 0 0;">For more info, please <a href="ticteam.html#get-in-touch" style="text-decoration: none; font-weight: 600;">contact us</a>.</p>
+                    <span class="news-status" style="margin: 0.75rem 0 0;">Event has Ended</span>
+                </div>
                 <div class="featured-article-content">
-                    <div class="featured-article-date">Products &middot; October 2026 (Great Neck, NY)</div>
-                    <h2>uLinga/EE and uLinga for Kafka</h2>
-                    <div class="product-item">
-                        <img width="620" height="471" loading="lazy" src="./images/Products/Gateway/uLinga/uLinga-for-EE-box-1.png" alt="uLinga for EE product box">
-                        <p class="featured-article-excerpt"><strong>uLinga/EE</strong> replaces legacy SNA networking with standards-based Enterprise Extender over IP. SNA traffic runs across your existing IP network, so you can retire specialised networking kit without changing your Nonstop or Mainframe applications.</p>
-                        <a href="ulinga-ee.html" class="read-more">uLinga/EE</a>
-                    </div>
-                    <div class="product-item">
-                        <img width="664" height="477" loading="lazy" src="./images/Products/Gateway/uLinga/ulinga_for_kafka_box.png" alt="uLinga for Kafka product box">
-                        <p class="featured-article-excerpt"><strong>uLinga for Kafka</strong> connects Nonstop applications and data sources to Apache Kafka. It runs as a natively compiled Guardian process pair and speaks the Kafka protocol directly, with access through Guardian IPC, Pathsend, HTTP/REST and Enscribe file monitoring.</p>
-                        <a href="ulinga.html" class="read-more">uLinga for Kafka</a>
-                    </div>
+                    <div class="featured-article-date">Webinar &middot; October 2026 (Online)</div>
+                    <h2>AI for Nonstop: Our TBC Sessions, In One Webinar</h2>
+                    <p class="featured-article-excerpt">Our two sessions at TBC were very well received. For everyone who couldn't make it (or wants a replay), we've combined both into one webinar.</p>
+                    <p class="featured-article-excerpt">Walk away knowing what AI can really do for your Nonstop systems today, and how to use it safely alongside your team's own knowledge to make changes faster and with less risk.</p>
                 </div>
             </div>
         </section>
