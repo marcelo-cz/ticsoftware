@@ -282,7 +282,11 @@
             transform: translateY(-2px);
         }
 
-        .news-card:nth-child(even) {
+        /* Alternate shading is for plain cards only. Unscoped, it outranked the
+           base colour in each designed card's background shorthand, so a card
+           with a contained logo (TBC 2026, ChileTUG) turned grey whenever
+           it landed on an even position. */
+        .news-card:nth-child(even):not([class*="featured-card"]) {
             background-color: var(--light-gray);
         }
 
@@ -373,6 +377,30 @@
             right: auto;
         }
 
+        /* The first link kept the base margin-bottom and margin-right while the
+           second had them zeroed, so align-items: center set them at different
+           heights. The row's gap handles spacing for both. */
+        .news-card .card-links a.read-more { margin: 0; }
+
+        /* Equal-width buttons: both links grow from the same zero basis, so they
+           split the row evenly; min-width stops either shrinking below its label,
+           and when a card is too narrow for both they wrap to two full rows. */
+        .news-card .card-links a.read-more {
+            flex: 1 1 0;
+            min-width: max-content;
+            text-align: center;
+            /* a little tighter than a lone button, so "Navigator en Español"
+               fits in half a standard card and the pair can stay equal */
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        /* On phones a pair no longer fits side by side at one width, so stack
+           them as two equal full-width buttons. */
+        @media (max-width: 480px) {
+            .news-card .card-links a.read-more { flex-basis: 100%; }
+        }
+
         .featured-card {
             background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('./images/Global-Business-World-Map-Handshake-Communications.jpg') center/cover no-repeat;
             color: var(--white);
@@ -430,6 +458,14 @@
         .featured-card-tbc26 .featured-article-date { color: rgba(255, 255, 255, 0.8); }
         .featured-card-tbc26 .news-status { background-color: rgba(255, 255, 255, 0.15); color: var(--white); align-self: flex-start; }
         .featured-card-tbc26 a:not(.read-more) { color: var(--white); }
+
+        /* uLinga pair (moved down from the homepage What's New box) */
+        .featured-card-ulinga {
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('./images/Products/Gateway/uLinga/uLinga_banner.png') center/cover no-repeat, #0b1235;
+        }
+        .featured-card-ulinga h3,
+        .featured-card-ulinga p { color: var(--white); }
+        .featured-card-ulinga .featured-article-date { color: rgba(255, 255, 255, 0.8); }
 
         .featured-card-chiletug h3,
         .featured-card-chiletug p { color: var(--white); }
@@ -1366,6 +1402,16 @@
         <!-- News Grid -->
         <section>
             <div class="news-grid">
+                <!-- uLinga/EE and uLinga for Kafka (moved from the homepage What's New) -->
+                <div class="news-card featured-card-ulinga">
+                    <div class="featured-article-date">Products &middot; October 2026 (Great Neck, NY)</div>
+                    <h3>uLinga/EE and uLinga for Kafka</h3>
+                    <p><strong>uLinga/EE</strong> moves SNA traffic onto your existing IP network with Enterprise Extender. <strong>uLinga for Kafka</strong> connects Nonstop applications and data to Apache Kafka. Both run natively, with no application changes.</p>
+                    <div class="card-links">
+                        <a href="ulinga-ee.html" class="read-more">uLinga/EE</a>
+                        <a href="ulinga.html" class="read-more">uLinga for Kafka</a>
+                    </div>
+                </div>
                 <!-- Nonstop TBC 2026 (moved down from the featured slot) -->
                 <div class="news-card featured-card-tbc26">
                     <div class="featured-article-date">Event &middot; September 2026 (Orlando, FL)</div>
