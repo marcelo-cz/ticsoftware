@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | TIC Software</title>
+    <meta name="description" content="Get help with TIC Software products for HPE Nonstop: contact technical support, download software updates, and find FAQs and datasheets.">
+    <meta name="keywords" content="Nonstop systems, Nonstop modernization, COBOL, messaging solutions, gateway products, business intelligence, TIC Navigator, HPE Nonstop">
+    <!-- TEST PAGE: support page sandbox. Kept out of search (noindex),
+         the sitemap and the site menus. Not linked from the site until approved. -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Support | TIC Software">
+    <meta property="og:description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ticsoftware.com/support.html">
+    <meta property="og:image" content="https://www.ticsoftware.com/images/TIC_Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TIC Software - HPE Nonstop Modernization &amp; Integration">
+    <meta name="twitter:description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
+    <meta name="twitter:image" content="https://www.ticsoftware.com/images/TIC_Logo.png">
+    <meta name="theme-color" content="#003d99">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-search-input {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 250px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.1);
+        }
+
+        .nav-search-btn {
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-search-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./images/skyline_image_bgc2.jpg');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: left;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        /* Page intro above the content cards */
+        .page-intro {
+            text-align: center;
+            border-bottom: none;
+            padding: 2.5rem 0 0.5rem;
+        }
+
+        .page-intro h1 {
+            font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--primary-blue);
+            margin-bottom: 0.6rem;
+        }
+
+        /* second line of the h1: descriptive, so the phrase still carries
+           heading weight without adding an h2 above the card grid */
+        .page-intro-sub {
+            display: block;
+            font-size: clamp(1.05rem, 1.9vw, 1.4rem);
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--dark-text);
+            margin-top: 0.35rem;
+        }
+
+        .page-intro-tagline {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            color: var(--dark-text);
+            /* 720px broke the line before "them."; this holds the sentence on one
+               line at desktop while still wrapping normally on narrow screens */
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        /* Who We Are & What's New Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: stretch;
+        }
+
+        .about-box {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            border: 2px solid var(--border-gray);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 0.75rem;
+        }
+
+        .about-box p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        .about-box > .btn {
+            margin-top: auto;
+        }
+
+        /* two product buttons share the slot a single .btn used to fill */
+        /* .about-box p grows to fill the box, which suits a single block of
+           copy but pushed these two product paragraphs apart. The button
+           row below still pins itself to the bottom. */
+        .about-box.two-products p { flex-grow: 0; }
+
+        /* The section stretches both boxes to the taller one, and this box's
+           copy is shorter - which left ~139px of slack trailing after the last
+           button at 1280px. Spreading the two products down the box puts that
+           space between them instead, and keeps the boxes equal height. */
+        .about-box.two-products { justify-content: space-between; }
+
+        /* Each product stands on its own: box shot, copy, then the button that
+           goes with it - rather than both buttons sharing a row at the bottom. */
+        /* Box shot on the left, copy and its button on the right. The image
+           spans both rows so the text sits beside it rather than under it;
+           the box goes full width below 768px, so this holds on phones too. */
+        .about-box .product-item {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            column-gap: 1.25rem;
+            align-items: start;
+        }
+
+        .about-box .product-item + .product-item { margin-top: 1.5rem; }
+
+        /* The two crops differ slightly in proportion (620x471 against
+           664x477), which left one shot 6px taller than the other and the
+           blocks looking unmatched. Pinning both to one height lines the pair
+           up; at 93px they come out 122px and 129px wide, so both still sit
+           inside the 130px column. */
+        .about-box .product-item img {
+            grid-row: 1 / span 2;
+            display: block;
+            width: auto;
+            height: 93px;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .about-box .product-item p { margin-bottom: 0.75rem; }
+        /* Each button spans its copy column, so it lines up with the paragraph
+           above it on both edges rather than hugging its own label. */
+        .about-box .product-item .btn { justify-self: stretch; }
+
+        /* Below this the text column is under ~200px and the copy breaks into
+           two- and three-word lines, so the box shot goes back above the text. */
+        @media (max-width: 560px) {
+            .about-box .product-item { grid-template-columns: 1fr; row-gap: 0.75rem; }
+            .about-box .product-item img { grid-row: auto; width: 100%; height: auto; max-width: 200px; margin: 0 auto; }
+        }
+
+        .about-box .italic-text {
+            font-style: italic;
+            margin: 1.5rem 0;
+            padding: 1.5rem 0;
+            border-top: 2px solid var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .event-details {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .event-details p {
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .nytug-box {
+            display: flex;
+            flex-direction: column;
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+
+        .nytug-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .nytug-logo {
+            flex: 0 0 330.625px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nytug-logo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .nytug-logo .event-details {
+            margin: 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nytug-logo .event-details p {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .address-indent {
+            display: block;
+            margin-left: 5.0rem;
+        }
+
+        .nytug-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nytug-details h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 0 0 1rem 0;
+        }
+
+        .nytug-details p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .nytug-details .btn {
+            margin-top: auto;
+            align-self: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-blue);
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .whats-new-image {
+            text-align: center;
+        }
+
+        .whats-new-image img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .whats-new-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .whats-new-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .whats-new-content p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        .whats-new-content .btn {
+            margin-top: auto;
+        }
+
+        /* Products Section */
+        .products-section {
+            background-color: var(--light-gray);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .product-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            margin-top: -1.5rem;
+            color: var(--white);
+            background-color: #7ECCC5;
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            width: calc(100% + 4rem);
+            margin-left: -2rem;
+            margin-right: -2rem;
+            text-align: center;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .product-card a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--white);
+        }
+
+        .services-section .section-title {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 1.5rem 2rem;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+            border: 2px solid var(--border-gray);
+            border-bottom: none;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            background-color: var(--white);
+            padding: 0.25rem 2rem 2rem 2rem;
+            border-radius: 0 0 8px 8px;
+            border: 2px solid var(--border-gray);
+            border-top: none;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0,61,153,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            text-decoration: underline;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .service-card a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--white);
+            text-align: center;
+            border: 1px solid #ccc !important;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ccc !important;
+        }
+
+        .testimonials-box {
+            background-color: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            padding: 1.125rem;
+            border-radius: 8px;
+            margin-bottom: 0;
+        }
+
+        .testimonials-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1.125rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 0;
+        }
+
+        .testimonials-slideshow {
+            position: relative;
+            max-width: 750px;
+            min-height: 112.5px;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .testimonial-quote {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0;
+            font-style: italic;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .testimonial-quote.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-nav-btn {
+            padding: 0.75rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: 2px solid var(--primary-blue);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .testimonial-nav-btn:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+
+        .clients-carousel {
+            position: relative;
+            max-width: 1200px;
+            height: 200px;
+            margin: 0.3rem auto 0;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        .client-carousel-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: transform 0.6s ease-in-out;
+            transform: translateX(100%);
+            top: 0;
+            left: 0;
+        }
+
+        .client-carousel-slide.active {
+            transform: translateX(0);
+            z-index: 10;
+        }
+
+        .client-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 268px;
+            height: 150px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .client-logo img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+
+        .client-logo img {
+            max-height: 100%;
+            max-width: 150px;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
+            color: #e8e8e8;
+            padding: 3rem 1.5rem 0;
+            margin-top: 4.5rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer Content Grid */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.125rem;
+            padding: 0 1.5rem 2.25rem 1.5rem;
+            border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+        }
+
+        /* Footer Section */
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+        /* Footer Title */
+        .footer-title {
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 0.56rem;
+            text-align: left;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #4a6fa5, rgba(74, 111, 165, 0));
+        }
+
+        /* Footer Links */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.56rem;
+            text-align: left;
+        }
+
+        .footer-links a {
+            color: #b0b8c1;
+            text-decoration: none;
+            font-size: 0.71rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4a6fa5;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #4a6fa5;
+        }
+
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .footer-contact {
+            grid-column: 5;
+            display: grid !important;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .footer-contact .footer-title {
+            grid-column: 1 / -1;
+            margin-bottom: 0;
+        }
+
+        .footer-contact .contact-item:first-of-type {
+            grid-column: 1 / -1;
+            margin-top: -0.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.64rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #4a6fa5;
+            margin-bottom: 0.38rem;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .contact-text {
+            font-size: 0.68rem;
+            line-height: 1.7;
+            color: #b0b8c1;
+            margin: 0;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .contact-text a {
+            color: #4a6fa5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: #5a7fb5;
+            text-decoration: underline;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.68rem;
+            color: #7a8292;
+        }
+
+        .footer-copyright p {
+            margin: 0;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            font-size: 0.68rem;
+        }
+
+        .footer-legal a {
+            color: #7a8292;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #4a6fa5;
+        }
+
+        .divider {
+            color: rgba(74, 111, 165, 0.4);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .footer-social .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(74, 111, 165, 0.15);
+            border: 1px solid rgba(74, 111, 165, 0.3);
+            border-radius: 6px;
+            color: #4a6fa5;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-social .social-link:hover {
+            background: rgba(74, 111, 165, 0.25);
+            border-color: rgba(74, 111, 165, 0.5);
+            color: #5a7fb5;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.875rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                padding: 2.25rem 1.125rem 0;
+                margin-top: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                padding: 0 1.5rem 1.5rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-title {
+                font-size: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 0.68rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-legal {
+                justify-content: center;
+                order: 2;
+            }
+
+            .footer-copyright {
+                order: 1;
+            }
+
+            .footer-social {
+                order: 3;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.125rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-section {
+                border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+                padding-bottom: 1.125rem;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+
+            .footer-contact {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-contact .contact-item:first-of-type {
+                grid-column: 1 !important;
+            }
+
+            .footer-title::after {
+                width: 100%;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem; flex-wrap: nowrap;
+                font-size: 0.85rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .client-logos {
+                gap: 1rem;
+            }
+        }
+        /* Event cards (ported from ticsoftware.ai What's New) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+        .case-study-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(65, 84, 255, 0.15);
+        }
+        .case-study-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .case-study-tag {
+            display: inline-block;
+            background: #E4E7FF;
+            color: #003d99;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .case-study-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #1D1E2B;
+            min-height: 3.2rem;
+        }
+        .case-study-excerpt {
+            color: #1D1E2B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .case-study-content .cta-button {
+            display: inline-block;
+            background: #003d99;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: auto;
+        }
+        .case-study-content .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 61, 153, 0.3);
+        }
+
+        /* Single upcoming event: image left, detail right */
+        .event-horizontal {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 2rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .event-horizontal:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(65, 84, 255, 0.15);
+        }
+
+        .event-horizontal img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            background-color: #000000;
+        }
+
+        /* ===== TBC 2026 line in the What's New box =====
+           No logo and no card: the eyebrow leads, then the conference name and
+           the where/when beneath it. */
+        .about-box .case-study-tag { align-self: flex-start; margin-bottom: 0.9rem; }
+
+        /* HPE brand green */
+        /* Sized to hold one line. The box gives about 504px of content width
+           and this string is 69 characters, which needs ~450px at .85rem -
+           1rem came to ~530px and wrapped. nowrap keeps it honest; below
+           1100px the column narrows enough that wrapping is the better
+           outcome, so it is released there.
+
+           Scoped to .about-box because `.about-box p` is more specific than a
+           bare class on a <p>: unscoped, this was rendering at 0.95rem with a
+           1rem margin, so the width budget above never held and the media
+           query below was a no-op. .about-box is a flex column, so that 1rem
+           did not collapse against the next child either - it stacked. */
+        @media (max-width: 1100px) {
+        }
+
+        /* ===== Session entries in the What's New box =====
+           Every rule below is scoped to .about-box on purpose: `.about-box p`
+           is more specific than a bare class on a <p> and would otherwise pull
+           these back to 0.95rem and re-justify them. */
+        @media (max-width: 1100px) {
+        }
+
+        /* Native disclosure, so this page still needs no JavaScript. The
+           default marker is dropped for a caret that flips when open, and the
+           label swaps between the two spans in the summary. */
+        /* The button closes the box, spanning its full width.
+           colour has to be restated here: the white text came from
+           .case-study-content .cta-button, which only applied while the button
+           sat inside the event card - moved out, it inherited the box's dark
+           text on a dark blue background and disappeared. */
+        .event-horizontal .case-study-content { padding: 1.75rem 2rem 1.75rem 0; }
+        /* .case-study-content is a flex column, so inline-block children stretch */
+        .event-horizontal .case-study-tag { align-self: flex-start; }
+        .event-horizontal .case-study-content h3 { min-height: 0; }
+        .event-horizontal .case-study-excerpt { margin-bottom: 1.25rem; max-width: 70ch; }
+        .event-horizontal .cta-button { margin-top: 0; width: fit-content; }
+
+        @media (max-width: 768px) {
+            .case-study-grid { grid-template-columns: 1fr; }
+            .event-horizontal { grid-template-columns: 1fr; }
+            .event-horizontal .case-study-content { padding: 0 1.5rem 1.5rem; }
+        }
+
+        /* REDESIGN: <main> now holds only the full-bleed redesigned sections, so the
+           old 1200px cap and the per-section grey rule no longer apply. Each
+           section centres its own content at 1200px. */
+        main { max-width: none; padding: 0; }
+        /* background rhythm after moving Services up: news grey, services white,
+           proof grey (running into the grey CTA band) */
+        main > .rd-services { background: #fff; border-top: 0; }
+        main > .rd-proof { background: #F4F6FB; border-top: 1px solid #E6EAF2; }
+        main > .rd-proof .rd-q { background: #fff; }
+
+        /* Large quote restyled to match the hero: light graph paper, soft brand
+           glows, navy type with navy/maroon highlights, maroon pill label. */
+        main .rd-quote-main {
+            background: #FBFCFE; color: #0B1F44; border: 1px solid #E3E8F2;
+            box-shadow: 0 14px 34px rgba(11, 31, 68, .08); overflow: hidden;
+        }
+        main .rd-quote-main::after {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(360px 240px at 92% 12%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(300px 220px at 8% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-quote-main > * { position: relative; z-index: 1; }
+        /* plain white: no graph paper or glows on the quote */
+        main .rd-quote-main { background: #fff; }
+        main .rd-quote-main::after { content: none; }
+        main .rd-quote-main::before { color: #800000; opacity: .22; z-index: 1; }
+        main .rd-quote-main p { color: #0B1F44; font-weight: 700; letter-spacing: -.01em; }
+        main .rd-quote-main p em { font-style: normal; color: #003d99; }
+        main .rd-quote-main p .rd-red { color: #800000; }
+        @media (max-width: 600px) { main .rd-quote-main { padding-top: 4.2rem; } }
+
+        /* Closing CTA restyled to match the hero: light graph paper, soft brand
+           glows, navy heading with a maroon accent, the hero's own buttons.
+           The thin ribbon along the bottom edge stays. */
+        main .rd-cta {
+            background: #FBFCFE; color: #0B1F44; border: 1px solid #E3E8F2;
+            box-shadow: 0 14px 34px rgba(11, 31, 68, .08);
+        }
+        main .rd-cta::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(420px 260px at 95% 0%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(360px 240px at 0% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-cta > * { position: relative; z-index: 1; }
+        main .rd-cta .rd-eyebrow { margin-bottom: .9rem; }
+        main .rd-cta h2 { color: #0B1F44; }
+        main .rd-cta h2 .rd-red { color: #800000; }
+        main .rd-cta p { color: #44506A; }
+        main .rd-cta .rd-btn-primary { background: #003d99; color: #fff; box-shadow: 0 10px 24px rgba(0, 61, 153, .25); }
+        main .rd-cta .rd-btn-primary:hover { box-shadow: 0 14px 30px rgba(0, 61, 153, .32); }
+        main .rd-cta .rd-btn-ghost { background: #fff; color: #0B1F44; border: 1.5px solid #D5DBE8; }
+        main .rd-cta .rd-btn-ghost:hover { border-color: #003d99; color: #003d99; }
+        main .rd-quote-main footer {
+            align-self: flex-start; color: #800000; background: #F7E8E8; border: 1px solid #EBCFCF;
+            padding: .35rem .85rem; border-radius: 999px; font-size: .74rem;
+        }
+        .rd-what, .rd-proof, .rd-services, .rd-cta-wrap { border-bottom: 0; }
+        /* the footer component carries a 72px top margin for older pages; the CTA band
+           already ends this one, so it sits flush */
+        main + * footer.site-footer, footer.site-footer { margin-top: 0; }
+
+        /* ================================================================
+           REDESIGN: Services row + closing call to action
+           ================================================================ */
+        .rd-services { padding: 5rem 2rem 4.5rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; scroll-margin-top: 90px; }
+        .rd-services-in { max-width: 1200px; margin: 0 auto; }
+        .rd-svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+        .rd-svc {
+            display: flex; flex-direction: column; gap: .55rem; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1.5rem 1.4rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-svc:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-svc .rd-ic { width: 44px; height: 44px; border-radius: 12px; margin-bottom: .5rem; background: #E8EEFA; color: #003d99; }
+        .rd-svc .rd-ic svg { width: 22px; height: 22px; }
+        .rd-svc h3 { font-size: 1.12rem; font-weight: 700; color: #0B1F44; margin: 0; }
+        .rd-svc p { font-size: .93rem; line-height: 1.55; color: #44506A; margin: 0; }
+        .rd-svc .rd-go { margin-top: auto; padding-top: .3rem; font-weight: 700; font-size: .9rem; color: #003d99; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-svc:hover .rd-go { gap: .6rem; }
+
+        .rd-cta-wrap { padding: 0 2rem 5rem; background: #F4F6FB; }
+        .rd-cta {
+            position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+            padding: 3rem 3.2rem; border-radius: 22px;
+            background: linear-gradient(135deg, #0B1F44 0%, #003d99 70%, #1B4FB8 100%); color: #fff;
+        }
+        .rd-cta::after {               /* thin maroon-to-blue ribbon along the bottom edge */
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+            background: linear-gradient(90deg, #800000, #B21F23 30%, #4154FF 70%, #8455E0);
+        }
+        .rd-cta h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.2; margin: 0 0 .5rem; color: #fff; }
+        .rd-cta p { font-size: 1.05rem; line-height: 1.6; color: #C9D6F0; margin: 0; max-width: 560px; }
+        .rd-cta-btns { display: flex; flex-wrap: wrap; gap: .8rem; }
+        .rd-cta .rd-btn-primary { background: #fff; color: #0B1F44; box-shadow: 0 10px 24px rgba(0, 0, 0, .2); }
+        .rd-cta .rd-btn-primary:hover { box-shadow: 0 14px 30px rgba(0, 0, 0, .28); }
+        .rd-cta .rd-btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .4); }
+        .rd-cta .rd-btn-ghost:hover { border-color: #fff; color: #fff; }
+
+        @media (max-width: 1000px) { .rd-svc-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .rd-services { padding: 3.5rem 1.25rem 3rem; } .rd-svc-grid { grid-template-columns: 1fr; }
+            .rd-cta-wrap { padding: 0 1.25rem 3.5rem; } .rd-cta { padding: 2.2rem 1.5rem; }
+        }
+
+        /* ================================================================
+           REDESIGN: Proven in production (stories + testimonials)
+           ================================================================ */
+        .rd-proof { padding: 5rem 2rem; background: #fff; }
+        .rd-proof-in { max-width: 1200px; margin: 0 auto; }
+        .rd-stories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-bottom: 3.5rem; }
+        .rd-case {
+            display: flex; flex-direction: column; gap: .7rem; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.6rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-case:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-case-logo { height: 46px; display: flex; align-items: center; margin-bottom: .3rem; }
+        .rd-case-logo img { max-height: 40px; max-width: 170px; width: auto; display: block; }
+        .rd-case-logo .word { font-size: 1.15rem; font-weight: 800; color: #0B1F44; letter-spacing: -.01em; }
+        .rd-case h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.35; color: #0B1F44; margin: 0; }
+        .rd-case p { font-size: .93rem; line-height: 1.55; color: #44506A; margin: 0; }
+        .rd-uses { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; padding-top: .4rem; }
+        .rd-uses span { font-size: .74rem; font-weight: 700; color: #003d99; background: #E8EEFA; border-radius: 999px; padding: .22rem .6rem; }
+        .rd-case .rd-go { font-weight: 700; font-size: .92rem; color: #800000; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-case:hover .rd-go { gap: .6rem; }
+
+        /* testimonials: one large quote, four short ones beside it */
+        .rd-quotes { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.4rem; align-items: stretch; }
+        .rd-quote-main {
+            position: relative; margin: 0; border-radius: 18px; padding: 2.4rem 2.4rem 2.2rem;
+            background: linear-gradient(135deg, #0B1F44, #003d99); color: #fff;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .rd-quote-main::before { content: '\201C'; position: absolute; top: .6rem; left: 1.6rem; font: 700 6rem/1 Georgia, serif; color: rgba(255,255,255,.14); }
+        .rd-quote-main p { position: relative; font-size: 1.35rem; line-height: 1.5; font-weight: 600; margin: 0 0 1.2rem; }
+        .rd-quote-main footer, .rd-q footer { font-size: .85rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+        .rd-quote-main footer { color: #B9C8E8; }
+        .rd-qs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .rd-q { margin: 0; background: #F4F6FB; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1.3rem 1.3rem 1.1rem; display: flex; flex-direction: column; gap: .7rem; }
+        .rd-q p { font-size: .98rem; line-height: 1.5; font-weight: 600; color: #0B1F44; margin: 0; }
+        .rd-q p::before { content: '\201C'; color: #800000; font-weight: 800; margin-right: .1rem; }
+        .rd-q p::after { content: '\201D'; color: #800000; font-weight: 800; margin-left: .05rem; }
+        .rd-q footer { color: #6B7488; margin-top: auto; font-size: .74rem; }
+        .rd-q.wide { grid-column: span 2; }
+        .rd-proof-more { text-align: center; margin-top: 2.4rem; }
+
+        @media (max-width: 1000px) { .rd-stories { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rd-quotes { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .rd-proof { padding: 3.5rem 1.25rem; }
+            .rd-stories, .rd-qs { grid-template-columns: 1fr; }
+            .rd-q.wide { grid-column: auto; }
+            .rd-quote-main { padding: 2rem 1.5rem; } .rd-quote-main p { font-size: 1.15rem; }
+        }
+
+        /* ================================================================
+           REDESIGN: What's new (featured story + two latest items)
+           ================================================================ */
+        .rd-news { padding: 5rem 2rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; border-bottom: 1px solid #E6EAF2; }
+        .rd-news-in { max-width: 1200px; margin: 0 auto; }
+        .rd-news-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+        .rd-news-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0; }
+        .rd-all { font-weight: 700; color: #003d99; text-decoration: none; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-all:hover { gap: .6rem; }
+
+        .rd-news-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1.5rem; }
+        .rd-side { display: grid; gap: 1.5rem; }
+        .rd-story {
+            display: flex; flex-direction: column; overflow: hidden; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px;
+            transition: transform .25s, box-shadow .25s;
+        }
+        .rd-story:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); }
+        .rd-story img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #fff; }
+        .rd-story-body { padding: 1.5rem 1.6rem 1.6rem; display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+        .rd-tag { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #800000; }
+        .rd-story h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.3; color: #0B1F44; margin: 0; }
+        .rd-story p { font-size: .96rem; line-height: 1.6; color: #44506A; margin: 0; }
+        .rd-story .rd-go { margin-top: auto; padding-top: .4rem; font-weight: 700; font-size: .95rem; color: #003d99; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-story:hover .rd-go { gap: .6rem; }
+        /* the featured story sets the pace: bigger title, image on top */
+        .rd-story.feature h3 { font-size: 1.6rem; }
+        .rd-story.feature img { border-bottom: 1px solid #E3E8F2; }
+        /* the two side stories: image left, text right */
+        .rd-story.row { flex-direction: row; }
+        .rd-story.row img { width: 42%; aspect-ratio: auto; height: 100%; min-height: 100%; }
+        .rd-story.row .rd-story-body { padding: 1.3rem 1.4rem; }
+        .rd-story.row h3 { font-size: 1.1rem; }
+        .rd-story.row p { font-size: .9rem; }
+
+        @media (max-width: 960px) {
+            .rd-news-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .rd-news { padding: 3.5rem 1.25rem; }
+            .rd-story.row { flex-direction: column; }
+            .rd-story.row img { width: 100%; aspect-ratio: 16 / 9; height: auto; min-height: 0; }
+        }
+
+        /* ================================================================
+           REDESIGN: What we do (four pillars)
+           ================================================================ */
+        .rd-what { padding: 5rem 2rem; background: #fff; scroll-margin-top: 90px; }
+        .rd-what-in { max-width: 1200px; margin: 0 auto; }
+        .rd-head { max-width: 720px; margin: 0 auto 3rem; text-align: center; }
+        .rd-kicker { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #800000; margin-bottom: .8rem; }
+        .rd-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0 0 .9rem; }
+        .rd-head p { font-size: 1.08rem; line-height: 1.65; color: #44506A; margin: 0; }
+
+        .rd-pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+        .rd-pillar {
+            position: relative; display: flex; flex-direction: column;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.8rem 1.6rem 1.6rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-pillar:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-ic { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+        .rd-ic svg { width: 26px; height: 26px; }
+        .rd-pillar h3 { font-size: 1.3rem; font-weight: 700; color: #0B1F44; margin: 0 0 .6rem; }
+        .rd-pillar > p { font-size: .97rem; line-height: 1.6; color: #44506A; margin: 0 0 1.2rem; }
+        .rd-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.4rem; padding: 0; list-style: none; }
+        .rd-chips a {
+            display: inline-block; font-size: .82rem; font-weight: 600; text-decoration: none;
+            color: #0B1F44; background: #F4F6FB; border: 1px solid #E3E8F2; border-radius: 999px; padding: .32rem .75rem;
+            transition: background .2s, border-color .2s, color .2s;
+        }
+        .rd-chips a:hover { background: #fff; border-color: currentColor; }
+        .rd-more { margin-top: auto; font-weight: 700; font-size: .95rem; text-decoration: none; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-pillar:hover .rd-more { gap: .6rem; }
+
+        /* one accent per pillar, used on the icon tile, chip hover and link */
+        .rd-p-int .rd-ic { background: #E8EEFA; color: #003d99; }  .rd-p-int .rd-more, .rd-p-int .rd-chips a:hover { color: #003d99; }
+        .rd-p-mod .rd-ic { background: #F7E8E8; color: #800000; }  .rd-p-mod .rd-more, .rd-p-mod .rd-chips a:hover { color: #800000; }
+        .rd-p-mon .rd-ic { background: #E4F4F1; color: #0F766E; }  .rd-p-mon .rd-more, .rd-p-mon .rd-chips a:hover { color: #0F766E; }
+        .rd-p-ai  .rd-ic { background: #EFEAFB; color: #5B3CC4; }  .rd-p-ai  .rd-more, .rd-p-ai  .rd-chips a:hover { color: #5B3CC4; }
+        .rd-p-ai::after {
+            content: 'TICSoftware.Ai'; position: absolute; top: 1.2rem; right: 1.2rem;
+            font-size: .68rem; font-weight: 700; letter-spacing: .03em; color: #5B3CC4; background: #EFEAFB; border-radius: 999px; padding: .2rem .55rem;
+        }
+
+        @media (max-width: 1080px) { .rd-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 600px)  { .rd-what { padding: 3.5rem 1.25rem; } .rd-pillars { grid-template-columns: 1fr; } }
+
+        /* ================================================================
+           REDESIGN: hero + client logo strip
+           Light hero in the same family as ticsoftware.ai, in .com's navy
+           and maroon. Replaces the skyline photo and the page intro.
+           ================================================================ */
+        .rd-hero {
+            position: relative; overflow: hidden;
+            padding: 4.5rem 2rem 4rem;
+            background: #F4F6FB;
+        }
+        .rd-hero::before {               /* faint graph paper, fading down */
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: 46px 46px;
+            -webkit-mask-image: radial-gradient(85% 75% at 50% 0%, #000 25%, transparent 85%);
+            mask-image: radial-gradient(85% 75% at 50% 0%, #000 25%, transparent 85%);
+        }
+        .rd-hero::after {                /* soft brand glows */
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(520px 340px at 88% 30%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(420px 300px at 70% 95%, rgba(128, 0, 0, .07), transparent 70%);
+        }
+        .rd-hero-in {
+            position: relative; z-index: 1;
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+            gap: 3rem; align-items: center;
+        }
+        .rd-eyebrow {
+            display: inline-flex; align-items: center; gap: .5rem;
+            font-size: .8rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+            color: #800000; background: #F7E8E8; border: 1px solid #EBCFCF;
+            padding: .4rem .9rem; border-radius: 999px; margin-bottom: 1.4rem;
+        }
+        .rd-hero h1 {
+            font-size: clamp(2rem, 3.6vw, 2.75rem); font-weight: 700;
+            line-height: 1.14; letter-spacing: -.02em; color: #0B1F44;
+            margin: 0 0 1.2rem;
+        }
+        .rd-hero h1 em { font-style: normal; color: #003d99; }
+        .rd-hero h1 .rd-red { color: #800000; }
+        .rd-lede { font-size: 1.15rem; line-height: 1.65; color: #44506A; max-width: 560px; margin: 0 0 2rem; }
+        .rd-ctas { display: flex; flex-wrap: wrap; gap: .9rem; }
+        .rd-btn {
+            display: inline-flex; align-items: center; gap: .5rem;
+            padding: .9rem 1.5rem; border-radius: 10px;
+            font-weight: 700; font-size: 1rem; text-decoration: none;
+            transition: transform .2s, box-shadow .2s, background .2s, border-color .2s;
+        }
+        .rd-btn-primary { background: #003d99; color: #fff; box-shadow: 0 10px 24px rgba(0, 61, 153, .25); }
+        .rd-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0, 61, 153, .32); }
+        .rd-btn-ghost { background: #fff; color: #0B1F44; border: 1.5px solid #D5DBE8; }
+        .rd-btn-ghost:hover { border-color: #003d99; color: #003d99; transform: translateY(-2px); }
+        .rd-points { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; list-style: none; padding: 0; margin: 1.8rem 0 0; }
+        .rd-points li { font-size: .92rem; font-weight: 600; color: #5A6478; }
+        .rd-points li::before { content: '\2713'; color: #800000; font-weight: 800; margin-right: .45rem; }
+
+        /* ---- integration diagram ---- */
+        .rd-diagram { position: relative; width: 100%; max-width: 560px; justify-self: end; }
+        .rd-diagram svg { width: 100%; height: auto; display: block; overflow: visible; }
+        .rd-link { fill: none; stroke: #C9D3EA; stroke-width: 2; }
+        .rd-flow {
+            fill: none; stroke: #003d99; stroke-width: 3; stroke-linecap: round;
+            stroke-dasharray: 14 160; animation: rdFlow 2.6s linear infinite;
+        }
+        .rd-flow.out { stroke: #800000; animation-direction: reverse; }
+        @keyframes rdFlow { from { stroke-dashoffset: 174; } to { stroke-dashoffset: 0; } }
+        .rd-node rect { fill: #fff; stroke: #DCE2EF; stroke-width: 1.5; }
+        .rd-node text { font: 700 15px 'Segoe UI', Tahoma, sans-serif; fill: #0B1F44; }
+        .rd-node .sub { font: 600 11.5px 'Segoe UI', Tahoma, sans-serif; fill: #6B7488; }
+        .rd-node .dot { animation: rdPulse 6s ease-in-out infinite; }
+        @keyframes rdPulse { 0%, 100% { opacity: .35; } 12%, 30% { opacity: 1; } }
+        .rd-core-ring { fill: none; stroke: #003d99; stroke-opacity: .18; stroke-width: 2; animation: rdRing 4s ease-out infinite; transform-origin: 280px 230px; }
+        @keyframes rdRing { 0% { transform: scale(.85); opacity: .9; } 100% { transform: scale(1.35); opacity: 0; } }
+
+        /* ---- client logo strip ---- */
+        .rd-clients { background: #fff; border-top: 1px solid #E6EAF2; border-bottom: 1px solid #E6EAF2; padding: 2.2rem 2rem; }
+        .rd-clients-in { max-width: 1200px; margin: 0 auto; }
+        .rd-clients p {
+            text-align: center; margin: 0 0 1.4rem;
+            font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #6B7488;
+        }
+        .rd-logos {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+            gap: 1.4rem 2.1rem; list-style: none; padding: 0; margin: 0;
+        }
+        .rd-logos img {
+            display: block; width: auto; max-width: 136px;
+            filter: grayscale(1); opacity: .62;
+            transition: filter .25s, opacity .25s;
+        }
+        .rd-logos li:hover img { filter: none; opacity: 1; }
+        .rd-logos .wide img { height: 26px; }
+        .rd-logos .mid img  { height: 34px; }
+        .rd-logos .tall img { height: 44px; }
+        .rd-logos .box img  { height: 34px; }   /* Papé is a solid block, so it sits smaller */
+
+        @media (max-width: 960px) {
+            .rd-hero { padding: 3rem 1.25rem 3rem; }
+            .rd-hero-in { grid-template-columns: 1fr; gap: 2.5rem; }
+            .rd-diagram { justify-self: center; }
+        }
+        @media (max-width: 600px) {
+            .rd-logos { gap: 1.2rem 1.8rem; }
+            .rd-logos .wide img { height: 20px; } .rd-logos .mid img { height: 28px; } .rd-logos .tall img { height: 38px; } .rd-logos .box img { height: 30px; }
+            /* the diagram scales down on phones: drop the small captions and enlarge the names */
+            .rd-node .sub { display: none; }
+            .rd-node text { font-size: 18px; transform: translateY(8px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .rd-flow, .rd-node .dot, .rd-core-ring { animation: none; }
+            .rd-node .dot { opacity: 1; }
+        }
+
+        /* ================================================================
+           SUPPORT PAGE
+           ================================================================ */
+        .sp-hero .rd-hero-in { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
+        .sp-quick {
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 18px; padding: 1.6rem;
+            box-shadow: 0 18px 40px rgba(11, 31, 68, .10);
+        }
+        .sp-quick h2 { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #6B7488; margin: 0 0 1rem; }
+        .sp-line { display: flex; align-items: center; gap: .9rem; padding: .85rem 0; border-top: 1px solid #EEF1F6; text-decoration: none; color: inherit; }
+        .sp-line:first-of-type { border-top: 0; padding-top: 0; }
+        .sp-line .rd-ic { width: 42px; height: 42px; border-radius: 12px; margin: 0; flex: 0 0 auto; background: #E8EEFA; color: #003d99; }
+        .sp-line .rd-ic svg { width: 20px; height: 20px; }
+        .sp-line small { display: block; font-size: .78rem; font-weight: 700; color: #6B7488; }
+        .sp-line b { display: block; font-size: 1.02rem; color: #0B1F44; word-break: break-word; }
+        .sp-line:hover b { color: #003d99; }
+
+        .sp-sec { padding: 4.5rem 2rem; background: #fff; scroll-margin-top: 90px; }
+        main > .sp-sec.alt { background: #F4F6FB; border-top: 1px solid #E6EAF2; border-bottom: 1px solid #E6EAF2; }
+        .sp-in { max-width: 1200px; margin: 0 auto; }
+
+        /* how to reach us */
+        .sp-reach { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.2fr); gap: 1.2rem; align-items: stretch; }
+        .sp-card { background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+        .sp-card .rd-ic { width: 44px; height: 44px; border-radius: 12px; margin-bottom: .4rem; background: #E8EEFA; color: #003d99; }
+        .sp-card .rd-ic svg { width: 22px; height: 22px; }
+        .sp-card h3 { font-size: 1.08rem; font-weight: 700; color: #0B1F44; margin: 0; }
+        .sp-card p { font-size: .92rem; line-height: 1.55; color: #44506A; margin: 0; }
+        .sp-card a.big { font-weight: 700; color: #003d99; text-decoration: none; margin-top: auto; word-break: break-word; }
+        .sp-card a.big:hover { text-decoration: underline; }
+        .sp-tips { background: #FBFCFE; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.5rem; }
+        .sp-tips h3 { font-size: 1.05rem; font-weight: 700; color: #0B1F44; margin: 0 0 .8rem; }
+        .sp-tips ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+        .sp-tips li { font-size: .92rem; color: #44506A; padding-left: 1.4rem; position: relative; }
+        .sp-tips li::before { content: '\2713'; position: absolute; left: 0; color: #800000; font-weight: 800; }
+
+        /* software updates */
+        .sp-group { margin-bottom: 2.2rem; }
+        .sp-group:last-child { margin-bottom: 0; }
+        .sp-group h3 { display: flex; align-items: center; gap: .6rem; font-size: 1rem; font-weight: 700; color: #0B1F44; margin: 0 0 1rem; }
+        .sp-group h3 i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .sp-dl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+        .sp-dl {
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1rem 1.1rem;
+        }
+        .sp-dl b { display: block; font-size: 1rem; color: #0B1F44; }
+        .sp-dl small { display: block; font-size: .78rem; color: #6B7488; margin-top: .15rem; }
+        .sp-btn {
+            flex: 0 0 auto; display: inline-flex; align-items: center; gap: .4rem;
+            font-size: .85rem; font-weight: 700; text-decoration: none; white-space: nowrap;
+            padding: .55rem .9rem; border-radius: 9px; background: #003d99; color: #fff;
+        }
+        .sp-btn svg { width: 15px; height: 15px; }
+        .sp-btn:hover { background: #0B1F44; }
+        /* until a download link is supplied the button is shown as pending */
+        .sp-btn.pending { background: #EEF1F6; color: #8A93A6; cursor: not-allowed; pointer-events: none; }
+        .sp-note {
+            display: flex; gap: .7rem; align-items: flex-start; margin-bottom: 2rem;
+            background: #fff; border: 1px solid #E3E8F2; border-left-width: 1px; border-radius: 14px; padding: 1rem 1.2rem;
+            font-size: .92rem; line-height: 1.55; color: #44506A;
+        }
+        .sp-note b { color: #0B1F44; }
+
+        /* TIC Navigator (beta) download card */
+        .sp-nav {
+            display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.4rem 1.5rem;
+        }
+        .sp-nav-main { flex: 1 1 520px; min-width: 0; }
+        .sp-nav-title { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; }
+        .sp-nav-title b { font-size: 1.2rem; color: #0B1F44; }
+        .sp-badge { font-size: .7rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: #5B3CC4; background: #EFEAFB; border-radius: 999px; padding: .2rem .55rem; }
+        .sp-badge.lang { color: #0F766E; background: #E4F4F1; }
+        .sp-nav small { display: block; font-size: .82rem; color: #6B7488; margin: .3rem 0 .7rem; }
+        .sp-nav p { font-size: .93rem; line-height: 1.55; color: #44506A; margin: 0 0 .5rem; }
+        .sp-hash { font-size: .78rem !important; color: #6B7488 !important; margin: 0 !important; }
+        .sp-hash code { font-family: Consolas, 'Courier New', monospace; font-size: .76rem; color: #0B1F44; background: #F4F6FB; border-radius: 5px; padding: .1rem .35rem; word-break: break-all; }
+        .sp-nav-btns { display: flex; flex-direction: column; gap: .6rem; flex: 0 0 auto; }
+        .sp-steps { margin: .2rem 0 .7rem; padding-left: 1.3rem; display: grid; gap: .2rem; font-size: .9rem; color: #0B1F44; font-weight: 600; }
+        .sp-steps li::marker { color: #5B3CC4; font-weight: 800; }
+        .sp-nav p a { color: #003d99; font-weight: 700; }
+        .sp-btn.ghost { background: #fff; color: #0B1F44; border: 1.5px solid #D5DBE8; }
+        .sp-btn.ghost:hover { border-color: #5B3CC4; color: #5B3CC4; background: #fff; }
+        @media (max-width: 600px) { .sp-nav { padding: 1.2rem; } .sp-nav-main { flex-basis: 100%; } .sp-nav-btns { width: 100%; } .sp-nav-btns .sp-btn { justify-content: center; } }
+        /* FAQs and datasheets */
+        .sp-docs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; align-items: start; }
+        .sp-faqs { display: grid; gap: 1rem; }
+        .sp-faq { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1.1rem 1.2rem; transition: transform .2s, box-shadow .2s; }
+        .sp-faq:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(11, 31, 68, .08); }
+        .sp-faq .rd-ic { width: 42px; height: 42px; margin: 0; border-radius: 12px; background: #F7E8E8; color: #800000; flex: 0 0 auto; }
+        .sp-faq .rd-ic svg { width: 20px; height: 20px; }
+        .sp-faq b { display: block; color: #0B1F44; }
+        .sp-faq small { color: #6B7488; font-size: .85rem; }
+        .sp-sheets { background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.4rem 1.5rem; }
+        .sp-sheets h3, .sp-faqs-h { font-size: 1.05rem; font-weight: 700; color: #0B1F44; margin: 0 0 .9rem; }
+        .sp-sheets ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .2rem 1.5rem; }
+        .sp-sheets a { display: flex; align-items: center; gap: .55rem; padding: .5rem 0; color: #0B1F44; text-decoration: none; font-weight: 600; font-size: .95rem; border-bottom: 1px solid #EEF1F6; }
+        .sp-sheets a::before { content: 'PDF'; font-size: .62rem; font-weight: 800; color: #800000; background: #F7E8E8; border-radius: 5px; padding: .15rem .35rem; }
+        .sp-sheets a:hover { color: #003d99; }
+
+        @media (max-width: 1000px) {
+            .sp-hero .rd-hero-in { grid-template-columns: 1fr; }
+            .sp-reach { grid-template-columns: 1fr 1fr; }
+            .sp-dl-grid { grid-template-columns: 1fr 1fr; }
+            .sp-docs { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .sp-sec { padding: 3.2rem 1.25rem; }
+            .sp-reach, .sp-dl-grid, .sp-sheets ul { grid-template-columns: 1fr; }
+        }
+    </style>
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TIC Software",
+        "url": "https://www.ticsoftware.com",
+        "logo": "https://www.ticsoftware.com/images/TIC_Logo.png",
+        "description": "TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.",
+        "foundingDate": "2000",
+        "sameAs": [
+            "https://www.linkedin.com/company/tic-software",
+            "https://twitter.com/ticsoftware",
+            "https://www.facebook.com/ticsoftware"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-123-4567",
+            "contactType": "Sales & Support",
+            "email": "info@ticsoftware.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Business Avenue",
+            "addressLocality": "New York",
+            "addressRegion": "NY",
+            "postalCode": "10001",
+            "addressCountry": "US"
+        },
+        "areaServed": ["US", "CA", "UK", "AU"],
+        "knowsAbout": ["Nonstop Systems", "COBOL Modernization", "Legacy System Integration", "AI Code Intelligence"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TIC Navigator",
+        "description": "AI-powered code intelligence platform for analyzing and modernizing Nonstop systems. TIC Navigator helps enterprises extract information from complex COBOL, TAL, C/C++, and TACL code into a searchable, interactive knowledge base.",
+        "url": "https://ticsoftware.ai/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Nonstop, Windows, Linux, macOS",
+        "softwareVersion": "2024.1",
+        "author": {
+            "@type": "Organization",
+            "name": "TIC Software"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "5000",
+            "highPrice": "50000",
+            "offerCount": "3"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "150",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "screenshot": "https://www.ticsoftware.com/images/tic-navigator-dashboard.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.ticsoftware.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://www.ticsoftware.com/index.html#products"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Services",
+                "item": "https://www.ticsoftware.com/index.html#services"
+            }
+        ]
+    }
+    </script>
+    <link rel="stylesheet" href="header-responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/TIC_2026.png" alt="TIC Software Logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="who-we-are.html">About Us</a>
+                    <div class="dropdown-menu">
+                        <a href="who-we-are.html">Who We Are</a>
+                        <a href="ticteam.html">TIC Team</a>
+                        <a href="our-partners.html">Our Partners</a>
+                        <a href="our-clients.html">Our Clients</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#products">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="messaging.html">Messaging</a>
+                        <a href="gateway.html">Gateway</a>
+                        <a href="business-intelligence.html">Business Intelligence</a>
+                        <a href="modernize.html">Modernize</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="consulting.html">Consulting</a>
+                        <a href="cloud.html">Cloud</a>
+                        <a href="https://ticsoftware.ai/" target="_blank">GenAI</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="index.html#resources">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="tic-news.html">TIC News</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="ticteam.html#get-in-touch">Contact Us</a>
+                <div class="nav-search" style="position: relative;">
+                    <input type="text" id="search-input" class="nav-search-input" placeholder="Search..." autocomplete="off">
+                    <button id="search-btn" class="nav-search-btn" type="button">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SUPPORT: Hero -->
+    <section class="rd-hero sp-hero">
+        <div class="rd-hero-in">
+            <div>
+                <span class="rd-eyebrow">&#9670; Support</span>
+                <h1>How can we <em>help</em>?</h1>
+                <p class="rd-lede">Reach our Nonstop support team, download the latest software updates for your TIC products, or find answers in our FAQs and datasheets.</p>
+                <div class="rd-ctas">
+                    <a href="#updates" class="rd-btn rd-btn-primary">Software updates &rarr;</a>
+                    <a href="#docs" class="rd-btn rd-btn-ghost">FAQs &amp; datasheets</a>
+                </div>
+            </div>
+            <aside class="sp-quick" aria-label="Technical support contacts">
+                <h2>Technical support</h2>
+                <a class="sp-line" href="tel:+15164667990"><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Call</small><b>(516) 466-7990</b></span></a>
+                <a class="sp-line" href="mailto:support@ticsoftware.com"><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span><span><small>Email</small><b>support@ticsoftware.com</b></span></a>
+                <a class="sp-line" href="mailto:sales-support@ticsoftware.com"><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><circle cx="7" cy="7" r="1.5"/></svg></span><span><small>Sales &amp; licensing</small><b>sales-support@ticsoftware.com</b></span></a>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- SUPPORT: Contact -->
+        <section id="contact" class="sp-sec">
+            <div class="sp-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">Contact support</span>
+                    <h2>Talk to the people who build it</h2>
+                    <p>Our support team knows HPE Nonstop and our products inside out. Choose the fastest way to reach us.</p>
+                </div>
+                <div class="sp-reach">
+                    <div class="sp-card"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div><h3>Call technical support</h3><p>For urgent production issues, speak to an engineer directly.</p><a class="big" href="tel:+15164667990">(516) 466-7990</a></div>
+                    <div class="sp-card"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div><h3>Email technical support</h3><p>For questions, issues and requests that need a written record.</p><a class="big" href="mailto:support@ticsoftware.com">support@ticsoftware.com</a></div>
+                    <div class="sp-card"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><circle cx="7" cy="7" r="1.5"/></svg></div><h3>Sales &amp; licensing</h3><p>For license keys, renewals, upgrades and new products.</p><a class="big" href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a></div>
+                    <div class="sp-tips">
+                        <h3>Help us help you faster</h3>
+                        <ul>
+                            <li>Product name and version</li>
+                            <li>Your Nonstop system and OS release</li>
+                            <li>What happened, and when</li>
+                            <li>Error messages, EMS events or logs</li>
+                            <li>Steps to reproduce the issue</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUPPORT: Software updates -->
+        <section id="updates" class="sp-sec alt">
+            <div class="sp-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">Software updates</span>
+                    <h2>Download the latest releases</h2>
+                    <p>Keep your TIC products current with the latest fixes and improvements.</p>
+                </div>
+                <div class="sp-note"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#003d99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;margin-top:.1rem"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span><b>Before you update:</b> review the release notes included with the download, and contact support if you need help planning an upgrade on a production system.</span></div>
+                <!-- To publish a download: replace href="#" with the link, and remove
+                     the "pending" class, aria-disabled and title from that button. -->
+                <div class="sp-group">
+                    <h3><i style="background:#003d99"></i>Integrate</h3>
+                    <div class="sp-dl-grid">
+                        <div class="sp-dl">
+                            <div><b>TeleMail</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                        <div class="sp-dl">
+                            <div><b>TelePath</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                        <div class="sp-dl">
+                            <div><b>IP Forwarder</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                        <div class="sp-dl">
+                            <div><b>TeleFTP</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                        <div class="sp-dl">
+                            <div><b>uLinga for Kafka</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                        <div class="sp-dl">
+                            <div><b>uLinga/EE</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-group">
+                    <h3><i style="background:#800000"></i>Modernize</h3>
+                    <div class="sp-dl-grid">
+                        <div class="sp-dl">
+                            <div><b>XML Thunder</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                        <div class="sp-dl">
+                            <div><b>JSON Thunder</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                        <div class="sp-dl">
+                            <div><b>TOP</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-group">
+                    <h3><i style="background:#0F766E"></i>Monitor &amp; analyze</h3>
+                    <div class="sp-dl-grid">
+                        <div class="sp-dl">
+                            <div><b>LogWatch</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                        <div class="sp-dl">
+                            <div><b>Cypress</b><small>Latest release</small></div>
+                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-group">
+                    <h3><i style="background:#5B3CC4"></i>AI for Nonstop</h3>
+                    <div class="sp-nav">
+                        <div class="sp-nav-main">
+                            <div class="sp-nav-title"><b>TIC Navigator</b><span class="sp-badge">Beta</span><span class="sp-badge lang">Espa&ntilde;ol</span></div>
+                            <small>Version 2.2.3 &middot; Windows 10/11 (64-bit)</small>
+                            <p>Getting ready to install Navigator? Start with the prerequisite check. It takes a few seconds, changes nothing on your PC, and saves a short report. Email the report to <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a> and we will send your installer and license file.</p>
+                            <ol class="sp-steps"><li>Download and run the prerequisite check</li><li>Email us the report</li><li>Receive your installer and license</li></ol>
+                            <p class="sp-hash">SHA-256 (NavigatorPrereqCheck-ES.exe): <code>349e60b3b851428f0b90bdf99e25c172728f57bb45a516ec5a286f8683296274</code></p>
+                        </div>
+                        <div class="sp-nav-btns">
+                            <a class="sp-btn" href="./downloads/navigator/NavigatorPrereqCheck-ES.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Prerequisite check &middot; 5.8 MB</a>
+                            <a class="sp-btn ghost" href="./PDF/Navigator-Beta-Guide-ES.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Beta guide (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUPPORT: FAQs and datasheets -->
+        <section id="docs" class="sp-sec">
+            <div class="sp-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">Self-service</span>
+                    <h2>FAQs &amp; datasheets</h2>
+                    <p>Answers to common questions and the technical details for each product.</p>
+                </div>
+                <div class="sp-docs">
+                    <div>
+                        <h3 class="sp-faqs-h">Product FAQs</h3>
+                        <div class="sp-faqs">
+                            <a class="sp-faq" href="logwatch-faq.html"><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span><b>LogWatch FAQ</b><small>Log monitoring and alerts</small></span></a>
+                            <a class="sp-faq" href="thunder-suite-faq.html"><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span><b>Thunder Suite FAQ</b><small>XML Thunder and JSON Thunder</small></span></a>
+                            <a class="sp-faq" href="top-faq.html"><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span><b>TOP FAQ</b><small>Nonstop operation intelligence</small></span></a>
+                        </div>
+                    </div>
+                    <div class="sp-sheets">
+                        <h3>Product datasheets</h3>
+                        <ul>
+                            <li><a href="./PDF/Telemail_Datasheet.pdf" target="_blank" rel="noopener">TeleMail</a></li>
+                            <li><a href="./PDF/TelePath.pdf" target="_blank" rel="noopener">TelePath</a></li>
+                            <li><a href="./PDF/TeleFTP_Datasheet.pdf" target="_blank" rel="noopener">TeleFTP</a></li>
+                            <li><a href="./PDF/uLinga_Kafka_Datasheet.pdf" target="_blank" rel="noopener">uLinga for Kafka</a></li>
+                            <li><a href="./PDF/uLinga_EE_Datasheet.pdf" target="_blank" rel="noopener">uLinga/EE</a></li>
+                            <li><a href="./PDF/XML_Thunder_Product%20_Overview.pdf" target="_blank" rel="noopener">XML Thunder</a></li>
+                            <li><a href="./PDF/JSON%20Product%20Overview.pdf" target="_blank" rel="noopener">JSON Thunder</a></li>
+                            <li><a href="./PDF/TOP_DataSheet.pdf" target="_blank" rel="noopener">TOP</a></li>
+                            <li><a href="./PDF/Logwatch_Data%20sheet.pdf" target="_blank" rel="noopener">LogWatch</a></li>
+                            <li><a href="./PDF/Cypress_Datasheet.pdf" target="_blank" rel="noopener">Cypress</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUPPORT: Closing call to action -->
+        <section class="rd-cta-wrap" aria-label="Contact">
+            <div class="rd-cta">
+                <div>
+                    <span class="rd-eyebrow">&#9670; Still need help?</span>
+                    <h2>Talk to a <span class="rd-red">Nonstop expert</span></h2>
+                    <p>Can't find what you're looking for? Our team is happy to help with anything from a quick question to an upgrade plan.</p>
+                </div>
+                <div class="rd-cta-btns">
+                    <a href="mailto:support@ticsoftware.com" class="rd-btn rd-btn-primary">Email support &rarr;</a>
+                    <a href="ticteam.html#get-in-touch" class="rd-btn rd-btn-ghost">Contact us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    
+
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+
+    <!-- FOOTER COMPONENT -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Footer Content -->
+        <div class="footer-content">
+
+            <!-- About Us Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">About Us</h3>
+                <ul class="footer-links">
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li><a href="ticteam.html">TIC Team</a></li>
+                    <li><a href="our-partners.html">Partners</a></li>
+                    <li><a href="our-clients.html">Clients</a></li>
+                </ul>
+            </div>
+
+            <!-- Products Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Products</h3>
+                <ul class="footer-links">
+                    <li><a href="messaging.html">Messaging</a></li>
+                    <li><a href="gateway.html">Gateway</a></li>
+                    <li><a href="business-intelligence.html">Business Intelligence</a></li>
+                    <li><a href="modernize.html">Modernize</a></li>
+                </ul>
+            </div>
+
+            <!-- Services Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="consulting.html">Consulting</a></li>
+                    <li><a href="cloud.html">Cloud</a></li>
+                    <li><a href="https://ticsoftware.ai/" target="_blank">GenAI</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Column -->
+            <div class="footer-section">
+                <h3 class="footer-title">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="success-stories.html">Success Stories</a></li>
+                    <li><a href="tic-news.html">TIC News</a></li>
+                    <li><a href="blog.html">TIC Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-section footer-contact">
+                <h3 class="footer-title">Contact Us</h3>
+                <div class="contact-item">
+                    <p class="contact-label">Address</p>
+                    <p class="contact-text">
+                        TIC Software, 185 Great Neck RD<br>
+                        4th Floor, Suite 453, Great Neck, NY 11021
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Sales & Support</p>
+                    <p class="contact-text">
+                        <a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a>
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Technical Support</p>
+                    <p class="contact-text">
+                        <a href="tel:516-466-7990">(516) 466-7990</a><br>
+                        <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>&copy; 2026 TIC Software. All rights reserved.</p>
+            </div>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span class="divider">•</span>
+                <a href="terms-of-use.html">Terms of Use</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/tic-software" target="_blank" aria-label="LinkedIn" class="social-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.048-8.829 0-9.743h3.554v1.379c-.009.015-.021.029-.03.042h.03v-.042c.395-.609 1.101-1.473 2.681-1.473 1.957 0 3.425 1.277 3.425 4.024v5.813zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.954-1.71 1.185 0 1.915.755 1.94 1.71 0 .951-.755 1.71-1.979 1.71zm1.581 11.597H3.756V9.567h3.162v10.885zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+</script>
+
+<div style="position:fixed;left:12px;bottom:12px;z-index:99999;background:#B21F23;color:#fff;font:700 12px/1 Arial,sans-serif;letter-spacing:.06em;padding:8px 12px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.25);pointer-events:none">TEST SUPPORT PAGE &middot; NOT LIVE</div>
+</body>
+</html>
