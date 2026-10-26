@@ -31,3 +31,8 @@
 /ctug-2026-gallery                          /gallery.html?album=ctug-2026    301
 /nytug-2026-gallery.html                    /gallery.html?album=nytug-2026   301
 /nytug-2026-gallery                         /gallery.html?album=nytug-2026   301
+
+# The Support page was reviewed as support-test.html; the shared review link
+# lands on the final page.
+/support-test.html                          /support.html   301
+/support-test                               /support.html   301

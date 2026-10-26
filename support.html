@@ -6,8 +6,8 @@
     <title>Support | TIC Software</title>
     <meta name="description" content="Get help with TIC Software products for HPE Nonstop: contact technical support, download software updates, and find FAQs and datasheets.">
     <meta name="keywords" content="Nonstop systems, Nonstop modernization, COBOL, messaging solutions, gateway products, business intelligence, TIC Navigator, HPE Nonstop">
-    <!-- TEST PAGE: support page sandbox. Kept out of search (noindex),
-         the sitemap and the site menus. Not linked from the site until approved. -->
+    <!-- Support page: reached by direct link. Kept out of search (noindex), the
+         sitemap and the site menus by choice. -->
     <meta name="robots" content="noindex, nofollow">
     <meta property="og:title" content="Support | TIC Software">
     <meta property="og:description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
@@ -1734,6 +1734,8 @@
         .sp-btn svg { width: 15px; height: 15px; }
         .sp-btn:hover { background: #0B1F44; }
         /* until a download link is supplied the button is shown as pending */
+        .sp-req { flex: 0 0 auto; font-size: .85rem; font-weight: 700; color: #003d99; text-decoration: none; white-space: nowrap; }
+        .sp-req:hover { text-decoration: underline; }
         .sp-btn.pending { background: #EEF1F6; color: #8A93A6; cursor: not-allowed; pointer-events: none; }
         .sp-note {
             display: flex; gap: .7rem; align-items: flex-start; margin-bottom: 2rem;
@@ -1993,34 +1995,34 @@
                     <p>Keep your TIC products current with the latest fixes and improvements.</p>
                 </div>
                 <div class="sp-note"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#003d99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;margin-top:.1rem"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span><b>Before you update:</b> review the release notes included with the download, and contact support if you need help planning an upgrade on a production system.</span></div>
-                <!-- To publish a download: replace href="#" with the link, and remove
-                     the "pending" class, aria-disabled and title from that button. -->
+                <!-- Products without a download link offer a request-by-email link. To
+                     publish a download, swap that link for an sp-btn download button. -->
                 <div class="sp-group">
                     <h3><i style="background:#003d99"></i>Integrate</h3>
                     <div class="sp-dl-grid">
                         <div class="sp-dl">
-                            <div><b>TeleMail</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>TeleMail</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20TeleMail">Request from support</a>
                         </div>
                         <div class="sp-dl">
-                            <div><b>TelePath</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>TelePath</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20TelePath">Request from support</a>
                         </div>
                         <div class="sp-dl">
-                            <div><b>IP Forwarder</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>IP Forwarder</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20IP%20Forwarder">Request from support</a>
                         </div>
                         <div class="sp-dl">
-                            <div><b>TeleFTP</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>TeleFTP</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20TeleFTP">Request from support</a>
                         </div>
                         <div class="sp-dl">
-                            <div><b>uLinga for Kafka</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>uLinga for Kafka</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20uLinga%20for%20Kafka">Request from support</a>
                         </div>
                         <div class="sp-dl">
-                            <div><b>uLinga/EE</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>uLinga/EE</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20uLinga%2FEE">Request from support</a>
                         </div>
                     </div>
                 </div>
@@ -2028,16 +2030,16 @@
                     <h3><i style="background:#800000"></i>Modernize</h3>
                     <div class="sp-dl-grid">
                         <div class="sp-dl">
-                            <div><b>XML Thunder</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>XML Thunder</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20XML%20Thunder">Request from support</a>
                         </div>
                         <div class="sp-dl">
-                            <div><b>JSON Thunder</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>JSON Thunder</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20JSON%20Thunder">Request from support</a>
                         </div>
                         <div class="sp-dl">
-                            <div><b>TOP</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>TOP</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20TOP">Request from support</a>
                         </div>
                     </div>
                 </div>
@@ -2045,12 +2047,12 @@
                     <h3><i style="background:#0F766E"></i>Monitor &amp; analyze</h3>
                     <div class="sp-dl-grid">
                         <div class="sp-dl">
-                            <div><b>LogWatch</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>LogWatch</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20LogWatch">Request from support</a>
                         </div>
                         <div class="sp-dl">
-                            <div><b>Cypress</b><small>Latest release</small></div>
-                            <a class="sp-btn pending" href="#" aria-disabled="true" title="Download link coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Coming soon</a>
+                            <div><b>Cypress</b></div>
+                            <a class="sp-req" href="mailto:support@ticsoftware.com?subject=Software%20update%20request%3A%20Cypress">Request from support</a>
                         </div>
                     </div>
                 </div>
@@ -2231,6 +2233,5 @@
 <script>
 </script>
 
-<div style="position:fixed;left:12px;bottom:12px;z-index:99999;background:#B21F23;color:#fff;font:700 12px/1 Arial,sans-serif;letter-spacing:.06em;padding:8px 12px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.25);pointer-events:none">TEST SUPPORT PAGE &middot; NOT LIVE</div>
 </body>
 </html>
