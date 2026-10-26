@@ -1772,6 +1772,7 @@
         .sp-btn.part { justify-content: center; background: #5B3CC4; }
         .sp-btn.part:hover { background: #0B1F44; }
         .sp-inst-how { font-size: .9rem; line-height: 1.6; color: #44506A; margin: 0; }
+        .sp-installer .sp-hash { margin-top: .6rem !important; line-height: 1.7; }
         .sp-inst-how code { font-family: Consolas, 'Courier New', monospace; font-size: .85rem; color: #0B1F44; background: #F4F6FB; border-radius: 5px; padding: .1rem .35rem; }
         @media (max-width: 760px) { .sp-parts { grid-template-columns: 1fr 1fr; } }
         .sp-btn.ghost { background: #fff; color: #0B1F44; border: 1.5px solid #D5DBE8; }
@@ -2076,7 +2077,6 @@
                             <small>Version 2.2.3 &middot; Windows 10/11 (64-bit)</small>
                             <p>Getting ready to install Navigator? Start with the prerequisite check. It takes a few seconds, changes nothing on your PC, and saves a short report. Email the report to <a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a> and we will send the license file for your PC.</p>
                             <ol class="sp-steps"><li>Run the prerequisite check and email us the report</li><li>Receive your license file from TIC</li><li>Download the installer (4 parts) and install</li></ol>
-                            <p class="sp-hash">SHA-256 (NavigatorPrereqCheck-ES.exe): <code>349e60b3b851428f0b90bdf99e25c172728f57bb45a516ec5a286f8683296274</code></p>
                         </div>
                         <div class="sp-nav-btns">
                             <a class="sp-btn" href="./downloads/navigator/NavigatorPrereqCheck-ES.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Prerequisite check &middot; 5.8 MB</a>
@@ -2086,6 +2086,7 @@
                             <div class="sp-inst-head"><b>Installer &middot; NavigatorSetup 2.2.3 (ES)</b><span>4 parts &middot; 110 MB total</span></div>
                             <div class="sp-parts"><a class="sp-btn part" href="./downloads/navigator/NavigatorSetup-2.2.3-ES-Part1of4.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Part 1 &middot; 28.0 MB</a><a class="sp-btn part" href="./downloads/navigator/NavigatorSetup-2.2.3-ES-Part2of4.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Part 2 &middot; 28.0 MB</a><a class="sp-btn part" href="./downloads/navigator/NavigatorSetup-2.2.3-ES-Part3of4.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Part 3 &middot; 28.0 MB</a><a class="sp-btn part" href="./downloads/navigator/NavigatorSetup-2.2.3-ES-Part4of4.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Part 4 &middot; 25.6 MB</a></div>
                             <p class="sp-inst-how"><b>How to install:</b> download all four parts, extract each one into <b>the same folder</b> (right-click &rarr; Extract All), put your license file in that folder too, then double-click <code>NavigatorSetup-2.2.3-ES.exe</code>. The installer reads the other parts automatically.</p>
+                            <p class="sp-hash">Optional: check the download. In PowerShell run <code>Get-FileHash NavigatorSetup-2.2.3-ES.exe -Algorithm SHA256</code> and compare the result with <code>358ce3d2ae26da89a802909a281faab8cedca9920d52639839b1215dde9f409d</code></p>
                         </div>
                     </div>
                 </div>
