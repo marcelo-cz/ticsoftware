@@ -1939,6 +1939,21 @@
         .tt-panel figcaption span { display: block; font-size: .74rem; font-weight: 800; letter-spacing: .1em; color: var(--c); margin-bottom: .2rem; }
         .tt-panel figcaption b { display: block; font-size: 1.35rem; color: #0B1F44; }
         .tt-panel figcaption i { display: block; font-style: normal; font-size: .95rem; color: #6B7488; }
+        .tt-more { margin-top: .55rem; padding: 0; border: 0; background: none; font: inherit; font-size: .9rem; font-weight: 700; color: var(--c); cursor: pointer; }
+        .tt-more:hover { text-decoration: underline; }
+        .tt-panel figcaption .tt-more span { display: inline; margin: 0; font-size: inherit; letter-spacing: 0; color: inherit; }
+        /* flip card: photo on the front, short bio on the back */
+        .tt-flip { perspective: 1400px; }
+        .tt-flip-in { position: relative; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+        .tt-panel.flipped .tt-flip-in { transform: rotateY(180deg); }
+        .tt-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        .tt-back {
+            position: absolute; inset: 0; transform: rotateY(180deg); border-radius: 26px; border: 6px solid #fff; box-shadow: 0 26px 50px rgba(11, 31, 68, .18);
+            background: radial-gradient(120% 90% at 100% 0%, #1E3A70 0%, #0B1F44 60%); color: #fff;
+            padding: 1.5rem 1.5rem 3rem; display: flex; flex-direction: column; justify-content: center; gap: .6rem; overflow: hidden;
+        }
+        .tt-back-k { font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #F2B8B8; }
+        .tt-back p { margin: 0; font-size: .92rem; line-height: 1.55; color: #E4E9F6; }
 
         /* get in touch: headquarters panel + two contact routes */
         .tt-touch { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1.4rem; align-items: stretch; }
@@ -1997,7 +2012,7 @@
         .tt-sub button:hover { background: #E4E9F6; }
         .tt-sub small { font-size: .8rem; color: #9FB3D9; position: relative; z-index: 1; }
 
-        @media (prefers-reduced-motion: reduce) { .tt-orb-ring, .tt-orb-p, .tt-hq-pin::before, .tt-hq-pin::after { animation: none; } .tt-panel { transition: none; } }
+        @media (prefers-reduced-motion: reduce) { .tt-orb-ring, .tt-orb-p, .tt-hq-pin::before, .tt-hq-pin::after { animation: none; } .tt-panel, .tt-flip-in { transition: none; } }
         @media (max-width: 1000px) {
             .tt-touch { grid-template-columns: 1fr; }
         }
@@ -2172,7 +2187,7 @@
                     </div>
                 </div>
                 <div class="tt-stage">
-                    <figure class="tt-panel on" role="tabpanel" id="tt-panel-0" aria-labelledby="tt-tab-0" style="--c:#800000"><img src="./images/redesign/team-phil-ly.jpg" width="320" height="320" alt="Phil Ly, President"><figcaption><span>01 / 05</span><b>Phil Ly</b><i>President</i></figcaption></figure>
+                    <figure class="tt-panel on" role="tabpanel" id="tt-panel-0" aria-labelledby="tt-tab-0" style="--c:#800000"><div class="tt-flip"><div class="tt-flip-in"><div class="tt-face tt-front"><img src="./images/redesign/team-phil-ly.jpg" width="320" height="320" alt="Phil Ly, President"></div><div class="tt-face tt-back" id="tt-bio-0" aria-hidden="true"><span class="tt-back-k">About Phil</span><p>Phil Ly is the President of TIC Software, which provides software and services that help the Nonstop community modernize its applications. Under Phil's guidance, TIC has a proven track record of integrating Nonstop with next-generation technologies. A recognized technical leader, Phil helps organizations unlock the full potential and longevity of their Nonstop platforms.</p></div></div></div><figcaption><span>01 / 05</span><b>Phil Ly</b><i>President</i><button type="button" class="tt-more" aria-expanded="false" aria-controls="tt-bio-0">Read bio <span aria-hidden="true">&rarr;</span></button></figcaption></figure>
                     <figure class="tt-panel" role="tabpanel" id="tt-panel-1" aria-labelledby="tt-tab-1" aria-hidden="true" style="--c:#003d99"><img src="./images/redesign/team-gabriela-claure.jpg" width="320" height="320" alt="Gabriela Claure, Chief Customer Success Officer"><figcaption><span>02 / 05</span><b>Gabriela Claure</b><i>Chief Customer Success Officer</i></figcaption></figure>
                     <figure class="tt-panel" role="tabpanel" id="tt-panel-2" aria-labelledby="tt-tab-2" aria-hidden="true" style="--c:#0F766E"><img src="./images/redesign/team-tim-dunne.jpg" width="320" height="320" alt="Tim Dunne, Chief Revenue Officer"><figcaption><span>03 / 05</span><b>Tim Dunne</b><i>Chief Revenue Officer</i></figcaption></figure>
                     <figure class="tt-panel" role="tabpanel" id="tt-panel-3" aria-labelledby="tt-tab-3" aria-hidden="true" style="--c:#5B3CC4"><img src="./images/redesign/team-donald-wickham.jpg" width="320" height="320" alt="Donald Wickham, Chief Architect"><figcaption><span>04 / 05</span><b>Donald Wickham</b><i>Chief Architect</i></figcaption></figure>
@@ -2363,15 +2378,16 @@
             var tabs = [].slice.call(spot.querySelectorAll('.tt-tab'));
             var panels = [].slice.call(spot.querySelectorAll('.tt-panel'));
             var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var cur = 0, timer = null;
+            var cur = 0, timer = null, held = false;
             if (still) spot.classList.add('still');
             function schedule() {
                 clearTimeout(timer);
-                if (still || spot.classList.contains('paused')) return;
+                if (still || held || spot.classList.contains('paused')) return;
                 timer = setTimeout(function () { show(cur + 1); }, 6000);
             }
             function show(i, focus) {
                 cur = (i + tabs.length) % tabs.length;
+                panels.forEach(function (pn) { flip(pn, false); });
                 tabs.forEach(function (t, k) {
                     var on = k === cur;
                     t.setAttribute('aria-selected', on ? 'true' : 'false');
@@ -2385,6 +2401,25 @@
                 if (focus) tabs[cur].focus();
                 schedule();
             }
+            function flip(pn, open) {
+                var more = pn.querySelector('.tt-more');
+                if (!more) return;
+                var back = pn.querySelector('.tt-back');
+                pn.classList.toggle('flipped', open);
+                more.setAttribute('aria-expanded', open ? 'true' : 'false');
+                more.firstChild.nodeValue = open ? 'Show photo ' : 'Read bio ';
+                if (open) back.removeAttribute('aria-hidden'); else back.setAttribute('aria-hidden', 'true');
+                held = open;
+                if (!open) schedule(); else clearTimeout(timer);
+            }
+            panels.forEach(function (pn) {
+                var more = pn.querySelector('.tt-more');
+                if (!more) return;
+                more.addEventListener('click', function () {
+                    var open = !pn.classList.contains('flipped');
+                    flip(pn, open);
+                });
+            });
             tabs.forEach(function (t, k) {
                 t.addEventListener('click', function () { show(k); });
                 t.addEventListener('keydown', function (e) {
