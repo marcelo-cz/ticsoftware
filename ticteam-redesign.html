@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC Team: Leadership &amp; Contacts | TIC Software</title>
+    <meta name="description" content="Meet the TIC Software leadership team, experienced leaders in HPE Nonstop modernization, and find how to reach our sales and support teams.">
+    <meta name="keywords" content="Nonstop systems, Nonstop modernization, COBOL, messaging solutions, gateway products, business intelligence, TIC Navigator, HPE Nonstop">
+    <!-- TEST PAGE: TIC Team redesign sandbox. Kept out of search (noindex),
+         the sitemap and the site menus. ticteam.html stays the live page. -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="TIC Team: Leadership &amp; Contacts | TIC Software">
+    <meta property="og:description" content="Meet the TIC Software leadership team, experienced leaders in HPE Nonstop modernization, and find how to reach our sales and support teams.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ticsoftware.com/ticteam.html">
+    <meta property="og:image" content="https://ticsoftware.com/images/TIC_2026.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TIC Software - HPE Nonstop Modernization &amp; Integration">
+    <meta name="twitter:description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
+    <meta name="twitter:image" content="https://ticsoftware.com/images/TIC_2026.png">
+    <meta name="theme-color" content="#003d99">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-search-input {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 250px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.1);
+        }
+
+        .nav-search-btn {
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-search-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./images/skyline_image_bgc2.jpg');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: left;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        /* Page intro above the content cards */
+        .page-intro {
+            text-align: center;
+            border-bottom: none;
+            padding: 2.5rem 0 0.5rem;
+        }
+
+        .page-intro h1 {
+            font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--primary-blue);
+            margin-bottom: 0.6rem;
+        }
+
+        /* second line of the h1: descriptive, so the phrase still carries
+           heading weight without adding an h2 above the card grid */
+        .page-intro-sub {
+            display: block;
+            font-size: clamp(1.05rem, 1.9vw, 1.4rem);
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--dark-text);
+            margin-top: 0.35rem;
+        }
+
+        .page-intro-tagline {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            color: var(--dark-text);
+            /* 720px broke the line before "them."; this holds the sentence on one
+               line at desktop while still wrapping normally on narrow screens */
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        /* Who We Are & What's New Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: stretch;
+        }
+
+        .about-box {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            border: 2px solid var(--border-gray);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 0.75rem;
+        }
+
+        .about-box p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        .about-box > .btn {
+            margin-top: auto;
+        }
+
+        /* two product buttons share the slot a single .btn used to fill */
+        /* .about-box p grows to fill the box, which suits a single block of
+           copy but pushed these two product paragraphs apart. The button
+           row below still pins itself to the bottom. */
+        .about-box.two-products p { flex-grow: 0; }
+
+        /* The section stretches both boxes to the taller one, and this box's
+           copy is shorter - which left ~139px of slack trailing after the last
+           button at 1280px. Spreading the two products down the box puts that
+           space between them instead, and keeps the boxes equal height. */
+        .about-box.two-products { justify-content: space-between; }
+
+        /* Each product stands on its own: box shot, copy, then the button that
+           goes with it - rather than both buttons sharing a row at the bottom. */
+        /* Box shot on the left, copy and its button on the right. The image
+           spans both rows so the text sits beside it rather than under it;
+           the box goes full width below 768px, so this holds on phones too. */
+        .about-box .product-item {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            column-gap: 1.25rem;
+            align-items: start;
+        }
+
+        .about-box .product-item + .product-item { margin-top: 1.5rem; }
+
+        /* The two crops differ slightly in proportion (620x471 against
+           664x477), which left one shot 6px taller than the other and the
+           blocks looking unmatched. Pinning both to one height lines the pair
+           up; at 93px they come out 122px and 129px wide, so both still sit
+           inside the 130px column. */
+        .about-box .product-item img {
+            grid-row: 1 / span 2;
+            display: block;
+            width: auto;
+            height: 93px;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .about-box .product-item p { margin-bottom: 0.75rem; }
+        /* Each button spans its copy column, so it lines up with the paragraph
+           above it on both edges rather than hugging its own label. */
+        .about-box .product-item .btn { justify-self: stretch; }
+
+        /* Below this the text column is under ~200px and the copy breaks into
+           two- and three-word lines, so the box shot goes back above the text. */
+        @media (max-width: 560px) {
+            .about-box .product-item { grid-template-columns: 1fr; row-gap: 0.75rem; }
+            .about-box .product-item img { grid-row: auto; width: 100%; height: auto; max-width: 200px; margin: 0 auto; }
+        }
+
+        .about-box .italic-text {
+            font-style: italic;
+            margin: 1.5rem 0;
+            padding: 1.5rem 0;
+            border-top: 2px solid var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .event-details {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .event-details p {
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .nytug-box {
+            display: flex;
+            flex-direction: column;
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+
+        .nytug-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .nytug-logo {
+            flex: 0 0 330.625px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nytug-logo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .nytug-logo .event-details {
+            margin: 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nytug-logo .event-details p {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .address-indent {
+            display: block;
+            margin-left: 5.0rem;
+        }
+
+        .nytug-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nytug-details h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 0 0 1rem 0;
+        }
+
+        .nytug-details p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .nytug-details .btn {
+            margin-top: auto;
+            align-self: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-blue);
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .whats-new-image {
+            text-align: center;
+        }
+
+        .whats-new-image img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .whats-new-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .whats-new-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .whats-new-content p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        .whats-new-content .btn {
+            margin-top: auto;
+        }
+
+        /* Products Section */
+        .products-section {
+            background-color: var(--light-gray);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .product-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            margin-top: -1.5rem;
+            color: var(--white);
+            background-color: #7ECCC5;
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            width: calc(100% + 4rem);
+            margin-left: -2rem;
+            margin-right: -2rem;
+            text-align: center;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .product-card a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--white);
+        }
+
+        .services-section .section-title {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 1.5rem 2rem;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+            border: 2px solid var(--border-gray);
+            border-bottom: none;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            background-color: var(--white);
+            padding: 0.25rem 2rem 2rem 2rem;
+            border-radius: 0 0 8px 8px;
+            border: 2px solid var(--border-gray);
+            border-top: none;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0,61,153,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            text-decoration: underline;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .service-card a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--white);
+            text-align: center;
+            border: 1px solid #ccc !important;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ccc !important;
+        }
+
+        .testimonials-box {
+            background-color: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            padding: 1.125rem;
+            border-radius: 8px;
+            margin-bottom: 0;
+        }
+
+        .testimonials-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1.125rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 0;
+        }
+
+        .testimonials-slideshow {
+            position: relative;
+            max-width: 750px;
+            min-height: 112.5px;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .testimonial-quote {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0;
+            font-style: italic;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .testimonial-quote.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-nav-btn {
+            padding: 0.75rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: 2px solid var(--primary-blue);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .testimonial-nav-btn:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+
+        .clients-carousel {
+            position: relative;
+            max-width: 1200px;
+            height: 200px;
+            margin: 0.3rem auto 0;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        .client-carousel-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: transform 0.6s ease-in-out;
+            transform: translateX(100%);
+            top: 0;
+            left: 0;
+        }
+
+        .client-carousel-slide.active {
+            transform: translateX(0);
+            z-index: 10;
+        }
+
+        .client-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 268px;
+            height: 150px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .client-logo img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+
+        .client-logo img {
+            max-height: 100%;
+            max-width: 150px;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
+            color: #e8e8e8;
+            padding: 3rem 1.5rem 0;
+            margin-top: 4.5rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer Content Grid */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.125rem;
+            padding: 0 1.5rem 2.25rem 1.5rem;
+            border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+        }
+
+        /* Footer Section */
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+        /* Footer Title */
+        .footer-title {
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 0.56rem;
+            text-align: left;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #4a6fa5, rgba(74, 111, 165, 0));
+        }
+
+        /* Footer Links */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.56rem;
+            text-align: left;
+        }
+
+        .footer-links a {
+            color: #b0b8c1;
+            text-decoration: none;
+            font-size: 0.71rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4a6fa5;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #4a6fa5;
+        }
+
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .footer-contact {
+            grid-column: 5;
+            display: grid !important;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .footer-contact .footer-title {
+            grid-column: 1 / -1;
+            margin-bottom: 0;
+        }
+
+        .footer-contact .contact-item:first-of-type {
+            grid-column: 1 / -1;
+            margin-top: -0.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.64rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #4a6fa5;
+            margin-bottom: 0.38rem;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .contact-text {
+            font-size: 0.68rem;
+            line-height: 1.7;
+            color: #b0b8c1;
+            margin: 0;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .contact-text a {
+            color: #4a6fa5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: #5a7fb5;
+            text-decoration: underline;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.68rem;
+            color: #7a8292;
+        }
+
+        .footer-copyright p {
+            margin: 0;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            font-size: 0.68rem;
+        }
+
+        .footer-legal a {
+            color: #7a8292;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #4a6fa5;
+        }
+
+        .divider {
+            color: rgba(74, 111, 165, 0.4);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .footer-social .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(74, 111, 165, 0.15);
+            border: 1px solid rgba(74, 111, 165, 0.3);
+            border-radius: 6px;
+            color: #4a6fa5;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-social .social-link:hover {
+            background: rgba(74, 111, 165, 0.25);
+            border-color: rgba(74, 111, 165, 0.5);
+            color: #5a7fb5;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.875rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                padding: 2.25rem 1.125rem 0;
+                margin-top: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                padding: 0 1.5rem 1.5rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-title {
+                font-size: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 0.68rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-legal {
+                justify-content: center;
+                order: 2;
+            }
+
+            .footer-copyright {
+                order: 1;
+            }
+
+            .footer-social {
+                order: 3;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.125rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-section {
+                border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+                padding-bottom: 1.125rem;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+
+            .footer-contact {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-contact .contact-item:first-of-type {
+                grid-column: 1 !important;
+            }
+
+            .footer-title::after {
+                width: 100%;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem; flex-wrap: nowrap;
+                font-size: 0.85rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .client-logos {
+                gap: 1rem;
+            }
+        }
+        /* Event cards (ported from ticsoftware.ai What's New) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+        .case-study-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(65, 84, 255, 0.15);
+        }
+        .case-study-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .case-study-tag {
+            display: inline-block;
+            background: #E4E7FF;
+            color: #003d99;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .case-study-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #1D1E2B;
+            min-height: 3.2rem;
+        }
+        .case-study-excerpt {
+            color: #1D1E2B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .case-study-content .cta-button {
+            display: inline-block;
+            background: #003d99;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: auto;
+        }
+        .case-study-content .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 61, 153, 0.3);
+        }
+
+        /* Single upcoming event: image left, detail right */
+        .event-horizontal {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 2rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .event-horizontal:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(65, 84, 255, 0.15);
+        }
+
+        .event-horizontal img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            background-color: #000000;
+        }
+
+        /* ===== TBC 2026 line in the What's New box =====
+           No logo and no card: the eyebrow leads, then the conference name and
+           the where/when beneath it. */
+        .about-box .case-study-tag { align-self: flex-start; margin-bottom: 0.9rem; }
+
+        /* HPE brand green */
+        /* Sized to hold one line. The box gives about 504px of content width
+           and this string is 69 characters, which needs ~450px at .85rem -
+           1rem came to ~530px and wrapped. nowrap keeps it honest; below
+           1100px the column narrows enough that wrapping is the better
+           outcome, so it is released there.
+
+           Scoped to .about-box because `.about-box p` is more specific than a
+           bare class on a <p>: unscoped, this was rendering at 0.95rem with a
+           1rem margin, so the width budget above never held and the media
+           query below was a no-op. .about-box is a flex column, so that 1rem
+           did not collapse against the next child either - it stacked. */
+        @media (max-width: 1100px) {
+        }
+
+        /* ===== Session entries in the What's New box =====
+           Every rule below is scoped to .about-box on purpose: `.about-box p`
+           is more specific than a bare class on a <p> and would otherwise pull
+           these back to 0.95rem and re-justify them. */
+        @media (max-width: 1100px) {
+        }
+
+        /* Native disclosure, so this page still needs no JavaScript. The
+           default marker is dropped for a caret that flips when open, and the
+           label swaps between the two spans in the summary. */
+        /* The button closes the box, spanning its full width.
+           colour has to be restated here: the white text came from
+           .case-study-content .cta-button, which only applied while the button
+           sat inside the event card - moved out, it inherited the box's dark
+           text on a dark blue background and disappeared. */
+        .event-horizontal .case-study-content { padding: 1.75rem 2rem 1.75rem 0; }
+        /* .case-study-content is a flex column, so inline-block children stretch */
+        .event-horizontal .case-study-tag { align-self: flex-start; }
+        .event-horizontal .case-study-content h3 { min-height: 0; }
+        .event-horizontal .case-study-excerpt { margin-bottom: 1.25rem; max-width: 70ch; }
+        .event-horizontal .cta-button { margin-top: 0; width: fit-content; }
+
+        @media (max-width: 768px) {
+            .case-study-grid { grid-template-columns: 1fr; }
+            .event-horizontal { grid-template-columns: 1fr; }
+            .event-horizontal .case-study-content { padding: 0 1.5rem 1.5rem; }
+        }
+
+        /* ================================================================
+           REDESIGN: header
+           Scoped to .rd-header so the original element rules (header, nav,
+           nav a) only provide the base; everything visible is set here.
+           ================================================================ */
+        header.rd-header {
+            position: sticky; top: 0; z-index: 1000; padding: 0;
+            background: rgba(255, 255, 255, .94); backdrop-filter: saturate(1.4) blur(10px);
+            border-bottom: 1px solid #E6EAF2; box-shadow: none;
+        }
+        .rd-header-in { max-width: 1240px; margin: 0 auto; padding: .7rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
+        .rd-logo { display: flex; flex-direction: column; align-items: flex-start; gap: .2rem; text-decoration: none; margin-right: auto; flex: 0 0 auto; }
+        .rd-logo img { height: 48px; width: auto; display: block; }
+        .rd-tagline { font-size: .72rem; font-weight: 600; font-style: italic; color: #6B7488; letter-spacing: .01em; white-space: nowrap; }
+        header.rd-header nav.rd-nav { display: flex; align-items: center; gap: .3rem; white-space: nowrap; }
+        .rd-nav-link, .rd-dd-toggle {
+            display: inline-flex; align-items: center; gap: .3rem; padding: .55rem .8rem; border-radius: 9px;
+            font-size: .95rem; font-weight: 600; color: #0B1F44; text-decoration: none; transition: background .2s, color .2s;
+        }
+        .rd-nav-link:hover, .rd-dd-toggle:hover, .rd-dd:focus-within .rd-dd-toggle { background: #F1F4FA; color: #003d99; }
+        .rd-nav-link.active { color: #003d99; }
+        button.rd-dd-toggle { background: transparent; border: 0; font-family: inherit; cursor: default; }   /* About Us: opens its menu, links nowhere */
+        .rd-caret { width: 12px; height: 12px; transition: transform .2s; }
+        .rd-dd { position: relative; }
+        .rd-dd-menu {
+            position: absolute; top: calc(100% + 6px); left: 0; min-width: 220px; padding: .45rem;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; box-shadow: 0 18px 40px rgba(11, 31, 68, .14);
+            opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s, transform .18s, visibility .18s;
+        }
+        .rd-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -8px; height: 8px; }  /* hover bridge */
+        .rd-dd:hover .rd-dd-menu, .rd-dd:focus-within .rd-dd-menu { opacity: 1; visibility: visible; transform: none; }
+        .rd-dd:hover .rd-caret, .rd-dd:focus-within .rd-caret { transform: rotate(180deg); }
+        .rd-dd-menu a { display: block; padding: .6rem .8rem; border-radius: 9px; font-size: .93rem; font-weight: 600; color: #0B1F44; text-decoration: none; }
+        .rd-dd-menu a:hover { background: #F1F4FA; color: #003d99; }
+
+        .rd-search { position: relative; display: flex; align-items: center; margin-left: .5rem; }
+        .rd-search-input {
+            width: 170px; padding: .55rem 2.4rem .55rem .95rem; border: 1.5px solid #DCE2EF; border-radius: 999px;
+            font: inherit; font-size: .9rem; color: #0B1F44; background: #fff; transition: width .25s, border-color .2s, box-shadow .2s;
+        }
+        .rd-search-input::placeholder { color: #8A93A6; }
+        .rd-search-input:focus { outline: none; width: 220px; border-color: #003d99; box-shadow: 0 0 0 3px rgba(0, 61, 153, .12); }
+        .rd-search-btn {
+            position: absolute; right: 4px; width: 32px; height: 32px; border: 0; border-radius: 50%; padding: 0;
+            display: flex; align-items: center; justify-content: center; background: transparent; color: #4A5570; cursor: pointer;
+        }
+        .rd-search-btn:hover { background: #F1F4FA; color: #003d99; }
+        .rd-search-btn svg { width: 17px; height: 17px; }
+        .rd-search .search-results { left: auto; right: 0; width: 320px; }
+        .rd-nav-cta {
+            margin-left: .4rem; padding: .62rem 1.15rem; border-radius: 10px; background: #003d99; color: #fff;
+            font-size: .93rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 18px rgba(0, 61, 153, .22); transition: transform .2s, box-shadow .2s;
+        }
+        .rd-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0, 61, 153, .3); color: #fff; }
+
+        .rd-burger { display: none; width: 44px; height: 44px; border: 0; background: transparent; border-radius: 10px; cursor: pointer; padding: 10px; }
+        .rd-burger span { display: block; height: 2px; background: #0B1F44; border-radius: 2px; margin: 5px 0; transition: transform .25s, opacity .25s; }
+        .rd-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .rd-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .rd-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        @media (max-width: 1080px) {
+            .rd-header-in { padding: .6rem 1.25rem; flex-wrap: wrap; }
+            .rd-logo img { height: 42px; }
+            .rd-burger { display: block; }
+            header.rd-header nav.rd-nav {
+                display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; gap: .1rem;
+                padding: .6rem 0 1rem; border-top: 1px solid #EEF1F6; margin-top: .4rem; white-space: normal;
+            }
+            header.rd-header.open nav.rd-nav { display: flex; }
+            .rd-nav-link, .rd-dd-toggle { justify-content: space-between; padding: .75rem .6rem; }
+            .rd-dd-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; padding: 0 0 .3rem .8rem; min-width: 0; display: none; }
+            .rd-dd.open .rd-dd-menu { display: block; }
+            .rd-dd.open .rd-caret { transform: rotate(180deg); }
+            .rd-dd:hover .rd-caret { transform: none; }
+            .rd-dd.open:hover .rd-caret { transform: rotate(180deg); }
+            .rd-search { margin: .5rem 0; }
+            .rd-search-input, .rd-search-input:focus { width: 100%; }
+            .rd-search .search-results { width: auto; left: 0; }
+            .rd-nav-cta { margin: .4rem 0 0; text-align: center; }
+        }
+        @media (max-width: 420px) { .rd-tagline { font-size: .66rem; } }
+
+        /* ================================================================
+           REDESIGN: footer
+           ================================================================ */
+        .rd-footer { background: linear-gradient(180deg, #0B1F44 0%, #081633 100%); color: #B9C5DE; margin: 0; }
+        .rd-footer-in { max-width: 1240px; margin: 0 auto; padding: 4rem 2rem 1.6rem; }
+        .rd-fgrid { display: grid; grid-template-columns: 1.5fr repeat(4, minmax(0, .8fr)) 1.4fr; gap: 2rem; }
+        .rd-flogo img { height: 44px; width: auto; display: block; }
+        .rd-ftag { font-size: .78rem; font-style: italic; font-weight: 600; color: #9FB0D3; margin: .4rem 0 1rem; }
+        .rd-fabout { font-size: .9rem; line-height: 1.6; color: #B9C5DE; margin: 0 0 1.2rem; max-width: 280px; }
+        .rd-social {
+            display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .85rem; border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .16); color: #fff; text-decoration: none; font-size: .85rem; font-weight: 600; transition: background .2s, border-color .2s;
+        }
+        .rd-social:hover { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .32); }
+        .rd-fcol h3 { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; margin: .3rem 0 1rem; }
+        .rd-fcol ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+        .rd-fcol a { color: #B9C5DE; text-decoration: none; font-size: .9rem; transition: color .2s; }
+        .rd-fcol a:hover { color: #fff; }
+        .rd-fcontact p { font-size: .88rem; line-height: 1.55; margin: 0 0 .8rem; }
+        .rd-flabel { font-size: .7rem !important; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7F93BD; margin: 0 0 .2rem !important; }
+        .rd-fbottom {
+            display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+            margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid rgba(255, 255, 255, .1); font-size: .82rem; color: #8A9BC0;
+        }
+        .rd-fbottom p { margin: 0; display: flex; gap: .6rem; align-items: center; }
+        .rd-fbottom a { color: #B9C5DE; text-decoration: none; }
+        .rd-fbottom a:hover { color: #fff; }
+        @media (max-width: 1080px) { .rd-fgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .rd-fbrand { grid-column: 1 / -1; } }
+        @media (max-width: 600px) {
+            .rd-footer-in { padding: 3rem 1.25rem 1.4rem; }
+            .rd-fgrid { grid-template-columns: 1fr 1fr; gap: 1.6rem 1.2rem; }
+            .rd-fcontact { grid-column: 1 / -1; }
+        }
+
+        /* REDESIGN: <main> now holds only the full-bleed redesigned sections, so the
+           old 1200px cap and the per-section grey rule no longer apply. Each
+           section centres its own content at 1200px. */
+        main { max-width: none; padding: 0; }
+        /* background rhythm after moving Services up: news grey, services white,
+           proof grey (running into the grey CTA band) */
+        main > .rd-services { background: #fff; border-top: 0; }
+        main > .rd-proof { background: #F4F6FB; border-top: 1px solid #E6EAF2; }
+        main > .rd-proof .rd-q { background: #fff; }
+
+        /* Large quote restyled to match the hero: light graph paper, soft brand
+           glows, navy type with navy/maroon highlights, maroon pill label. */
+        main .rd-quote-main {
+            background: #FBFCFE; color: #0B1F44; border: 1px solid #E3E8F2;
+            box-shadow: 0 14px 34px rgba(11, 31, 68, .08); overflow: hidden;
+        }
+        main .rd-quote-main::after {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(360px 240px at 92% 12%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(300px 220px at 8% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-quote-main > * { position: relative; z-index: 1; }
+        /* plain white: no graph paper or glows on the quote */
+        main .rd-quote-main { background: #fff; }
+        main .rd-quote-main::after { content: none; }
+        main .rd-quote-main::before { color: #800000; opacity: .22; z-index: 1; }
+        main .rd-quote-main p { color: #0B1F44; font-weight: 700; letter-spacing: -.01em; }
+        main .rd-quote-main p em { font-style: normal; color: #003d99; }
+        main .rd-quote-main p .rd-red { color: #800000; }
+        @media (max-width: 600px) { main .rd-quote-main { padding-top: 4.2rem; } }
+
+        /* Closing CTA restyled to match the hero: light graph paper, soft brand
+           glows, navy heading with a maroon accent, the hero's own buttons.
+           The thin ribbon along the bottom edge stays. */
+        main .rd-cta {
+            background: #FBFCFE; color: #0B1F44; border: 1px solid #E3E8F2;
+            box-shadow: 0 14px 34px rgba(11, 31, 68, .08);
+        }
+        main .rd-cta::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(420px 260px at 95% 0%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(360px 240px at 0% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-cta > * { position: relative; z-index: 1; }
+        main .rd-cta .rd-eyebrow { margin-bottom: .9rem; }
+        main .rd-cta h2 { color: #0B1F44; }
+        main .rd-cta h2 .rd-red { color: #800000; }
+        main .rd-cta p { color: #44506A; }
+        main .rd-cta .rd-btn-primary { background: #003d99; color: #fff; box-shadow: 0 10px 24px rgba(0, 61, 153, .25); }
+        main .rd-cta .rd-btn-primary:hover { box-shadow: 0 14px 30px rgba(0, 61, 153, .32); }
+        main .rd-cta .rd-btn-ghost { background: #fff; color: #0B1F44; border: 1.5px solid #D5DBE8; }
+        main .rd-cta .rd-btn-ghost:hover { border-color: #003d99; color: #003d99; }
+        main .rd-quote-main footer {
+            align-self: flex-start; color: #800000; background: #F7E8E8; border: 1px solid #EBCFCF;
+            padding: .35rem .85rem; border-radius: 999px; font-size: .74rem;
+        }
+        .rd-what, .rd-proof, .rd-services, .rd-cta-wrap { border-bottom: 0; }
+        /* the footer component carries a 72px top margin for older pages; the CTA band
+           already ends this one, so it sits flush */
+        main + * footer.site-footer, footer.site-footer { margin-top: 0; }
+
+        /* ================================================================
+           REDESIGN: Services row + closing call to action
+           ================================================================ */
+        .rd-services { padding: 5rem 2rem 4.5rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; scroll-margin-top: 90px; }
+        .rd-services-in { max-width: 1200px; margin: 0 auto; }
+        .rd-svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+        .rd-svc {
+            display: flex; flex-direction: column; gap: .55rem; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1.5rem 1.4rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-svc:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-svc .rd-ic { width: 44px; height: 44px; border-radius: 12px; margin-bottom: .5rem; background: #E8EEFA; color: #003d99; }
+        .rd-svc .rd-ic svg { width: 22px; height: 22px; }
+        .rd-svc h3 { font-size: 1.12rem; font-weight: 700; color: #0B1F44; margin: 0; }
+        .rd-svc p { font-size: .93rem; line-height: 1.55; color: #44506A; margin: 0; }
+        .rd-svc .rd-go { margin-top: auto; padding-top: .3rem; font-weight: 700; font-size: .9rem; color: #003d99; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-svc:hover .rd-go { gap: .6rem; }
+
+        .rd-cta-wrap { padding: 0 2rem 5rem; background: #F4F6FB; }
+        .rd-cta {
+            position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+            padding: 3rem 3.2rem; border-radius: 22px;
+            background: linear-gradient(135deg, #0B1F44 0%, #003d99 70%, #1B4FB8 100%); color: #fff;
+        }
+        .rd-cta::after {               /* thin maroon-to-blue ribbon along the bottom edge */
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+            background: linear-gradient(90deg, #800000, #B21F23 30%, #4154FF 70%, #8455E0);
+        }
+        .rd-cta h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.2; margin: 0 0 .5rem; color: #fff; }
+        .rd-cta p { font-size: 1.05rem; line-height: 1.6; color: #C9D6F0; margin: 0; max-width: 560px; }
+        .rd-cta-btns { display: flex; flex-wrap: wrap; gap: .8rem; }
+        .rd-cta .rd-btn-primary { background: #fff; color: #0B1F44; box-shadow: 0 10px 24px rgba(0, 0, 0, .2); }
+        .rd-cta .rd-btn-primary:hover { box-shadow: 0 14px 30px rgba(0, 0, 0, .28); }
+        .rd-cta .rd-btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .4); }
+        .rd-cta .rd-btn-ghost:hover { border-color: #fff; color: #fff; }
+
+        @media (max-width: 1000px) { .rd-svc-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .rd-services { padding: 3.5rem 1.25rem 3rem; } .rd-svc-grid { grid-template-columns: 1fr; }
+            .rd-cta-wrap { padding: 0 1.25rem 3.5rem; } .rd-cta { padding: 2.2rem 1.5rem; }
+        }
+
+        /* ================================================================
+           REDESIGN: Proven in production (stories + testimonials)
+           ================================================================ */
+        .rd-proof { padding: 5rem 2rem; background: #fff; }
+        .rd-proof-in { max-width: 1200px; margin: 0 auto; }
+        .rd-stories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-bottom: 3.5rem; }
+        .rd-case {
+            display: flex; flex-direction: column; gap: .7rem; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.6rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-case:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-case-logo { height: 46px; display: flex; align-items: center; margin-bottom: .3rem; }
+        .rd-case-logo img { max-height: 40px; max-width: 170px; width: auto; display: block; }
+        .rd-case-logo .word { font-size: 1.15rem; font-weight: 800; color: #0B1F44; letter-spacing: -.01em; }
+        .rd-case h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.35; color: #0B1F44; margin: 0; }
+        .rd-case p { font-size: .93rem; line-height: 1.55; color: #44506A; margin: 0; }
+        .rd-uses { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; padding-top: .4rem; }
+        .rd-uses span { font-size: .74rem; font-weight: 700; color: #003d99; background: #E8EEFA; border-radius: 999px; padding: .22rem .6rem; }
+        .rd-case .rd-go { font-weight: 700; font-size: .92rem; color: #800000; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-case:hover .rd-go { gap: .6rem; }
+
+        /* testimonials: one large quote, four short ones beside it */
+        .rd-quotes { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.4rem; align-items: stretch; }
+        .rd-quote-main {
+            position: relative; margin: 0; border-radius: 18px; padding: 2.4rem 2.4rem 2.2rem;
+            background: linear-gradient(135deg, #0B1F44, #003d99); color: #fff;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .rd-quote-main::before { content: '\201C'; position: absolute; top: .6rem; left: 1.6rem; font: 700 6rem/1 Georgia, serif; color: rgba(255,255,255,.14); }
+        .rd-quote-main p { position: relative; font-size: 1.35rem; line-height: 1.5; font-weight: 600; margin: 0 0 1.2rem; }
+        .rd-quote-main footer, .rd-q footer { font-size: .85rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+        .rd-quote-main footer { color: #B9C8E8; }
+        .rd-qs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .rd-q { margin: 0; background: #F4F6FB; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1.3rem 1.3rem 1.1rem; display: flex; flex-direction: column; gap: .7rem; }
+        .rd-q p { font-size: .98rem; line-height: 1.5; font-weight: 600; color: #0B1F44; margin: 0; }
+        .rd-q p::before { content: '\201C'; color: #800000; font-weight: 800; margin-right: .1rem; }
+        .rd-q p::after { content: '\201D'; color: #800000; font-weight: 800; margin-left: .05rem; }
+        .rd-q footer { color: #6B7488; margin-top: auto; font-size: .74rem; }
+        .rd-q.wide { grid-column: span 2; }
+        .rd-proof-more { text-align: center; margin-top: 2.4rem; }
+
+        @media (max-width: 1000px) { .rd-stories { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rd-quotes { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .rd-proof { padding: 3.5rem 1.25rem; }
+            .rd-stories, .rd-qs { grid-template-columns: 1fr; }
+            .rd-q.wide { grid-column: auto; }
+            .rd-quote-main { padding: 2rem 1.5rem; } .rd-quote-main p { font-size: 1.15rem; }
+        }
+
+        /* ================================================================
+           REDESIGN: What's new (featured story + two latest items)
+           ================================================================ */
+        .rd-news { padding: 5rem 2rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; border-bottom: 1px solid #E6EAF2; }
+        .rd-news-in { max-width: 1200px; margin: 0 auto; }
+        .rd-news-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+        .rd-news-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0; }
+        .rd-all { font-weight: 700; color: #003d99; text-decoration: none; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-all:hover { gap: .6rem; }
+
+        .rd-news-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1.5rem; }
+        .rd-side { display: grid; gap: 1.5rem; }
+        .rd-story {
+            display: flex; flex-direction: column; overflow: hidden; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px;
+            transition: transform .25s, box-shadow .25s;
+        }
+        .rd-story:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); }
+        .rd-story img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #fff; }
+        .rd-story-body { padding: 1.5rem 1.6rem 1.6rem; display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+        .rd-tag { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #800000; }
+        .rd-story h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.3; color: #0B1F44; margin: 0; }
+        .rd-story p { font-size: .96rem; line-height: 1.6; color: #44506A; margin: 0; }
+        .rd-story .rd-go { margin-top: auto; padding-top: .4rem; font-weight: 700; font-size: .95rem; color: #003d99; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-story:hover .rd-go { gap: .6rem; }
+        /* the featured story sets the pace: bigger title, image on top */
+        .rd-story.feature h3 { font-size: 1.6rem; }
+        .rd-story.feature img { border-bottom: 1px solid #E3E8F2; }
+        /* the two side stories: image left, text right */
+        .rd-story.row { flex-direction: row; }
+        .rd-story.row img { width: 42%; aspect-ratio: auto; height: 100%; min-height: 100%; }
+        .rd-story.row .rd-story-body { padding: 1.3rem 1.4rem; }
+        .rd-story.row h3 { font-size: 1.1rem; }
+        .rd-story.row p { font-size: .9rem; }
+
+        @media (max-width: 960px) {
+            .rd-news-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .rd-news { padding: 3.5rem 1.25rem; }
+            .rd-story.row { flex-direction: column; }
+            .rd-story.row img { width: 100%; aspect-ratio: 16 / 9; height: auto; min-height: 0; }
+        }
+
+        /* ================================================================
+           REDESIGN: What we do (four pillars)
+           ================================================================ */
+        .rd-what { padding: 5rem 2rem; background: #fff; scroll-margin-top: 90px; }
+        .rd-what-in { max-width: 1200px; margin: 0 auto; }
+        .rd-head { max-width: 720px; margin: 0 auto 3rem; text-align: center; }
+        .rd-kicker { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #800000; margin-bottom: .8rem; }
+        .rd-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0 0 .9rem; }
+        .rd-head p { font-size: 1.08rem; line-height: 1.65; color: #44506A; margin: 0; }
+
+        .rd-pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+        .rd-pillar {
+            position: relative; display: flex; flex-direction: column;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.8rem 1.6rem 1.6rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-pillar:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-ic { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+        .rd-ic svg { width: 26px; height: 26px; }
+        .rd-pillar h3 { font-size: 1.3rem; font-weight: 700; color: #0B1F44; margin: 0 0 .6rem; }
+        .rd-pillar > p { font-size: .97rem; line-height: 1.6; color: #44506A; margin: 0 0 1.2rem; }
+        .rd-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.4rem; padding: 0; list-style: none; }
+        .rd-chips a {
+            display: inline-block; font-size: .82rem; font-weight: 600; text-decoration: none;
+            color: #0B1F44; background: #F4F6FB; border: 1px solid #E3E8F2; border-radius: 999px; padding: .32rem .75rem;
+            transition: background .2s, border-color .2s, color .2s;
+        }
+        .rd-chips a:hover { background: #fff; border-color: currentColor; }
+        .rd-more { margin-top: auto; font-weight: 700; font-size: .95rem; text-decoration: none; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-pillar:hover .rd-more { gap: .6rem; }
+
+        /* one accent per pillar, used on the icon tile, chip hover and link */
+        .rd-p-int .rd-ic { background: #E8EEFA; color: #003d99; }  .rd-p-int .rd-more, .rd-p-int .rd-chips a:hover { color: #003d99; }
+        .rd-p-mod .rd-ic { background: #F7E8E8; color: #800000; }  .rd-p-mod .rd-more, .rd-p-mod .rd-chips a:hover { color: #800000; }
+        .rd-p-mon .rd-ic { background: #E4F4F1; color: #0F766E; }  .rd-p-mon .rd-more, .rd-p-mon .rd-chips a:hover { color: #0F766E; }
+        .rd-p-ai  .rd-ic { background: #EFEAFB; color: #5B3CC4; }  .rd-p-ai  .rd-more, .rd-p-ai  .rd-chips a:hover { color: #5B3CC4; }
+        .rd-p-ai::after {
+            content: 'TICSoftware.Ai'; position: absolute; top: 1.2rem; right: 1.2rem;
+            font-size: .68rem; font-weight: 700; letter-spacing: .03em; color: #5B3CC4; background: #EFEAFB; border-radius: 999px; padding: .2rem .55rem;
+        }
+
+        @media (max-width: 1080px) { .rd-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 600px)  { .rd-what { padding: 3.5rem 1.25rem; } .rd-pillars { grid-template-columns: 1fr; } }
+
+        /* ================================================================
+           REDESIGN: hero + client logo strip
+           Light hero in the same family as ticsoftware.ai, in .com's navy
+           and maroon. Replaces the skyline photo and the page intro.
+           ================================================================ */
+        .rd-hero {
+            position: relative; overflow: hidden;
+            padding: 4.5rem 2rem 4rem;
+            background: #F4F6FB;
+        }
+        .rd-hero::before {               /* faint graph paper, fading down */
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: 46px 46px;
+            -webkit-mask-image: radial-gradient(85% 75% at 50% 0%, #000 25%, transparent 85%);
+            mask-image: radial-gradient(85% 75% at 50% 0%, #000 25%, transparent 85%);
+        }
+        .rd-hero::after {                /* soft brand glows */
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(520px 340px at 88% 30%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(420px 300px at 70% 95%, rgba(128, 0, 0, .07), transparent 70%);
+        }
+        .rd-hero-in {
+            position: relative; z-index: 1;
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+            gap: 3rem; align-items: center;
+        }
+        .rd-eyebrow {
+            display: inline-flex; align-items: center; gap: .5rem;
+            font-size: .8rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+            color: #800000; background: #F7E8E8; border: 1px solid #EBCFCF;
+            padding: .4rem .9rem; border-radius: 999px; margin-bottom: 1.4rem;
+        }
+        .rd-hero h1 {
+            font-size: clamp(2rem, 3.6vw, 2.75rem); font-weight: 700;
+            line-height: 1.14; letter-spacing: -.02em; color: #0B1F44;
+            margin: 0 0 1.2rem;
+        }
+        .rd-hero h1 em { font-style: normal; color: #003d99; }
+        .rd-hero h1 .rd-red { color: #800000; }
+        .rd-lede { font-size: 1.15rem; line-height: 1.65; color: #44506A; max-width: 560px; margin: 0 0 2rem; }
+        .rd-ctas { display: flex; flex-wrap: wrap; gap: .9rem; }
+        .rd-btn {
+            display: inline-flex; align-items: center; gap: .5rem;
+            padding: .9rem 1.5rem; border-radius: 10px;
+            font-weight: 700; font-size: 1rem; text-decoration: none;
+            transition: transform .2s, box-shadow .2s, background .2s, border-color .2s;
+        }
+        .rd-btn-primary { background: #003d99; color: #fff; box-shadow: 0 10px 24px rgba(0, 61, 153, .25); }
+        .rd-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0, 61, 153, .32); }
+        .rd-btn-ghost { background: #fff; color: #0B1F44; border: 1.5px solid #D5DBE8; }
+        .rd-btn-ghost:hover { border-color: #003d99; color: #003d99; transform: translateY(-2px); }
+        .rd-points { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; list-style: none; padding: 0; margin: 1.8rem 0 0; }
+        .rd-points li { font-size: .92rem; font-weight: 600; color: #5A6478; }
+        .rd-points li::before { content: '\2713'; color: #800000; font-weight: 800; margin-right: .45rem; }
+
+        /* ---- integration diagram ---- */
+        .rd-diagram { position: relative; width: 100%; max-width: 560px; justify-self: end; }
+        .rd-diagram svg { width: 100%; height: auto; display: block; overflow: visible; }
+    /* ---- hero visual: live data flow (Nonstop -> TIC -> destinations) ---- */
+        .fl svg { width: 100%; height: auto; display: block; overflow: visible; }
+        .fl .fl-card { fill: #fff; stroke: #DCE2EF; stroke-width: 1.5; }
+        .fl .fl-t { font: 700 15px 'Segoe UI', Tahoma, sans-serif; fill: #0B1F44; }
+        .fl .fl-s { font: 600 11.5px 'Segoe UI', Tahoma, sans-serif; fill: #6B7488; }
+        .fl .fl-rail { fill: none; stroke: #C9D3EA; stroke-width: 2; stroke-dasharray: 4 6; }
+        .fl .fl-pkt rect { rx: 7; }
+        .fl .fl-pkt text { font: 700 10.5px 'Segoe UI', Tahoma, sans-serif; fill: #fff; }
+        .fl .fl-ring { fill: none; stroke: #800000; stroke-opacity: .25; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: flRing 2.6s ease-out infinite; }
+        @keyframes flRing { 0% { transform: scale(.9); opacity: .9; } 100% { transform: scale(1.35); opacity: 0; } }
+        .fl .fl-tick { animation: flTick 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+        @keyframes flTick { 0%, 60% { transform: scale(1); } 70% { transform: scale(1.35); } 80%, 100% { transform: scale(1); } }
+
+              @media (prefers-reduced-motion: reduce) { .fl .fl-ring, .fl .fl-tick { animation: none; } }
+
+        @media (max-width: 960px) {
+            .rd-hero { padding: 3rem 1.25rem 3rem; }
+            .rd-hero-in { grid-template-columns: 1fr; gap: 2.5rem; }
+            .rd-diagram { justify-self: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            }
+
+        /* ================================================================
+           WHO WE ARE page
+           ================================================================ */
+        .rd-dd-toggle.active { color: #003d99; }
+        .ww-crumb { font-size: .85rem; color: #6B7488; margin-bottom: 1rem; }
+        .ww-crumb a { color: #003d99; font-weight: 600; text-decoration: none; }
+        .ww-crumb a:hover { text-decoration: underline; }
+
+        /* hero visual: the leadership team */
+        .ww-team {
+            justify-self: end; width: 100%; max-width: 520px; position: relative;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 22px; padding: 1.6rem 1.6rem 3.2rem;
+            box-shadow: 0 24px 50px rgba(11, 31, 68, .12);
+        }
+        .ww-team-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
+        .ww-team-head b { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: #6B7488; }
+        .ww-team-head a { font-size: .88rem; font-weight: 700; color: #003d99; text-decoration: none; }
+        .ww-team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 1rem; }
+        .ww-person { display: flex; align-items: center; gap: .8rem; }
+        .ww-person img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; border: 3px solid #fff; box-shadow: 0 0 0 1px #E3E8F2, 0 6px 14px rgba(11, 31, 68, .12); }
+        .ww-person b { display: block; font-size: .98rem; color: #0B1F44; }
+        .ww-person span { display: block; font-size: .8rem; line-height: 1.35; color: #6B7488; }
+        .ww-person.lead { grid-column: 1 / -1; padding-bottom: 1.1rem; border-bottom: 1px solid #E3E8F2; }   /* President on his own row above the four chiefs */
+        .ww-person.lead img { width: 72px; height: 72px; }
+        .ww-person.lead b { font-size: 1.08rem; }
+        .ww-badge {
+            position: absolute; left: -18px; bottom: -18px; display: flex; align-items: center; gap: .6rem;
+            background: #0B1F44; color: #fff; border-radius: 14px; padding: .75rem 1rem; box-shadow: 0 16px 30px rgba(11, 31, 68, .25);
+        }
+        .ww-badge strong { font-size: 1.6rem; line-height: 1; }
+        .ww-badge span { font-size: .78rem; line-height: 1.3; color: #C9D6F0; }
+
+        /* our story */
+        .ww-sec { padding: 5rem 2rem; background: #fff; }
+        main > .ww-sec.alt { background: #F4F6FB; border-top: 1px solid #E6EAF2; border-bottom: 1px solid #E6EAF2; }
+        .ww-in { max-width: 1200px; margin: 0 auto; }
+        .ww-story { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 3.5rem; align-items: start; }
+        .ww-story h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0; }
+        .ww-story h2 em { font-style: normal; color: #800000; }
+        .ww-story p { font-size: 1.05rem; line-height: 1.75; color: #44506A; margin: 0 0 1.1rem; }
+        .ww-story p:last-child { margin-bottom: 0; }
+        /* strand animation under the story heading (from the parked ticsoftware.ai hero) */
+        .ww-strands { position: relative; height: 300px; margin-top: 1.8rem; overflow: hidden;
+            -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 45%, transparent 100%);
+                    mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 45%, transparent 100%); }
+        .ww-strands svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .ww-ribbon { animation: wwDrift1 12s ease-in-out infinite; }
+        .ww-ribbon-fill { opacity: .8; animation: wwColor 9s ease-in-out infinite; }
+        @keyframes wwColor { 0%, 100% { fill: #4154FF; } 33% { fill: #B21F23; } 66% { fill: #6b7280; } }
+        @keyframes wwDrift1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+        @media (prefers-reduced-motion: reduce) { .ww-strands g, .ww-strands path { animation: none; } }
+        @media (max-width: 960px) { .ww-strands { height: 200px; margin-top: 1.2rem; } }
+        .ww-pull {
+            margin: 1.6rem 0 0; padding: 1.2rem 1.4rem; border-radius: 14px; background: #F4F6FB; border: 1px solid #E3E8F2;
+            font-size: 1.12rem; line-height: 1.5; font-weight: 600; color: #0B1F44;
+        }
+        .ww-pull::before { content: '\201C'; color: #800000; font-weight: 800; margin-right: .15rem; }
+        .ww-pull::after { content: '\201D'; color: #800000; font-weight: 800; }
+
+        /* why choose TIC */
+        .ww-why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+        .ww-card { background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.8rem 1.6rem; display: flex; flex-direction: column; gap: .6rem; }
+        .ww-card .rd-ic { width: 52px; height: 52px; border-radius: 14px; margin-bottom: .6rem; display: flex; align-items: center; justify-content: center; }
+        .ww-card .rd-ic svg { width: 26px; height: 26px; }
+        .ww-card h3 { font-size: 1.25rem; font-weight: 700; color: #0B1F44; margin: 0; }
+        .ww-card p { font-size: .97rem; line-height: 1.6; color: #44506A; margin: 0 0 .6rem; }
+        .ww-card .rd-chips { margin: auto 0 0; }
+
+        /* partners */
+        .ww-partners { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; }
+        .ww-partners h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); font-weight: 700; line-height: 1.2; color: #0B1F44; margin: 0 0 .9rem; }
+        .ww-partners p { font-size: 1.02rem; line-height: 1.7; color: #44506A; margin: 0 0 1.4rem; }
+        .ww-plogos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; list-style: none; margin: 0; padding: 0; }
+        .ww-plogos li { height: 92px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; padding: .8rem; }
+        .ww-plogos img { max-height: 54px; max-width: 100%; width: auto; filter: grayscale(1); opacity: .7; transition: filter .25s, opacity .25s; }
+        .ww-plogos li:hover img { filter: none; opacity: 1; }
+        .ww-plogos li.tall img { max-height: 66px; }
+        .ww-plogos li.hpe { grid-row: span 2; height: auto; }
+        .ww-plogos li.hpe img { max-height: 172px; filter: none; opacity: 1; }
+        .ww-plogos li.tight img { max-height: 46px; }
+
+        /* clients */
+        .ww-clients-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .ww-clients-head h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); font-weight: 700; line-height: 1.2; color: #0B1F44; margin: 0 0 .6rem; }
+        .ww-clients-head p { font-size: 1.02rem; line-height: 1.7; color: #44506A; margin: 0; max-width: 680px; }
+        .ww-clients-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+        .ww-clogos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: .7rem; }
+        .ww-clogos li { flex: 0 0 calc((100% - 2.1rem) / 4); height: 64px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #E3E8F2; border-radius: 12px; padding: .55rem .7rem; }
+        .ww-clogos img { max-height: 30px; max-width: 100%; width: auto; filter: grayscale(1); opacity: .75; transition: filter .25s, opacity .25s; }
+        .ww-clogos li.tall img { max-height: 44px; }
+        .ww-clogos li:hover img { filter: none; opacity: 1; }
+        @media (max-width: 600px) { .ww-clogos li { flex-basis: calc((100% - 1.4rem) / 3); } }
+
+        @media (max-width: 960px) {
+            .ww-team { justify-self: center; }
+            .ww-story, .ww-partners { grid-template-columns: 1fr; gap: 2rem; }
+            .ww-why { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .ww-sec { padding: 3.5rem 1.25rem; }
+            .ww-team { padding: 1.2rem 1.2rem 3rem; }
+            .ww-team-grid { grid-template-columns: 1fr; }
+            .ww-badge { left: auto; right: 12px; bottom: -22px; }
+            .ww-plogos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        /* ================================================================
+           TIC TEAM page
+           ================================================================ */
+        /* hero visual: the leadership team orbiting TIC Software */
+        .tt-orb { justify-self: end; position: relative; width: 100%; max-width: 460px; aspect-ratio: 1; }
+        .tt-orb svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .tt-orb-ring { fill: none; stroke: #C9D3EA; stroke-width: 1.5; stroke-dasharray: 4 7; transform-origin: 220px 220px; animation: ttSpin 60s linear infinite; }
+        .tt-orb-ring2 { fill: rgba(128, 0, 0, .04); stroke: rgba(128, 0, 0, .18); stroke-width: 1.5; }
+        @keyframes ttSpin { to { transform: rotate(360deg); } }
+        .tt-orb-core {
+            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; border-radius: 50%;
+            background: #fff; border: 3px solid #800000; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 14px 30px rgba(128, 0, 0, .15);
+        }
+        .tt-orb-core b { font-size: 2rem; font-weight: 900; line-height: 1; letter-spacing: -.02em; color: #800000; }
+        .tt-orb-core span { font-size: .8rem; font-weight: 700; color: #800000; }
+        .tt-orb-p {
+            position: absolute; display: flex; align-items: center; gap: .55rem; background: #fff; border: 1px solid #E3E8F2; border-radius: 999px;
+            padding: .35rem .9rem .35rem .35rem; box-shadow: 0 12px 26px rgba(11, 31, 68, .12); animation: ttFloat 6s ease-in-out infinite;
+        }
+        .tt-orb-p img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
+        .tt-orb-p span { font-size: .72rem; line-height: 1.25; color: #6B7488; max-width: 130px; }
+        .tt-orb-p b { display: block; font-size: .88rem; color: #0B1F44; }
+        .tt-orb-p0 { left: 4%; top: 2%; }
+        .tt-orb-p1 { right: -6%; top: 14%; animation-delay: -1.2s; }
+        .tt-orb-p2 { left: -12%; top: 43%; animation-delay: -2.4s; }
+        .tt-orb-p3 { right: -8%; bottom: 20%; animation-delay: -3.6s; }
+        .tt-orb-p4 { left: 6%; bottom: 2%; animation-delay: -4.8s; }
+        @keyframes ttFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+        /* leadership: spotlight (pick a name, or let it rotate) */
+        .tt-spot { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; align-items: center; }
+        .tt-spot h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0 0 .8rem; }
+        .tt-spot-copy > p { font-size: 1.05rem; line-height: 1.7; color: #44506A; margin: 0 0 1.8rem; }
+        .tt-tabs { display: grid; gap: .55rem; }
+        .tt-tab {
+            position: relative; overflow: hidden; display: flex; align-items: center; gap: 1rem; width: 100%; text-align: left;
+            padding: .8rem 1rem; border: 1px solid #E3E8F2; border-radius: 14px; background: #fff; font: inherit; color: #0B1F44; cursor: pointer;
+            transition: border-color .2s, box-shadow .2s, background .2s;
+        }
+        .tt-tab:hover { border-color: #C9D3EA; }
+        .tt-tab[aria-selected="true"] { border-color: var(--c); box-shadow: 0 12px 28px rgba(11, 31, 68, .10); }
+        .tt-tab-n { font-size: .8rem; font-weight: 800; color: #9AA3B5; width: 1.6rem; flex: 0 0 auto; }
+        .tt-tab[aria-selected="true"] .tt-tab-n { color: var(--c); }
+        .tt-tab img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; filter: grayscale(1); opacity: .8; transition: filter .25s, opacity .25s; }
+        .tt-tab[aria-selected="true"] img, .tt-tab:hover img { filter: none; opacity: 1; }
+        .tt-tab b { display: block; font-size: 1.02rem; }
+        .tt-tab i { display: block; font-style: normal; font-size: .85rem; color: #6B7488; }
+        .tt-tab-bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--c); }
+        .tt-tab[aria-selected="true"] .tt-tab-bar { animation: ttBar 6s linear forwards; }
+        .tt-spot.paused .tt-tab-bar { animation-play-state: paused; }
+        .tt-spot.still .tt-tab[aria-selected="true"] .tt-tab-bar { animation: none; width: 100%; }
+        @keyframes ttBar { to { width: 100%; } }
+
+        .tt-stage { display: grid; justify-items: center; position: relative; }
+        .tt-stage::before {
+            content: ''; position: absolute; width: min(78%, 330px); aspect-ratio: 1; top: 4%; left: 50%;
+            transform: translateX(-38%) rotate(8deg); border-radius: 36px; background: var(--c, #800000); opacity: .12; transition: background .4s;
+        }
+        .tt-panel { grid-area: 1 / 1; margin: 0; width: min(100%, 360px); opacity: 0; transform: translateY(10px) scale(.98); transition: opacity .45s, transform .45s; pointer-events: none; position: relative; }
+        .tt-panel.on { opacity: 1; transform: none; pointer-events: auto; }
+        .tt-panel img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 26px; box-shadow: 0 26px 50px rgba(11, 31, 68, .18); border: 6px solid #fff; background: #EEF1F7; }
+        .tt-panel figcaption {
+            position: relative; margin: -2.4rem 1.2rem 0; background: #fff; border-radius: 16px; padding: 1rem 1.2rem;
+            box-shadow: 0 16px 34px rgba(11, 31, 68, .14); border-left: 4px solid var(--c);
+        }
+        .tt-panel figcaption span { display: block; font-size: .74rem; font-weight: 800; letter-spacing: .1em; color: var(--c); margin-bottom: .2rem; }
+        .tt-panel figcaption b { display: block; font-size: 1.35rem; color: #0B1F44; }
+        .tt-panel figcaption i { display: block; font-style: normal; font-size: .95rem; color: #6B7488; }
+
+        /* get in touch: headquarters panel + two contact routes */
+        .tt-touch { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1.4rem; align-items: stretch; }
+        .tt-hq {
+            position: relative; overflow: hidden; border-radius: 22px; padding: 2.2rem 2rem; color: #fff;
+            background: radial-gradient(120% 90% at 100% 0%, #1E3A70 0%, #0B1F44 55%, #081733 100%);
+            display: flex; flex-direction: column; gap: 1.2rem;
+        }
+        .tt-hq::before {   /* faint grid, like the hero */
+            content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+            background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .tt-hq > * { position: relative; }
+        .tt-hq-pin { position: absolute; right: 2rem; top: 2rem; width: 14px; height: 14px; border-radius: 50%; background: #F87171; box-shadow: 0 0 0 6px rgba(248, 113, 113, .18); }
+        .tt-hq-pin::before, .tt-hq-pin::after { content: ''; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(248, 113, 113, .5); animation: ttPing 2.6s ease-out infinite; }
+        .tt-hq-pin::after { animation-delay: 1.3s; }
+        @keyframes ttPing { from { transform: scale(.6); opacity: 1; } to { transform: scale(2.6); opacity: 0; } }
+        .tt-hq-k { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #9FB3D9; }
+        .tt-hq h3 { font-size: 1.6rem; font-weight: 700; margin: -.6rem 0 0; }
+        .tt-hq address { font-style: normal; font-size: 1.02rem; line-height: 1.6; color: #C9D6F0; }
+        .tt-hq-phone { display: inline-flex; align-items: center; gap: .7rem; font-size: 1.6rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -.01em; }
+        .tt-hq-phone svg { width: 26px; height: 26px; color: #8ea2ff; }
+        .tt-hq-phone:hover { color: #C9D6F0; }
+        .tt-hq-fax { font-size: .92rem; color: #9FB3D9; margin-top: -.8rem; }
+        .tt-hq-li { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: .55rem; padding: .7rem 1.1rem; border-radius: 12px; background: #fff; color: #0B1F44; font-weight: 700; font-size: .95rem; text-decoration: none; }
+        .tt-hq-li svg { width: 18px; height: 18px; color: #0A66C2; }
+        .tt-hq-li:hover { background: #E4E9F6; }
+
+        .tt-routes { display: grid; gap: 1.4rem; }
+        .tt-route {
+            display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.2rem 1.4rem; align-items: start;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 22px; padding: 1.9rem 2rem; border-top: 4px solid var(--rc);
+            transition: box-shadow .25s, transform .25s;
+        }
+        .tt-route:hover { box-shadow: 0 18px 40px rgba(11, 31, 68, .10); transform: translateY(-2px); }
+        .tt-route-ic { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: var(--rb); color: var(--rc); }
+        .tt-route-ic svg { width: 28px; height: 28px; }
+        .tt-route h3 { font-size: 1.35rem; font-weight: 700; color: #0B1F44; margin: 0 0 .4rem; }
+        .tt-route p { font-size: 1rem; line-height: 1.65; color: #44506A; margin: 0 0 1.1rem; }
+        .tt-route-go { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.1rem; }
+        .tt-route-go .rd-btn { padding: .75rem 1.2rem; }
+        .tt-route-go span { font-size: .92rem; font-weight: 600; color: #6B7488; overflow-wrap: anywhere; }
+
+        /* subscribe */
+        .tt-subs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+        .tt-sub { background: #0B1F44; color: #fff; border-radius: 18px; padding: 1.8rem; display: flex; flex-direction: column; gap: .5rem; position: relative; overflow: hidden; }
+        .tt-sub::after { content: ''; position: absolute; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(94, 110, 255, .35), transparent 70%); pointer-events: none; }
+        .tt-sub h3 { font-size: 1.3rem; font-weight: 700; margin: 0; }
+        .tt-sub p { font-size: .97rem; line-height: 1.6; color: #C9D6F0; margin: 0 0 .6rem; }
+        .tt-sub form { display: flex; gap: .6rem; flex-wrap: wrap; position: relative; z-index: 1; }
+        .tt-sub input { flex: 1 1 220px; min-width: 0; padding: .8rem 1rem; border-radius: 10px; border: 1px solid rgba(255, 255, 255, .25); background: rgba(255, 255, 255, .08); color: #fff; font: inherit; font-size: .95rem; }
+        .tt-sub input::placeholder { color: #9FB3D9; }
+        .tt-sub input:focus { outline: 2px solid #8ea2ff; outline-offset: 1px; }
+        .tt-sub button { padding: .8rem 1.3rem; border: 0; border-radius: 10px; background: #fff; color: #0B1F44; font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer; }
+        .tt-sub button:hover { background: #E4E9F6; }
+        .tt-sub small { font-size: .8rem; color: #9FB3D9; position: relative; z-index: 1; }
+
+        @media (prefers-reduced-motion: reduce) { .tt-orb-ring, .tt-orb-p, .tt-hq-pin::before, .tt-hq-pin::after { animation: none; } .tt-panel { transition: none; } }
+        @media (max-width: 1000px) {
+            .tt-touch { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 960px) {
+            .tt-orb { justify-self: center; }
+            .tt-spot { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+        @media (max-width: 600px) {
+            .tt-subs { grid-template-columns: 1fr; }
+            .tt-hq, .tt-route { padding: 1.6rem 1.4rem; }
+            .tt-route { grid-template-columns: 1fr; }
+            .tt-hq-phone { font-size: 1.35rem; }
+            .tt-orb { max-width: 340px; }
+            .tt-orb-core { width: 92px; height: 92px; }
+            .tt-orb-core b { font-size: 1.5rem; }
+            .tt-orb-p { padding-right: .7rem; }
+            .tt-orb-p img { width: 40px; height: 40px; }
+            .tt-orb-p span { display: none; }
+            .tt-orb-p::after { content: attr(data-name); font-size: .78rem; font-weight: 700; color: #0B1F44; }
+            .tt-orb-p0 { left: 2%; } .tt-orb-p1 { right: 0; } .tt-orb-p2 { left: 0; top: 30%; } .tt-orb-p3 { right: 0; bottom: 24%; } .tt-orb-p4 { left: 2%; }
+            .tt-tabs { grid-template-columns: 1fr 1fr; }
+            .tt-tab { flex-direction: column; align-items: flex-start; gap: .5rem; padding: .75rem; }
+            .tt-tab-n { display: none; }
+            .tt-tab b { font-size: .92rem; }
+            .tt-tab i { font-size: .76rem; }
+        }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    </style>
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TIC Software",
+        "url": "https://ticsoftware.com",
+        "logo": "https://ticsoftware.com/images/TIC_2026.png",
+        "description": "TIC Software provides integration, modernization and AI solutions and consulting services for HPE Nonstop systems.",
+        "sameAs": [
+            "https://www.linkedin.com/company/tic-software"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "185 Great Neck Road, 4th Floor, Suite 453",
+            "addressLocality": "Great Neck",
+            "addressRegion": "NY",
+            "postalCode": "11021",
+            "addressCountry": "US"
+        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "contactType": "technical support",
+                "telephone": "+1-516-466-7990",
+                "email": "support@ticsoftware.com"
+            },
+            {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "email": "sales-support@ticsoftware.com"
+            }
+        ],
+        "knowsAbout": ["HPE Nonstop", "COBOL Modernization", "Legacy System Integration", "AI Code Intelligence"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ticsoftware.com/" },
+            { "@type": "ListItem", "position": 2, "name": "TIC Team", "item": "https://ticsoftware.com/ticteam.html" }
+        ]
+    }
+    </script>
+    <link rel="stylesheet" href="header-responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="rd-header">
+        <div class="rd-header-in">
+            <a href="home-redesign.html" class="rd-logo" aria-label="TIC Software home">
+                <img src="./images/redesign/tic-logo-mark.png" width="236" height="88" alt="TIC Software">
+                <span class="rd-tagline">The Leader in Nonstop Modernization</span>
+            </a>
+            <button class="rd-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="rdNav"><span></span><span></span><span></span></button>
+            <nav id="rdNav" class="rd-nav" aria-label="Main">
+                <a href="home-redesign.html" class="rd-nav-link">Home</a>
+                    <div class="rd-dd">
+                        <button type="button" class="rd-dd-toggle active" aria-haspopup="true">About Us<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                        <div class="rd-dd-menu">
+                            <a href="who-we-are-redesign.html">Who We Are</a>
+                            <a href="ticteam-redesign.html">TIC Team</a>
+                            <a href="our-partners.html">Our Partners</a>
+                            <a href="our-clients.html">Our Clients</a>
+                        </div>
+                    </div>
+                    <div class="rd-dd">
+                        <a href="index.html#products" class="rd-dd-toggle">Products<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <div class="rd-dd-menu">
+                            <a href="messaging.html">Messaging</a>
+                            <a href="gateway.html">Gateway</a>
+                            <a href="business-intelligence.html">Business Intelligence</a>
+                            <a href="modernize.html">Modernize</a>
+                        </div>
+                    </div>
+                    <div class="rd-dd">
+                        <a href="index.html#services" class="rd-dd-toggle">Services<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <div class="rd-dd-menu">
+                            <a href="consulting.html">Consulting</a>
+                            <a href="cloud.html">Cloud</a>
+                            <a href="https://ticsoftware.ai/" target="_blank" rel="noopener">GenAI</a>
+                        </div>
+                    </div>
+                    <div class="rd-dd">
+                        <a href="success-stories.html" class="rd-dd-toggle">Resources<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <div class="rd-dd-menu">
+                            <a href="success-stories.html">Success Stories</a>
+                            <a href="tic-news.html">TIC News</a>
+                            <a href="blog.html">Blog</a>
+                        </div>
+                    </div>
+                <div class="nav-search rd-search">
+                    <input type="text" id="search-input" class="rd-search-input" placeholder="Search" autocomplete="off" aria-label="Search the site">
+                    <button id="search-btn" class="rd-search-btn" type="button" aria-label="Search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2"/><line x1="13.5" y1="13.5" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="ticteam-redesign.html#get-in-touch" class="rd-nav-cta">Contact us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- TIC TEAM: Hero -->
+    <section id="home" class="rd-hero">
+        <div class="rd-hero-in">
+            <div>
+                <div class="ww-crumb"><a href="home-redesign.html">Home</a> &rsaquo; About Us &rsaquo; TIC Team</div>
+                <span class="rd-eyebrow">&#9670; TIC Team</span>
+                <h1>The people behind <em>your Nonstop</em> <span class="rd-red">success.</span></h1>
+                <p class="rd-lede">Meet the TIC Software management team, experienced leaders in Nonstop modernization. When you need an answer, a demo or a hand with a production issue, here is who we are and how to reach us.</p>
+                <div class="rd-ctas">
+                    <a href="#get-in-touch" class="rd-btn rd-btn-primary">Get in touch &rarr;</a>
+                    <a href="#leadership" class="rd-btn rd-btn-ghost">Meet the leadership</a>
+                </div>
+            </div>
+            <div class="tt-orb" role="img" aria-label="The TIC Software leadership team: Phil Ly, Gabriela Claure, Tim Dunne, Donald Wickham and Ming Ngan">
+                <svg viewBox="0 0 440 440" aria-hidden="true"><circle cx="220" cy="220" r="150" class="tt-orb-ring"/><circle cx="220" cy="220" r="96" class="tt-orb-ring2"/></svg>
+                <div class="tt-orb-core" aria-hidden="true"><b>TIC</b><span>Software</span></div>
+                <div class="tt-orb-p tt-orb-p0" data-name="Phil Ly"><img src="./images/redesign/team-phil-ly.jpg" width="320" height="320" alt=""><span><b>Phil Ly</b>President</span></div>
+                <div class="tt-orb-p tt-orb-p1" data-name="Gabriela Claure"><img src="./images/redesign/team-gabriela-claure.jpg" width="320" height="320" alt=""><span><b>Gabriela Claure</b>Chief Customer Success Officer</span></div>
+                <div class="tt-orb-p tt-orb-p2" data-name="Tim Dunne"><img src="./images/redesign/team-tim-dunne.jpg" width="320" height="320" alt=""><span><b>Tim Dunne</b>Chief Revenue Officer</span></div>
+                <div class="tt-orb-p tt-orb-p3" data-name="Donald Wickham"><img src="./images/redesign/team-donald-wickham.jpg" width="320" height="320" alt=""><span><b>Donald Wickham</b>Chief Architect</span></div>
+                <div class="tt-orb-p tt-orb-p4" data-name="Ming Ngan"><img src="./images/redesign/team-ming-ngan.jpg" width="320" height="320" alt=""><span><b>Ming Ngan</b>Chief Operating Officer</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- TIC TEAM: Leadership -->
+        <section class="ww-sec" id="leadership">
+            <div class="ww-in tt-spot" style="--c:#800000">
+                <div class="tt-spot-copy">
+                    <span class="rd-kicker">Leadership</span>
+                    <h2>Our management team</h2>
+                    <p>The leaders who guide TIC Software's products, projects and client relationships.</p>
+                    <div class="tt-tabs" role="tablist" aria-label="TIC Software leadership">
+                        <button type="button" class="tt-tab" role="tab" id="tt-tab-0" aria-controls="tt-panel-0" aria-selected="true" tabindex="0" style="--c:#800000"><span class="tt-tab-n">01</span><img src="./images/redesign/team-phil-ly.jpg" width="320" height="320" alt=""><span><b>Phil Ly</b><i>President</i></span><span class="tt-tab-bar"></span></button>
+                        <button type="button" class="tt-tab" role="tab" id="tt-tab-1" aria-controls="tt-panel-1" aria-selected="false" tabindex="-1" style="--c:#003d99"><span class="tt-tab-n">02</span><img src="./images/redesign/team-gabriela-claure.jpg" width="320" height="320" alt=""><span><b>Gabriela Claure</b><i>Chief Customer Success Officer</i></span><span class="tt-tab-bar"></span></button>
+                        <button type="button" class="tt-tab" role="tab" id="tt-tab-2" aria-controls="tt-panel-2" aria-selected="false" tabindex="-1" style="--c:#0F766E"><span class="tt-tab-n">03</span><img src="./images/redesign/team-tim-dunne.jpg" width="320" height="320" alt=""><span><b>Tim Dunne</b><i>Chief Revenue Officer</i></span><span class="tt-tab-bar"></span></button>
+                        <button type="button" class="tt-tab" role="tab" id="tt-tab-3" aria-controls="tt-panel-3" aria-selected="false" tabindex="-1" style="--c:#5B3CC4"><span class="tt-tab-n">04</span><img src="./images/redesign/team-donald-wickham.jpg" width="320" height="320" alt=""><span><b>Donald Wickham</b><i>Chief Architect</i></span><span class="tt-tab-bar"></span></button>
+                        <button type="button" class="tt-tab" role="tab" id="tt-tab-4" aria-controls="tt-panel-4" aria-selected="false" tabindex="-1" style="--c:#B45309"><span class="tt-tab-n">05</span><img src="./images/redesign/team-ming-ngan.jpg" width="320" height="320" alt=""><span><b>Ming Ngan</b><i>Chief Operating Officer</i></span><span class="tt-tab-bar"></span></button>
+                    </div>
+                </div>
+                <div class="tt-stage">
+                    <figure class="tt-panel on" role="tabpanel" id="tt-panel-0" aria-labelledby="tt-tab-0" style="--c:#800000"><img src="./images/redesign/team-phil-ly.jpg" width="320" height="320" alt="Phil Ly, President"><figcaption><span>01 / 05</span><b>Phil Ly</b><i>President</i></figcaption></figure>
+                    <figure class="tt-panel" role="tabpanel" id="tt-panel-1" aria-labelledby="tt-tab-1" aria-hidden="true" style="--c:#003d99"><img src="./images/redesign/team-gabriela-claure.jpg" width="320" height="320" alt="Gabriela Claure, Chief Customer Success Officer"><figcaption><span>02 / 05</span><b>Gabriela Claure</b><i>Chief Customer Success Officer</i></figcaption></figure>
+                    <figure class="tt-panel" role="tabpanel" id="tt-panel-2" aria-labelledby="tt-tab-2" aria-hidden="true" style="--c:#0F766E"><img src="./images/redesign/team-tim-dunne.jpg" width="320" height="320" alt="Tim Dunne, Chief Revenue Officer"><figcaption><span>03 / 05</span><b>Tim Dunne</b><i>Chief Revenue Officer</i></figcaption></figure>
+                    <figure class="tt-panel" role="tabpanel" id="tt-panel-3" aria-labelledby="tt-tab-3" aria-hidden="true" style="--c:#5B3CC4"><img src="./images/redesign/team-donald-wickham.jpg" width="320" height="320" alt="Donald Wickham, Chief Architect"><figcaption><span>04 / 05</span><b>Donald Wickham</b><i>Chief Architect</i></figcaption></figure>
+                    <figure class="tt-panel" role="tabpanel" id="tt-panel-4" aria-labelledby="tt-tab-4" aria-hidden="true" style="--c:#B45309"><img src="./images/redesign/team-ming-ngan.jpg" width="320" height="320" alt="Ming Ngan, Chief Operating Officer"><figcaption><span>05 / 05</span><b>Ming Ngan</b><i>Chief Operating Officer</i></figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIC TEAM: Get in touch -->
+        <section class="ww-sec alt" id="get-in-touch">
+            <div class="ww-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">Get in touch</span>
+                    <h2>How to reach TIC Software</h2>
+                    <p>Talk to sales, get technical help, or follow our latest news.</p>
+                </div>
+                <div class="tt-touch">
+                    <div class="tt-hq">
+                        <span class="tt-hq-pin" aria-hidden="true"></span>
+                        <span class="tt-hq-k">Headquarters</span>
+                        <h3>TIC Software</h3>
+                        <address>185 Great Neck Road<br>4th Floor, Suite 453<br>Great Neck, NY 11021</address>
+                        <a class="tt-hq-phone" href="tel:+15164667990"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>516-466-7990</a>
+                        <div class="tt-hq-fax">Fax 800-601-1401</div>
+                        <a class="tt-hq-li" href="https://www.linkedin.com/company/tic-software" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Follow us on LinkedIn</a>
+                    </div>
+                    <div class="tt-routes">
+                        <article class="tt-route" style="--rc:#800000;--rb:#F7E8E8">
+                            <div class="tt-route-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7.1-.9l.5.3a2 2 0 0 0 1.4.3L21 5"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
+                            <div>
+                                <h3>Sales</h3>
+                                <p>Our Client Care Associates are ready to connect you with resources, experts and solutions that remove barriers for your business and address your organization's specific needs.</p>
+                                <div class="tt-route-go"><a class="rd-btn rd-btn-primary" href="mailto:sales-support@ticsoftware.com">Email sales &rarr;</a><span>sales-support@ticsoftware.com</span></div>
+                            </div>
+                        </article>
+                        <article class="tt-route" style="--rc:#003d99;--rb:#E8EEFA">
+                            <div class="tt-route-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
+                            <div>
+                                <h3>Support</h3>
+                                <p>Troubleshoot technical issues, browse product documentation, access support announcements and more.</p>
+                                <div class="tt-route-go"><a class="rd-btn rd-btn-primary" href="mailto:support@ticsoftware.com">Email support &rarr;</a><span>support@ticsoftware.com</span></div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIC TEAM: Subscribe -->
+        <section class="ww-sec" id="subscribe">
+            <div class="ww-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">Stay informed</span>
+                    <h2>Subscribe to TIC news</h2>
+                    <p>Get new articles and the TIC Talk newsletter in your inbox.</p>
+                </div>
+                <div class="tt-subs">
+                    <div class="tt-sub">
+                        <h3>TIC Blog</h3>
+                        <p>Articles on Nonstop integration, modernization and AI from the TIC team.</p>
+                        <form class="tt-subform" data-list="TIC Blog">
+                            <label class="sr-only" for="sub-blog">Email address</label>
+                            <input id="sub-blog" type="email" placeholder="Enter your email address" required autocomplete="email">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <small>Opens an email to sales-support@ticsoftware.com with your request.</small>
+                    </div>
+                    <div class="tt-sub">
+                        <h3>TIC Talk</h3>
+                        <p>Our newsletter: product news, events and stories from Nonstop teams.</p>
+                        <form class="tt-subform" data-list="TIC Talk">
+                            <label class="sr-only" for="sub-talk">Email address</label>
+                            <input id="sub-talk" type="email" placeholder="Enter your email address" required autocomplete="email">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <small>Opens an email to sales-support@ticsoftware.com with your request.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    
+
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+
+    <!-- FOOTER COMPONENT -->
+<footer class="rd-footer">
+    <div class="rd-footer-in">
+        <div class="rd-fgrid">
+            <div class="rd-fbrand">
+                <a href="home-redesign.html" class="rd-flogo" aria-label="TIC Software home"><img src="./images/redesign/tic-logo-mark-white.png" width="236" height="88" alt="TIC Software"></a>
+                <p class="rd-ftag">The Leader in Nonstop Modernization</p>
+                <p class="rd-fabout">Integration, modernization and AI for HPE Nonstop applications, without replacing them.</p>
+                <a class="rd-social" href="https://www.linkedin.com/company/tic-software" target="_blank" rel="noopener" aria-label="TIC Software on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.048-8.829 0-9.743h3.554v1.379c-.009.015-.021.029-.03.042h.03v-.042c.395-.609 1.101-1.473 2.681-1.473 1.957 0 3.425 1.277 3.425 4.024v5.813zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.954-1.71 1.185 0 1.915.755 1.94 1.71 0 .951-.755 1.71-1.979 1.71zm1.581 11.597H3.756V9.567h3.162v10.885zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg><span>LinkedIn</span></a>
+            </div>
+                <div class="rd-fcol">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="who-we-are-redesign.html">Who We Are</a></li>
+                        <li><a href="ticteam-redesign.html">TIC Team</a></li>
+                        <li><a href="our-partners.html">Partners</a></li>
+                        <li><a href="our-clients.html">Clients</a></li>
+                    </ul>
+                </div>
+                <div class="rd-fcol">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="messaging.html">Messaging</a></li>
+                        <li><a href="gateway.html">Gateway</a></li>
+                        <li><a href="business-intelligence.html">Business Intelligence</a></li>
+                        <li><a href="modernize.html">Modernize</a></li>
+                    </ul>
+                </div>
+                <div class="rd-fcol">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="consulting.html">Consulting</a></li>
+                        <li><a href="cloud.html">Cloud</a></li>
+                        <li><a href="https://ticsoftware.ai/" target="_blank" rel="noopener">GenAI</a></li>
+                    </ul>
+                </div>
+                <div class="rd-fcol">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="tic-news.html">TIC News</a></li>
+                        <li><a href="blog.html">TIC Blog</a></li>
+                    </ul>
+                </div>
+            <div class="rd-fcol rd-fcontact">
+                <h3>Contact Us</h3>
+                <p class="rd-flabel">Address</p>
+                <p>185 Great Neck Road<br>4th Floor, Suite 453<br>Great Neck, NY 11021</p>
+                <p class="rd-flabel">Technical support</p>
+                <p><a href="tel:+15164667990">(516) 466-7990</a><br><a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a></p>
+                <p class="rd-flabel">Sales &amp; licensing</p>
+                <p><a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a></p>
+            </div>
+        </div>
+        <div class="rd-fbottom">
+            <p>&copy; 2026 TIC Software. All rights reserved.</p>
+            <p><a href="privacy-policy.html">Privacy Policy</a><span aria-hidden="true">&middot;</span><a href="terms-of-use.html">Terms of Use</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+</script>
+
+<div style="position:fixed;left:12px;bottom:12px;z-index:99999;background:#B21F23;color:#fff;font:700 12px/1 Arial,sans-serif;letter-spacing:.06em;padding:8px 12px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.25);pointer-events:none">TEST PAGE &middot; NOT LIVE</div>
+    <script>
+        // Redesigned header: hamburger toggles the nav on narrow screens, and
+        // dropdown toggles expand inline there instead of navigating.
+        (function () {
+            var header = document.querySelector('.rd-header');
+            var burger = header && header.querySelector('.rd-burger');
+            if (!burger) return;
+            var narrow = function () { return getComputedStyle(burger).display !== 'none'; };
+            burger.addEventListener('click', function () {
+                var open = header.classList.toggle('open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            header.querySelectorAll('.rd-dd-toggle').forEach(function (t) {
+                t.addEventListener('click', function (e) {
+                    if (!narrow()) return;
+                    e.preventDefault();
+                    t.parentElement.classList.toggle('open');
+                });
+            });
+            header.querySelectorAll('.rd-nav a:not(.rd-dd-toggle)').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    header.classList.remove('open');
+                    burger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
+    <script>
+        // Leadership spotlight: tabs switch the featured leader; it also advances every 6s
+        // unless the visitor prefers reduced motion, or is hovering / focused inside it.
+        (function () {
+            var spot = document.querySelector('.tt-spot');
+            if (!spot) return;
+            var tabs = [].slice.call(spot.querySelectorAll('.tt-tab'));
+            var panels = [].slice.call(spot.querySelectorAll('.tt-panel'));
+            var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var cur = 0, timer = null;
+            if (still) spot.classList.add('still');
+            function schedule() {
+                clearTimeout(timer);
+                if (still || spot.classList.contains('paused')) return;
+                timer = setTimeout(function () { show(cur + 1); }, 6000);
+            }
+            function show(i, focus) {
+                cur = (i + tabs.length) % tabs.length;
+                tabs.forEach(function (t, k) {
+                    var on = k === cur;
+                    t.setAttribute('aria-selected', on ? 'true' : 'false');
+                    t.tabIndex = on ? 0 : -1;
+                    panels[k].classList.toggle('on', on);
+                    if (on) panels[k].removeAttribute('aria-hidden'); else panels[k].setAttribute('aria-hidden', 'true');
+                });
+                spot.style.setProperty('--c', tabs[cur].style.getPropertyValue('--c'));
+                var bar = tabs[cur].querySelector('.tt-tab-bar');   // restart the progress bar
+                bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = '';
+                if (focus) tabs[cur].focus();
+                schedule();
+            }
+            tabs.forEach(function (t, k) {
+                t.addEventListener('click', function () { show(k); });
+                t.addEventListener('keydown', function (e) {
+                    var d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+                    if (d) { e.preventDefault(); show(cur + d, true); }
+                    else if (e.key === 'Home') { e.preventDefault(); show(0, true); }
+                    else if (e.key === 'End') { e.preventDefault(); show(tabs.length - 1, true); }
+                });
+            });
+            function pause() { spot.classList.add('paused'); clearTimeout(timer); }
+            function resume() {
+                if (spot.matches(':hover') || spot.contains(document.activeElement)) return;
+                spot.classList.remove('paused'); schedule();
+            }
+            spot.addEventListener('mouseenter', pause);
+            spot.addEventListener('mouseleave', resume);
+            spot.addEventListener('focusin', pause);
+            spot.addEventListener('focusout', function () { setTimeout(resume, 0); });
+            schedule();
+        })();
+
+        // Subscribe forms: open an email to sales-support with the address filled in
+        // (same destination as the current page's subscribe buttons).
+        document.querySelectorAll('.tt-subform').forEach(function (f) {
+            f.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var email = f.querySelector('input').value.trim();
+                var list = f.getAttribute('data-list');
+                window.location.href = 'mailto:sales-support@ticsoftware.com'
+                    + '?subject=' + encodeURIComponent('Subscribe to ' + list)
+                    + '&body=' + encodeURIComponent('Please subscribe ' + email + ' to ' + list + '.');
+            });
+        });
+    </script>
+</body>
+</html>
