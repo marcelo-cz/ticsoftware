@@ -1458,6 +1458,17 @@
         main .rd-quote-main::after { content: none; }
         main .rd-quote-main::before { color: #800000; opacity: .22; z-index: 1; }
         main .rd-quote-main p { color: #0B1F44; font-weight: 700; letter-spacing: -.01em; }
+        /* coloured top edge on every box in "Proven in production", cycling the site palette */
+        .rd-proof .rd-case, main .rd-proof .rd-quote-main, .rd-proof .rd-q { border-top: 4px solid var(--top); }
+        .rd-proof .rd-case:hover { border-color: transparent; border-top-color: var(--top); }
+        .rd-proof .rd-case:nth-child(3n+1) { --top: #800000; }
+        .rd-proof .rd-case:nth-child(3n+2) { --top: #003d99; }
+        .rd-proof .rd-case:nth-child(3n+3) { --top: #0F766E; }
+        main .rd-proof .rd-quote-main { --top: #5B3CC4; }
+        .rd-proof .rd-q:nth-child(4n+1) { --top: #003d99; }
+        .rd-proof .rd-q:nth-child(4n+2) { --top: #800000; }
+        .rd-proof .rd-q:nth-child(4n+3) { --top: #0F766E; }
+        .rd-proof .rd-q:nth-child(4n+4) { --top: #B45309; }
         main .rd-quote-main p em { font-style: normal; color: #003d99; }
         main .rd-quote-main p .rd-red { color: #800000; }
         @media (max-width: 600px) { main .rd-quote-main { padding-top: 4.2rem; } }
@@ -1501,19 +1512,47 @@
            ================================================================ */
         .rd-services { padding: 5rem 2rem 4.5rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; scroll-margin-top: 90px; }
         .rd-services-in { max-width: 1200px; margin: 0 auto; }
-        .rd-svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+        /* services: bento of colour cards in the site palette */
+        .rd-svc-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto auto; gap: 1.2rem; }
         .rd-svc {
-            display: flex; flex-direction: column; gap: .55rem; text-decoration: none; color: inherit;
-            background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1.5rem 1.4rem;
-            transition: transform .25s, box-shadow .25s, border-color .25s;
+            position: relative; overflow: hidden; isolation: isolate;
+            display: flex; flex-direction: column; gap: .6rem; text-decoration: none; color: #fff;
+            border-radius: 22px; padding: 1.9rem 1.9rem 1.7rem; background: var(--g);
+            box-shadow: 0 16px 34px var(--sh); transition: transform .3s, box-shadow .3s;
         }
-        .rd-svc:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(11, 31, 68, .10); border-color: transparent; }
-        .rd-svc .rd-ic { width: 44px; height: 44px; border-radius: 12px; margin-bottom: .5rem; background: #E8EEFA; color: #003d99; }
-        .rd-svc .rd-ic svg { width: 22px; height: 22px; }
-        .rd-svc h3 { font-size: 1.12rem; font-weight: 700; color: #0B1F44; margin: 0; }
-        .rd-svc p { font-size: .93rem; line-height: 1.55; color: #44506A; margin: 0; }
-        .rd-svc .rd-go { margin-top: auto; padding-top: .3rem; font-weight: 700; font-size: .9rem; color: #003d99; display: inline-flex; gap: .35rem; transition: gap .2s; }
-        .rd-svc:hover .rd-go { gap: .6rem; }
+        .rd-svc::before {   /* dot texture */
+            content: ''; position: absolute; inset: 0; z-index: -1; opacity: .5; pointer-events: none;
+            background-image: radial-gradient(rgba(255, 255, 255, .16) 1.2px, transparent 1.3px); background-size: 18px 18px;
+            -webkit-mask-image: linear-gradient(135deg, transparent 35%, #000 100%); mask-image: linear-gradient(135deg, transparent 35%, #000 100%);
+        }
+        .rd-svc:hover { transform: translateY(-5px); box-shadow: 0 26px 48px var(--sh); }
+        .rd-svc-wm { position: absolute; right: -28px; bottom: -34px; width: 190px; height: 190px; z-index: -1; color: #fff; opacity: .12; transition: transform .5s; }
+        .rd-svc-wm svg { width: 100%; height: 100%; }
+        .rd-svc:hover .rd-svc-wm { transform: rotate(-8deg) scale(1.06); }
+        .rd-svc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: .4rem; }
+        .rd-svc .rd-ic { width: 50px; height: 50px; border-radius: 14px; margin: 0; background: rgba(255, 255, 255, .16); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25); }
+        .rd-svc .rd-ic svg { width: 24px; height: 24px; }
+        .rd-svc-n { font-size: .8rem; font-weight: 800; letter-spacing: .14em; color: rgba(255, 255, 255, .7); }
+        .rd-svc h3 { font-size: 1.4rem; font-weight: 700; color: #fff; margin: 0; }
+        .rd-svc p { font-size: .98rem; line-height: 1.6; color: rgba(255, 255, 255, .86); margin: 0; max-width: 34ch; }
+        .rd-svc .rd-go {
+            margin-top: auto; align-self: flex-start; display: inline-flex; gap: .4rem; padding: .6rem 1rem; border-radius: 999px;
+            background: #fff; color: var(--c); font-weight: 700; font-size: .9rem; transition: gap .2s;
+        }
+        .rd-svc:hover .rd-go { gap: .7rem; }
+        .rd-svc-con { grid-row: 1 / span 2; --c: #800000; --sh: rgba(128, 0, 0, .25); --g: linear-gradient(150deg, #B21F23 0%, #800000 55%, #5A0000 100%); padding: 2.4rem 2.3rem 2.2rem; }
+        .rd-svc-con h3 { font-size: 2rem; }
+        .rd-svc-con p { font-size: 1.08rem; max-width: 30ch; }
+        .rd-svc-con .rd-svc-wm { width: 300px; height: 300px; right: -40px; bottom: -50px; }
+        .rd-svc-cld { --c: #003d99; --sh: rgba(0, 61, 153, .25); --g: linear-gradient(150deg, #4154FF 0%, #003d99 60%, #0B1F44 100%); }
+        .rd-svc-ai  { --c: #5B3CC4; --sh: rgba(91, 60, 196, .25); --g: linear-gradient(150deg, #8455E0 0%, #5B3CC4 55%, #3B2385 100%); }
+        .rd-svc-con .rd-go { padding: .7rem 1.2rem; }
+        .rd-svc-list { list-style: none; margin: .9rem 0 1.4rem; padding: 1.1rem 0 0; border-top: 1px solid rgba(255, 255, 255, .2); display: grid; gap: .6rem; }
+        .rd-svc-list li { display: flex; align-items: center; gap: .65rem; font-size: .98rem; font-weight: 600; color: #fff; }
+        .rd-svc-list li::before {
+            content: ''; flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; background: rgba(255, 255, 255, .18)
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px no-repeat;
+        }
 
         .rd-cta-wrap { padding: 0 2rem 5rem; background: #F4F6FB; }
         .rd-cta {
@@ -1534,7 +1573,7 @@
         .rd-cta .rd-btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .4); }
         .rd-cta .rd-btn-ghost:hover { border-color: #fff; color: #fff; }
 
-        @media (max-width: 1000px) { .rd-svc-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 1000px) { .rd-svc-grid { grid-template-columns: 1fr; } .rd-svc-con { grid-row: auto; } .rd-svc-con h3 { font-size: 1.6rem; } }
         @media (max-width: 600px) {
             .rd-services { padding: 3.5rem 1.25rem 3rem; } .rd-svc-grid { grid-template-columns: 1fr; }
             .rd-cta-wrap { padding: 0 1.25rem 3.5rem; } .rd-cta { padding: 2.2rem 1.5rem; }
@@ -1678,6 +1717,37 @@
         @media (max-width: 1080px) { .rd-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px)  { .rd-what { padding: 3.5rem 1.25rem; } .rd-pillars { grid-template-columns: 1fr; } }
 
+        /* ---- trial: mock-style pillars (light card + colour graphic on the right) ---- */
+        .rd-pillars.deco { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+        .rd-pillars.deco .rd-pillar {
+            overflow: hidden; isolation: isolate; background: #F7F8FC; border-color: #E3E8F2; border-radius: 14px;
+            padding: 1.9rem 2rem 1.7rem; min-height: 300px;
+        }
+        .rd-pillars.deco .rd-pillar > :not(.rd-deco) { position: relative; z-index: 1; max-width: 60%; }
+        .rd-pillars.deco .rd-pillar .rd-ic { background: #fff; box-shadow: 0 1px 0 #E3E8F2, 0 6px 16px rgba(11, 31, 68, .06); }
+        .rd-pillars.deco .rd-chips a { background: #fff; }
+        .rd-deco { position: absolute; top: 0; right: 0; bottom: 0; width: 42%; z-index: 0; pointer-events: none; transition: transform .5s cubic-bezier(.2, .7, .2, 1); transform-origin: 100% 50%; }
+        .rd-pillar:hover .rd-deco { transform: scaleX(1.06); }
+        .rd-deco svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+        /* slanted gradient panel, with a soft light edge along the slant */
+        .rd-deco.slant { clip-path: polygon(46% 0, 100% 0, 100% 100%, 0 100%); background: linear-gradient(200deg, var(--d1) 0%, var(--d2) 45%, var(--d3) 100%); }
+        .rd-deco.slant::before { content: ''; position: absolute; inset: 0; background: linear-gradient(112deg, rgba(247, 248, 252, .95) 8%, rgba(247, 248, 252, 0) 34%); }
+        .rd-p-int .rd-deco { --d1: #8ea2ff; --d2: #4154FF; --d3: #003d99; }
+        .rd-p-ai  .rd-deco { --d1: #E879F9; --d2: #8455E0; --d3: #5B3CC4; }
+
+        @media (max-width: 900px) {
+            .rd-pillars.deco { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .rd-pillars.deco .rd-pillar { padding-top: 6.2rem; min-height: 0; }
+            .rd-pillars.deco .rd-pillar > :not(.rd-deco) { max-width: none; }
+            .rd-deco { left: 0; width: auto; bottom: auto; height: 76px; transform-origin: 50% 0; }
+            .rd-pillar:hover .rd-deco { transform: none; }
+            .rd-deco.slant { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%); }
+            .rd-deco.slant::before { background: linear-gradient(180deg, rgba(247, 248, 252, 0) 40%, rgba(247, 248, 252, .5) 100%); }
+        }
+        @media (prefers-reduced-motion: reduce) { .rd-deco { transition: none; } }
+
         /* ================================================================
            REDESIGN: hero + client logo strip
            Light hero in the same family as ticsoftware.ai, in .com's navy
@@ -1754,7 +1824,8 @@
         .fl .fl-tick { animation: flTick 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
         @keyframes flTick { 0%, 60% { transform: scale(1); } 70% { transform: scale(1.35); } 80%, 100% { transform: scale(1); } }
 
-              @media (prefers-reduced-motion: reduce) { .fl .fl-ring, .fl .fl-tick { animation: none; } }
+              @media (prefers-reduced-motion: reduce) {
+            .rd-svc, .rd-svc-wm { transition: none; } .fl .fl-ring, .fl .fl-tick { animation: none; } }
 
         /* ---- client logo strip ---- */
         .rd-clients { background: #fff; border-top: 1px solid #E6EAF2; border-bottom: 1px solid #E6EAF2; padding: 2.2rem 2rem; }
@@ -2009,8 +2080,9 @@
                     <h2>Everything around your Nonstop core, connected</h2>
                     <p>Four ways TIC Software helps Nonstop teams get more from the systems they already trust.</p>
                 </div>
-                <div class="rd-pillars">
+                <div class="rd-pillars deco">
                 <article class="rd-pillar rd-p-int">
+                    <div class="rd-deco slant" aria-hidden="true"></div>
                     <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7.3 11 16.7 6M7.3 13l9.4 5"/></svg></div>
                     <h3>Integrate</h3>
                     <p>Connect Nonstop applications and data to Kafka, mainframes, Windows, .NET and web services, with format conversion and reliable data delivery.</p>
@@ -2018,6 +2090,7 @@
                     <a class="rd-more" href="gateway.html">Explore integration <span aria-hidden="true">&rarr;</span></a>
                 </article>
                 <article class="rd-pillar rd-p-mod">
+                    <div class="rd-deco tri" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="dma" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B21F23"/><stop offset="1" stop-color="#800000"/></linearGradient><linearGradient id="dmb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2A7A9" stop-opacity=".95"/><stop offset="1" stop-color="#F2A7A9" stop-opacity=".75"/></linearGradient></defs><polygon points="30,0 100,0 100,100 62,100" fill="url(#dma)"/><polygon points="30,0 62,100 -2,100" fill="url(#dmb)"/><polygon points="100,38 100,100 70,100" fill="url(#dmb)" opacity=".9"/></svg></div>
                     <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg></div>
                     <h3>Modernize</h3>
                     <p>Bring Nonstop applications up to date without a rewrite, from replacing green screens with a GUI to XML and JSON for modern interfaces.</p>
@@ -2025,6 +2098,7 @@
                     <a class="rd-more" href="modernize.html">Explore modernization <span aria-hidden="true">&rarr;</span></a>
                 </article>
                 <article class="rd-pillar rd-p-mon">
+                    <div class="rd-deco tri" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="dta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14B8A6"/><stop offset="1" stop-color="#0F766E"/></linearGradient><linearGradient id="dtb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#99F6E4" stop-opacity=".95"/><stop offset="1" stop-color="#99F6E4" stop-opacity=".75"/></linearGradient></defs><polygon points="30,0 100,0 100,100 62,100" fill="url(#dta)"/><polygon points="30,0 62,100 -2,100" fill="url(#dtb)"/><polygon points="100,38 100,100 70,100" fill="url(#dtb)" opacity=".9"/></svg></div>
                     <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
                     <h3>Monitor & analyze</h3>
                     <p>Turn Nonstop logs and reports into a central, searchable view and multi-dimensional analysis, so issues and trends surface sooner.</p>
@@ -2032,6 +2106,7 @@
                     <a class="rd-more" href="business-intelligence.html">Explore monitoring <span aria-hidden="true">&rarr;</span></a>
                 </article>
                 <article class="rd-pillar rd-p-ai">
+                    <div class="rd-deco slant" aria-hidden="true"></div>
                     <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
                     <h3>AI for Nonstop</h3>
                     <p>Understand decades of Nonstop code: AI documentation, business rules and change-impact analysis, grounded in your own source.</p>
@@ -2095,20 +2170,24 @@
                     <p>Our team has worked on HPE Nonstop for more than 25 years. Put that experience to work on your projects.</p>
                 </div>
                 <div class="rd-svc-grid">
-                    <a class="rd-svc" href="consulting.html">
-                        <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
+                    <a class="rd-svc rd-svc-con" href="consulting.html">
+                        <span class="rd-svc-wm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></span>
+                        <div class="rd-svc-top"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div><span class="rd-svc-n" aria-hidden="true">01</span></div>
                         <h3>Consulting</h3>
                         <p>Our Nonstop consultants help you take on any technical challenge, from architecture to day-to-day support.</p>
+                        <ul class="rd-svc-list"><li>Turn-key project management</li><li>Proof of concept and product evaluation</li><li>Modernizing user interfaces</li><li>Migrating Nonstop programs to new platforms</li><li>AutoSYNC and AutoTMF implementation</li></ul>
                         <span class="rd-go">Learn more <span aria-hidden="true">&rarr;</span></span>
                     </a>
-                    <a class="rd-svc" href="cloud.html">
-                        <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.34 9.5 4 4 0 0 0 6.5 19z"/></svg></div>
+                    <a class="rd-svc rd-svc-cld" href="cloud.html">
+                        <span class="rd-svc-wm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.34 9.5 4 4 0 0 0 6.5 19z"/></svg></span>
+                        <div class="rd-svc-top"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.34 9.5 4 4 0 0 0 6.5 19z"/></svg></div><span class="rd-svc-n" aria-hidden="true">02</span></div>
                         <h3>Cloud</h3>
                         <p>See the benefits of integrating cloud computing with your Nonstop applications and data.</p>
                         <span class="rd-go">Learn more <span aria-hidden="true">&rarr;</span></span>
                     </a>
-                    <a class="rd-svc" href="https://ticsoftware.ai/" target="_blank" rel="noopener">
-                        <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+                    <a class="rd-svc rd-svc-ai" href="https://ticsoftware.ai/" target="_blank" rel="noopener">
+                        <span class="rd-svc-wm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span>
+                        <div class="rd-svc-top"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div><span class="rd-svc-n" aria-hidden="true">03</span></div>
                         <h3>Generative AI</h3>
                         <p>AI-driven tools that extract, organize and deliver actionable knowledge from your Nonstop code.</p>
                         <span class="rd-go">Learn more <span aria-hidden="true">&rarr;</span></span>
