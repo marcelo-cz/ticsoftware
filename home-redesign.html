@@ -1709,6 +1709,12 @@
         .rd-p-mod .rd-ic { background: #F7E8E8; color: #800000; }  .rd-p-mod .rd-more, .rd-p-mod .rd-chips a:hover { color: #800000; }
         .rd-p-mon .rd-ic { background: #E4F4F1; color: #0F766E; }  .rd-p-mon .rd-more, .rd-p-mon .rd-chips a:hover { color: #0F766E; }
         .rd-p-ai  .rd-ic { background: #EFEAFB; color: #5B3CC4; }  .rd-p-ai  .rd-more, .rd-p-ai  .rd-chips a:hover { color: #5B3CC4; }
+        /* product families (Messaging, Gateway, Business Intelligence, Modernize) above their chips */
+        .rd-famgrp { margin-bottom: 1rem; }
+        .rd-famgrp .rd-chips { margin-bottom: 0; }
+        .rd-fam { display: inline-flex; gap: .3rem; margin-bottom: .45rem; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; transition: gap .2s; }
+        .rd-fam:hover { gap: .55rem; }
+        .rd-p-int .rd-fam { color: #003d99; } .rd-p-mod .rd-fam { color: #800000; } .rd-p-mon .rd-fam { color: #0F766E; }
         .rd-p-ai::after {
             content: 'TICSoftware.Ai'; position: absolute; top: 1.2rem; right: 1.2rem;
             font-size: .68rem; font-weight: 700; letter-spacing: .03em; color: #5B3CC4; background: #EFEAFB; border-radius: 999px; padding: .2rem .55rem;
@@ -1860,6 +1866,27 @@
                 }
         @media (prefers-reduced-motion: reduce) {
             }
+        /* Let's talk: open full-width band (no container box), same two-column layout */
+        main .rd-cta-wrap.open { padding: 4.5rem 2rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; }
+        main .rd-cta-wrap.open .rd-cta { background: none; border: 0; box-shadow: none; border-radius: 0; padding: 0; overflow: visible; }
+        main .rd-cta-wrap.open .rd-cta::before, main .rd-cta-wrap.open .rd-cta::after { content: none; }
+        /* the faint grid, soft glows and the red-to-purple ribbon now sit on the full-width band */
+        main .rd-cta-wrap.open { position: relative; overflow: hidden; padding-bottom: calc(4.5rem + 6px); }
+        main .rd-cta-wrap.open::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(520px 300px at 92% 0%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(440px 280px at 4% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-cta-wrap.open::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+            background: linear-gradient(90deg, #800000, #B21F23 30%, #4154FF 70%, #8455E0);
+        }
+        main .rd-cta-wrap.open .rd-cta { position: relative; z-index: 1; }
+        @media (max-width: 600px) { main .rd-cta-wrap.open { padding: 3.5rem 1.25rem calc(3.5rem + 6px); } }
     </style>
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -1956,15 +1983,15 @@
                         <div class="rd-dd-menu">
                             <a href="who-we-are-redesign.html">Who We Are</a>
                             <a href="ticteam-redesign.html">TIC Team</a>
-                            <a href="our-partners.html">Our Partners</a>
-                            <a href="our-clients.html">Our Clients</a>
+                            <a href="our-partners-redesign.html">Our Partners</a>
+                            <a href="our-clients-redesign.html">Our Clients</a>
                         </div>
                     </div>
                     <div class="rd-dd">
                         <a href="#products" class="rd-dd-toggle">Products<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
                         <div class="rd-dd-menu">
-                            <a href="messaging.html">Messaging</a>
-                            <a href="gateway.html">Gateway</a>
+                            <a href="messaging-redesign.html">Messaging</a>
+                            <a href="gateway-redesign.html">Gateway</a>
                             <a href="business-intelligence.html">Business Intelligence</a>
                             <a href="modernize.html">Modernize</a>
                         </div>
@@ -2037,10 +2064,9 @@
         </g>
         <g id="flPkts"></g>
         <!-- TIC gateway (drawn over the packets, so they pass through it) -->
-        <circle class="fl-ring" cx="280" cy="210" r="40"/>
-        <circle cx="280" cy="210" r="32" fill="#fff" stroke="#800000" stroke-width="2.5"/>
-        <text x="280" y="210" text-anchor="middle" style="font:900 17px 'Segoe UI',sans-serif;fill:#800000;letter-spacing:-.5px">TIC</text>
-        <text x="280" y="225" text-anchor="middle" style="font:700 10px 'Segoe UI',sans-serif;fill:#800000">Software</text>
+        <rect class="fl-ring" x="220" y="176" width="120" height="68" rx="20"/>
+        <rect x="226" y="182" width="108" height="56" rx="16" fill="#fff" stroke="#800000" stroke-width="2.5" style="filter:drop-shadow(0 6px 12px rgba(11,31,68,.14))"/>
+        <image href="./images/Logos/TIC_red_stripes.png" x="236" y="190" width="88" height="39.2" preserveAspectRatio="xMidYMid meet"><title>TIC Software</title></image>
         <text x="280" y="268" text-anchor="middle" class="fl-s">TeleMail · uLinga · Gateway</text>
         <!-- destinations -->
         <g><rect class="fl-card" x="404" y="52" width="150" height="56" rx="14"/><circle class="fl-tick" cx="424" cy="80" r="5" fill="#003d99"/><text class="fl-t" x="438" y="77">Kafka</text><text class="fl-s" x="438" y="94">event streams</text></g>
@@ -2086,24 +2112,22 @@
                     <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7.3 11 16.7 6M7.3 13l9.4 5"/></svg></div>
                     <h3>Integrate</h3>
                     <p>Connect Nonstop applications and data to Kafka, mainframes, Windows, .NET and web services, with format conversion and reliable data delivery.</p>
-                    <ul class="rd-chips"><li><a href="messaging.html#telemail">TeleMail</a></li><li><a href="gateway.html#telepath">TelePath</a></li><li><a href="ipforwarder.html">IP Forwarder</a></li><li><a href="messaging.html#teleftp">TeleFTP</a></li><li><a href="ulinga.html">uLinga for Kafka</a></li><li><a href="ulinga-ee.html">uLinga/EE</a></li></ul>
-                    <a class="rd-more" href="gateway.html">Explore integration <span aria-hidden="true">&rarr;</span></a>
+                    <div class="rd-famgrp"><a class="rd-fam" href="messaging-redesign.html">Messaging <span aria-hidden="true">&rarr;</span></a><ul class="rd-chips"><li><a href="messaging-redesign.html#telemail">TeleMail</a></li><li><a href="messaging-redesign.html#teleftp">TeleFTP</a></li></ul></div>
+                    <div class="rd-famgrp"><a class="rd-fam" href="gateway-redesign.html">Gateway <span aria-hidden="true">&rarr;</span></a><ul class="rd-chips"><li><a href="gateway-redesign.html#telepath">TelePath</a></li><li><a href="ipforwarder.html">IP Forwarder</a></li><li><a href="ulinga.html">uLinga for Kafka</a></li><li><a href="ulinga-ee.html">uLinga/EE</a></li></ul></div>
                 </article>
                 <article class="rd-pillar rd-p-mod">
                     <div class="rd-deco tri" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="dma" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B21F23"/><stop offset="1" stop-color="#800000"/></linearGradient><linearGradient id="dmb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2A7A9" stop-opacity=".95"/><stop offset="1" stop-color="#F2A7A9" stop-opacity=".75"/></linearGradient></defs><polygon points="30,0 100,0 100,100 62,100" fill="url(#dma)"/><polygon points="30,0 62,100 -2,100" fill="url(#dmb)"/><polygon points="100,38 100,100 70,100" fill="url(#dmb)" opacity=".9"/></svg></div>
                     <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg></div>
                     <h3>Modernize</h3>
                     <p>Bring Nonstop applications up to date without a rewrite, from replacing green screens with a GUI to XML and JSON for modern interfaces.</p>
-                    <ul class="rd-chips"><li><a href="modernize.html#xmlthunder">XML Thunder</a></li><li><a href="json-thunder.html">JSON Thunder</a></li><li><a href="modernize.html#top">TOP</a></li></ul>
-                    <a class="rd-more" href="modernize.html">Explore modernization <span aria-hidden="true">&rarr;</span></a>
+                    <div class="rd-famgrp"><a class="rd-fam" href="modernize.html">Modernize <span aria-hidden="true">&rarr;</span></a><ul class="rd-chips"><li><a href="modernize.html#xmlthunder">XML Thunder</a></li><li><a href="json-thunder.html">JSON Thunder</a></li><li><a href="modernize.html#top">TOP</a></li></ul></div>
                 </article>
                 <article class="rd-pillar rd-p-mon">
                     <div class="rd-deco tri" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="dta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14B8A6"/><stop offset="1" stop-color="#0F766E"/></linearGradient><linearGradient id="dtb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#99F6E4" stop-opacity=".95"/><stop offset="1" stop-color="#99F6E4" stop-opacity=".75"/></linearGradient></defs><polygon points="30,0 100,0 100,100 62,100" fill="url(#dta)"/><polygon points="30,0 62,100 -2,100" fill="url(#dtb)"/><polygon points="100,38 100,100 70,100" fill="url(#dtb)" opacity=".9"/></svg></div>
                     <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
                     <h3>Monitor & analyze</h3>
                     <p>Turn Nonstop logs and reports into a central, searchable view and multi-dimensional analysis, so issues and trends surface sooner.</p>
-                    <ul class="rd-chips"><li><a href="logwatch.html">LogWatch</a></li><li><a href="business-intelligence.html#cypress">Cypress</a></li></ul>
-                    <a class="rd-more" href="business-intelligence.html">Explore monitoring <span aria-hidden="true">&rarr;</span></a>
+                    <div class="rd-famgrp"><a class="rd-fam" href="business-intelligence.html">Business Intelligence <span aria-hidden="true">&rarr;</span></a><ul class="rd-chips"><li><a href="logwatch.html">LogWatch</a></li><li><a href="business-intelligence.html#cypress">Cypress</a></li></ul></div>
                 </article>
                 <article class="rd-pillar rd-p-ai">
                     <div class="rd-deco slant" aria-hidden="true"></div>
@@ -2243,7 +2267,7 @@
             </div>
         </section>
         <!-- REDESIGN: Closing call to action -->
-        <section class="rd-cta-wrap" aria-label="Contact">
+        <section class="rd-cta-wrap open" aria-label="Contact">
             <div class="rd-cta">
                 <div>
                     <span class="rd-eyebrow">&#9670; Let&rsquo;s talk</span>
@@ -2279,15 +2303,15 @@
                     <ul>
                         <li><a href="who-we-are-redesign.html">Who We Are</a></li>
                         <li><a href="ticteam-redesign.html">TIC Team</a></li>
-                        <li><a href="our-partners.html">Partners</a></li>
-                        <li><a href="our-clients.html">Clients</a></li>
+                        <li><a href="our-partners-redesign.html">Partners</a></li>
+                        <li><a href="our-clients-redesign.html">Clients</a></li>
                     </ul>
                 </div>
                 <div class="rd-fcol">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="messaging.html">Messaging</a></li>
-                        <li><a href="gateway.html">Gateway</a></li>
+                        <li><a href="messaging-redesign.html">Messaging</a></li>
+                        <li><a href="gateway-redesign.html">Gateway</a></li>
                         <li><a href="business-intelligence.html">Business Intelligence</a></li>
                         <li><a href="modernize.html">Modernize</a></li>
                     </ul>

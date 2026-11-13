@@ -1874,6 +1874,27 @@
             .ww-badge { left: auto; right: 12px; bottom: -22px; }
             .ww-plogos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
+        /* Let's talk: open full-width band (no container box), same two-column layout */
+        main .rd-cta-wrap.open { padding: 4.5rem 2rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; }
+        main .rd-cta-wrap.open .rd-cta { background: none; border: 0; box-shadow: none; border-radius: 0; padding: 0; overflow: visible; }
+        main .rd-cta-wrap.open .rd-cta::before, main .rd-cta-wrap.open .rd-cta::after { content: none; }
+        /* the faint grid, soft glows and the red-to-purple ribbon now sit on the full-width band */
+        main .rd-cta-wrap.open { position: relative; overflow: hidden; padding-bottom: calc(4.5rem + 6px); }
+        main .rd-cta-wrap.open::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(520px 300px at 92% 0%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(440px 280px at 4% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-cta-wrap.open::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+            background: linear-gradient(90deg, #800000, #B21F23 30%, #4154FF 70%, #8455E0);
+        }
+        main .rd-cta-wrap.open .rd-cta { position: relative; z-index: 1; }
+        @media (max-width: 600px) { main .rd-cta-wrap.open { padding: 3.5rem 1.25rem calc(3.5rem + 6px); } }
     </style>
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -1939,15 +1960,15 @@
                         <div class="rd-dd-menu">
                             <a href="who-we-are-redesign.html" aria-current="page">Who We Are</a>
                             <a href="ticteam-redesign.html">TIC Team</a>
-                            <a href="our-partners.html">Our Partners</a>
-                            <a href="our-clients.html">Our Clients</a>
+                            <a href="our-partners-redesign.html">Our Partners</a>
+                            <a href="our-clients-redesign.html">Our Clients</a>
                         </div>
                     </div>
                     <div class="rd-dd">
                         <a href="index.html#products" class="rd-dd-toggle">Products<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
                         <div class="rd-dd-menu">
-                            <a href="messaging.html">Messaging</a>
-                            <a href="gateway.html">Gateway</a>
+                            <a href="messaging-redesign.html">Messaging</a>
+                            <a href="gateway-redesign.html">Gateway</a>
                             <a href="business-intelligence.html">Business Intelligence</a>
                             <a href="modernize.html">Modernize</a>
                         </div>
@@ -2058,7 +2079,7 @@
                         <div class="rd-ic" style="background:#E8EEFA;color:#003d99"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14l-3-3"/></svg></div>
                         <h3>Proven solutions</h3>
                         <p>We've helped IT teams modernize Nonstop environments without rewriting core systems. There's no one-size-fits-all: we only recommend curated solutions that fit each client's requirements and expectations.</p>
-                        <ul class="rd-chips"><li><a href="messaging.html">Messaging</a></li><li><a href="gateway.html">Gateway</a></li><li><a href="business-intelligence.html">Business Intelligence</a></li><li><a href="modernize.html">Modernize</a></li></ul>
+                        <ul class="rd-chips"><li><a href="messaging-redesign.html">Messaging</a></li><li><a href="gateway-redesign.html">Gateway</a></li><li><a href="business-intelligence.html">Business Intelligence</a></li><li><a href="modernize.html">Modernize</a></li></ul>
                     </article>
                     <article class="ww-card">
                         <div class="rd-ic" style="background:#E4F4F1;color:#0F766E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
@@ -2077,7 +2098,7 @@
                     <span class="rd-kicker">TIC &amp; partners</span>
                     <h2>Nonstop modernization, together</h2>
                     <p>TIC Software and our technology partners work closely together to offer software and services designed for legacy application modernization, a comprehensive family of solutions that keeps Nonstop and other legacy systems current with ever-evolving technology.</p>
-                    <a class="rd-all" href="our-partners.html">Our partners <span aria-hidden="true">&rarr;</span></a>
+                    <a class="rd-all" href="our-partners-redesign.html">Our partners <span aria-hidden="true">&rarr;</span></a>
                 </div>
                 <ul class="ww-plogos" aria-label="Technology partners">
                         <li class="hpe"><img src="./images/Logos/strip/partner-hpe.png" alt="HPE Technology Partner (Silver)" loading="lazy"></li>
@@ -2101,7 +2122,7 @@
                         <p>We've helped hundreds of IT groups at dozens of firms meet the challenges of legacy application modernization, and we're fortunate to have clients willing to speak for us.</p>
                     </div>
                     <div class="ww-clients-links">
-                        <a class="rd-all" href="our-clients.html">Our clients <span aria-hidden="true">&rarr;</span></a>
+                        <a class="rd-all" href="our-clients-redesign.html">Our clients <span aria-hidden="true">&rarr;</span></a>
                         <a class="rd-all" href="success-stories.html">Success stories <span aria-hidden="true">&rarr;</span></a>
                     </div>
                 </div>
@@ -2112,7 +2133,6 @@
                     </blockquote>
                     <ul class="ww-clogos" aria-label="TIC Software clients">
                         <li class="tall"><img src="./images/Logos/strip/bank-of-america.png" alt="Bank of America" loading="lazy"></li>
-                        <li class="tall"><img src="./images/Logos/strip/cibc.png" alt="CIBC" loading="lazy"></li>
                         <li><img src="./images/Logos/strip/telus.png" alt="TELUS" loading="lazy"></li>
                         <li class="tall"><img src="./images/Logos/strip/quest-diagnostics.png" alt="Quest Diagnostics" loading="lazy"></li>
                         <li><img src="./images/Logos/strip/sumitomo.png" alt="Sumitomo Mitsui Trust Bank" loading="lazy"></li>
@@ -2121,7 +2141,6 @@
                         <li class="tall"><img src="./images/Logos/strip/us-foods.png" alt="US Foods" loading="lazy"></li>
                         <li class="tall"><img src="./images/Logos/strip/state-street.png" alt="State Street" loading="lazy"></li>
                         <li><img src="./images/Logos/strip/raymond-james.png" alt="Raymond James" loading="lazy"></li>
-                        <li><img src="./images/Logos/strip/western-union.png" alt="Western Union" loading="lazy"></li>
                         <li class="tall"><img src="./images/Logos/strip/pape.png" alt="Papé" loading="lazy"></li>
                         <li><img src="./images/Logos/strip/cass.png" alt="Cass Information Systems" loading="lazy"></li>
                         <li class="tall"><img src="./images/Logos/strip/vancouver-coastal-health.png" alt="Vancouver Coastal Health" loading="lazy"></li>
@@ -2131,7 +2150,7 @@
         </section>
 
         <!-- WHO WE ARE: Closing call to action -->
-        <section class="rd-cta-wrap" aria-label="Contact">
+        <section class="rd-cta-wrap open" aria-label="Contact">
             <div class="rd-cta">
                 <div>
                     <span class="rd-eyebrow">&#9670; Let&rsquo;s talk</span>
@@ -2167,15 +2186,15 @@
                     <ul>
                         <li><a href="who-we-are-redesign.html">Who We Are</a></li>
                         <li><a href="ticteam-redesign.html">TIC Team</a></li>
-                        <li><a href="our-partners.html">Partners</a></li>
-                        <li><a href="our-clients.html">Clients</a></li>
+                        <li><a href="our-partners-redesign.html">Partners</a></li>
+                        <li><a href="our-clients-redesign.html">Clients</a></li>
                     </ul>
                 </div>
                 <div class="rd-fcol">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="messaging.html">Messaging</a></li>
-                        <li><a href="gateway.html">Gateway</a></li>
+                        <li><a href="messaging-redesign.html">Messaging</a></li>
+                        <li><a href="gateway-redesign.html">Gateway</a></li>
                         <li><a href="business-intelligence.html">Business Intelligence</a></li>
                         <li><a href="modernize.html">Modernize</a></li>
                     </ul>

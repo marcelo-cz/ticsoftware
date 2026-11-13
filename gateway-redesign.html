@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gateway: Connect HPE Nonstop to Kafka, Mainframe, Splunk &amp; Windows | TIC Software</title>
+    <meta name="description" content="TIC Gateway products connect HPE Nonstop applications to Kafka, IBM Mainframe over IP, Splunk, Windows services and web browsers, without changing your applications.">
+    <meta name="keywords" content="Nonstop systems, Nonstop modernization, COBOL, messaging solutions, gateway products, business intelligence, TIC Navigator, HPE Nonstop">
+    <!-- TEST PAGE: Gateway redesign sandbox. Kept out of search (noindex),
+         the sitemap and the site menus. gateway.html stays the live page. -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Gateway: Connect HPE Nonstop to Kafka, Mainframe, Splunk &amp; Windows | TIC Software">
+    <meta property="og:description" content="TIC Gateway products connect HPE Nonstop applications to Kafka, IBM Mainframe over IP, Splunk, Windows services and web browsers, without changing your applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ticsoftware.com/gateway.html">
+    <meta property="og:image" content="https://ticsoftware.com/images/TIC_2026.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TIC Software - HPE Nonstop Modernization &amp; Integration">
+    <meta name="twitter:description" content="TIC Software provides innovative technology solutions and consulting services for Nonstop systems modernization.">
+    <meta name="twitter:image" content="https://ticsoftware.com/images/TIC_2026.png">
+    <meta name="theme-color" content="#003d99">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d99;
+            --light-blue: #4a6fa5;
+            --accent-red: #e63946;
+            --dark-text: #1d1e2b;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            margin-right: auto;
+            min-width: 350px;
+            margin-left: -5rem;
+            padding-left: 0;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-search-input {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 250px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.1);
+        }
+
+        .nav-search-btn {
+            padding: 0.6rem 1rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-search-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid var(--border-gray);
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('./images/skyline_image_bgc2.jpg');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: left;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        /* Page intro above the content cards */
+        .page-intro {
+            text-align: center;
+            border-bottom: none;
+            padding: 2.5rem 0 0.5rem;
+        }
+
+        .page-intro h1 {
+            font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--primary-blue);
+            margin-bottom: 0.6rem;
+        }
+
+        /* second line of the h1: descriptive, so the phrase still carries
+           heading weight without adding an h2 above the card grid */
+        .page-intro-sub {
+            display: block;
+            font-size: clamp(1.05rem, 1.9vw, 1.4rem);
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--dark-text);
+            margin-top: 0.35rem;
+        }
+
+        .page-intro-tagline {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            color: var(--dark-text);
+            /* 720px broke the line before "them."; this holds the sentence on one
+               line at desktop while still wrapping normally on narrow screens */
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        /* Who We Are & What's New Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: stretch;
+        }
+
+        .about-box {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            border: 2px solid var(--border-gray);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 0.75rem;
+        }
+
+        .about-box p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        .about-box > .btn {
+            margin-top: auto;
+        }
+
+        /* two product buttons share the slot a single .btn used to fill */
+        /* .about-box p grows to fill the box, which suits a single block of
+           copy but pushed these two product paragraphs apart. The button
+           row below still pins itself to the bottom. */
+        .about-box.two-products p { flex-grow: 0; }
+
+        /* The section stretches both boxes to the taller one, and this box's
+           copy is shorter - which left ~139px of slack trailing after the last
+           button at 1280px. Spreading the two products down the box puts that
+           space between them instead, and keeps the boxes equal height. */
+        .about-box.two-products { justify-content: space-between; }
+
+        /* Each product stands on its own: box shot, copy, then the button that
+           goes with it - rather than both buttons sharing a row at the bottom. */
+        /* Box shot on the left, copy and its button on the right. The image
+           spans both rows so the text sits beside it rather than under it;
+           the box goes full width below 768px, so this holds on phones too. */
+        .about-box .product-item {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            column-gap: 1.25rem;
+            align-items: start;
+        }
+
+        .about-box .product-item + .product-item { margin-top: 1.5rem; }
+
+        /* The two crops differ slightly in proportion (620x471 against
+           664x477), which left one shot 6px taller than the other and the
+           blocks looking unmatched. Pinning both to one height lines the pair
+           up; at 93px they come out 122px and 129px wide, so both still sit
+           inside the 130px column. */
+        .about-box .product-item img {
+            grid-row: 1 / span 2;
+            display: block;
+            width: auto;
+            height: 93px;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .about-box .product-item p { margin-bottom: 0.75rem; }
+        /* Each button spans its copy column, so it lines up with the paragraph
+           above it on both edges rather than hugging its own label. */
+        .about-box .product-item .btn { justify-self: stretch; }
+
+        /* Below this the text column is under ~200px and the copy breaks into
+           two- and three-word lines, so the box shot goes back above the text. */
+        @media (max-width: 560px) {
+            .about-box .product-item { grid-template-columns: 1fr; row-gap: 0.75rem; }
+            .about-box .product-item img { grid-row: auto; width: 100%; height: auto; max-width: 200px; margin: 0 auto; }
+        }
+
+        .about-box .italic-text {
+            font-style: italic;
+            margin: 1.5rem 0;
+            padding: 1.5rem 0;
+            border-top: 2px solid var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .event-details {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .event-details p {
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .nytug-box {
+            display: flex;
+            flex-direction: column;
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+
+        .nytug-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .nytug-logo {
+            flex: 0 0 330.625px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nytug-logo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .nytug-logo .event-details {
+            margin: 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nytug-logo .event-details p {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .address-indent {
+            display: block;
+            margin-left: 5.0rem;
+        }
+
+        .nytug-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nytug-details h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin: 0 0 1rem 0;
+        }
+
+        .nytug-details p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .nytug-details .btn {
+            margin-top: auto;
+            align-self: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-blue);
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .whats-new-image {
+            text-align: center;
+        }
+
+        .whats-new-image img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .whats-new-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .whats-new-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .whats-new-content p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+
+        .whats-new-content .btn {
+            margin-top: auto;
+        }
+
+        /* Products Section */
+        .products-section {
+            background-color: var(--light-gray);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .product-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            margin-top: -1.5rem;
+            color: var(--white);
+            background-color: #7ECCC5;
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            width: calc(100% + 4rem);
+            margin-left: -2rem;
+            margin-right: -2rem;
+            text-align: center;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .product-card a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--white);
+        }
+
+        .services-section .section-title {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 1.5rem 2rem;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+            border: 2px solid var(--border-gray);
+            border-bottom: none;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            background-color: var(--white);
+            padding: 0.25rem 2rem 2rem 2rem;
+            border-radius: 0 0 8px 8px;
+            border: 2px solid var(--border-gray);
+            border-top: none;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0,61,153,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            text-decoration: underline;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-card a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .service-card a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--white);
+            text-align: center;
+            border: 1px solid #ccc !important;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ccc !important;
+        }
+
+        .testimonials-box {
+            background-color: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            padding: 1.125rem;
+            border-radius: 8px;
+            margin-bottom: 0;
+        }
+
+        .testimonials-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1.125rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 0;
+        }
+
+        .testimonials-slideshow {
+            position: relative;
+            max-width: 750px;
+            min-height: 112.5px;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .testimonial-quote {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0;
+            font-style: italic;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .testimonial-quote.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-nav-btn {
+            padding: 0.75rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: 2px solid var(--primary-blue);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .testimonial-nav-btn:hover {
+            background-color: var(--light-blue);
+            border-color: var(--light-blue);
+        }
+
+
+        .clients-carousel {
+            position: relative;
+            max-width: 1200px;
+            height: 200px;
+            margin: 0.3rem auto 0;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        .client-carousel-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: transform 0.6s ease-in-out;
+            transform: translateX(100%);
+            top: 0;
+            left: 0;
+        }
+
+        .client-carousel-slide.active {
+            transform: translateX(0);
+            z-index: 10;
+        }
+
+        .client-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 268px;
+            height: 150px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .client-logo img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+
+        .client-logo img {
+            max-height: 100%;
+            max-width: 150px;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(135deg, #0a1929 0%, #0f2847 50%, #1a1a2e 100%);
+            color: #e8e8e8;
+            padding: 3rem 1.5rem 0;
+            margin-top: 4.5rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer Content Grid */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.125rem;
+            padding: 0 1.5rem 2.25rem 1.5rem;
+            border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+        }
+
+        /* Footer Section */
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+        /* Footer Title */
+        .footer-title {
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 0.56rem;
+            text-align: left;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #4a6fa5, rgba(74, 111, 165, 0));
+        }
+
+        /* Footer Links */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.56rem;
+            text-align: left;
+        }
+
+        .footer-links a {
+            color: #b0b8c1;
+            text-decoration: none;
+            font-size: 0.71rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4a6fa5;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #4a6fa5;
+        }
+
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .footer-contact {
+            grid-column: 5;
+            display: grid !important;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .footer-contact .footer-title {
+            grid-column: 1 / -1;
+            margin-bottom: 0;
+        }
+
+        .footer-contact .contact-item:first-of-type {
+            grid-column: 1 / -1;
+            margin-top: -0.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.64rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #4a6fa5;
+            margin-bottom: 0.38rem;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .contact-text {
+            font-size: 0.68rem;
+            line-height: 1.7;
+            color: #b0b8c1;
+            margin: 0;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .contact-text a {
+            color: #4a6fa5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: #5a7fb5;
+            text-decoration: underline;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.68rem;
+            color: #7a8292;
+        }
+
+        .footer-copyright p {
+            margin: 0;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            font-size: 0.68rem;
+        }
+
+        .footer-legal a {
+            color: #7a8292;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #4a6fa5;
+        }
+
+        .divider {
+            color: rgba(74, 111, 165, 0.4);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .footer-social .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(74, 111, 165, 0.15);
+            border: 1px solid rgba(74, 111, 165, 0.3);
+            border-radius: 6px;
+            color: #4a6fa5;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-social .social-link:hover {
+            background: rgba(74, 111, 165, 0.25);
+            border-color: rgba(74, 111, 165, 0.5);
+            color: #5a7fb5;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.875rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                padding: 2.25rem 1.125rem 0;
+                margin-top: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                padding: 0 1.5rem 1.5rem 1.5rem;
+            }
+
+            .footer-contact {
+                grid-column: 1 / -1;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-title {
+                font-size: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 0.68rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-legal {
+                justify-content: center;
+                order: 2;
+            }
+
+            .footer-copyright {
+                order: 1;
+            }
+
+            .footer-social {
+                order: 3;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.125rem;
+                padding: 0 1.5rem 2.25rem 1.5rem;
+            }
+
+            .footer-section {
+                border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+                padding-bottom: 1.125rem;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+
+            .footer-contact {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-contact .contact-item:first-of-type {
+                grid-column: 1 !important;
+            }
+
+            .footer-title::after {
+                width: 100%;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem; flex-wrap: nowrap;
+                font-size: 0.85rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .client-logos {
+                gap: 1rem;
+            }
+        }
+        /* Event cards (ported from ticsoftware.ai What's New) */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+        .case-study-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(65, 84, 255, 0.15);
+        }
+        .case-study-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .case-study-tag {
+            display: inline-block;
+            background: #E4E7FF;
+            color: #003d99;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .case-study-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #1D1E2B;
+            min-height: 3.2rem;
+        }
+        .case-study-excerpt {
+            color: #1D1E2B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .case-study-content .cta-button {
+            display: inline-block;
+            background: #003d99;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: auto;
+        }
+        .case-study-content .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 61, 153, 0.3);
+        }
+
+        /* Single upcoming event: image left, detail right */
+        .event-horizontal {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 2rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .event-horizontal:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(65, 84, 255, 0.15);
+        }
+
+        .event-horizontal img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            background-color: #000000;
+        }
+
+        /* ===== TBC 2026 line in the What's New box =====
+           No logo and no card: the eyebrow leads, then the conference name and
+           the where/when beneath it. */
+        .about-box .case-study-tag { align-self: flex-start; margin-bottom: 0.9rem; }
+
+        /* HPE brand green */
+        /* Sized to hold one line. The box gives about 504px of content width
+           and this string is 69 characters, which needs ~450px at .85rem -
+           1rem came to ~530px and wrapped. nowrap keeps it honest; below
+           1100px the column narrows enough that wrapping is the better
+           outcome, so it is released there.
+
+           Scoped to .about-box because `.about-box p` is more specific than a
+           bare class on a <p>: unscoped, this was rendering at 0.95rem with a
+           1rem margin, so the width budget above never held and the media
+           query below was a no-op. .about-box is a flex column, so that 1rem
+           did not collapse against the next child either - it stacked. */
+        @media (max-width: 1100px) {
+        }
+
+        /* ===== Session entries in the What's New box =====
+           Every rule below is scoped to .about-box on purpose: `.about-box p`
+           is more specific than a bare class on a <p> and would otherwise pull
+           these back to 0.95rem and re-justify them. */
+        @media (max-width: 1100px) {
+        }
+
+        /* Native disclosure, so this page still needs no JavaScript. The
+           default marker is dropped for a caret that flips when open, and the
+           label swaps between the two spans in the summary. */
+        /* The button closes the box, spanning its full width.
+           colour has to be restated here: the white text came from
+           .case-study-content .cta-button, which only applied while the button
+           sat inside the event card - moved out, it inherited the box's dark
+           text on a dark blue background and disappeared. */
+        .event-horizontal .case-study-content { padding: 1.75rem 2rem 1.75rem 0; }
+        /* .case-study-content is a flex column, so inline-block children stretch */
+        .event-horizontal .case-study-tag { align-self: flex-start; }
+        .event-horizontal .case-study-content h3 { min-height: 0; }
+        .event-horizontal .case-study-excerpt { margin-bottom: 1.25rem; max-width: 70ch; }
+        .event-horizontal .cta-button { margin-top: 0; width: fit-content; }
+
+        @media (max-width: 768px) {
+            .case-study-grid { grid-template-columns: 1fr; }
+            .event-horizontal { grid-template-columns: 1fr; }
+            .event-horizontal .case-study-content { padding: 0 1.5rem 1.5rem; }
+        }
+
+        /* ================================================================
+           REDESIGN: header
+           Scoped to .rd-header so the original element rules (header, nav,
+           nav a) only provide the base; everything visible is set here.
+           ================================================================ */
+        header.rd-header {
+            position: sticky; top: 0; z-index: 1000; padding: 0;
+            background: rgba(255, 255, 255, .94); backdrop-filter: saturate(1.4) blur(10px);
+            border-bottom: 1px solid #E6EAF2; box-shadow: none;
+        }
+        .rd-header-in { max-width: 1240px; margin: 0 auto; padding: .7rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
+        .rd-logo { display: flex; flex-direction: column; align-items: flex-start; gap: .2rem; text-decoration: none; margin-right: auto; flex: 0 0 auto; }
+        .rd-logo img { height: 48px; width: auto; display: block; }
+        .rd-tagline { font-size: .72rem; font-weight: 600; font-style: italic; color: #6B7488; letter-spacing: .01em; white-space: nowrap; }
+        header.rd-header nav.rd-nav { display: flex; align-items: center; gap: .3rem; white-space: nowrap; }
+        .rd-nav-link, .rd-dd-toggle {
+            display: inline-flex; align-items: center; gap: .3rem; padding: .55rem .8rem; border-radius: 9px;
+            font-size: .95rem; font-weight: 600; color: #0B1F44; text-decoration: none; transition: background .2s, color .2s;
+        }
+        .rd-nav-link:hover, .rd-dd-toggle:hover, .rd-dd:focus-within .rd-dd-toggle { background: #F1F4FA; color: #003d99; }
+        .rd-nav-link.active { color: #003d99; }
+        button.rd-dd-toggle { background: transparent; border: 0; font-family: inherit; cursor: default; }   /* About Us: opens its menu, links nowhere */
+        .rd-caret { width: 12px; height: 12px; transition: transform .2s; }
+        .rd-dd { position: relative; }
+        .rd-dd-menu {
+            position: absolute; top: calc(100% + 6px); left: 0; min-width: 220px; padding: .45rem;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; box-shadow: 0 18px 40px rgba(11, 31, 68, .14);
+            opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s, transform .18s, visibility .18s;
+        }
+        .rd-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -8px; height: 8px; }  /* hover bridge */
+        .rd-dd:hover .rd-dd-menu, .rd-dd:focus-within .rd-dd-menu { opacity: 1; visibility: visible; transform: none; }
+        .rd-dd:hover .rd-caret, .rd-dd:focus-within .rd-caret { transform: rotate(180deg); }
+        .rd-dd-menu a { display: block; padding: .6rem .8rem; border-radius: 9px; font-size: .93rem; font-weight: 600; color: #0B1F44; text-decoration: none; }
+        .rd-dd-menu a:hover { background: #F1F4FA; color: #003d99; }
+
+        .rd-search { position: relative; display: flex; align-items: center; margin-left: .5rem; }
+        .rd-search-input {
+            width: 170px; padding: .55rem 2.4rem .55rem .95rem; border: 1.5px solid #DCE2EF; border-radius: 999px;
+            font: inherit; font-size: .9rem; color: #0B1F44; background: #fff; transition: width .25s, border-color .2s, box-shadow .2s;
+        }
+        .rd-search-input::placeholder { color: #8A93A6; }
+        .rd-search-input:focus { outline: none; width: 220px; border-color: #003d99; box-shadow: 0 0 0 3px rgba(0, 61, 153, .12); }
+        .rd-search-btn {
+            position: absolute; right: 4px; width: 32px; height: 32px; border: 0; border-radius: 50%; padding: 0;
+            display: flex; align-items: center; justify-content: center; background: transparent; color: #4A5570; cursor: pointer;
+        }
+        .rd-search-btn:hover { background: #F1F4FA; color: #003d99; }
+        .rd-search-btn svg { width: 17px; height: 17px; }
+        .rd-search .search-results { left: auto; right: 0; width: 320px; }
+        .rd-nav-cta {
+            margin-left: .4rem; padding: .62rem 1.15rem; border-radius: 10px; background: #003d99; color: #fff;
+            font-size: .93rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 18px rgba(0, 61, 153, .22); transition: transform .2s, box-shadow .2s;
+        }
+        .rd-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0, 61, 153, .3); color: #fff; }
+
+        .rd-burger { display: none; width: 44px; height: 44px; border: 0; background: transparent; border-radius: 10px; cursor: pointer; padding: 10px; }
+        .rd-burger span { display: block; height: 2px; background: #0B1F44; border-radius: 2px; margin: 5px 0; transition: transform .25s, opacity .25s; }
+        .rd-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .rd-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .rd-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        @media (max-width: 1080px) {
+            .rd-header-in { padding: .6rem 1.25rem; flex-wrap: wrap; }
+            .rd-logo img { height: 42px; }
+            .rd-burger { display: block; }
+            header.rd-header nav.rd-nav {
+                display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; gap: .1rem;
+                padding: .6rem 0 1rem; border-top: 1px solid #EEF1F6; margin-top: .4rem; white-space: normal;
+            }
+            header.rd-header.open nav.rd-nav { display: flex; }
+            .rd-nav-link, .rd-dd-toggle { justify-content: space-between; padding: .75rem .6rem; }
+            .rd-dd-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; padding: 0 0 .3rem .8rem; min-width: 0; display: none; }
+            .rd-dd.open .rd-dd-menu { display: block; }
+            .rd-dd.open .rd-caret { transform: rotate(180deg); }
+            .rd-dd:hover .rd-caret { transform: none; }
+            .rd-dd.open:hover .rd-caret { transform: rotate(180deg); }
+            .rd-search { margin: .5rem 0; }
+            .rd-search-input, .rd-search-input:focus { width: 100%; }
+            .rd-search .search-results { width: auto; left: 0; }
+            .rd-nav-cta { margin: .4rem 0 0; text-align: center; }
+        }
+        @media (max-width: 420px) { .rd-tagline { font-size: .66rem; } }
+
+        /* ================================================================
+           REDESIGN: footer
+           ================================================================ */
+        .rd-footer { background: linear-gradient(180deg, #0B1F44 0%, #081633 100%); color: #B9C5DE; margin: 0; }
+        .rd-footer-in { max-width: 1240px; margin: 0 auto; padding: 4rem 2rem 1.6rem; }
+        .rd-fgrid { display: grid; grid-template-columns: 1.5fr repeat(4, minmax(0, .8fr)) 1.4fr; gap: 2rem; }
+        .rd-flogo img { height: 44px; width: auto; display: block; }
+        .rd-ftag { font-size: .78rem; font-style: italic; font-weight: 600; color: #9FB0D3; margin: .4rem 0 1rem; }
+        .rd-fabout { font-size: .9rem; line-height: 1.6; color: #B9C5DE; margin: 0 0 1.2rem; max-width: 280px; }
+        .rd-social {
+            display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .85rem; border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .16); color: #fff; text-decoration: none; font-size: .85rem; font-weight: 600; transition: background .2s, border-color .2s;
+        }
+        .rd-social:hover { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .32); }
+        .rd-fcol h3 { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; margin: .3rem 0 1rem; }
+        .rd-fcol ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+        .rd-fcol a { color: #B9C5DE; text-decoration: none; font-size: .9rem; transition: color .2s; }
+        .rd-fcol a:hover { color: #fff; }
+        .rd-fcontact p { font-size: .88rem; line-height: 1.55; margin: 0 0 .8rem; }
+        .rd-flabel { font-size: .7rem !important; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7F93BD; margin: 0 0 .2rem !important; }
+        .rd-fbottom {
+            display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+            margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid rgba(255, 255, 255, .1); font-size: .82rem; color: #8A9BC0;
+        }
+        .rd-fbottom p { margin: 0; display: flex; gap: .6rem; align-items: center; }
+        .rd-fbottom a { color: #B9C5DE; text-decoration: none; }
+        .rd-fbottom a:hover { color: #fff; }
+        @media (max-width: 1080px) { .rd-fgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .rd-fbrand { grid-column: 1 / -1; } }
+        @media (max-width: 600px) {
+            .rd-footer-in { padding: 3rem 1.25rem 1.4rem; }
+            .rd-fgrid { grid-template-columns: 1fr 1fr; gap: 1.6rem 1.2rem; }
+            .rd-fcontact { grid-column: 1 / -1; }
+        }
+
+        /* REDESIGN: <main> now holds only the full-bleed redesigned sections, so the
+           old 1200px cap and the per-section grey rule no longer apply. Each
+           section centres its own content at 1200px. */
+        main { max-width: none; padding: 0; }
+        /* background rhythm after moving Services up: news grey, services white,
+           proof grey (running into the grey CTA band) */
+        main > .rd-services { background: #fff; border-top: 0; }
+        main > .rd-proof { background: #F4F6FB; border-top: 1px solid #E6EAF2; }
+        main > .rd-proof .rd-q { background: #fff; }
+
+        /* Large quote restyled to match the hero: light graph paper, soft brand
+           glows, navy type with navy/maroon highlights, maroon pill label. */
+        main .rd-quote-main {
+            background: #FBFCFE; color: #0B1F44; border: 1px solid #E3E8F2;
+            box-shadow: 0 14px 34px rgba(11, 31, 68, .08); overflow: hidden;
+        }
+        main .rd-quote-main::after {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(360px 240px at 92% 12%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(300px 220px at 8% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-quote-main > * { position: relative; z-index: 1; }
+        /* plain white: no graph paper or glows on the quote */
+        main .rd-quote-main { background: #fff; }
+        main .rd-quote-main::after { content: none; }
+        main .rd-quote-main::before { color: #800000; opacity: .22; z-index: 1; }
+        main .rd-quote-main p { color: #0B1F44; font-weight: 700; letter-spacing: -.01em; }
+        main .rd-quote-main p em { font-style: normal; color: #003d99; }
+        main .rd-quote-main p .rd-red { color: #800000; }
+        @media (max-width: 600px) { main .rd-quote-main { padding-top: 4.2rem; } }
+
+        /* Closing CTA restyled to match the hero: light graph paper, soft brand
+           glows, navy heading with a maroon accent, the hero's own buttons.
+           The thin ribbon along the bottom edge stays. */
+        main .rd-cta {
+            background: #FBFCFE; color: #0B1F44; border: 1px solid #E3E8F2;
+            box-shadow: 0 14px 34px rgba(11, 31, 68, .08);
+        }
+        main .rd-cta::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(420px 260px at 95% 0%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(360px 240px at 0% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-cta > * { position: relative; z-index: 1; }
+        main .rd-cta .rd-eyebrow { margin-bottom: .9rem; }
+        main .rd-cta h2 { color: #0B1F44; }
+        main .rd-cta h2 .rd-red { color: #800000; }
+        main .rd-cta p { color: #44506A; }
+        main .rd-cta .rd-btn-primary { background: #003d99; color: #fff; box-shadow: 0 10px 24px rgba(0, 61, 153, .25); }
+        main .rd-cta .rd-btn-primary:hover { box-shadow: 0 14px 30px rgba(0, 61, 153, .32); }
+        main .rd-cta .rd-btn-ghost { background: #fff; color: #0B1F44; border: 1.5px solid #D5DBE8; }
+        main .rd-cta .rd-btn-ghost:hover { border-color: #003d99; color: #003d99; }
+        main .rd-quote-main footer {
+            align-self: flex-start; color: #800000; background: #F7E8E8; border: 1px solid #EBCFCF;
+            padding: .35rem .85rem; border-radius: 999px; font-size: .74rem;
+        }
+        .rd-what, .rd-proof, .rd-services, .rd-cta-wrap { border-bottom: 0; }
+        /* the footer component carries a 72px top margin for older pages; the CTA band
+           already ends this one, so it sits flush */
+        main + * footer.site-footer, footer.site-footer { margin-top: 0; }
+
+        /* ================================================================
+           REDESIGN: Services row + closing call to action
+           ================================================================ */
+        .rd-services { padding: 5rem 2rem 4.5rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; scroll-margin-top: 90px; }
+        .rd-services-in { max-width: 1200px; margin: 0 auto; }
+        .rd-svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+        .rd-svc {
+            display: flex; flex-direction: column; gap: .55rem; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1.5rem 1.4rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-svc:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-svc .rd-ic { width: 44px; height: 44px; border-radius: 12px; margin-bottom: .5rem; background: #E8EEFA; color: #003d99; }
+        .rd-svc .rd-ic svg { width: 22px; height: 22px; }
+        .rd-svc h3 { font-size: 1.12rem; font-weight: 700; color: #0B1F44; margin: 0; }
+        .rd-svc p { font-size: .93rem; line-height: 1.55; color: #44506A; margin: 0; }
+        .rd-svc .rd-go { margin-top: auto; padding-top: .3rem; font-weight: 700; font-size: .9rem; color: #003d99; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-svc:hover .rd-go { gap: .6rem; }
+
+        .rd-cta-wrap { padding: 0 2rem 5rem; background: #F4F6FB; }
+        .rd-cta {
+            position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+            padding: 3rem 3.2rem; border-radius: 22px;
+            background: linear-gradient(135deg, #0B1F44 0%, #003d99 70%, #1B4FB8 100%); color: #fff;
+        }
+        .rd-cta::after {               /* thin maroon-to-blue ribbon along the bottom edge */
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+            background: linear-gradient(90deg, #800000, #B21F23 30%, #4154FF 70%, #8455E0);
+        }
+        .rd-cta h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.2; margin: 0 0 .5rem; color: #fff; }
+        .rd-cta p { font-size: 1.05rem; line-height: 1.6; color: #C9D6F0; margin: 0; max-width: 560px; }
+        .rd-cta-btns { display: flex; flex-wrap: wrap; gap: .8rem; }
+        .rd-cta .rd-btn-primary { background: #fff; color: #0B1F44; box-shadow: 0 10px 24px rgba(0, 0, 0, .2); }
+        .rd-cta .rd-btn-primary:hover { box-shadow: 0 14px 30px rgba(0, 0, 0, .28); }
+        .rd-cta .rd-btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .4); }
+        .rd-cta .rd-btn-ghost:hover { border-color: #fff; color: #fff; }
+
+        @media (max-width: 1000px) { .rd-svc-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .rd-services { padding: 3.5rem 1.25rem 3rem; } .rd-svc-grid { grid-template-columns: 1fr; }
+            .rd-cta-wrap { padding: 0 1.25rem 3.5rem; } .rd-cta { padding: 2.2rem 1.5rem; }
+        }
+
+        /* ================================================================
+           REDESIGN: Proven in production (stories + testimonials)
+           ================================================================ */
+        .rd-proof { padding: 5rem 2rem; background: #fff; }
+        .rd-proof-in { max-width: 1200px; margin: 0 auto; }
+        .rd-stories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-bottom: 3.5rem; }
+        .rd-case {
+            display: flex; flex-direction: column; gap: .7rem; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.6rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-case:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-case-logo { height: 46px; display: flex; align-items: center; margin-bottom: .3rem; }
+        .rd-case-logo img { max-height: 40px; max-width: 170px; width: auto; display: block; }
+        .rd-case-logo .word { font-size: 1.15rem; font-weight: 800; color: #0B1F44; letter-spacing: -.01em; }
+        .rd-case h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.35; color: #0B1F44; margin: 0; }
+        .rd-case p { font-size: .93rem; line-height: 1.55; color: #44506A; margin: 0; }
+        .rd-uses { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; padding-top: .4rem; }
+        .rd-uses span { font-size: .74rem; font-weight: 700; color: #003d99; background: #E8EEFA; border-radius: 999px; padding: .22rem .6rem; }
+        .rd-case .rd-go { font-weight: 700; font-size: .92rem; color: #800000; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-case:hover .rd-go { gap: .6rem; }
+
+        /* testimonials: one large quote, four short ones beside it */
+        .rd-quotes { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.4rem; align-items: stretch; }
+        .rd-quote-main {
+            position: relative; margin: 0; border-radius: 18px; padding: 2.4rem 2.4rem 2.2rem;
+            background: linear-gradient(135deg, #0B1F44, #003d99); color: #fff;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .rd-quote-main::before { content: '\201C'; position: absolute; top: .6rem; left: 1.6rem; font: 700 6rem/1 Georgia, serif; color: rgba(255,255,255,.14); }
+        .rd-quote-main p { position: relative; font-size: 1.35rem; line-height: 1.5; font-weight: 600; margin: 0 0 1.2rem; }
+        .rd-quote-main footer, .rd-q footer { font-size: .85rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+        .rd-quote-main footer { color: #B9C8E8; }
+        .rd-qs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .rd-q { margin: 0; background: #F4F6FB; border: 1px solid #E3E8F2; border-radius: 14px; padding: 1.3rem 1.3rem 1.1rem; display: flex; flex-direction: column; gap: .7rem; }
+        .rd-q p { font-size: .98rem; line-height: 1.5; font-weight: 600; color: #0B1F44; margin: 0; }
+        .rd-q p::before { content: '\201C'; color: #800000; font-weight: 800; margin-right: .1rem; }
+        .rd-q p::after { content: '\201D'; color: #800000; font-weight: 800; margin-left: .05rem; }
+        .rd-q footer { color: #6B7488; margin-top: auto; font-size: .74rem; }
+        .rd-q.wide { grid-column: span 2; }
+        .rd-proof-more { text-align: center; margin-top: 2.4rem; }
+
+        @media (max-width: 1000px) { .rd-stories { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rd-quotes { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .rd-proof { padding: 3.5rem 1.25rem; }
+            .rd-stories, .rd-qs { grid-template-columns: 1fr; }
+            .rd-q.wide { grid-column: auto; }
+            .rd-quote-main { padding: 2rem 1.5rem; } .rd-quote-main p { font-size: 1.15rem; }
+        }
+
+        /* ================================================================
+           REDESIGN: What's new (featured story + two latest items)
+           ================================================================ */
+        .rd-news { padding: 5rem 2rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; border-bottom: 1px solid #E6EAF2; }
+        .rd-news-in { max-width: 1200px; margin: 0 auto; }
+        .rd-news-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+        .rd-news-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0; }
+        .rd-all { font-weight: 700; color: #003d99; text-decoration: none; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-all:hover { gap: .6rem; }
+
+        .rd-news-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1.5rem; }
+        .rd-side { display: grid; gap: 1.5rem; }
+        .rd-story {
+            display: flex; flex-direction: column; overflow: hidden; text-decoration: none; color: inherit;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px;
+            transition: transform .25s, box-shadow .25s;
+        }
+        .rd-story:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); }
+        .rd-story img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #fff; }
+        .rd-story-body { padding: 1.5rem 1.6rem 1.6rem; display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+        .rd-tag { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #800000; }
+        .rd-story h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.3; color: #0B1F44; margin: 0; }
+        .rd-story p { font-size: .96rem; line-height: 1.6; color: #44506A; margin: 0; }
+        .rd-story .rd-go { margin-top: auto; padding-top: .4rem; font-weight: 700; font-size: .95rem; color: #003d99; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-story:hover .rd-go { gap: .6rem; }
+        /* the featured story sets the pace: bigger title, image on top */
+        .rd-story.feature h3 { font-size: 1.6rem; }
+        .rd-story.feature img { border-bottom: 1px solid #E3E8F2; }
+        /* the two side stories: image left, text right */
+        .rd-story.row { flex-direction: row; }
+        .rd-story.row img { width: 42%; aspect-ratio: auto; height: 100%; min-height: 100%; }
+        .rd-story.row .rd-story-body { padding: 1.3rem 1.4rem; }
+        .rd-story.row h3 { font-size: 1.1rem; }
+        .rd-story.row p { font-size: .9rem; }
+
+        @media (max-width: 960px) {
+            .rd-news-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .rd-news { padding: 3.5rem 1.25rem; }
+            .rd-story.row { flex-direction: column; }
+            .rd-story.row img { width: 100%; aspect-ratio: 16 / 9; height: auto; min-height: 0; }
+        }
+
+        /* ================================================================
+           REDESIGN: What we do (four pillars)
+           ================================================================ */
+        .rd-what { padding: 5rem 2rem; background: #fff; scroll-margin-top: 90px; }
+        .rd-what-in { max-width: 1200px; margin: 0 auto; }
+        .rd-head { max-width: 720px; margin: 0 auto 3rem; text-align: center; }
+        .rd-kicker { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #800000; margin-bottom: .8rem; }
+        .rd-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0 0 .9rem; }
+        .rd-head p { font-size: 1.08rem; line-height: 1.65; color: #44506A; margin: 0; }
+
+        .rd-pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+        .rd-pillar {
+            position: relative; display: flex; flex-direction: column;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.8rem 1.6rem 1.6rem;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .rd-pillar:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11, 31, 68, .10); border-color: transparent; }
+        .rd-ic { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+        .rd-ic svg { width: 26px; height: 26px; }
+        .rd-pillar h3 { font-size: 1.3rem; font-weight: 700; color: #0B1F44; margin: 0 0 .6rem; }
+        .rd-pillar > p { font-size: .97rem; line-height: 1.6; color: #44506A; margin: 0 0 1.2rem; }
+        .rd-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.4rem; padding: 0; list-style: none; }
+        .rd-chips a {
+            display: inline-block; font-size: .82rem; font-weight: 600; text-decoration: none;
+            color: #0B1F44; background: #F4F6FB; border: 1px solid #E3E8F2; border-radius: 999px; padding: .32rem .75rem;
+            transition: background .2s, border-color .2s, color .2s;
+        }
+        .rd-chips a:hover { background: #fff; border-color: currentColor; }
+        .rd-more { margin-top: auto; font-weight: 700; font-size: .95rem; text-decoration: none; display: inline-flex; gap: .35rem; transition: gap .2s; }
+        .rd-pillar:hover .rd-more { gap: .6rem; }
+
+        /* one accent per pillar, used on the icon tile, chip hover and link */
+        .rd-p-int .rd-ic { background: #E8EEFA; color: #003d99; }  .rd-p-int .rd-more, .rd-p-int .rd-chips a:hover { color: #003d99; }
+        .rd-p-mod .rd-ic { background: #F7E8E8; color: #800000; }  .rd-p-mod .rd-more, .rd-p-mod .rd-chips a:hover { color: #800000; }
+        .rd-p-mon .rd-ic { background: #E4F4F1; color: #0F766E; }  .rd-p-mon .rd-more, .rd-p-mon .rd-chips a:hover { color: #0F766E; }
+        .rd-p-ai  .rd-ic { background: #EFEAFB; color: #5B3CC4; }  .rd-p-ai  .rd-more, .rd-p-ai  .rd-chips a:hover { color: #5B3CC4; }
+        .rd-p-ai::after {
+            content: 'TICSoftware.Ai'; position: absolute; top: 1.2rem; right: 1.2rem;
+            font-size: .68rem; font-weight: 700; letter-spacing: .03em; color: #5B3CC4; background: #EFEAFB; border-radius: 999px; padding: .2rem .55rem;
+        }
+
+        @media (max-width: 1080px) { .rd-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 600px)  { .rd-what { padding: 3.5rem 1.25rem; } .rd-pillars { grid-template-columns: 1fr; } }
+
+        /* ================================================================
+           REDESIGN: hero + client logo strip
+           Light hero in the same family as ticsoftware.ai, in .com's navy
+           and maroon. Replaces the skyline photo and the page intro.
+           ================================================================ */
+        .rd-hero {
+            position: relative; overflow: hidden;
+            padding: 4.5rem 2rem 4rem;
+            background: #F4F6FB;
+        }
+        .rd-hero::before {               /* faint graph paper, fading down */
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: 46px 46px;
+            -webkit-mask-image: radial-gradient(85% 75% at 50% 0%, #000 25%, transparent 85%);
+            mask-image: radial-gradient(85% 75% at 50% 0%, #000 25%, transparent 85%);
+        }
+        .rd-hero::after {                /* soft brand glows */
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(520px 340px at 88% 30%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(420px 300px at 70% 95%, rgba(128, 0, 0, .07), transparent 70%);
+        }
+        .rd-hero-in {
+            position: relative; z-index: 1;
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+            gap: 3rem; align-items: center;
+        }
+        .rd-eyebrow {
+            display: inline-flex; align-items: center; gap: .5rem;
+            font-size: .8rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+            color: #800000; background: #F7E8E8; border: 1px solid #EBCFCF;
+            padding: .4rem .9rem; border-radius: 999px; margin-bottom: 1.4rem;
+        }
+        .rd-hero h1 {
+            font-size: clamp(2rem, 3.6vw, 2.75rem); font-weight: 700;
+            line-height: 1.14; letter-spacing: -.02em; color: #0B1F44;
+            margin: 0 0 1.2rem;
+        }
+        .rd-hero h1 em { font-style: normal; color: #003d99; }
+        .rd-hero h1 .rd-red { color: #800000; }
+        .rd-lede { font-size: 1.15rem; line-height: 1.65; color: #44506A; max-width: 560px; margin: 0 0 2rem; }
+        .rd-ctas { display: flex; flex-wrap: wrap; gap: .9rem; }
+        .rd-btn {
+            display: inline-flex; align-items: center; gap: .5rem;
+            padding: .9rem 1.5rem; border-radius: 10px;
+            font-weight: 700; font-size: 1rem; text-decoration: none;
+            transition: transform .2s, box-shadow .2s, background .2s, border-color .2s;
+        }
+        .rd-btn-primary { background: #003d99; color: #fff; box-shadow: 0 10px 24px rgba(0, 61, 153, .25); }
+        .rd-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0, 61, 153, .32); }
+        .rd-btn-ghost { background: #fff; color: #0B1F44; border: 1.5px solid #D5DBE8; }
+        .rd-btn-ghost:hover { border-color: #003d99; color: #003d99; transform: translateY(-2px); }
+        .rd-points { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; list-style: none; padding: 0; margin: 1.8rem 0 0; }
+        .rd-points li { font-size: .92rem; font-weight: 600; color: #5A6478; }
+        .rd-points li::before { content: '\2713'; color: #800000; font-weight: 800; margin-right: .45rem; }
+
+        /* ---- integration diagram ---- */
+        .rd-diagram { position: relative; width: 100%; max-width: 560px; justify-self: end; }
+        .rd-diagram svg { width: 100%; height: auto; display: block; overflow: visible; }
+    /* ---- hero visual: live data flow (Nonstop -> TIC -> destinations) ---- */
+        .fl svg { width: 100%; height: auto; display: block; overflow: visible; }
+        .fl .fl-card { fill: #fff; stroke: #DCE2EF; stroke-width: 1.5; }
+        .fl .fl-t { font: 700 15px 'Segoe UI', Tahoma, sans-serif; fill: #0B1F44; }
+        .fl .fl-s { font: 600 11.5px 'Segoe UI', Tahoma, sans-serif; fill: #6B7488; }
+        .fl .fl-rail { fill: none; stroke: #C9D3EA; stroke-width: 2; stroke-dasharray: 4 6; }
+        .fl .fl-pkt rect { rx: 7; }
+        .fl .fl-pkt text { font: 700 10.5px 'Segoe UI', Tahoma, sans-serif; fill: #fff; }
+        .fl .fl-ring { fill: none; stroke: #800000; stroke-opacity: .25; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: flRing 2.6s ease-out infinite; }
+        @keyframes flRing { 0% { transform: scale(.9); opacity: .9; } 100% { transform: scale(1.35); opacity: 0; } }
+        .fl .fl-tick { animation: flTick 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+        @keyframes flTick { 0%, 60% { transform: scale(1); } 70% { transform: scale(1.35); } 80%, 100% { transform: scale(1); } }
+
+              @media (prefers-reduced-motion: reduce) { .fl .fl-ring, .fl .fl-tick { animation: none; } }
+
+        @media (max-width: 960px) {
+            .rd-hero { padding: 3rem 1.25rem 3rem; }
+            .rd-hero-in { grid-template-columns: 1fr; gap: 2.5rem; }
+            .rd-diagram { justify-self: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            }
+
+        /* ================================================================
+           WHO WE ARE page
+           ================================================================ */
+        .rd-dd-toggle.active { color: #003d99; }
+        .ww-crumb { font-size: .85rem; color: #6B7488; margin-bottom: 1rem; }
+        .ww-crumb a { color: #003d99; font-weight: 600; text-decoration: none; }
+        .ww-crumb a:hover { text-decoration: underline; }
+
+        /* hero visual: the leadership team */
+        .ww-team {
+            justify-self: end; width: 100%; max-width: 520px; position: relative;
+            background: #fff; border: 1px solid #E3E8F2; border-radius: 22px; padding: 1.6rem 1.6rem 3.2rem;
+            box-shadow: 0 24px 50px rgba(11, 31, 68, .12);
+        }
+        .ww-team-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
+        .ww-team-head b { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: #6B7488; }
+        .ww-team-head a { font-size: .88rem; font-weight: 700; color: #003d99; text-decoration: none; }
+        .ww-team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 1rem; }
+        .ww-person { display: flex; align-items: center; gap: .8rem; }
+        .ww-person img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; border: 3px solid #fff; box-shadow: 0 0 0 1px #E3E8F2, 0 6px 14px rgba(11, 31, 68, .12); }
+        .ww-person b { display: block; font-size: .98rem; color: #0B1F44; }
+        .ww-person span { display: block; font-size: .8rem; line-height: 1.35; color: #6B7488; }
+        .ww-person.lead { grid-column: 1 / -1; padding-bottom: 1.1rem; border-bottom: 1px solid #E3E8F2; }   /* President on his own row above the four chiefs */
+        .ww-person.lead img { width: 72px; height: 72px; }
+        .ww-person.lead b { font-size: 1.08rem; }
+        .ww-badge {
+            position: absolute; left: -18px; bottom: -18px; display: flex; align-items: center; gap: .6rem;
+            background: #0B1F44; color: #fff; border-radius: 14px; padding: .75rem 1rem; box-shadow: 0 16px 30px rgba(11, 31, 68, .25);
+        }
+        .ww-badge strong { font-size: 1.6rem; line-height: 1; }
+        .ww-badge span { font-size: .78rem; line-height: 1.3; color: #C9D6F0; }
+
+        /* our story */
+        .ww-sec { padding: 5rem 2rem; background: #fff; }
+        main > .ww-sec.alt { background: #F4F6FB; border-top: 1px solid #E6EAF2; border-bottom: 1px solid #E6EAF2; }
+        .ww-in { max-width: 1200px; margin: 0 auto; }
+        .ww-story { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 3.5rem; align-items: start; }
+        .ww-story h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -.015em; color: #0B1F44; margin: 0; }
+        .ww-story h2 em { font-style: normal; color: #800000; }
+        .ww-story p { font-size: 1.05rem; line-height: 1.75; color: #44506A; margin: 0 0 1.1rem; }
+        .ww-story p:last-child { margin-bottom: 0; }
+        /* strand animation under the story heading (from the parked ticsoftware.ai hero) */
+        .ww-strands { position: relative; height: 300px; margin-top: 1.8rem; overflow: hidden;
+            -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 45%, transparent 100%);
+                    mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 45%, transparent 100%); }
+        .ww-strands svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .ww-ribbon { animation: wwDrift1 12s ease-in-out infinite; }
+        .ww-ribbon-fill { opacity: .8; animation: wwColor 9s ease-in-out infinite; }
+        @keyframes wwColor { 0%, 100% { fill: #4154FF; } 33% { fill: #B21F23; } 66% { fill: #6b7280; } }
+        @keyframes wwDrift1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+        @media (prefers-reduced-motion: reduce) { .ww-strands g, .ww-strands path { animation: none; } }
+        @media (max-width: 960px) { .ww-strands { height: 200px; margin-top: 1.2rem; } }
+        .ww-pull {
+            margin: 1.6rem 0 0; padding: 1.2rem 1.4rem; border-radius: 14px; background: #F4F6FB; border: 1px solid #E3E8F2;
+            font-size: 1.12rem; line-height: 1.5; font-weight: 600; color: #0B1F44;
+        }
+        .ww-pull::before { content: '\201C'; color: #800000; font-weight: 800; margin-right: .15rem; }
+        .ww-pull::after { content: '\201D'; color: #800000; font-weight: 800; }
+
+        /* why choose TIC */
+        .ww-why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+        .ww-card { background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.8rem 1.6rem; display: flex; flex-direction: column; gap: .6rem; }
+        .ww-card .rd-ic { width: 52px; height: 52px; border-radius: 14px; margin-bottom: .6rem; display: flex; align-items: center; justify-content: center; }
+        .ww-card .rd-ic svg { width: 26px; height: 26px; }
+        .ww-card h3 { font-size: 1.25rem; font-weight: 700; color: #0B1F44; margin: 0; }
+        .ww-card p { font-size: .97rem; line-height: 1.6; color: #44506A; margin: 0 0 .6rem; }
+        .ww-card .rd-chips { margin: auto 0 0; }
+        /* coloured top edge on the "Why choose TIC" cards, matching each card's icon */
+        .ww-why .ww-card { border-top: 4px solid var(--top); }
+        .ww-why .ww-card:nth-child(3n+1) { --top: #800000; }
+        .ww-why .ww-card:nth-child(3n+2) { --top: #003d99; }
+        .ww-why .ww-card:nth-child(3n+3) { --top: #0F766E; }
+
+        /* partners */
+        .ww-partners { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; }
+        .ww-partners h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); font-weight: 700; line-height: 1.2; color: #0B1F44; margin: 0 0 .9rem; }
+        .ww-partners p { font-size: 1.02rem; line-height: 1.7; color: #44506A; margin: 0 0 1.4rem; }
+        .ww-plogos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; list-style: none; margin: 0; padding: 0; }
+        .ww-plogos li { height: 92px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #E3E8F2; border-radius: 14px; padding: .8rem; }
+        .ww-plogos img { max-height: 54px; max-width: 100%; width: auto; filter: grayscale(1); opacity: .7; transition: filter .25s, opacity .25s; }
+        .ww-plogos li:hover img { filter: none; opacity: 1; }
+        .ww-plogos li.tall img { max-height: 66px; }
+        .ww-plogos li.hpe { grid-row: span 2; height: auto; }
+        .ww-plogos li.hpe img { max-height: 172px; filter: none; opacity: 1; }
+        .ww-plogos li.tight img { max-height: 46px; }
+
+        /* clients */
+        .ww-clients-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .ww-clients-head h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); font-weight: 700; line-height: 1.2; color: #0B1F44; margin: 0 0 .6rem; }
+        .ww-clients-head p { font-size: 1.02rem; line-height: 1.7; color: #44506A; margin: 0; max-width: 680px; }
+        .ww-clients-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+        .ww-clogos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: .7rem; }
+        .ww-clogos li { flex: 0 0 calc((100% - 2.1rem) / 4); height: 64px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #E3E8F2; border-radius: 12px; padding: .55rem .7rem; }
+        .ww-clogos img { max-height: 30px; max-width: 100%; width: auto; filter: grayscale(1); opacity: .75; transition: filter .25s, opacity .25s; }
+        .ww-clogos li.tall img { max-height: 44px; }
+        .ww-clogos li:hover img { filter: none; opacity: 1; }
+        @media (max-width: 600px) { .ww-clogos li { flex-basis: calc((100% - 1.4rem) / 3); } }
+
+        @media (max-width: 960px) {
+            .ww-team { justify-self: center; }
+            .ww-story, .ww-partners { grid-template-columns: 1fr; gap: 2rem; }
+            .ww-why { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .ww-sec { padding: 3.5rem 1.25rem; }
+            .ww-team { padding: 1.2rem 1.2rem 3rem; }
+            .ww-team-grid { grid-template-columns: 1fr; }
+            .ww-badge { left: auto; right: 12px; bottom: -22px; }
+            .ww-plogos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        /* Let's talk: open full-width band (no container box), same two-column layout */
+        main .rd-cta-wrap.open { padding: 4.5rem 2rem; background: #F4F6FB; border-top: 1px solid #E6EAF2; }
+        main .rd-cta-wrap.open .rd-cta { background: none; border: 0; box-shadow: none; border-radius: 0; padding: 0; overflow: visible; }
+        main .rd-cta-wrap.open .rd-cta::before, main .rd-cta-wrap.open .rd-cta::after { content: none; }
+        /* the faint grid, soft glows and the red-to-purple ribbon now sit on the full-width band */
+        main .rd-cta-wrap.open { position: relative; overflow: hidden; padding-bottom: calc(4.5rem + 6px); }
+        main .rd-cta-wrap.open::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(520px 300px at 92% 0%, rgba(0, 61, 153, .10), transparent 70%),
+                radial-gradient(440px 280px at 4% 100%, rgba(128, 0, 0, .07), transparent 70%),
+                linear-gradient(rgba(0, 61, 153, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 61, 153, .06) 1px, transparent 1px);
+            background-size: auto, auto, 46px 46px, 46px 46px;
+        }
+        main .rd-cta-wrap.open::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+            background: linear-gradient(90deg, #800000, #B21F23 30%, #4154FF 70%, #8455E0);
+        }
+        main .rd-cta-wrap.open .rd-cta { position: relative; z-index: 1; }
+        @media (max-width: 600px) { main .rd-cta-wrap.open { padding: 3.5rem 1.25rem calc(3.5rem + 6px); } }
+
+        /* ================================================================
+           GATEWAY page
+           ================================================================ */
+        /* hero visual: a bridge. Each lane is one gateway product carrying data between
+           HPE Nonstop (left) and a modern platform (right); dots travel along the lanes. */
+        .gw-bridge { justify-self: end; width: 100%; max-width: 560px; display: grid; grid-template-columns: 98px 1fr 116px; gap: 0 .8rem; align-items: stretch; }
+        .gw-side { border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1rem .5rem; }
+        .gw-ns { background: #0B1F44; color: #fff; }
+        .gw-ns b { font-size: .95rem; line-height: 1.2; }
+        .gw-ns span { font-size: .72rem; color: #9FB3D9; margin-top: .3rem; }
+        .gw-ns i { width: 46px; height: 8px; border-radius: 3px; background: #1E3A70; border: 1px solid #2D4B85; margin: 3px 0; display: block; }
+        .gw-ns i:nth-of-type(3) { margin-bottom: .7rem; }
+        .gw-lanes { display: grid; gap: .55rem; }
+        .gw-lane { position: relative; height: 44px; display: flex; align-items: center; justify-content: center; }
+        .gw-lane::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed #C9D3EA; }
+        .gw-lane b { position: relative; z-index: 1; font-size: .78rem; font-weight: 800; color: #fff; background: var(--c); border-radius: 999px; padding: .38rem .8rem; white-space: nowrap; box-shadow: 0 6px 14px rgba(11, 31, 68, .15); }
+        .gw-dot { position: absolute; top: calc(50% - 5px); left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 20%, transparent); animation: gwGo 3.2s linear infinite; }
+        .gw-dot.back { animation-name: gwBack; }
+        @keyframes gwGo { from { left: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: calc(100% - 10px); opacity: 0; } }
+        @keyframes gwBack { from { left: calc(100% - 10px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: 0; opacity: 0; } }
+        .gw-dests { display: grid; gap: .55rem; }
+        .gw-dest { height: 44px; display: flex; align-items: center; gap: .45rem; background: #fff; border: 1px solid #E3E8F2; border-radius: 12px; padding: 0 .6rem; font-size: .8rem; font-weight: 700; color: #0B1F44; box-shadow: 0 6px 14px rgba(11, 31, 68, .06); }
+        .gw-dest::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: 0 0 auto; }
+        .gw-note { grid-column: 1 / -1; text-align: center; font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6B7488; margin-top: .9rem; }
+
+        /* products */
+        .gw-prods { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.4rem; }
+        .gw-prod { grid-column: span 2; scroll-margin-top: 100px; background: #fff; border: 1px solid #E3E8F2; border-top: 4px solid var(--c); border-radius: 20px; padding: 1.8rem 1.7rem 1.6rem; display: flex; flex-direction: column; gap: .8rem; }
+        .gw-prod.big { grid-column: span 3; }
+        .gw-prod-head { display: flex; align-items: center; gap: .85rem; }
+        .gw-prod .rd-ic { width: 50px; height: 50px; border-radius: 14px; margin: 0; background: var(--b); color: var(--c); flex: 0 0 auto; }
+        .gw-prod .rd-ic svg { width: 25px; height: 25px; }
+        .gw-prod h3 { font-size: 1.4rem; font-weight: 800; color: #0B1F44; margin: 0; }
+        .gw-k { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+        .gw-prod > p { font-size: .98rem; line-height: 1.62; color: #44506A; margin: 0; }
+        .gw-feats { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+        .gw-feats li { display: grid; grid-template-columns: 20px 1fr; gap: .55rem; font-size: .94rem; line-height: 1.5; color: #0B1F44; }
+        .gw-feats li::before { content: ''; width: 18px; height: 18px; margin-top: 2px; border-radius: 50%; background: var(--c) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 10px no-repeat; }
+        .gw-by { font-size: .82rem; color: #6B7488; }
+        .gw-by a { color: #6B7488; font-weight: 700; }
+        .gw-go { margin-top: auto; padding-top: .5rem; display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; align-items: center; }
+        .gw-go .rd-btn { padding: .7rem 1.1rem; }
+        .gw-go a.lk { font-weight: 700; font-size: .92rem; color: var(--c); text-decoration: none; }
+        .gw-go a.lk:hover { text-decoration: underline; }
+
+        /* why */
+        .gw-why { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; }
+        .gw-why .ww-card { border-top: 4px solid var(--top); }
+        .gw-why .ww-card:nth-child(4n+1) { --top: #800000; }
+        .gw-why .ww-card:nth-child(4n+2) { --top: #003d99; }
+        .gw-why .ww-card:nth-child(4n+3) { --top: #0F766E; }
+        .gw-why .ww-card:nth-child(4n+4) { --top: #5B3CC4; }
+        .gw-why .ww-card h3 { font-size: 1.12rem; }
+        .gw-why .ww-card p { font-size: .94rem; margin: 0; }
+
+        /* proof */
+        .gw-proof { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.4rem; }
+        .gw-proof .rd-case { border-top: 4px solid #800000; }
+        .gw-partner { background: #fff; border: 1px solid #E3E8F2; border-top: 4px solid #0F766E; border-radius: 16px; padding: 1.6rem; display: flex; flex-direction: column; gap: .7rem; }
+        .gw-partner img { height: 54px; width: auto; align-self: flex-start; }
+        .gw-partner h3 { font-size: 1.15rem; font-weight: 700; color: #0B1F44; margin: 0; }
+        .gw-partner p { font-size: .95rem; line-height: 1.6; color: #44506A; margin: 0; }
+        .gw-partner a { margin-top: auto; font-weight: 700; font-size: .92rem; color: #0F766E; text-decoration: none; }
+
+        /* more products (same as Messaging) */
+        .gw-more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+        .gw-more a { display: flex; flex-direction: column; gap: .4rem; text-decoration: none; background: #fff; border: 1px solid #E3E8F2; border-radius: 16px; padding: 1.4rem 1.5rem; transition: transform .25s, box-shadow .25s; }
+        .gw-more a:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(11, 31, 68, .08); }
+        .gw-more b { font-size: 1.12rem; color: #0B1F44; }
+        .gw-more span { font-size: .93rem; line-height: 1.55; color: #44506A; }
+        .gw-more em { font-style: normal; font-weight: 700; font-size: .9rem; color: #003d99; margin-top: .2rem; }
+
+        @media (prefers-reduced-motion: reduce) { .gw-dot { animation: none; opacity: 0; } }
+        @media (max-width: 1000px) {
+            .gw-prods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .gw-prod, .gw-prod.big { grid-column: span 1; }
+            .gw-why { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 960px) {
+            .gw-bridge { justify-self: center; }
+            .gw-proof, .gw-more { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .gw-prods, .gw-why { grid-template-columns: 1fr; }
+            .gw-bridge { grid-template-columns: 70px 1fr 92px; gap: 0 .45rem; }
+            .gw-ns b { font-size: .8rem; } .gw-ns span { display: none; } .gw-ns i { width: 34px; }
+            .gw-lane b { font-size: .66rem; padding: .3rem .55rem; }
+            .gw-dest { font-size: .68rem; padding: 0 .45rem; gap: .3rem; }
+            .gw-prod { padding: 1.5rem 1.3rem; }
+        }
+    </style>
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TIC Software",
+        "url": "https://ticsoftware.com",
+        "logo": "https://ticsoftware.com/images/TIC_2026.png",
+        "description": "TIC Software provides integration, modernization and AI solutions and consulting services for HPE Nonstop systems.",
+        "sameAs": [
+            "https://www.linkedin.com/company/tic-software"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "185 Great Neck Road, 4th Floor, Suite 453",
+            "addressLocality": "Great Neck",
+            "addressRegion": "NY",
+            "postalCode": "11021",
+            "addressCountry": "US"
+        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "contactType": "technical support",
+                "telephone": "+1-516-466-7990",
+                "email": "support@ticsoftware.com"
+            },
+            {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "email": "sales-support@ticsoftware.com"
+            }
+        ],
+        "knowsAbout": ["HPE Nonstop", "COBOL Modernization", "Legacy System Integration", "AI Code Intelligence"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ticsoftware.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Gateway", "item": "https://ticsoftware.com/gateway.html" }
+        ]
+    }
+    </script>
+    <link rel="stylesheet" href="header-responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="rd-header">
+        <div class="rd-header-in">
+            <a href="home-redesign.html" class="rd-logo" aria-label="TIC Software home">
+                <img src="./images/redesign/tic-logo-mark.png" width="236" height="88" alt="TIC Software">
+                <span class="rd-tagline">The Leader in Nonstop Modernization</span>
+            </a>
+            <button class="rd-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="rdNav"><span></span><span></span><span></span></button>
+            <nav id="rdNav" class="rd-nav" aria-label="Main">
+                <a href="home-redesign.html" class="rd-nav-link">Home</a>
+                    <div class="rd-dd">
+                        <button type="button" class="rd-dd-toggle" aria-haspopup="true">About Us<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                        <div class="rd-dd-menu">
+                            <a href="who-we-are-redesign.html">Who We Are</a>
+                            <a href="ticteam-redesign.html">TIC Team</a>
+                            <a href="our-partners-redesign.html">Our Partners</a>
+                            <a href="our-clients-redesign.html">Our Clients</a>
+                        </div>
+                    </div>
+                    <div class="rd-dd">
+                        <a href="home-redesign.html#products" class="rd-dd-toggle active">Products<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <div class="rd-dd-menu">
+                            <a href="messaging-redesign.html">Messaging</a>
+                            <a href="gateway-redesign.html" aria-current="page">Gateway</a>
+                            <a href="business-intelligence.html">Business Intelligence</a>
+                            <a href="modernize.html">Modernize</a>
+                        </div>
+                    </div>
+                    <div class="rd-dd">
+                        <a href="home-redesign.html#services" class="rd-dd-toggle">Services<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <div class="rd-dd-menu">
+                            <a href="consulting.html">Consulting</a>
+                            <a href="cloud.html">Cloud</a>
+                            <a href="https://ticsoftware.ai/" target="_blank" rel="noopener">GenAI</a>
+                        </div>
+                    </div>
+                    <div class="rd-dd">
+                        <a href="success-stories.html" class="rd-dd-toggle">Resources<svg class="rd-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <div class="rd-dd-menu">
+                            <a href="success-stories.html">Success Stories</a>
+                            <a href="tic-news.html">TIC News</a>
+                            <a href="blog.html">Blog</a>
+                        </div>
+                    </div>
+                <div class="nav-search rd-search">
+                    <input type="text" id="search-input" class="rd-search-input" placeholder="Search" autocomplete="off" aria-label="Search the site">
+                    <button id="search-btn" class="rd-search-btn" type="button" aria-label="Search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2"/><line x1="13.5" y1="13.5" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="ticteam-redesign.html#get-in-touch" class="rd-nav-cta">Contact us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- GATEWAY: Hero -->
+    <section id="home" class="rd-hero">
+        <div class="rd-hero-in">
+            <div>
+                <div class="ww-crumb"><a href="home-redesign.html">Home</a> &rsaquo; Products &rsaquo; Gateway</div>
+                <span class="rd-eyebrow">&#9670; Gateway</span>
+                <h1>Connect Nonstop to <em>everything else,</em> <span class="rd-red">unchanged.</span></h1>
+                <p class="rd-lede">TIC's Gateway products enable Nonstop legacy applications to interoperate with other platforms and technologies: Kafka, IBM Mainframes over IP, Splunk, Windows and the web. Your applications keep running exactly as they are.</p>
+                <div class="rd-ctas">
+                    <a href="#products" class="rd-btn rd-btn-primary">See the gateways &rarr;</a>
+                    <a href="ticteam-redesign.html#get-in-touch" class="rd-btn rd-btn-ghost">Talk to an expert</a>
+                </div>
+            </div>
+            <div class="gw-bridge" role="img" aria-label="Gateway products connecting HPE Nonstop to Kafka, IBM Mainframe, Splunk, Windows and web browsers">
+                <div class="gw-side gw-ns"><i></i><i></i><i></i><b>HPE Nonstop</b><span>Pathway · Guardian</span></div>
+                <div class="gw-lanes"><div class="gw-lane" style="--c:#5B3CC4"><span class="gw-dot" style="animation-delay:0s"></span><b>uLinga for Kafka</b></div><div class="gw-lane" style="--c:#0F766E"><span class="gw-dot" style="animation-delay:-0.6s"></span><span class="gw-dot back" style="animation-delay:-2.2s"></span><b>uLinga/EE</b></div><div class="gw-lane" style="--c:#B45309"><span class="gw-dot" style="animation-delay:-1.3s"></span><b>IP Forwarder</b></div><div class="gw-lane" style="--c:#003d99"><span class="gw-dot" style="animation-delay:-2.0s"></span><span class="gw-dot back" style="animation-delay:-3.6s"></span><b>TelePath</b></div><div class="gw-lane" style="--c:#800000"><span class="gw-dot" style="animation-delay:-2.6s"></span><span class="gw-dot back" style="animation-delay:-4.2s"></span><b>Gateway TAS</b></div></div>
+                <div class="gw-dests"><div class="gw-dest" style="--c:#5B3CC4">Kafka</div><div class="gw-dest" style="--c:#0F766E">IBM Mainframe</div><div class="gw-dest" style="--c:#B45309">Splunk</div><div class="gw-dest" style="--c:#003d99">Windows</div><div class="gw-dest" style="--c:#800000">Web browsers</div></div>
+                <div class="gw-note">No application changes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- GATEWAY: Products -->
+        <section class="ww-sec" id="products">
+            <div class="ww-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">Gateway products</span>
+                    <h2>One Nonstop, many destinations</h2>
+                    <p>Pick the gateway that matches where your Nonstop data needs to go.</p>
+                </div>
+                <div class="gw-prods">
+                    <article class="gw-prod big" id="ulinga" style="--c:#5B3CC4;--b:#EFEAFB">
+                        <div class="gw-prod-head"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M6.5 6.5 10 10M17.5 6.5 14 10M6.5 17.5 10 14M17.5 17.5 14 14"/></svg></div><div><span class="gw-k">Event streaming</span><h3>uLinga for Kafka</h3></div></div>
+                        <p>A Nonstop application that publishes Nonstop events and data to Kafka clusters, to be picked up by consuming subscribers on any platform.</p>
+                        <ul class="gw-feats"><li>Runs as a natively compiled Guardian process pair, speaking the Kafka protocol directly over TCP/IP: no Java libraries or intermediate databases</li><li>Publish via Guardian IPC, Pathsend, HTTP/REST, Enscribe files or TMF audit trails</li><li>Kafka Consumer support, Exactly Once Semantics and OAuth 2.0 / JWT</li></ul>
+                        <span class="gw-by">Developed and owned by our partner <a href="our-partners-redesign.html">Infrasoft</a></span>
+                        <div class="gw-go"><a class="rd-btn rd-btn-primary" href="ulinga.html">Learn more &rarr;</a><a class="lk" href="blogs/kafka-hpe-nonstop-perfect-combo.html">Blog: Kafka and HPE Nonstop &rarr;</a></div>
+                    </article>
+                    <article class="gw-prod big" id="ulinga-ee" style="--c:#0F766E;--b:#E4F4F1">
+                        <div class="gw-prod-head"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="8" height="6" rx="1.5"/><rect x="14" y="15" width="8" height="6" rx="1.5"/><path d="M6 9v4a2 2 0 0 0 2 2h6"/><path d="m11 12 3 3-3 3"/></svg></div><div><span class="gw-k">Mainframe connectivity</span><h3>uLinga/EE</h3></div></div>
+                        <p>Modernize SNA connectivity and keep your applications exactly as they are. Replace legacy SNA networking with standards-based Enterprise Extender (HPR/IP) over IP.</p>
+                        <ul class="gw-feats"><li>No changes to Nonstop or Mainframe applications using SNAX/HLS, SNAX/CRT, SNAX/APC, SNALU and more</li><li>Eliminate specialized SNA networking hardware and consolidate onto one IP network</li><li>Works with IBM z/OS Communications Server; supports all LU types, including APPC (LU6.2)</li></ul>
+                        <span class="gw-by">Developed and owned by our partner <a href="our-partners-redesign.html">Infrasoft</a></span>
+                        <div class="gw-go"><a class="rd-btn rd-btn-primary" href="ulinga-ee.html">Learn more &rarr;</a></div>
+                    </article>
+                    <article class="gw-prod" id="ipforwarder" style="--c:#B45309;--b:#FDF1E3">
+                        <div class="gw-prod-head"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5l7 7-7 7"/><path d="M4 12h16"/><path d="M4 6v12"/></svg></div><div><span class="gw-k">Data distribution</span><h3>IP Forwarder</h3></div></div>
+                        <p>A high-performance, low-latency process that distributes Nonstop data to Splunk and other tools via TCP/IP or UDP.</p>
+                        <ul class="gw-feats"><li>Simple to use: configure it as a Pathway server class</li><li>Forwards whatever it receives on $RECEIVE to the IP address and port you set</li><li>Intelligent routing based on record content, with a default destination</li></ul>
+                        <div class="gw-go"><a class="rd-btn rd-btn-primary" href="ipforwarder.html">Learn more &rarr;</a></div>
+                    </article>
+                    <article class="gw-prod" id="telepath" style="--c:#003d99;--b:#E8EEFA">
+                        <div class="gw-prod-head"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M3 10.5h18M12 4v13"/></svg></div><div><span class="gw-k">Windows services</span><h3>TelePath</h3></div></div>
+                        <p>TelePath extends the Pathway architecture to Windows PCs, so Nonstop applications can use Windows services as if they were Pathway server classes.</p>
+                        <ul class="gw-feats"><li>PDF conversion, PGP encryption and decryption, email and more</li><li>Manages pools of PCs and spreads requests across them for performance and reliability</li><li>Built-in error detection and recovery; authentication via digital signature</li></ul>
+                        <div class="gw-go"><a class="rd-btn rd-btn-primary" href="./PDF/TelePath.pdf" target="_blank" rel="noopener">Datasheet &rarr;</a><a class="lk" href="blogs/telepath-windows-programs.html">Blog &rarr;</a></div>
+                    </article>
+                    <article class="gw-prod" id="gatewaytas" style="--c:#800000;--b:#F7E8E8">
+                        <div class="gw-prod-head"><div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><span class="gw-k">Web access</span><h3>Gateway TAS</h3></div></div>
+                        <p>TIC Application Server is a Guardian-based application with web server functionality, giving web browsers access to Pathway server classes.</p>
+                        <ul class="gw-feats"><li>HTTP web server and session manager</li><li>Interfaces to TACL and to Pathway servers in TAL, COBOL, C or C++</li><li>Little or no change to legacy applications</li></ul>
+                        <div class="gw-go"><a class="rd-btn rd-btn-primary" href="gateway-tas.html">Learn more &rarr;</a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- GATEWAY: Why -->
+        <section class="ww-sec alt">
+            <div class="ww-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">Why TIC gateways</span>
+                    <h2>Integration without rewrites</h2>
+                    <p>Modernization through integration: new platforms meet your Nonstop applications where they are.</p>
+                </div>
+                <div class="gw-why">
+                    <article class="ww-card"><div class="rd-ic" style="background:#F7E8E8;color:#800000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>No application changes</h3><p>Keep proven Nonstop and Mainframe applications exactly as they are and reduce project risk.</p></article>
+                    <article class="ww-card"><div class="rd-ic" style="background:#E8EEFA;color:#003d99"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg></div><h3>Native to Nonstop</h3><p>Guardian processes and Pathway server classes your team already knows, with no extra hardware.</p></article>
+                    <article class="ww-card"><div class="rd-ic" style="background:#E4F4F1;color:#0F766E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div><h3>Built for performance</h3><p>High throughput and low latency, with Nonstop fault tolerance behind every message.</p></article>
+                    <article class="ww-card"><div class="rd-ic" style="background:#EFEAFB;color:#5B3CC4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3>Backed by partners</h3><p>uLinga products come from our partner Infrasoft, delivered and supported with TIC.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- GATEWAY: Proof -->
+        <section class="ww-sec">
+            <div class="ww-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">In production</span>
+                    <h2>Gateways at work</h2>
+                </div>
+                <div class="gw-proof">
+                    <a class="rd-case" href="pape-success-story.html">
+                        <div class="rd-case-logo"><img src="./images/Logos/strip/pape.png" alt="Papé" loading="lazy"></div>
+                        <h3>Papé uses TIC tools for fleet management and operations</h3>
+                        <p>The West’s premier capital equipment dealer connects its Nonstop applications across seven western states.</p>
+                        <div class="rd-uses"><span>TelePath</span><span>TeleMail</span><span>TeleFTP</span></div>
+                        <span class="rd-go">Read the story <span aria-hidden="true">&rarr;</span></span>
+                    </a>
+                    <div class="gw-partner">
+                        <img src="./images/Logos/strip/partner-infrasoft.png" alt="Infrasoft" loading="lazy">
+                        <h3>Built with Infrasoft</h3>
+                        <p>uLinga for Kafka and uLinga/EE are developed and owned by our technology partner Infrasoft, purpose-built for mission-critical Nonstop systems.</p>
+                        <a href="our-partners-redesign.html">Our partners &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GATEWAY: More products -->
+        <section class="ww-sec alt">
+            <div class="ww-in">
+                <div class="rd-head">
+                    <span class="rd-kicker">More products</span>
+                    <h2>Keep exploring</h2>
+                </div>
+                <div class="gw-more">
+                    <a href="messaging-redesign.html"><b>Messaging</b><span>Deliver Nonstop reports and files by email and FTP with TeleMail and TeleFTP.</span><em>Explore Messaging &rarr;</em></a>
+                    <a href="business-intelligence.html"><b>Business Intelligence</b><span>Monitor and analyze what happens on your Nonstop systems.</span><em>Explore Business Intelligence &rarr;</em></a>
+                    <a href="modernize.html"><b>Modernize</b><span>Bring XML, JSON and modern interfaces to Nonstop applications.</span><em>Explore Modernize &rarr;</em></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- GATEWAY: Closing call to action -->
+        <section class="rd-cta-wrap open" aria-label="Contact">
+            <div class="rd-cta">
+                <div>
+                    <span class="rd-eyebrow">&#9670; Let&rsquo;s talk</span>
+                    <h2>Where does your <span class="rd-red">Nonstop data</span> need to go?</h2>
+                    <p>Tell us what you want to connect. We'll recommend the gateway that fits, on systems like yours.</p>
+                </div>
+                <div class="rd-cta-btns">
+                    <a href="ticteam-redesign.html#get-in-touch" class="rd-btn rd-btn-primary">Contact us &rarr;</a>
+                    <a href="success-stories.html" class="rd-btn rd-btn-ghost">Success stories</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    
+
+    <script src="search-data.js"></script>
+    <script src="search.js"></script>
+
+    <!-- FOOTER COMPONENT -->
+<footer class="rd-footer">
+    <div class="rd-footer-in">
+        <div class="rd-fgrid">
+            <div class="rd-fbrand">
+                <a href="home-redesign.html" class="rd-flogo" aria-label="TIC Software home"><img src="./images/redesign/tic-logo-mark-white.png" width="236" height="88" alt="TIC Software"></a>
+                <p class="rd-ftag">The Leader in Nonstop Modernization</p>
+                <p class="rd-fabout">Integration, modernization and AI for HPE Nonstop applications, without replacing them.</p>
+                <a class="rd-social" href="https://www.linkedin.com/company/tic-software" target="_blank" rel="noopener" aria-label="TIC Software on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.048-8.829 0-9.743h3.554v1.379c-.009.015-.021.029-.03.042h.03v-.042c.395-.609 1.101-1.473 2.681-1.473 1.957 0 3.425 1.277 3.425 4.024v5.813zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.954-1.71 1.185 0 1.915.755 1.94 1.71 0 .951-.755 1.71-1.979 1.71zm1.581 11.597H3.756V9.567h3.162v10.885zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg><span>LinkedIn</span></a>
+            </div>
+                <div class="rd-fcol">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="who-we-are-redesign.html">Who We Are</a></li>
+                        <li><a href="ticteam-redesign.html">TIC Team</a></li>
+                        <li><a href="our-partners-redesign.html">Partners</a></li>
+                        <li><a href="our-clients-redesign.html">Clients</a></li>
+                    </ul>
+                </div>
+                <div class="rd-fcol">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="messaging-redesign.html">Messaging</a></li>
+                        <li><a href="gateway-redesign.html">Gateway</a></li>
+                        <li><a href="business-intelligence.html">Business Intelligence</a></li>
+                        <li><a href="modernize.html">Modernize</a></li>
+                    </ul>
+                </div>
+                <div class="rd-fcol">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="consulting.html">Consulting</a></li>
+                        <li><a href="cloud.html">Cloud</a></li>
+                        <li><a href="https://ticsoftware.ai/" target="_blank" rel="noopener">GenAI</a></li>
+                    </ul>
+                </div>
+                <div class="rd-fcol">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="tic-news.html">TIC News</a></li>
+                        <li><a href="blog.html">TIC Blog</a></li>
+                    </ul>
+                </div>
+            <div class="rd-fcol rd-fcontact">
+                <h3>Contact Us</h3>
+                <p class="rd-flabel">Address</p>
+                <p>185 Great Neck Road<br>4th Floor, Suite 453<br>Great Neck, NY 11021</p>
+                <p class="rd-flabel">Technical support</p>
+                <p><a href="tel:+15164667990">(516) 466-7990</a><br><a href="mailto:support@ticsoftware.com">support@ticsoftware.com</a></p>
+                <p class="rd-flabel">Sales &amp; licensing</p>
+                <p><a href="mailto:sales-support@ticsoftware.com">sales-support@ticsoftware.com</a></p>
+            </div>
+        </div>
+        <div class="rd-fbottom">
+            <p>&copy; 2026 TIC Software. All rights reserved.</p>
+            <p><a href="privacy-policy.html">Privacy Policy</a><span aria-hidden="true">&middot;</span><a href="terms-of-use.html">Terms of Use</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+</script>
+
+<div style="position:fixed;left:12px;bottom:12px;z-index:99999;background:#B21F23;color:#fff;font:700 12px/1 Arial,sans-serif;letter-spacing:.06em;padding:8px 12px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.25);pointer-events:none">TEST PAGE &middot; NOT LIVE</div>
+    <script>
+        // Redesigned header: hamburger toggles the nav on narrow screens, and
+        // dropdown toggles expand inline there instead of navigating.
+        (function () {
+            var header = document.querySelector('.rd-header');
+            var burger = header && header.querySelector('.rd-burger');
+            if (!burger) return;
+            var narrow = function () { return getComputedStyle(burger).display !== 'none'; };
+            burger.addEventListener('click', function () {
+                var open = header.classList.toggle('open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            header.querySelectorAll('.rd-dd-toggle').forEach(function (t) {
+                t.addEventListener('click', function (e) {
+                    if (!narrow()) return;
+                    e.preventDefault();
+                    t.parentElement.classList.toggle('open');
+                });
+            });
+            header.querySelectorAll('.rd-nav a:not(.rd-dd-toggle)').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    header.classList.remove('open');
+                    burger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
