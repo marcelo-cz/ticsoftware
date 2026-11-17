@@ -523,6 +523,21 @@
             margin-top: auto;
         }
 
+        /* What's New box split in two: video on top, blog below */
+        .wn-box h2 { margin-bottom: 1.2rem; }
+        .wn-part { display: flex; flex-direction: column; gap: .6rem; }
+        .wn-part + .wn-part { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--border-gray); }
+        .wn-kicker { align-self: flex-start; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: var(--primary-blue); border-radius: 4px; padding: .2rem .55rem; }
+        .wn-blog .wn-kicker { background: maroon; }
+        .about-box .wn-title { font-size: 1.15rem; line-height: 1.35; color: var(--primary-blue); margin: 0; text-align: left; }
+        .wn-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 6px; background: #0A0E1A; }
+        .about-box p.wn-desc { font-size: .9rem; line-height: 1.6; margin: 0; flex-grow: 0; text-align: left; }
+        .wn-blog-row { display: grid; grid-template-columns: 42% 1fr; gap: 1rem; align-items: start; }
+        .wn-blog-row img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-gray); }
+        .wn-blog-row > div { display: flex; flex-direction: column; gap: .45rem; }
+        .wn-blog .btn { align-self: flex-start; margin-top: .4rem; }
+        @media (max-width: 600px) { .wn-blog-row { grid-template-columns: 1fr; } }
+
         /* Products Section */
         .products-section {
             background-color: var(--light-gray);
@@ -1478,14 +1493,34 @@
                 <a href="https://ticsoftware.ai/" class="btn" target="_blank">TICSoftware.Ai</a>
             </div>
 
-            <div class="about-box">
+            <div class="about-box wn-box">
                 <h2>What's New</h2>
-                <h3 style="font-size: 1.3rem; color: var(--primary-blue); margin: 1rem 0; text-align: center;">AI Alone Is Not Enough</h3>
-                <div style="text-align: center; margin: 0.5rem 0 1rem;">
-                    <img width="1600" height="900" loading="lazy" src="./images/Blogs%20%26%20Articles/AI%20Alone%20is%20not%20Enough/combo_workflow.png" alt="The Winning Combination: deterministic analysis, verified facts, AI explanation, SME review and a trusted knowledgebase" style="max-width: 100%; height: auto;">
+
+                <!-- What's New, part 1: tutorial video (hosted on ticsoftware.ai) -->
+                <div class="wn-part">
+                    <span class="wn-kicker">Video</span>
+                    <h3 class="wn-title">GenAI Explained Fast: Text, Images, Code</h3>
+                    <video class="wn-video" controls playsinline preload="none" width="1920" height="1080"
+                           poster="https://ticsoftware.ai/images/Videos/Tutorials/genai-explained-fast-poster.jpg">
+                        <source src="https://ticsoftware.ai/images/Videos/Tutorials/genai-explained-fast.mp4" type="video/mp4">
+                        Your browser can't play this video. <a href="https://ticsoftware.ai/images/Videos/Tutorials/genai-explained-fast.mp4">Download it instead.</a>
+                    </video>
+                    <p class="wn-desc">What generative AI is, how it learns patterns from existing data to create something new, and where it is already being used, in about 30 seconds.</p>
                 </div>
-                <p>At TIC Software, we began working seriously with generative AI in 2023. Like many others, we experimented with tools such as ChatGPT, Gemini, and Claude, but our focus was very specific: how could this new class of technology help Nonstop teams analyze, document, and understand complex application programs?</p>
-                <a href="https://ticsoftware.ai/blogs/ai-alone-is-not-enough" class="btn" target="_blank" rel="noopener">Read Article</a>
+
+                <!-- What's New, part 2: blog -->
+                <div class="wn-part wn-blog">
+                    <span class="wn-kicker">Blog</span>
+                    <div class="wn-blog-row">
+                        <img width="1600" height="900" loading="lazy" src="./images/Blogs%20%26%20Articles/AI%20Alone%20is%20not%20Enough/combo_workflow.png" alt="The Winning Combination: deterministic analysis, verified facts, AI explanation, SME review and a trusted knowledgebase">
+                        <div>
+                            <h3 class="wn-title">AI Alone Is Not Enough</h3>
+                            <p class="wn-desc">How generative AI can help Nonstop teams analyze, document and understand complex application programs, and why it needs more than an LLM.</p>
+                        </div>
+                    </div>
+                    <a href="https://ticsoftware.ai/blogs/ai-alone-is-not-enough" class="btn" target="_blank" rel="noopener">Read Article</a>
+                </div>
+            </div>
             </div>
 
         </section>
